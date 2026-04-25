@@ -23,6 +23,8 @@
 # misc
 .DS_Store
 *.pem
+*.swp
+*.swo
 
 # debug
 npm-debug.log*
@@ -35,6 +37,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# Claude Code local config (tool permissions, not for repo)
+.claude/
 
 # typescript
 *.tsbuildinfo
