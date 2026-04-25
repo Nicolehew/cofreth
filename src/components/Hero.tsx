@@ -101,37 +101,37 @@ export default function Hero() {
       </div>
 
       {/* ─── Main content ─── */}
-      <div className="relative flex-1 flex flex-col items-center justify-center px-6 pt-28 pb-40" style={{ zIndex: 3 }}>
+      <div className="relative flex-1 flex flex-col items-center justify-center px-4 sm:px-6 pt-24 sm:pt-28 pb-36 sm:pb-40" style={{ zIndex: 3 }}>
 
         {/* Badge */}
-        <div className="inline-flex items-center gap-2.5 bg-[#6BBD45]/15 border border-[#6BBD45]/35 text-[#6BBD45] text-sm font-bold tracking-widest uppercase px-6 py-2.5 rounded-full mb-10">
-          <span className="w-2 h-2 bg-[#6BBD45] rounded-full animate-pulse" />
+        <div className="inline-flex items-center gap-2 sm:gap-2.5 bg-[#6BBD45]/15 border border-[#6BBD45]/35 text-[#6BBD45] text-xs sm:text-sm font-bold tracking-widest uppercase px-4 sm:px-6 py-2 sm:py-2.5 rounded-full mb-6 sm:mb-10 text-center">
+          <span className="w-2 h-2 bg-[#6BBD45] rounded-full animate-pulse shrink-0" />
           Total Solutions Provider · Est. 1986
         </div>
 
         {/* Headline */}
         <h1 key={index}
-          className="text-5xl md:text-7xl lg:text-8xl font-black text-white text-center leading-[1.08] mb-7 max-w-5xl tracking-tight"
+          className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white text-center leading-[1.1] mb-5 sm:mb-7 max-w-5xl tracking-tight px-2"
           style={{ animation: 'fadeSlideUp 0.65s ease forwards' }}>
           {slide.headline}{' '}
           <span style={{ color: '#6BBD45', textShadow: '0 0 40px rgba(107,189,69,0.4)' }}>{slide.highlight}</span>
         </h1>
 
         <p key={`sub-${index}`}
-          className="text-gray-300 text-xl md:text-2xl max-w-2xl text-center mb-12 leading-relaxed font-light"
+          className="text-gray-300 text-base sm:text-xl md:text-2xl max-w-2xl text-center mb-8 sm:mb-12 leading-relaxed font-light px-2"
           style={{ animation: 'fadeSlideUp 0.65s ease 0.12s forwards', opacity: 0 }}>
           {slide.sub}
         </p>
 
-        {/* Service pills */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        {/* Service pills — hidden on smallest screens to avoid clutter */}
+        <div className="hidden sm:flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
           {services.map((svc, i) => {
             const Icon = svc.icon;
             return (
               <Link key={svc.label} href={svc.href}
                 onMouseEnter={() => setActive(i)}
                 onMouseLeave={() => setActive(null)}
-                className="flex items-center gap-2.5 px-5 py-3 rounded-full border text-base font-semibold transition-all duration-250"
+                className="flex items-center gap-2 sm:gap-2.5 px-3 sm:px-5 py-2 sm:py-3 rounded-full border text-sm sm:text-base font-semibold transition-all duration-250"
                 style={{
                   background: active === i ? '#6BBD45' : 'rgba(107,189,69,0.12)',
                   borderColor: active === i ? '#6BBD45' : 'rgba(107,189,69,0.35)',
@@ -139,22 +139,22 @@ export default function Hero() {
                   transform: active === i ? 'translateY(-3px) scale(1.05)' : 'none',
                   boxShadow: active === i ? '0 8px 24px rgba(107,189,69,0.35)' : 'none',
                 }}>
-                <Icon size={16} />
+                <Icon size={15} />
                 {svc.label}
-                <ArrowRight size={13} style={{ opacity: active === i ? 1 : 0, transition: 'opacity 0.2s' }} />
+                <ArrowRight size={12} style={{ opacity: active === i ? 1 : 0, transition: 'opacity 0.2s' }} />
               </Link>
             );
           })}
         </div>
 
         {/* CTA buttons */}
-        <div className="flex flex-col sm:flex-row gap-5 mb-14">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 mb-10 sm:mb-14 w-full sm:w-auto px-4 sm:px-0">
           <Link href="/services"
-            className="btn-glow bg-[#6BBD45] hover:bg-[#5aa838] text-white font-bold px-10 py-4 rounded-full text-lg text-center">
+            className="btn-glow bg-[#6BBD45] hover:bg-[#5aa838] text-white font-bold px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg text-center">
             Discover Our Services
           </Link>
           <Link href="/contact"
-            className="border-2 border-white/30 hover:border-[#6BBD45] text-white hover:text-[#6BBD45] font-bold px-10 py-4 rounded-full text-lg transition-all duration-200 hover:-translate-y-0.5 text-center">
+            className="border-2 border-white/30 hover:border-[#6BBD45] text-white hover:text-[#6BBD45] font-bold px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg transition-all duration-200 text-center">
             Get In Touch
           </Link>
         </div>
@@ -171,18 +171,18 @@ export default function Hero() {
 
       {/* ─── Stats bar ─── */}
       <div className="absolute bottom-0 left-0 right-0 glass border-t border-white/10" style={{ zIndex: 3 }}>
-        <div className="max-w-7xl mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 text-center">
           {[
             { value: 38, suffix: '+', label: 'Years Experience' },
             { value: 30, suffix: '+', label: 'Major Clients' },
-            { value: 4,  suffix: '',  label: 'ISO Certifications' },
+            { value: 5,  suffix: '',  label: 'ISO Certifications' },
             { value: 5,  suffix: 'x', label: 'Frost & Sullivan Awards' },
           ].map(stat => (
             <div key={stat.label} className="text-white group cursor-default">
-              <div className="text-4xl font-black text-[#6BBD45] group-hover:scale-110 transition-transform duration-200 inline-block" style={{ textShadow: '0 0 20px rgba(107,189,69,0.4)' }}>
+              <div className="text-2xl sm:text-4xl font-black text-[#6BBD45] group-hover:scale-110 transition-transform duration-200 inline-block" style={{ textShadow: '0 0 20px rgba(107,189,69,0.4)' }}>
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="text-sm text-gray-300 mt-1 font-medium">{stat.label}</div>
+              <div className="text-xs sm:text-sm text-gray-300 mt-0.5 sm:mt-1 font-medium">{stat.label}</div>
             </div>
           ))}
         </div>
