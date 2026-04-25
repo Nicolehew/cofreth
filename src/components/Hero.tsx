@@ -91,8 +91,8 @@ export default function Hero() {
       <div className="absolute top-32 right-24 w-48 h-48 rounded-full border border-[#6BBD45]/08 pointer-events-none" style={{ zIndex: 2 }} />
       <div className="absolute bottom-40 left-8 w-56 h-56 rounded-full border border-[#6BBD45]/12 animate-pulse pointer-events-none" style={{ zIndex: 2, animationDelay: '1.5s' }} />
 
-      {/* Scene indicator */}
-      <div className="absolute left-6 top-1/2 -translate-y-1/2 flex flex-col gap-2.5" style={{ zIndex: 4 }}>
+      {/* Scene indicator — desktop only */}
+      <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-2.5" style={{ zIndex: 4 }}>
         {slides.map((_, i) => (
           <button key={i} onClick={() => setIndex(i)}
             className="w-1.5 rounded-full transition-all duration-500"

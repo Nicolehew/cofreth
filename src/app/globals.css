@@ -172,3 +172,23 @@ h1, h2, h3 { letter-spacing: -0.02em; }
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.04em;
 }
+
+/* ─── Mobile overrides ─── */
+@media (max-width: 640px) {
+  /* Scale back base text on very small screens */
+  body { font-size: 16px; }
+  .text-sm { font-size: 0.9375rem !important; }
+  .text-xs { font-size: 0.8125rem !important; }
+
+  /* Ensure no horizontal overflow */
+  body, main { overflow-x: hidden; max-width: 100vw; }
+
+  /* Touch targets — minimum 44px */
+  button, a { min-height: 44px; }
+  nav a, nav button { min-height: auto; }
+}
+
+/* Prevent layout overflow on all screen sizes */
+* { box-sizing: border-box; }
+img { max-width: 100%; }
+section, div { max-width: 100%; }

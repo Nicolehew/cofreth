@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, Building2, Zap, Leaf, Cpu } from 'lucide-react';
+import { Menu, X, ChevronDown, Building2, Zap, Leaf, Cpu, Info, Award, Users } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -12,9 +12,15 @@ const services = [
   { label: 'Smart Technology',      href: '/services/smart-technology',      icon: Cpu,       desc: 'ARCHIBUS, BIM, IoT' },
 ];
 
+const aboutLinks = [
+  { label: 'About Us',           href: '/about',   icon: Info,  desc: 'Our story, mission & values' },
+  { label: 'Awards & Recognition', href: '/awards', icon: Award, desc: 'Frost & Sullivan, NEA & more' },
+  { label: 'Group of Companies', href: '/group',   icon: Users, desc: 'Our strategic partners' },
+];
+
 const navLinks = [
   { label: 'Home',      href: '/' },
-  { label: 'About Us',  href: '/about' },
+  { label: 'About',     href: '/about', hasAboutDropdown: true },
   { label: 'Services',  href: '/services', hasDropdown: true },
   { label: 'Projects',  href: '/projects' },
   { label: 'News',      href: '/news' },
@@ -26,8 +32,11 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const closeAboutTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
   const isHome = pathname === '/';
 
@@ -48,6 +57,13 @@ export default function Navbar() {
   const closeDropdown = () => {
     closeTimer.current = setTimeout(() => setServicesOpen(false), 300);
   };
+  const openAbout = () => {
+    if (closeAboutTimer.current) clearTimeout(closeAboutTimer.current);
+    setAboutOpen(true);
+  };
+  const closeAbout = () => {
+    closeAboutTimer.current = setTimeout(() => setAboutOpen(false), 300);
+  };
 
   const linkCls = (href: string) =>
     `text-base font-semibold transition-colors duration-200 pb-1 border-b-2 whitespace-nowrap ${
@@ -66,10 +82,41 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden lg:flex items-center gap-8">
+        <ul className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) => (
             <li key={link.href} className="relative">
-              {link.hasDropdown ? (
+              {link.hasAboutDropdown ? (
+                <div onMouseEnter={openAbout} onMouseLeave={closeAbout}>
+                  <Link href={link.href} className={`${linkCls(link.href)} flex items-center gap-1`}>
+                    {link.label}
+                    <ChevronDown size={15} className={`transition-transform duration-200 ${aboutOpen ? 'rotate-180' : ''}`} />
+                  </Link>
+                  <div onMouseEnter={openAbout} onMouseLeave={closeAbout}
+                    className="absolute top-full left-1/2 -translate-x-1/2 w-72 z-50 pt-3"
+                    style={{ pointerEvents: aboutOpen ? 'auto' : 'none' }}>
+                    <div className="rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-200"
+                      style={{ opacity: aboutOpen ? 1 : 0, transform: aboutOpen ? 'translateY(0)' : 'translateY(-8px)', background: 'white' }}>
+                      <div className="p-2">
+                        {aboutLinks.map((s) => {
+                          const Icon = s.icon;
+                          return (
+                            <Link key={s.href} href={s.href} onClick={() => setAboutOpen(false)}
+                              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-[#6BBD45]/8 group transition-colors">
+                              <div className="w-9 h-9 rounded-lg bg-[#6BBD45]/10 group-hover:bg-[#6BBD45] flex items-center justify-center shrink-0 transition-colors">
+                                <Icon size={17} className="text-[#6BBD45] group-hover:text-white transition-colors" />
+                              </div>
+                              <div>
+                                <div className="text-sm font-semibold text-gray-800 group-hover:text-[#6BBD45] transition-colors">{s.label}</div>
+                                <div className="text-xs text-gray-400">{s.desc}</div>
+                              </div>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : link.hasDropdown ? (
                 <div onMouseEnter={openDropdown} onMouseLeave={closeDropdown}>
                   <Link href={link.href} className={`${linkCls(link.href)} flex items-center gap-1`}>
                     {link.label}
@@ -143,7 +190,30 @@ export default function Navbar() {
           <ul className="flex flex-col">
             {navLinks.map((link) => (
               <li key={link.href}>
-                {link.hasDropdown ? (
+                {link.hasAboutDropdown ? (
+                  <>
+                    <button
+                      onClick={() => setMobileAboutOpen(v => !v)}
+                      className="flex items-center justify-between w-full px-6 py-4 text-gray-700 hover:text-[#6BBD45] hover:bg-gray-50 text-base font-semibold border-b border-gray-100">
+                      {link.label}
+                      <ChevronDown size={16} className={`transition-transform ${mobileAboutOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    {mobileAboutOpen && (
+                      <div className="bg-gray-50">
+                        {aboutLinks.map((s) => {
+                          const Icon = s.icon;
+                          return (
+                            <Link key={s.href} href={s.href} onClick={() => setOpen(false)}
+                              className="flex items-center gap-3 px-8 py-3 text-sm text-gray-600 hover:text-[#6BBD45] border-b border-gray-100">
+                              <Icon size={15} className="text-[#6BBD45]" />
+                              {s.label}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </>
+                ) : link.hasDropdown ? (
                   <>
                     <button
                       onClick={() => setMobileServicesOpen(v => !v)}

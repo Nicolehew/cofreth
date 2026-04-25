@@ -12,6 +12,8 @@ const serviceLinks = [
 const quickLinks = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about' },
+  { label: 'Awards & Recognition', href: '/awards' },
+  { label: 'Group of Companies', href: '/group' },
   { label: 'Our Services', href: '/services' },
   { label: 'Project Highlights', href: '/projects' },
   { label: 'News & Events', href: '/news' },
@@ -19,7 +21,7 @@ const quickLinks = [
   { label: 'Contact', href: '/contact' },
 ];
 
-const certs = ['ISO 9001:2015', 'ISO 14001:2015', 'ISO 45001:2018', 'ISO 50001:2011'];
+const certs = ['ISO 9001:2015', 'ISO 14001:2015', 'ISO 45001:2018', 'ISO 50001:2018', 'ISO 41001:2018'];
 
 export default function Footer() {
   return (

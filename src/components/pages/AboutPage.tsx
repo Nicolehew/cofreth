@@ -29,7 +29,8 @@ const certs = [
   { code: 'ISO 9001:2015', label: 'Quality Management System', icon: '✓' },
   { code: 'ISO 14001:2015', label: 'Environmental Management System', icon: '🌿' },
   { code: 'ISO 45001:2018', label: 'Occupational Health & Safety', icon: '🛡️' },
-  { code: 'ISO 50001:2011', label: 'Energy Management System', icon: '⚡' },
+  { code: 'ISO 50001:2018', label: 'Energy Management System', icon: '⚡' },
+  { code: 'ISO 41001:2018', label: 'Facility Management System', icon: '🏢' },
 ];
 
 function Counter({ target, suffix = '' }: { target: number; suffix?: string }) {
@@ -122,7 +123,7 @@ export default function AboutPage() {
           {[
             { val: 38, suf: '+', label: 'Years of Excellence' },
             { val: 30, suf: '+', label: 'Major Clients' },
-            { val: 4, suf: '', label: 'ISO Certifications' },
+            { val: 5, suf: '', label: 'ISO Certifications' },
             { val: 5, suf: 'x', label: 'Frost & Sullivan Awards' },
           ].map(s => (
             <div key={s.label}>
@@ -252,8 +253,8 @@ export default function AboutPage() {
               <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Certifications</span>
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white">Quadruple ISO Certified</h2>
-            <p className="text-gray-400 text-sm max-w-xl mx-auto mt-3">Independently verified to the highest international standards across quality, environment, safety and energy management.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">5× ISO Certified</h2>
+            <p className="text-gray-400 text-sm max-w-xl mx-auto mt-3">Independently verified to the highest international standards across quality, environment, safety, energy and facility management — including the prestigious ISO 41001:2018 Facility Management System.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {certs.map((c, i) => <CertCard key={c.code} c={c} i={i} />)}
@@ -261,8 +262,38 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Awards */}
+      {/* CSR Section */}
       <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Corporate Responsibility</span>
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1B3A2D]">Giving Back to the Community</h2>
+            <p className="text-gray-500 text-sm max-w-xl mx-auto mt-3 leading-relaxed">
+              Beyond business, Cofreth is committed to making a positive impact — supporting life-saving initiatives, environmental causes and the wellbeing of underserved communities across Malaysia.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { icon: '🩺', title: '"Save a Life" Campaign', desc: 'Cofreth organises regular blood donation drives and "Save a Life" health campaigns for staff and the public, promoting awareness of critical healthcare needs and encouraging life-saving participation.' },
+              { icon: '🌳', title: 'Tree-Planting Initiatives', desc: 'As part of our commitment to environmental sustainability, Cofreth participates in and sponsors tree-planting programmes — contributing to Malaysia\'s green cover and the fight against climate change.' },
+              { icon: '🏠', title: 'Orphanage & Community Support', desc: 'Cofreth regularly organises visits and donations to orphanages, providing essential support, meals and activities for underprivileged children — reflecting our belief that corporate success carries community responsibility.' },
+            ].map((item, i) => (
+              <div key={item.title} className="bg-gray-50 border border-gray-100 rounded-2xl p-7 hover:border-[#6BBD45]/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <h3 className="font-bold text-[#1B3A2D] text-base mb-2">{item.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Awards */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6">
           <div ref={awards.ref} className="bg-gradient-to-br from-[#1B3A2D] to-[#0F2419] rounded-3xl p-12 text-center text-white transition-all duration-700"
             style={{ opacity: awards.visible ? 1 : 0, transform: awards.visible ? 'none' : 'translateY(30px)' }}>
