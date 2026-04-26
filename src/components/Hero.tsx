@@ -55,27 +55,17 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex flex-col overflow-hidden">
 
-      {/* Fallback background image shown while/if video fails */}
+      {/* Background image */}
       <div className="absolute inset-0" style={{
-        backgroundImage: 'url(https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80&fit=crop)',
+        backgroundImage: 'url(/projects/klia2.jpg)',
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'center 30%',
         zIndex: 0,
       }} />
 
-      {/* Video overlaid on fallback */}
-      <video
-        autoPlay muted loop playsInline
-        poster="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80&fit=crop"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 1, animation: 'kenburns 22s ease-in-out infinite alternate' }}
-      >
-        <source src="/hero-video.mp4" type="video/mp4" />
-      </video>
-
-      {/* Deep gradient overlay — charcoal-dark with subtle green tint */}
+      {/* Lighter overlay — show more of the real building */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'linear-gradient(135deg, rgba(8,14,22,0.93) 0%, rgba(12,32,22,0.87) 50%, rgba(8,14,22,0.95) 100%)',
+        background: 'linear-gradient(135deg, rgba(4,12,8,0.80) 0%, rgba(10,35,18,0.68) 40%, rgba(6,18,10,0.78) 100%)',
         zIndex: 2,
       }} />
 
@@ -83,8 +73,8 @@ export default function Hero() {
       <div className="absolute inset-0 tech-grid pointer-events-none" style={{ zIndex: 2 }} />
 
       {/* Glowing orb accents */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(107,189,69,0.08) 0%, transparent 70%)', zIndex: 2 }} />
-      <div className="absolute bottom-1/3 left-1/5 w-64 h-64 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(107,189,69,0.06) 0%, transparent 70%)', zIndex: 2 }} />
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(107,189,69,0.18) 0%, transparent 70%)', zIndex: 2 }} />
+      <div className="absolute bottom-1/3 left-1/5 w-64 h-64 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(107,189,69,0.14) 0%, transparent 70%)', zIndex: 2 }} />
 
       {/* Decorative rings */}
       <div className="absolute top-24 right-16 w-72 h-72 rounded-full border border-[#6BBD45]/15 animate-pulse pointer-events-none" style={{ zIndex: 2 }} />
