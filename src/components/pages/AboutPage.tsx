@@ -14,15 +14,22 @@ const values = [
 ];
 
 const milestones = [
-  { year: '1986', event: 'Cofreth (M) Sdn Bhd incorporated in Malaysia', color: '#6BBD45' },
-  { year: '1996', event: 'First FM company in Malaysia to achieve ISO 9002 accreditation', color: '#5aa838' },
-  { year: '1997–2000', event: 'First in Asia to design District Cooling System with Thermal Energy Storage', color: '#4a9230' },
-  { year: '2007', event: 'Frost & Sullivan Malaysia Excellence Award — 1st recognition', color: '#6BBD45' },
-  { year: '2010', event: 'Frost & Sullivan Malaysia Excellence Award — continued leadership', color: '#5aa838' },
-  { year: '2015', event: 'Frost & Sullivan Malaysia Excellence Award', color: '#4a9230' },
-  { year: '2016', event: 'Frost & Sullivan Malaysia Excellence Award', color: '#6BBD45' },
-  { year: '2017', event: 'Frost & Sullivan Malaysia Excellence Award — 5th consecutive recognition', color: '#5aa838' },
-  { year: 'Today', event: 'Quadruple ISO certified ESCO with 38+ years of excellence', color: '#6BBD45' },
+  { year: '1986', event: 'Cofreth (M) Sdn Bhd incorporated in Malaysia (Reg. No. 198601002912 | 152066-P)', color: '#6BBD45' },
+  { year: '1996', event: 'First FM company in Malaysia to achieve ISO 9002:1994 accreditation; First to provide a Comprehensive FM Contract', color: '#5aa838' },
+  { year: '1997', event: 'First to provide 15-year O&M services for the Ministry of Works Malaysia HQ', color: '#4a9230' },
+  { year: '1997–2000', event: 'First in Asia (outside Japan) to design & build a District Cooling System with 6.6km underground chilled water reticulation', color: '#6BBD45' },
+  { year: '2001', event: 'First ESCO to offer Capped & Guaranteed Energy Efficiency Performance (CEEP) contracts', color: '#5aa838' },
+  { year: '2003', event: 'First FM company to provide full services to the Putrajaya International Convention Centre (PICC)', color: '#4a9230' },
+  { year: '2007', event: 'Frost & Sullivan Customer Service Leadership Award (Integrated FM Services Market) · First to introduce Balanced Scorecard for FM Performance Measurement', color: '#6BBD45' },
+  { year: '2009', event: 'First company appointed to formulate Malaysia\'s National Energy Efficiency Master Plan', color: '#5aa838' },
+  { year: '2010', event: 'Frost & Sullivan Malaysia Green Excellence Award — Facilities Management Company of the Year', color: '#4a9230' },
+  { year: '2013', event: 'First FM company to implement BIM (Building Information Modelling) for a cancer hospital in Malaysia', color: '#6BBD45' },
+  { year: '2015', event: 'Frost & Sullivan Customer Service Leadership Award — Integrated Facilities Management', color: '#5aa838' },
+  { year: '2016', event: 'Frost & Sullivan Competitive Strategy Innovation & Leadership Award — Facilities Management', color: '#4a9230' },
+  { year: '2017', event: 'BrandLaureate SMEs BestBrands Award — Industrial Facilities Management category', color: '#6BBD45' },
+  { year: '2018', event: 'First ESCO to win 1st Prize at inaugural National Energy Awards (NEA) of Malaysia · SME Icons Award · ASEAN Energy Award 1st Runner Up', color: '#5aa838' },
+  { year: '2021', event: 'NEA 2021 Energy Performance Contracting (EPC) Champion Award — jointly with Besi Apac', color: '#4a9230' },
+  { year: 'Today', event: '5× ISO certified ESCO with 38+ years of excellence, serving airports, data centres, universities and landmark buildings across Malaysia', color: '#6BBD45' },
 ];
 
 const certs = [
@@ -106,10 +113,11 @@ export default function AboutPage() {
             <div className="w-8 h-0.5 bg-[#6BBD45]" />
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">38 Years of<br /><span className="text-[#6BBD45]">FM Excellence</span></h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed mb-8">
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed mb-4">
             Since 1986, Cofreth has been Malaysia's pioneer in integrated facilities management,
             energy services, and sustainable built environment solutions.
           </p>
+          <p className="text-gray-500 text-sm mb-8">Reg. No. 198601002912 (152066-P) · No. 39, Jalan USJ Sentral 3, USJ Sentral, 47600 Subang Jaya, Selangor</p>
           <Link href="/contact" className="inline-flex items-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-semibold px-8 py-3 rounded-full transition-all text-sm">
             Talk to Our Team <ArrowRight size={16} />
           </Link>
@@ -144,12 +152,13 @@ export default function AboutPage() {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-[#1B3A2D] mb-6">Malaysia's FM Pioneer Since 1986</h2>
             <div className="space-y-4 text-gray-600 text-sm leading-relaxed">
-              <p>Cofreth (M) Sdn Bhd was established in 1986 with a clear vision: to be the leading provider of quality services for Total Facilities Management and all utilities across Malaysia.</p>
-              <p>We were the <strong className="text-[#1B3A2D]">first FM company in Malaysia</strong> to achieve ISO 9002 accreditation, and the <strong className="text-[#1B3A2D]">first in Asia</strong> to design a District Cooling System with Thermal Energy Storage.</p>
-              <p>Today, as a registered Energy Service Company (ESCO) with Malaysia Green Technology Corporation and MAESCO, we deliver integrated FM, energy, green building, and smart technology solutions with guaranteed results.</p>
+              <p>Cofreth (M) Sdn Bhd was established in <strong className="text-[#1B3A2D]">1986</strong> (Reg. No. 198601002912 | 152066-P) with a clear vision: to be the leading provider of quality services for Total Facilities Management and all utilities across Malaysia.</p>
+              <p>We were the <strong className="text-[#1B3A2D]">first FM company in Malaysia</strong> to achieve ISO 9002 accreditation, and the <strong className="text-[#1B3A2D]">first in Asia outside Japan</strong> to design a District Cooling System with 6.6km underground chilled water reticulation.</p>
+              <p>Today, as a registered Energy Service Company (ESCO) with <strong className="text-[#1B3A2D]">Malaysia Green Technology Corporation</strong> and <strong className="text-[#1B3A2D]">MAESCO</strong>, we deliver integrated FM, energy, green building, and smart technology solutions — backed by 5 ISO certifications and guaranteed measurable results.</p>
+              <p>We use the <strong className="text-[#1B3A2D]">ARCHIBUS Total Infrastructure Facilities Management System (TIFM)</strong> to give clients real-time visibility into costs, energy consumption and maintenance across their entire property portfolio.</p>
             </div>
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              {['First ISO-certified FM company in Malaysia', 'First DCS with Thermal Energy Storage in Asia', 'Registered ESCO — guaranteed savings', '5× Frost & Sullivan Malaysia Excellence Awards'].map(pt => (
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {['First ISO-certified FM company in Malaysia (1996)', 'First District Cooling System in Asia with TES (1997–2000)', 'Registered ESCO — CEEP guaranteed energy savings', '5× Frost & Sullivan Malaysia Excellence Awards', 'NEA 2018 1st Prize & NEA 2021 EPC Champion', 'ARCHIBUS TIFM smart FM technology platform'].map(pt => (
                 <div key={pt} className="flex items-start gap-2">
                   <CheckCircle size={16} className="text-[#6BBD45] mt-0.5 shrink-0" />
                   <span className="text-xs text-gray-600">{pt}</span>
