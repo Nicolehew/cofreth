@@ -70,7 +70,7 @@ export default function CareersPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <div className="pt-32 pb-20 text-white relative overflow-hidden"
+      <div className="pt-24 md:pt-32 pb-12 md:pb-20 text-white relative overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #060e08 0%, #0F2419 50%, #060e08 100%)' }}>
         <div className="absolute inset-0 opacity-[0.06]"
           style={{ backgroundImage: 'linear-gradient(#6BBD45 1px, transparent 1px), linear-gradient(90deg, #6BBD45 1px, transparent 1px)', backgroundSize: '60px 60px' }} />

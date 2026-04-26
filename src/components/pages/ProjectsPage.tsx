@@ -231,7 +231,7 @@ export default function ProjectsPage() {
   return (
     <>
       {/* Hero */}
-      <div className="pt-32 pb-20 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #060e08 0%, #0F2419 50%, #060e08 100%)' }}>
+      <div className="pt-24 md:pt-32 pb-12 md:pb-20 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #060e08 0%, #0F2419 50%, #060e08 100%)' }}>
         <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'linear-gradient(#6BBD45 1px, transparent 1px), linear-gradient(90deg, #6BBD45 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
         <div className="absolute top-10 left-1/3 w-96 h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(107,189,69,0.10) 0%, transparent 70%)' }} />
 
@@ -261,20 +261,20 @@ export default function ProjectsPage() {
       </div>
 
       {/* Flagship projects */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex items-center gap-3 mb-8">
+      <section className="py-10 md:py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center gap-3 mb-6">
             <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
             <h2 className="text-lg font-bold text-[#1B3A2D]">Flagship Projects</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-5">
             {featured.map(p => <FeaturedProject key={p.id} project={p} />)}
           </div>
         </div>
       </section>
 
       {/* Filtered grid */}
-      <section className="py-16 bg-white">
+      <section className="py-10 md:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-between flex-wrap gap-4 mb-10">
             <div className="flex items-center gap-3">

@@ -164,7 +164,7 @@ export default function NewsPage() {
   return (
     <>
       {/* Hero */}
-      <div className="pt-32 pb-20 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a1208 0%, #0F2419 50%, #0a1208 100%)' }}>
+      <div className="pt-24 md:pt-32 pb-12 md:pb-20 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a1208 0%, #0F2419 50%, #0a1208 100%)' }}>
         <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'linear-gradient(#6BBD45 1px, transparent 1px), linear-gradient(90deg, #6BBD45 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
         {/* Glowing orbs */}
         <div className="absolute top-10 right-1/4 w-80 h-80 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(107,189,69,0.12) 0%, transparent 70%)' }} />

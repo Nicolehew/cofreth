@@ -165,7 +165,7 @@ export default function AwardsPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <div className="pt-32 pb-20 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #060e08 0%, #0F2419 50%, #060e08 100%)' }}>
+      <div className="pt-24 md:pt-32 pb-12 md:pb-20 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #060e08 0%, #0F2419 50%, #060e08 100%)' }}>
         <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'linear-gradient(#6BBD45 1px, transparent 1px), linear-gradient(90deg, #6BBD45 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
         <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(107,189,69,0.12) 0%, transparent 70%)' }} />
 
@@ -183,9 +183,9 @@ export default function AwardsPage() {
             Independently verified. Industry recognised. A proud collection of Malaysia's most prestigious awards — earned through decades of uncompromising excellence in facilities management and energy services.
           </p>
           {/* Counts */}
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-4 sm:gap-6 max-w-sm sm:max-w-none mx-auto">
             {[['4×', 'Frost & Sullivan Awards'], ['NEA', 'Winner 2018'], ['SME Icons', '2018'], ['BrandLaureate', '2016–2017']].map(([v, l]) => (
-              <div key={l} className="bg-white/5 border border-white/10 rounded-2xl py-4 px-5 text-center min-w-[110px]">
+              <div key={l} className="bg-white/5 border border-white/10 rounded-2xl py-4 px-3 sm:px-5 text-center">
                 <div className="text-xl font-black text-[#6BBD45]">{v}</div>
                 <div className="text-xs text-gray-400 mt-1">{l}</div>
               </div>

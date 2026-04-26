@@ -93,7 +93,7 @@ export default function ServicesOverviewPage() {
   return (
     <>
       {/* Hero with video */}
-      <div className="pt-32 pb-20 text-white relative overflow-hidden min-h-[60vh] flex items-center">
+      <div className="pt-24 md:pt-32 pb-12 md:pb-20 text-white relative overflow-hidden min-h-[60vh] flex items-center">
         <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" style={{ zIndex: 0 }}>
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
