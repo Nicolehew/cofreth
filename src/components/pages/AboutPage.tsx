@@ -143,7 +143,7 @@ export default function AboutPage() {
       </div>
 
       {/* Company story + video */}
-      <section className="py-24 bg-white">
+      <section id="about" className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <div ref={story.ref} className="transition-all duration-700" style={{ opacity: story.visible ? 1 : 0, transform: story.visible ? 'none' : 'translateX(-40px)' }}>
             <div className="flex items-center gap-3 mb-4">
@@ -189,7 +189,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-gray-50">
+      <section id="mission" className="py-20 bg-gray-50">
         <div ref={mission.ref} className="max-w-5xl mx-auto px-6 transition-all duration-700" style={{ opacity: mission.visible ? 1 : 0, transform: mission.visible ? 'none' : 'translateY(30px)' }}>
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -217,8 +217,41 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Our Philosophy */}
+      <section id="philosophy" className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Our Philosophy</span>
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D]">How We Think & Work</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { n: '01', icon: '🏢', title: 'Safe, Comfortable & Clean', desc: 'We ensure every facility we manage maintains the highest standards of safety, comfort and cleanliness for all occupants and visitors.' },
+              { n: '02', icon: '💰', title: 'High Quality at Affordable Price', desc: 'Delivering best-value services without compromising quality — our efficiency and scale enable us to offer competitive pricing for every client.' },
+              { n: '03', icon: '📋', title: 'Consistent Service Levels', desc: 'High service levels consistently achieved through established procedures and work systems, ensuring reliability you can count on.' },
+              { n: '04', icon: '🔄', title: 'Continuous Improvement', desc: 'Continuous improvement is a culture at Cofreth — every audit, every review and every client interaction is an opportunity to do better.' },
+              { n: '05', icon: '💻', title: 'Technology-Driven Efficiency', desc: 'We increase the use of technologies — ARCHIBUS, BAS, BIM and IoT — to improve efficiency and reduce the total cost of ownership for clients.' },
+              { n: '06', icon: '⚖️', title: 'Strong Corporate Values', desc: 'We practise corporate core values of Professionalism, Team Spirit, Partnership, Value Creation, Respect for Environment and Good Ethics in every engagement.' },
+            ].map((p) => (
+              <div key={p.n} className="group bg-gray-50 border border-gray-100 hover:border-[#6BBD45]/30 hover:bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-2xl">{p.icon}</span>
+                  <span className="text-xs font-black text-[#6BBD45] tracking-widest">{p.n}</span>
+                </div>
+                <h3 className="font-black text-[#1B3A2D] mb-2 text-sm group-hover:text-[#6BBD45] transition-colors">{p.title}</h3>
+                <p className="text-gray-500 text-xs leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Core Values */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
           <div ref={vals.ref} className="text-center mb-14 transition-all duration-700" style={{ opacity: vals.visible ? 1 : 0, transform: vals.visible ? 'none' : 'translateY(30px)' }}>
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -237,7 +270,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-gray-50">
+      <section id="firsts" className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -271,8 +304,53 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Our Processes */}
+      <section id="processes" className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Our Processes</span>
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] mb-3">Certified Service Delivery</h2>
+            <p className="text-gray-500 text-sm max-w-2xl mx-auto">Our service delivery processes are independently certified to five ISO standards — guaranteeing consistent quality, safety, environmental responsibility and energy performance across every engagement.</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+            {[
+              { code: 'ISO 45001:2018', label: 'Occupational Health & Safety', icon: '🛡️', color: '#ef4444', desc: 'Systematic hazard identification and risk control across all site operations.' },
+              { code: 'ISO 9001:2015', label: 'Quality Management', icon: '✓', color: '#3b82f6', desc: 'Consistent, high-quality service delivery backed by documented procedures and regular audits.' },
+              { code: 'ISO 14001:2015', label: 'Environmental Management', icon: '🌿', color: '#10b981', desc: 'Minimising environmental impact through responsible practices and continuous monitoring.' },
+              { code: 'ISO 50001:2018', label: 'Energy Management', icon: '⚡', color: '#f59e0b', desc: 'Structured energy monitoring and optimisation to reduce consumption and costs.' },
+            ].map((p) => (
+              <div key={p.code} className="group bg-gray-50 border border-gray-100 hover:border-[#6BBD45]/30 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 transition-transform group-hover:scale-110" style={{ background: p.color + '15' }}>{p.icon}</div>
+                <div className="font-black text-[#1B3A2D] text-xs mb-1 group-hover:text-[#6BBD45] transition-colors">{p.code}</div>
+                <div className="text-gray-600 text-xs font-semibold mb-2">{p.label}</div>
+                <p className="text-gray-400 text-xs leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="bg-gradient-to-r from-[#0F2419] to-[#1B3A2D] rounded-2xl p-6 md:p-8 text-white">
+            <div className="grid md:grid-cols-3 gap-6 text-center">
+              {[
+                { icon: '🔍', title: 'Plan', desc: 'Define objectives, identify risks and plan the FM or energy solution tailored to your facility.' },
+                { icon: '⚙️', title: 'Do', desc: 'Execute with certified engineers and technicians following ISO-compliant procedures and SOPs.' },
+                { icon: '📊', title: 'Check & Act', desc: 'Monitor KPIs, conduct audits and continuously improve — the PDCA cycle drives all we do.' },
+              ].map(s => (
+                <div key={s.title}>
+                  <div className="text-3xl mb-3">{s.icon}</div>
+                  <div className="font-black text-[#6BBD45] mb-2">{s.title}</div>
+                  <p className="text-gray-400 text-xs leading-relaxed">{s.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* IMS Policy */}
-      <section className="py-20 bg-white">
+      <section id="ims-policy" className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -332,7 +410,7 @@ export default function AboutPage() {
       </section>
 
       {/* ISO Certificates */}
-      <section className="py-20 bg-gray-50">
+      <section id="certificates" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -375,7 +453,7 @@ export default function AboutPage() {
       </section>
 
       {/* Value & Ethics */}
-      <section className="py-20 bg-white">
+      <section id="values" className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -406,7 +484,7 @@ export default function AboutPage() {
       </section>
 
       {/* Sustainable Development */}
-      <section className="py-20 bg-gray-50">
+      <section id="sustainability" className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -453,7 +531,7 @@ export default function AboutPage() {
       </section>
 
       {/* Corporate Themes */}
-      <section className="py-20 bg-white">
+      <section id="themes" className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -485,8 +563,41 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Corporate Governance */}
+      <section id="governance" className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Corporate Governance</span>
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] mb-3">Responsible Business Conduct</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-5">
+            <div className="bg-gradient-to-br from-[#0F2419] to-[#1B3A2D] rounded-2xl p-8 text-white">
+              <div className="text-3xl mb-4">🤝</div>
+              <h3 className="font-black text-[#6BBD45] mb-3">Responsible Business Alliance</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">Cofreth is fully committed and complies with the Responsible Business Alliance (RBA) as part of our code of business conduct — ensuring ethical practices across our entire supply chain and operations.</p>
+            </div>
+            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-8">
+              <div className="text-3xl mb-4">📜</div>
+              <h3 className="font-black text-[#1B3A2D] mb-3">Our Governance Commitments</h3>
+              <ul className="space-y-2">
+                {['Anti-bribery and anti-corruption policy', 'Transparent financial reporting', 'Fair treatment of employees and contractors', 'Responsible procurement practices', 'Data privacy and information security'].map(item => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
+                    <span className="text-[#6BBD45] mt-0.5 shrink-0">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CSR Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="csr" className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">

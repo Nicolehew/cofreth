@@ -14,10 +14,10 @@ const services = [
 ];
 
 const aboutLinks = [
-  { label: 'About Us',             href: '/about',    icon: Info,      desc: 'Our story, mission & values' },
-  { label: 'Awards & Recognition', href: '/awards',   icon: Award,     desc: 'Frost & Sullivan, NEA & more' },
-  { label: 'Group of Companies',   href: '/group',    icon: Users,     desc: 'Our strategic partners' },
-  { label: 'Careers',              href: '/careers',  icon: Briefcase, desc: 'Join the Cofreth team' },
+  { label: 'Cofreth At A Glance',   href: '/about',    icon: Info,      desc: 'Our story, history & certifications' },
+  { label: 'Group Of Companies',    href: '/group',    icon: Users,     desc: 'Our strategic partners' },
+  { label: 'Awards & Recognitions', href: '/awards',   icon: Award,     desc: 'Frost & Sullivan, NEA & more' },
+  { label: 'Careers',               href: '/careers',  icon: Briefcase, desc: 'Join the Cofreth team' },
 ];
 
 const navLinks = [
