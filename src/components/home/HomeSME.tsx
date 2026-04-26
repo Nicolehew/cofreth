@@ -127,13 +127,13 @@ export default function HomeSME() {
                 Tell us about your facility. Our engineers will assess your building and propose a tailored FM + energy solution — completely obligation-free.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full md:w-auto">
               <Link href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-bold px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 shadow-lg shadow-[#6BBD45]/25 whitespace-nowrap">
-                Get Free Assessment <ArrowRight size={17} />
+                className="inline-flex items-center justify-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-bold px-6 py-3.5 rounded-full transition-all hover:-translate-y-0.5 shadow-lg shadow-[#6BBD45]/25 text-sm">
+                Get Free Assessment <ArrowRight size={16} />
               </Link>
               <a href="tel:+60380238878"
-                className="inline-flex items-center justify-center gap-2 border-2 border-white/20 hover:border-[#6BBD45] text-white hover:text-[#6BBD45] font-bold px-8 py-4 rounded-full transition-all whitespace-nowrap">
+                className="inline-flex items-center justify-center gap-2 border-2 border-white/20 hover:border-[#6BBD45] text-white hover:text-[#6BBD45] font-bold px-6 py-3.5 rounded-full transition-all text-sm">
                 +(603) 8023 8878
               </a>
             </div>

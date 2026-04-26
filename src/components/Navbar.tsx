@@ -120,19 +120,19 @@ export default function Navbar() {
         ? 'border-[#6BBD45] text-[#6BBD45]'
         : showDark
           ? 'border-transparent text-gray-700 dark:text-gray-200 hover:text-[#6BBD45]'
-          : 'border-transparent text-white hover:text-[#6BBD45]'
+          : 'border-transparent text-[#1B3A2D] hover:text-[#6BBD45]'
     }`;
 
   const navBg = showDark
     ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg py-2'
-    : 'bg-transparent py-4';
+    : 'bg-white/70 backdrop-blur-sm py-4';
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
         <Link href="/" className="shrink-0">
           <Image
-            src={(showDark && theme !== 'dark') ? '/logo.png' : '/logo-hero.png'}
+            src={theme === 'dark' ? '/logo-hero.png' : '/logo.png'}
             alt="Cofreth Logo"
             width={140}
             height={56}
@@ -190,7 +190,7 @@ export default function Navbar() {
             className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 ${
               showDark
                 ? 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                : 'text-white/80 hover:text-white hover:bg-white/10'
+                : 'text-[#1B3A2D]/60 hover:text-[#1B3A2D] hover:bg-black/5'
             }`}
           >
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
@@ -205,12 +205,12 @@ export default function Navbar() {
           <button
             onClick={toggle}
             aria-label="Toggle dark mode"
-            className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${showDark ? 'text-gray-600 dark:text-gray-300' : 'text-white/80'}`}
+            className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${showDark ? 'text-gray-600 dark:text-gray-300' : 'text-[#1B3A2D]/60'}`}
           >
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
           <button
-            className={`w-9 h-9 flex items-center justify-center ${showDark ? 'text-gray-800 dark:text-white' : 'text-white'}`}
+            className={`w-9 h-9 flex items-center justify-center ${showDark ? 'text-gray-800 dark:text-white' : 'text-[#1B3A2D]'}`}
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >

@@ -64,10 +64,10 @@ export default function HomeFirsts() {
 
         {/* Bottom CTA */}
         <div className="text-center">
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#0F2419] to-[#1B3A2D] rounded-2xl px-8 py-5 text-white">
-            <Trophy size={20} className="text-[#6BBD45]" />
+          <div className="inline-flex flex-wrap items-center justify-center gap-3 bg-gradient-to-r from-[#0F2419] to-[#1B3A2D] rounded-2xl px-6 py-5 text-white max-w-full">
+            <Trophy size={20} className="text-[#6BBD45] shrink-0" />
             <span className="font-semibold text-sm">10 industry firsts across 38 years</span>
-            <Link href="/about" className="flex items-center gap-1 text-[#6BBD45] hover:text-white text-sm font-bold transition-colors ml-2">
+            <Link href="/about" className="flex items-center gap-1 text-[#6BBD45] hover:text-white text-sm font-bold transition-colors">
               Our Full Story <ArrowRight size={14} />
             </Link>
           </div>
