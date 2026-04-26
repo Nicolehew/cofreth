@@ -132,11 +132,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
         <Link href="/" className="shrink-0">
           <Image
-            src={showDark ? '/logo.png' : '/logo-hero.png'}
+            src={(showDark && theme !== 'dark') ? '/logo.png' : '/logo-hero.png'}
             alt="Cofreth Logo"
-            width={150}
-            height={60}
-            className="object-contain transition-all duration-300"
+            width={140}
+            height={56}
+            className="object-contain transition-all duration-300 w-[110px] md:w-[140px] h-auto"
             unoptimized
           />
         </Link>
