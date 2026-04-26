@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 72" fill="none">
+  <!-- Icon: green square with swirl details -->
+  <rect x="2" y="6" width="58" height="58" rx="6" fill="#6BBD45"/>
+  <!-- Swirl top-right -->
+  <path d="M52 10 Q62 4 66 14 Q68 22 58 26" stroke="#6BBD45" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Swirl bottom-right -->
+  <path d="M56 56 Q66 62 64 72 Q62 78 52 74" stroke="#6BBD45" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Swirl top-left -->
+  <path d="M10 10 Q2 4 -2 14 Q-4 22 6 26" stroke="#6BBD45" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Swirl bottom-left -->
+  <path d="M6 56 Q-4 64 -2 72 Q0 78 10 74" stroke="#6BBD45" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- White ring -->
+  <circle cx="31" cy="35" r="18" fill="white"/>
+  <!-- Green inner circle -->
+  <circle cx="31" cy="35" r="11" fill="#6BBD45"/>
+
+  <!-- Text block -->
+  <!-- "cofreth" stays green -->
+  <text x="74" y="34" font-family="Georgia, serif" font-size="22" font-weight="700" fill="#6BBD45" letter-spacing="-0.3">cofreth</text>
+  <!-- "(M) SDN BHD" white on dark bg -->
+  <text x="168" y="34" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="800" fill="white" letter-spacing="0.5"> (M) SDN BHD</text>
+  <!-- Divider line -->
+  <line x1="74" y1="40" x2="338" y2="40" stroke="rgba(255,255,255,0.25)" stroke-width="0.8"/>
+  <!-- Tagline white -->
+  <text x="74" y="58" font-family="Georgia, serif" font-size="12" font-style="italic" fill="rgba(255,255,255,0.75)" letter-spacing="0.2">Achieving Greater Life at Workplace</text>
+  <!-- Green underline -->
+  <line x1="74" y1="63" x2="320" y2="63" stroke="#6BBD45" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
