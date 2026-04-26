@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, Building2, Zap, Leaf, Cpu, Info, Award, Users, Sun, Moon } from 'lucide-react';
+import { Menu, X, ChevronDown, Building2, Zap, Leaf, Cpu, Info, Award, Users, Sun, Moon, Briefcase } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -14,9 +14,10 @@ const services = [
 ];
 
 const aboutLinks = [
-  { label: 'About Us',             href: '/about',   icon: Info,  desc: 'Our story, mission & values' },
-  { label: 'Awards & Recognition', href: '/awards',  icon: Award, desc: 'Frost & Sullivan, NEA & more' },
-  { label: 'Group of Companies',   href: '/group',   icon: Users, desc: 'Our strategic partners' },
+  { label: 'About Us',             href: '/about',    icon: Info,      desc: 'Our story, mission & values' },
+  { label: 'Awards & Recognition', href: '/awards',   icon: Award,     desc: 'Frost & Sullivan, NEA & more' },
+  { label: 'Group of Companies',   href: '/group',    icon: Users,     desc: 'Our strategic partners' },
+  { label: 'Careers',              href: '/careers',  icon: Briefcase, desc: 'Join the Cofreth team' },
 ];
 
 const navLinks = [
@@ -130,7 +131,15 @@ export default function Navbar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
         <Link href="/" className="shrink-0">
-          <Image src="/logo.png" alt="Cofreth Logo" width={150} height={75} className="object-contain" unoptimized />
+          <Image
+            src="/logo.png"
+            alt="Cofreth Logo"
+            width={150}
+            height={75}
+            className="object-contain transition-all duration-300"
+            style={showDark ? {} : { filter: 'brightness(0) invert(1)' }}
+            unoptimized
+          />
         </Link>
 
         {/* Desktop nav */}
