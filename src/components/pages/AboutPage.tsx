@@ -271,8 +271,222 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CSR Section */}
+      {/* IMS Policy */}
       <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Our IMS Policy</span>
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] mb-3">Integrated Policy</h2>
+            <p className="text-gray-500 text-sm font-semibold">Quality, Safety &amp; Health, Environmental, Energy and Facility</p>
+          </div>
+          <div className="bg-gradient-to-br from-[#0F2419] to-[#1B3A2D] rounded-3xl p-8 md:p-10 text-white mb-6">
+            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+              By integrating quality, occupational safety and health, environmental, energy, and facility management systems into an Integrated Management System (IMS), Cofreth is committed to providing high-performance Facilities Management and Energy Services (FMES) without compromising sustainability in environmental, social and governance aspects for all stakeholders.
+            </p>
+            <h3 className="text-[#6BBD45] font-bold text-sm uppercase tracking-widest mb-3">Principle</h3>
+            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+              Cofreth demonstrates a strong belief that the bedrock of excellent service delivery rests upon the adoption of a professional and ethical business strategy. This strategic approach revolves around business growth, developing talents, adopting innovative technologies and the five well-defined management systems that originate from the organisational knowledge of the company.
+            </p>
+            <h3 className="text-[#6BBD45] font-bold text-sm uppercase tracking-widest mb-4">Our 9 Policy Commitments</h3>
+            <ol className="space-y-3">
+              {[
+                'Deliver high quality, best value services and other characteristics and requirements of FMES as agreed with our customers',
+                'Comply with relevant statutory, contractual and other requirements under IMS',
+                'Eliminate potential hazards, reduce environmental pollution & OHS risk as identified under HIRADC and EAIA Lists',
+                'Manage the risks and opportunities identified in the IMS Risk and Opportunity Registers',
+                'Optimising building energy performance through procurement of energy-efficient product and services, efficient design and implementation of operational control',
+                'Provide necessary information and resources to achieve the established objectives and targets under IMS',
+                'Encourage staff and vendors to participate in the development of IMS programmes within the available resources',
+                'Instill awareness, develop effective leader, maintain competent and effective workforce through structured trainings',
+                'Continually improve IMS through audits, management reviews and other improvement activities',
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-3 text-sm text-gray-300">
+                  <span className="w-6 h-6 rounded-full bg-[#6BBD45]/20 border border-[#6BBD45]/40 text-[#6BBD45] text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">{i + 1}</span>
+                  {item}
+                </li>
+              ))}
+            </ol>
+            <p className="text-gray-400 text-xs mt-6 pt-4 border-t border-white/10">
+              This policy aligns with the strategic direction of Cofreth and will be revised as necessary and communicated to all stakeholders.
+            </p>
+            <div className="mt-4 flex flex-wrap items-center gap-6">
+              <div>
+                <p className="text-white font-bold text-sm">Ir. ONG CHING LOON</p>
+                <p className="text-gray-400 text-xs">Managing Director</p>
+              </div>
+              <div className="text-xs text-gray-500">
+                <span className="mr-4">Revision: 4</span>
+                <span>Effective: 1 August 2024</span>
+              </div>
+              <a href="https://www.cofreth.com.my/images/IMS_Policy-Revision_4.pdf" target="_blank" rel="noopener noreferrer"
+                className="ml-auto inline-flex items-center gap-2 border border-[#6BBD45]/40 text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white text-xs font-semibold px-4 py-2 rounded-full transition-all">
+                Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ISO Certificates */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Our Certificates</span>
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] mb-3">5× ISO Certified</h2>
+            <p className="text-gray-500 text-sm max-w-xl mx-auto">Independently audited by SIRIM QAS International Sdn. Bhd. — certified to the highest international standards across quality, environment, safety, energy and facility management.</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { code: 'ISO 9001:2015', label: 'Quality Management System', icon: '✓', color: '#3b82f6', issued: '27 Oct 2023', original: '09 Sep 1996', expiry: '08 Sep 2026', certNo: 'QMS 60260', pdf: 'https://www.cofreth.com.my/images/ISO_9001-2015_(QMS)(2023-2026).pdf', scope: 'Provision of Facilities Management and Energy Services; Provision of Green Building Assessment and Commissioning Services' },
+              { code: 'ISO 14001:2015', label: 'Environmental Management System', icon: '🌿', color: '#10b981', issued: '27 Oct 2023', original: '26 Mar 2010', expiry: '08 Sep 2026', certNo: 'EMS 00318', pdf: 'https://www.cofreth.com.my/images/ISO_14001-2015(EMS)(2023-2026).pdf', scope: 'Provision of Facilities Management and Energy Services' },
+              { code: 'ISO 41001:2018', label: 'Facility Management System', icon: '🏢', color: '#8b5cf6', issued: '17 Jan 2023', original: '04 Dec 2019', expiry: '03 Dec 2025', certNo: 'FMS10012', pdf: 'https://www.cofreth.com.my/images/ISO_41001-2018(FMS)(2023-2025).pdf', scope: 'Provision of Facility Management System for Integrated Facilities Management Services' },
+              { code: 'ISO 45001:2018', label: 'Occupational Health & Safety', icon: '🛡️', color: '#ef4444', issued: '27 Oct 2023', original: '19 May 2004', expiry: '09 Sep 2026', certNo: 'OHS 60242', pdf: 'https://www.cofreth.com.my/images/ISO_45001-2018(OHS)(2023-2026).pdf', scope: 'Provision of Facilities Management and Energy Services' },
+              { code: 'ISO 50001:2018', label: 'Energy Management System', icon: '⚡', color: '#f59e0b', issued: '25 Jun 2023', original: '08 Aug 2014', expiry: '07 Aug 2026', certNo: 'EnMS 60197', pdf: 'https://www.cofreth.com.my/images/ISO_50001-2018(EnMS)(2023-2026).pdf', scope: 'Operation and Maintenance of Cofreth HQ Building at USJ Sentral' },
+            ].map((cert) => (
+              <div key={cert.code} className="bg-white border border-gray-100 rounded-2xl p-6 hover:border-[#6BBD45]/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl" style={{ background: cert.color + '15' }}>{cert.icon}</div>
+                  <a href={cert.pdf} target="_blank" rel="noopener noreferrer"
+                    className="text-xs font-semibold text-[#6BBD45] hover:text-[#5aa838] border border-[#6BBD45]/30 hover:border-[#6BBD45] px-3 py-1.5 rounded-full transition-all">
+                    View PDF
+                  </a>
+                </div>
+                <div className="font-black text-[#1B3A2D] text-sm mb-0.5 group-hover:text-[#6BBD45] transition-colors">{cert.code}</div>
+                <div className="text-gray-500 text-xs font-semibold mb-3">{cert.label}</div>
+                <div className="text-xs text-gray-400 leading-relaxed mb-3 italic">Scope: {cert.scope}</div>
+                <div className="border-t border-gray-100 pt-3 grid grid-cols-2 gap-1 text-xs">
+                  <div><span className="text-gray-400">Cert No:</span> <span className="font-semibold text-gray-600">{cert.certNo}</span></div>
+                  <div><span className="text-gray-400">Issued:</span> <span className="font-semibold text-gray-600">{cert.issued}</span></div>
+                  <div><span className="text-gray-400">Original:</span> <span className="font-semibold text-gray-600">{cert.original}</span></div>
+                  <div><span className="text-gray-400">Expires:</span> <span className="font-semibold text-[#6BBD45]">{cert.expiry}</span></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Value & Ethics */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Our Value &amp; Ethics</span>
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] mb-3">6 Core Values</h2>
+            <p className="text-gray-500 text-sm max-w-xl mx-auto">We are committed to these values to foster relations of mutual respect with all our colleagues, customers, and other outside partners.</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { icon: '👥', title: 'Professionalism', color: '#3b82f6', desc: 'Highest standards of conduct, expertise and service delivery in everything we do — from frontline technicians to senior management.' },
+              { icon: '🤝', title: 'Partnership', color: '#6BBD45', desc: 'Building long-term, trust-based relationships with clients, vendors and strategic partners to achieve shared goals.' },
+              { icon: '🌟', title: 'Team Spirit', color: '#f59e0b', desc: 'Collaboration and camaraderie across all departments — we celebrate collective wins and support each other through challenges.' },
+              { icon: '💡', title: 'Value Creation', color: '#8b5cf6', desc: 'Every engagement is designed to create measurable, lasting value — for clients, for stakeholders, for the community.' },
+              { icon: '🌱', title: 'Respect For The Environment', color: '#10b981', desc: 'A genuine commitment to sustainability and responsible environmental stewardship, aligned with UN Sustainable Development Goals.' },
+              { icon: '⚖️', title: 'Ethics', color: '#ef4444', desc: 'Integrity, honesty and transparency guide every business decision — we comply fully with the Responsible Business Alliance Code of Conduct.' },
+            ].map((v, i) => (
+              <div key={v.title} className="group bg-white border border-gray-100 hover:border-[#6BBD45]/30 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4 transition-transform duration-300 group-hover:scale-110" style={{ background: v.color + '15' }}>{v.icon}</div>
+                <h3 className="font-black text-[#1B3A2D] mb-2 group-hover:text-[#6BBD45] transition-colors">{v.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sustainable Development */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Sustainability</span>
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] mb-3">Sustainable Development</h2>
+            <p className="text-gray-500 text-sm max-w-2xl mx-auto leading-relaxed">
+              Cofreth has made a firm commitment to the environment. The activities of the company take into account the objectives of sustainable development from the standpoint of ecological, economical, and social dimensions. Our Company Charter is aligned to the United Nation Sustainable Development Goals, and we continually advance our adoption of best practices in sustainability to increase value for all stakeholders.
+            </p>
+          </div>
+          <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+            <p className="text-center text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">Aligned to the UN 17 Sustainable Development Goals</p>
+            <div className="grid grid-cols-6 sm:grid-cols-9 gap-2">
+              {[
+                { n: 1, label: 'No Poverty', bg: '#e5243b' },
+                { n: 2, label: 'Zero Hunger', bg: '#dda63a' },
+                { n: 3, label: 'Good Health', bg: '#4c9f38' },
+                { n: 4, label: 'Quality Education', bg: '#c5192d' },
+                { n: 5, label: 'Gender Equality', bg: '#ff3a21' },
+                { n: 6, label: 'Clean Water', bg: '#26bde2' },
+                { n: 7, label: 'Clean Energy', bg: '#fcc30b' },
+                { n: 8, label: 'Decent Work', bg: '#a21942' },
+                { n: 9, label: 'Innovation', bg: '#fd6925' },
+                { n: 10, label: 'Reduced Inequalities', bg: '#dd1367' },
+                { n: 11, label: 'Sustainable Cities', bg: '#fd9d24' },
+                { n: 12, label: 'Responsible Consumption', bg: '#bf8b2e' },
+                { n: 13, label: 'Climate Action', bg: '#3f7e44' },
+                { n: 14, label: 'Life Below Water', bg: '#0a97d9' },
+                { n: 15, label: 'Life On Land', bg: '#56c02b' },
+                { n: 16, label: 'Peace & Justice', bg: '#00689d' },
+                { n: 17, label: 'Partnerships', bg: '#19486a' },
+              ].map(g => (
+                <div key={g.n} className="aspect-square rounded-lg flex flex-col items-center justify-center p-1 text-white hover:scale-110 transition-transform duration-200 cursor-default"
+                  style={{ background: g.bg }}>
+                  <span className="text-base font-black leading-none">{g.n}</span>
+                  <span className="text-[7px] text-center leading-tight mt-0.5 hidden sm:block">{g.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Corporate Themes */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Corporate Themes</span>
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] mb-3">Our Evolving Vision</h2>
+            <p className="text-gray-500 text-sm max-w-xl mx-auto">Each year, Cofreth adopts a corporate theme that reflects its strategic focus and aspirations — guiding the organisation's culture and direction.</p>
+          </div>
+          <div className="space-y-3">
+            {[
+              { years: '2018–2020', theme: 'Connect The Possibles, Connecting The Impossibles', highlight: true },
+              { years: '2015–2017', theme: 'We Never Stop: Believing. Synergizing. Delivering', highlight: false },
+              { years: '2012–2014', theme: 'Change, Innovate, Achieve', highlight: false },
+              { years: '2010–2011', theme: 'Right, Fast Actions: Key to Success', highlight: false },
+              { years: '2009', theme: 'Your Smiles, Our Pride', highlight: false },
+              { years: '2008', theme: 'Service Excellence, Our Forte', highlight: false },
+              { years: '2007', theme: 'We Add Value, We Value-Add', highlight: false },
+              { years: '2006', theme: 'Your Expectations, Our Commitment', highlight: false },
+              { years: '2005', theme: 'Delivering High Performance', highlight: false },
+            ].map((t) => (
+              <div key={t.years} className={`flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 rounded-2xl px-6 py-4 border transition-all ${t.highlight ? 'bg-[#1B3A2D] border-[#6BBD45]/30' : 'bg-gray-50 border-gray-100 hover:border-[#6BBD45]/20'}`}>
+                <span className={`text-xs font-black uppercase tracking-widest shrink-0 ${t.highlight ? 'text-[#6BBD45]' : 'text-gray-400'}`}>{t.years}</span>
+                <span className={`font-semibold text-sm italic ${t.highlight ? 'text-white' : 'text-[#1B3A2D]'}`}>"{t.theme}"</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CSR Section */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
