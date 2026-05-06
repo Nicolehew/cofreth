@@ -44,7 +44,7 @@ function Dropdown({
     <div
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
-      className="absolute top-full w-72 z-50 pt-2"
+      className="absolute top-full w-72 z-[300] pt-2"
       style={{ pointerEvents: isOpen ? 'auto' : 'none', right: 0 }}
     >
       <div
@@ -128,7 +128,7 @@ export default function Navbar() {
     : 'bg-[#1B3A2D]/70 backdrop-blur-sm py-4';
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-[200] transition-all duration-300 ${navBg}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
         <Link href="/" className="shrink-0">
           <Image

@@ -1,6 +1,8 @@
+import { AboutPageHero } from '@/components/about/AboutPageHero';
+
 export const metadata = {
   title: 'Our Philosophy | Cofreth (M) Sdn Bhd',
-  description: 'How Cofreth thinks and works — six guiding principles for safe, consistent, technology-driven facilities management.',
+  description: 'Six guiding principles that define every service Cofreth delivers.',
 };
 
 const principles = [
@@ -15,53 +17,36 @@ const principles = [
 export default function PhilosophyPage() {
   return (
     <>
-      {/* Hero */}
-      <div className="py-14 md:py-20 px-6 lg:px-10 xl:px-14 text-white relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #060e08 0%, #0F2419 50%, #060e08 100%)' }}>
-        <div className="absolute inset-0 opacity-[0.06]" style={{
-          backgroundImage: 'linear-gradient(#6BBD45 1px, transparent 1px), linear-gradient(90deg, #6BBD45 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }} />
-        <div className="relative max-w-3xl">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-0.5 bg-[#6BBD45]" />
-            <span className="text-[#6BBD45] text-xs font-bold tracking-widest uppercase">Our Philosophy</span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-black mb-4 leading-tight">
-            How We<br /><span className="text-[#6BBD45]">Think & Work</span>
-          </h1>
-          <p className="text-gray-300 text-base leading-relaxed">
-            Six guiding principles that define every service we deliver — from the smallest maintenance task to the largest energy performance contract.
-          </p>
-        </div>
-      </div>
+      <AboutPageHero
+        section="Our Philosophy"
+        title="How We Think & Work"
+        subtitle="Six guiding principles that define every service we deliver — from the smallest maintenance task to the largest energy performance contract."
+      />
 
-      {/* Principles */}
-      <div className="py-14 px-6 lg:px-10 xl:px-14 bg-white dark:bg-[#0d1117]">
-        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
+      <div className="py-12 px-6 lg:px-10 xl:px-14 bg-gray-50 dark:bg-[#0d1117]">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5 max-w-5xl">
           {principles.map(p => (
-            <div key={p.n} className="group bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 hover:border-[#6BBD45]/30 hover:bg-white dark:hover:bg-white/10 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
+            <div key={p.n} className="group bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 hover:border-[#6BBD45]/40 rounded-2xl p-6 hover:shadow-md transition-all duration-300">
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-3xl">{p.icon}</span>
-                <span className="text-xs font-black text-[#6BBD45] tracking-widest">{p.n}</span>
+                <span className="font-black text-[#6BBD45] tracking-widest" style={{ fontSize: '11px' }}>{p.n}</span>
               </div>
-              <h3 className="font-black text-[#1B3A2D] dark:text-white text-base mb-3 group-hover:text-[#6BBD45] transition-colors">{p.title}</h3>
-              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{p.desc}</p>
+              <h3 className="font-black text-[#1B3A2D] dark:text-white mb-3 group-hover:text-[#6BBD45] transition-colors" style={{ fontSize: '15px' }}>{p.title}</h3>
+              <p className="text-gray-500 dark:text-gray-400 leading-relaxed" style={{ fontSize: '13px' }}>{p.desc}</p>
             </div>
           ))}
         </div>
 
-        {/* Mission & Vision callout */}
-        <div className="mt-12 grid md:grid-cols-2 gap-5">
-          <div className="bg-gradient-to-br from-[#1B3A2D] to-[#0F2419] rounded-2xl p-8 text-white">
+        <div className="mt-10 grid md:grid-cols-2 gap-5 max-w-3xl">
+          <div className="bg-[#1B3A2D] rounded-2xl p-8 text-white">
             <div className="text-3xl mb-4">🎯</div>
-            <h3 className="font-black text-[#6BBD45] mb-3 text-lg">Our Mission</h3>
-            <p className="text-gray-300 text-sm leading-relaxed">To Be Recognised as the Leading Provider of Quality Services for Total Facilities Management and All Utilities.</p>
+            <h3 className="font-black text-[#6BBD45] mb-3" style={{ fontSize: '16px' }}>Our Mission</h3>
+            <p className="text-gray-300 leading-relaxed" style={{ fontSize: '14px' }}>To Be Recognised as the Leading Provider of Quality Services for Total Facilities Management and All Utilities.</p>
           </div>
-          <div className="bg-gradient-to-br from-[#1B3A2D] to-[#0F2419] rounded-2xl p-8 text-white">
+          <div className="bg-[#1B3A2D] rounded-2xl p-8 text-white">
             <div className="text-3xl mb-4">🌐</div>
-            <h3 className="font-black text-[#6BBD45] mb-3 text-lg">Our Vision</h3>
-            <p className="text-gray-300 text-sm leading-relaxed">To Be An International Service Provider in Facilities Management & Energy Services.</p>
+            <h3 className="font-black text-[#6BBD45] mb-3" style={{ fontSize: '16px' }}>Our Vision</h3>
+            <p className="text-gray-300 leading-relaxed" style={{ fontSize: '14px' }}>To Be An International Service Provider in Facilities Management & Energy Services.</p>
           </div>
         </div>
       </div>
