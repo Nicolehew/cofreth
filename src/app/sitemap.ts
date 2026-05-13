@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import news from '@/data/news';
 
 const BASE = 'https://www.cofreth.com.my';
 const NOW  = new Date();
@@ -32,6 +33,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/news`,       lastModified: NOW, changeFrequency: 'weekly',  priority: 0.80 },
     { url: `${BASE}/awards`,     lastModified: NOW, changeFrequency: 'monthly', priority: 0.75 },
     { url: `${BASE}/clientele`,  lastModified: NOW, changeFrequency: 'monthly', priority: 0.75 },
+
+    /* ── News articles ── */
+    ...news.map(a => ({
+      url:             `${BASE}/news/${a.slug}`,
+      lastModified:    new Date(a.isoDate),
+      changeFrequency: 'yearly' as const,
+      priority:        0.65,
+    })),
 
     /* ── Company ── */
     { url: `${BASE}/group`,      lastModified: NOW, changeFrequency: 'monthly', priority: 0.70 },

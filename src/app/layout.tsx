@@ -35,10 +35,10 @@ export const metadata: Metadata = {
     title:       'Cofreth (M) Sdn Bhd — Facilities Management & Energy Services Malaysia',
     description: "Malaysia's leading FM and Energy Services company since 1986. ISO certified, ESCO registered, 5× Frost & Sullivan Award winner.",
     images: [{
-      url:    '/projects/klia2.jpg',
+      url:    '/og-image.png',
       width:  1200,
       height: 630,
-      alt:    'KLIA2 — a Cofreth-managed landmark facility in Malaysia',
+      alt:    'Cofreth (M) Sdn Bhd — Facilities Management & Energy Services Malaysia',
     }],
   },
 
@@ -46,7 +46,15 @@ export const metadata: Metadata = {
     card:        'summary_large_image',
     title:       'Cofreth — FM & Energy Services Malaysia',
     description: "Malaysia's FM pioneer since 1986. ISO certified, ESCO registered.",
-    images:      ['/projects/klia2.jpg'],
+    images:      ['/og-image.png'],
+  },
+
+  icons: {
+    icon:  [
+      { url: '/favicon.ico',     sizes: 'any' },
+      { url: '/favicon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
 
   robots: {
