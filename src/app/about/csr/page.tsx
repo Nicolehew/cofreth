@@ -1,8 +1,11 @@
 import { AboutPageHero } from '@/components/about/AboutPageHero';
 
 export const metadata = {
-  title: 'Corporate Social Responsibility | Cofreth (M) Sdn Bhd',
-  description: "Cofreth's CSR initiatives — blood donation drives, Green Finger Day, orphanage support and UN SDG alignment.",
+  title: 'CSR — Community, Environment & Sustainable Development',
+  description:
+    "Cofreth CSR: annual 'Save a Life' blood donation drives, Green Finger Day (170 trees planted), orphanage support and alignment with all 17 UN Sustainable Development Goals.",
+  alternates: { canonical: '/about/csr' },
+  openGraph: { title: 'Corporate Social Responsibility | Cofreth Malaysia', url: 'https://www.cofreth.com.my/about/csr' },
 };
 
 const sdgs = [

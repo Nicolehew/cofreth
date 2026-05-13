@@ -30,5 +30,34 @@ const data = {
   ctaText: 'Explore Smart FM Technology for Your Facility',
 };
 
-export const metadata = { title: 'Smart Technology | Cofreth (M) Sdn Bhd' };
-export default function Page() { return (<><Navbar /><main><ServiceDetailPage {...data} /></main><Footer /></>); }
+import { JsonLd, breadcrumbSchema, serviceSchema } from '@/components/JsonLd';
+
+export const metadata = {
+  title: 'Smart FM Technology — ARCHIBUS, BIM & IoT Malaysia',
+  description:
+    'ARCHIBUS Total Infrastructure FM System, BIM implementation, IoT and cloud-based energy monitoring for smart buildings in Malaysia. Cofreth — technology-driven facilities management since 1986.',
+  alternates: { canonical: '/services/smart-technology' },
+  openGraph: {
+    title:       'Smart FM Technology — ARCHIBUS, BIM & IoT | Cofreth Malaysia',
+    description: 'ARCHIBUS TIFM, BIM and IoT smart building solutions from Malaysia\'s FM pioneer.',
+    url:         'https://www.cofreth.com.my/services/smart-technology',
+  },
+};
+
+export default function Page() {
+  return (
+    <>
+      <JsonLd data={breadcrumbSchema([
+        { name: 'Home',     url: 'https://www.cofreth.com.my' },
+        { name: 'Services', url: 'https://www.cofreth.com.my/services' },
+        { name: 'Smart Technology', url: 'https://www.cofreth.com.my/services/smart-technology' },
+      ])} />
+      <JsonLd data={serviceSchema(
+        'Smart FM Technology',
+        'ARCHIBUS Total Infrastructure FM System, BIM, IoT and cloud-based energy monitoring for intelligent facility management across Malaysia.',
+        'https://www.cofreth.com.my/services/smart-technology',
+      )} />
+      <Navbar /><main><ServiceDetailPage {...data} /></main><Footer />
+    </>
+  );
+}

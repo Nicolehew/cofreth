@@ -42,5 +42,34 @@ const data = {
   ctaText: 'Request an Energy Audit or Consultation',
 };
 
-export const metadata = { title: 'Energy Services | Cofreth (M) Sdn Bhd' };
-export default function Page() { return (<><Navbar /><main><ServiceDetailPage {...data} /></main><Footer /></>); }
+import { JsonLd, breadcrumbSchema, serviceSchema } from '@/components/JsonLd';
+
+export const metadata = {
+  title: 'Energy Services & ESCO Malaysia — Audits, EPC & CEEP',
+  description:
+    'Registered ESCO in Malaysia delivering energy audits, Energy Performance Contracting (EPC) and Capped & Guaranteed Energy Efficiency Performance (CEEP) contracts. Cofreth — first to win Malaysia\'s NEA 1st Prize.',
+  alternates: { canonical: '/services/energy-services' },
+  openGraph: {
+    title:       'Energy Services & ESCO Malaysia | Cofreth',
+    description: 'Energy audits, EPC and guaranteed savings from Malaysia\'s pioneering registered ESCO.',
+    url:         'https://www.cofreth.com.my/services/energy-services',
+  },
+};
+
+export default function Page() {
+  return (
+    <>
+      <JsonLd data={breadcrumbSchema([
+        { name: 'Home',     url: 'https://www.cofreth.com.my' },
+        { name: 'Services', url: 'https://www.cofreth.com.my/services' },
+        { name: 'Energy Services', url: 'https://www.cofreth.com.my/services/energy-services' },
+      ])} />
+      <JsonLd data={serviceSchema(
+        'Energy Services',
+        'Registered ESCO delivering energy audits, Energy Performance Contracting and Capped & Guaranteed Energy Efficiency Performance contracts across Malaysia.',
+        'https://www.cofreth.com.my/services/energy-services',
+      )} />
+      <Navbar /><main><ServiceDetailPage {...data} /></main><Footer />
+    </>
+  );
+}

@@ -3,8 +3,15 @@ import Link from 'next/link';
 import { AboutPageHero } from '@/components/about/AboutPageHero';
 
 export const metadata = {
-  title: 'About Cofreth | Cofreth (M) Sdn Bhd',
-  description: "Malaysia's FM Pioneer since 1986 — ISO certified, ESCO registered, 5× Frost & Sullivan award winner.",
+  title: 'About Cofreth — Malaysia\'s FM Pioneer Since 1986',
+  description:
+    "Cofreth (M) Sdn Bhd — established 1986, Malaysia's first ISO-certified FM company, registered ESCO, 5× Frost & Sullivan Award winner. Serving airports, data centres, universities and government buildings.",
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title:       'About Cofreth | Malaysia\'s FM Pioneer Since 1986',
+    description: 'Established 1986. First ISO-certified FM company in Malaysia. Registered ESCO. 5× Frost & Sullivan Award.',
+    url:         'https://www.cofreth.com.my/about',
+  },
 };
 
 export default function AboutPage() {

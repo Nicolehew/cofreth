@@ -36,5 +36,34 @@ const data = {
   ctaText: 'Discuss Your Green Building Goals',
 };
 
-export const metadata = { title: 'Green Expertise | Cofreth (M) Sdn Bhd' };
-export default function Page() { return (<><Navbar /><main><ServiceDetailPage {...data} /></main><Footer /></>); }
+import { JsonLd, breadcrumbSchema, serviceSchema } from '@/components/JsonLd';
+
+export const metadata = {
+  title: 'Green Building Expertise & GBI Consultancy Malaysia',
+  description:
+    'GBI accredited green building consultancy, green commissioning, solar PV and renewable energy solutions in Malaysia. Cofreth helps organisations achieve sustainability certifications and reduce carbon footprint.',
+  alternates: { canonical: '/services/green-expertise' },
+  openGraph: {
+    title:       'Green Building & GBI Consultancy Malaysia | Cofreth',
+    description: 'GBI accredited, solar PV, renewables and green commissioning from Malaysia\'s FM pioneer.',
+    url:         'https://www.cofreth.com.my/services/green-expertise',
+  },
+};
+
+export default function Page() {
+  return (
+    <>
+      <JsonLd data={breadcrumbSchema([
+        { name: 'Home',     url: 'https://www.cofreth.com.my' },
+        { name: 'Services', url: 'https://www.cofreth.com.my/services' },
+        { name: 'Green Expertise', url: 'https://www.cofreth.com.my/services/green-expertise' },
+      ])} />
+      <JsonLd data={serviceSchema(
+        'Green Building Expertise',
+        'GBI accredited green building consultancy, green commissioning, solar PV and renewable energy solutions across Malaysia.',
+        'https://www.cofreth.com.my/services/green-expertise',
+      )} />
+      <Navbar /><main><ServiceDetailPage {...data} /></main><Footer />
+    </>
+  );
+}

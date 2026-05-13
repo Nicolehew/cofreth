@@ -36,5 +36,34 @@ const data = {
   ctaText: 'Request a Facilities Management Consultation',
 };
 
-export const metadata = { title: 'Facilities Management | Cofreth (M) Sdn Bhd' };
-export default function Page() { return (<><Navbar /><main><ServiceDetailPage {...data} /></main><Footer /></>); }
+import { JsonLd, breadcrumbSchema, serviceSchema } from '@/components/JsonLd';
+
+export const metadata = {
+  title: 'Facilities Management Services Malaysia',
+  description:
+    'Comprehensive Facilities Management in Malaysia — Total FM, Operations & Maintenance, Technical Due Diligence and FM Consultancy. 38+ years experience. ISO certified. Call Cofreth today.',
+  alternates: { canonical: '/services/facilities-management' },
+  openGraph: {
+    title:       'Facilities Management Services Malaysia | Cofreth',
+    description: 'Total FM, O&M, Technical Due Diligence and Consultancy. Malaysia\'s FM pioneer since 1986.',
+    url:         'https://www.cofreth.com.my/services/facilities-management',
+  },
+};
+
+export default function Page() {
+  return (
+    <>
+      <JsonLd data={breadcrumbSchema([
+        { name: 'Home',     url: 'https://www.cofreth.com.my' },
+        { name: 'Services', url: 'https://www.cofreth.com.my/services' },
+        { name: 'Facilities Management', url: 'https://www.cofreth.com.my/services/facilities-management' },
+      ])} />
+      <JsonLd data={serviceSchema(
+        'Facilities Management',
+        'Comprehensive integrated Facilities Management — Total FM, O&M, Technical Due Diligence and FM Consultancy across Malaysia.',
+        'https://www.cofreth.com.my/services/facilities-management',
+      )} />
+      <Navbar /><main><ServiceDetailPage {...data} /></main><Footer />
+    </>
+  );
+}

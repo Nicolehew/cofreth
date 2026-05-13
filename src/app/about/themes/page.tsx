@@ -3,8 +3,11 @@ import Link from 'next/link';
 import { AboutPageHero } from '@/components/about/AboutPageHero';
 
 export const metadata = {
-  title: 'Corporate Themes | Cofreth (M) Sdn Bhd',
-  description: "Cofreth's annual corporate themes from 2005 to present.",
+  title: 'Corporate Themes — Cofreth\'s Annual Strategic Vision',
+  description:
+    "Cofreth's corporate themes from 2005 to 2020 — from 'Delivering High Performance' to 'Connect The Possibles' — reflecting the company's evolving culture and strategic direction.",
+  alternates: { canonical: '/about/themes' },
+  openGraph: { title: 'Corporate Themes | Cofreth Malaysia', url: 'https://www.cofreth.com.my/about/themes' },
 };
 
 const themes = [

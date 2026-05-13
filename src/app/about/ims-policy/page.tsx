@@ -1,8 +1,11 @@
 import { AboutPageHero } from '@/components/about/AboutPageHero';
 
 export const metadata = {
-  title: 'Our IMS Policy | Cofreth (M) Sdn Bhd',
-  description: 'Cofreth Integrated Management System Policy — 9 commitments covering quality, OHS, environmental, energy and facility management.',
+  title: 'IMS Policy — Integrated Quality, Safety & Environmental',
+  description:
+    'Cofreth\'s Integrated Management System Policy (Revision 4, 2024) — 9 commitments unifying ISO 9001, 14001, 45001, 50001 and 41001 quality, safety, environmental, energy and facility management.',
+  alternates: { canonical: '/about/ims-policy' },
+  openGraph: { title: 'IMS Policy | Cofreth Malaysia', url: 'https://www.cofreth.com.my/about/ims-policy' },
 };
 
 const commitments = [
