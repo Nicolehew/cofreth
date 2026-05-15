@@ -4,31 +4,31 @@ import Link from 'next/link';
 import { Building2, Zap, Leaf, Cpu, Play } from 'lucide-react';
 
 /**
- * Each slide has its own YouTube background video (no-copyright cinematic footage).
- * To swap a video: replace the `ytId` with any YouTube video ID.
- * Videos are muted + looped + autoplay via YouTube embed params.
+ * Each slide has a high-resolution Unsplash building/FM photo.
+ * No iframes, no YouTube controls, no autoplay issues.
+ * Subtle Ken Burns (zoom) CSS animation creates the motion effect.
  */
 const slides = [
   {
-    ytId:   'c-y7qQai14Y', // Construction site timelapse 4K — buildings going up
+    bg: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1920&q=90',
     lines:  ['Built Environment', 'Adds'],
     accent: 'CONFIDENCE',
     sub:    'Over 38 years of trusted facility management excellence across Malaysia.',
   },
   {
-    ytId:   'rMA-ic0jHdY', // Royalty-free construction workers on site HD
+    bg: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=90',
     lines:  ['Total Facility', 'Management'],
     accent: 'Solutions',
     sub:    'Comprehensive, technology-driven FM services for every sector.',
   },
   {
-    ytId:   'Yvx6hMAk8fc', // Facilities Management Building Operations & Maintenance
+    bg: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=90',
     lines:  ['We LOWER Your', 'Total Cost of'],
     accent: 'Ownership',
     sub:    'Guaranteed, measurable savings through science-based energy programs.',
   },
   {
-    ytId:   'uUALysiJ49U', // Facility Management — The Hidden Force Behind Every Building
+    bg: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1920&q=90',
     lines:  ['Green Building', 'Is Our'],
     accent: 'Business',
     sub:    'GBI accredited, ESCO registered, future-ready sustainable FM.',
@@ -97,40 +97,24 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden bg-[#060e08]">
 
-      {/* ── Static fallback (always present under videos) ── */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: 'url(/projects/klia2.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 30%',
-          zIndex: 0,
-        }}
-      />
-
-      {/* ── All 4 video backgrounds rendered simultaneously → smooth crossfade ── */}
+      {/* ── All 4 photo backgrounds — smooth crossfade ── */}
       {slides.map((s, i) => (
         <div
-          key={s.ytId}
-          className="absolute inset-0 overflow-hidden"
+          key={s.bg}
+          className="absolute inset-0"
           style={{
             opacity: i === index ? 1 : 0,
             transition: 'opacity 1.8s ease-in-out',
             zIndex: 1,
           }}
         >
-          <iframe
-            src={`https://www.youtube.com/embed/${s.ytId}?autoplay=1&mute=1&loop=1&playlist=${s.ytId}&controls=0&rel=0&playsinline=1&modestbranding=1&iv_load_policy=3&showinfo=0&disablekb=1&start=1&vq=hd1080`}
-            allow="autoplay; encrypted-media"
-            className="absolute border-0 pointer-events-none"
-            title={`Slide ${i + 1} background`}
+          <div
+            className="absolute inset-0"
             style={{
-              top: '50%', left: '50%',
-              width: '177.78vh',
-              height: '56.25vw',
-              minWidth: '100%',
-              minHeight: '100%',
-              transform: 'translate(-50%, -50%)',
+              backgroundImage: `url(${s.bg})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              animation: i === index ? 'kenBurns 12s ease-in-out forwards' : 'none',
             }}
           />
         </div>
@@ -281,6 +265,10 @@ export default function Hero() {
         @keyframes fadeUp {
           from { transform: translateY(18px); opacity: 0; }
           to   { transform: translateY(0);    opacity: 1; }
+        }
+        @keyframes kenBurns {
+          from { transform: scale(1.0)   translate(0, 0); }
+          to   { transform: scale(1.08)  translate(-1%, -1%); }
         }
       `}</style>
     </section>
