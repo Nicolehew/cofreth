@@ -97,44 +97,53 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden bg-[#060e08]">
 
-      {/* ── YouTube video background — remounts on slide change to load new video ── */}
-      <div key={`bg-${index}`} className="absolute inset-0 overflow-hidden" style={{ zIndex: 0 }}>
-        {/* Static fallback shown while YouTube loads / on mobile */}
+      {/* ── Static fallback (always present under videos) ── */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: 'url(/projects/klia2.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 30%',
+          zIndex: 0,
+        }}
+      />
+
+      {/* ── All 4 video backgrounds rendered simultaneously → smooth crossfade ── */}
+      {slides.map((s, i) => (
         <div
-          className="absolute inset-0 transition-opacity duration-1000"
+          key={s.ytId}
+          className="absolute inset-0 overflow-hidden"
           style={{
-            backgroundImage: 'url(/projects/klia2.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center 30%',
+            opacity: i === index ? 1 : 0,
+            transition: 'opacity 1.8s ease-in-out',
+            zIndex: 1,
           }}
-        />
-        {/* YouTube iframe — fills viewport at 16:9 regardless of screen size */}
-        <iframe
-          src={`https://www.youtube.com/embed/${slide.ytId}?autoplay=1&mute=1&loop=1&playlist=${slide.ytId}&controls=0&rel=0&playsinline=1&modestbranding=1&iv_load_policy=3&showinfo=0&disablekb=1`}
-          allow="autoplay; encrypted-media"
-          className="absolute border-0 pointer-events-none"
-          title={`Background video ${index + 1}`}
-          style={{
-            top: '50%',
-            left: '50%',
-            /* Always fill the viewport — wider dimension determines size */
-            width: '177.78vh',   /* 16:9 at 100vh */
-            height: '56.25vw',   /* 16:9 at 100vw */
-            minWidth: '100%',
-            minHeight: '100%',
-            transform: 'translate(-50%, -50%)',
-          }}
-        />
-      </div>
+        >
+          <iframe
+            src={`https://www.youtube.com/embed/${s.ytId}?autoplay=1&mute=1&loop=1&playlist=${s.ytId}&controls=0&rel=0&playsinline=1&modestbranding=1&iv_load_policy=3&showinfo=0&disablekb=1`}
+            allow="autoplay; encrypted-media"
+            className="absolute border-0 pointer-events-none"
+            title={`Slide ${i + 1} background`}
+            style={{
+              top: '50%', left: '50%',
+              width: '177.78vh',
+              height: '56.25vw',
+              minWidth: '100%',
+              minHeight: '100%',
+              transform: 'translate(-50%, -50%)',
+            }}
+          />
+        </div>
+      ))}
 
       {/* ── Overlays for text legibility ── */}
       <div className="absolute inset-0 pointer-events-none" style={{
         background: 'linear-gradient(to right, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 52%, rgba(0,0,0,0.08) 100%)',
-        zIndex: 1,
+        zIndex: 2,
       }} />
       <div className="absolute inset-0 pointer-events-none" style={{
         background: 'linear-gradient(to top, rgba(0,0,0,0.60) 0%, transparent 42%)',
-        zIndex: 1,
+        zIndex: 2,
       }} />
 
       {/* ── Main content — bottom-left pinned ── */}

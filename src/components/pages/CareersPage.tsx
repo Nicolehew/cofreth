@@ -70,6 +70,7 @@ export default function CareersPage() {
   return (
     <>
       <PageHero
+        ytId="uUALysiJ49U"
         eyebrow="Join Our Team"
         eyebrowSub="We're hiring — Subang Jaya & nationwide"
         title={<>Build Your Career<br /><span className="text-[#6BBD45]">With Cofreth</span></>}
@@ -81,6 +82,57 @@ export default function CareersPage() {
           { num: '5',   label: 'ISO Certifications' },
         ]}
       />
+
+      {/* ── Life at Cofreth — human photos ── */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Life at Cofreth</span>
+              <div className="w-8 h-0.5 bg-[#6BBD45]" />
+            </div>
+            <h2 className="text-3xl font-black text-[#1B3A2D]">Real People. Real Work.</h2>
+          </div>
+          {/* Asymmetric photo grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3">
+            <div className="col-span-2 row-span-2 rounded-2xl overflow-hidden h-72 md:h-auto">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80"
+                alt="Engineer inspecting building systems" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+            <div className="rounded-2xl overflow-hidden h-36">
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80"
+                alt="Technician at work" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+            <div className="rounded-2xl overflow-hidden h-36">
+              <img src="https://images.unsplash.com/photo-1521737604082-14b2d77a0c0b?auto=format&fit=crop&w=600&q=80"
+                alt="Team meeting" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+            <div className="rounded-2xl overflow-hidden h-36">
+              <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&q=80"
+                alt="Building engineer" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+            <div className="rounded-2xl overflow-hidden h-36">
+              <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80"
+                alt="Professionals collaborating" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-3">
+            <div className="rounded-2xl overflow-hidden h-40">
+              <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=600&q=80"
+                alt="Modern facility" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+            <div className="rounded-2xl overflow-hidden h-40">
+              <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=600&q=80"
+                alt="Office environment" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+            <div className="rounded-2xl overflow-hidden h-40">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80"
+                alt="Professional workspace" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ── Why Cofreth ── */}
       <section className="py-20 bg-white dark:bg-[#0F2419]">
