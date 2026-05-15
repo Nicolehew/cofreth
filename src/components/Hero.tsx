@@ -22,13 +22,13 @@ const slides = [
     sub:    'Comprehensive, technology-driven FM services for every sector.',
   },
   {
-    ytId:   '4X23LHu0IpY', // Office work & professionals — HD no copyright
+    ytId:   'Yvx6hMAk8fc', // Facilities Management Building Operations & Maintenance
     lines:  ['We LOWER Your', 'Total Cost of'],
     accent: 'Ownership',
     sub:    'Guaranteed, measurable savings through science-based energy programs.',
   },
   {
-    ytId:   'AHJVDFop9sU', // Workspace, technology, office meeting — free HD
+    ytId:   'uUALysiJ49U', // Facility Management — The Hidden Force Behind Every Building
     lines:  ['Green Building', 'Is Our'],
     accent: 'Business',
     sub:    'GBI accredited, ESCO registered, future-ready sustainable FM.',
