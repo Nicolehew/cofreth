@@ -101,22 +101,22 @@ export default function Hero() {
         }}
       />
 
-      {/* Left-bottom gradient for text legibility */}
+      {/* Centre vignette — keeps photo bright, only darkens edges + bottom */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.10) 100%)',
+        background: 'radial-gradient(ellipse 80% 80% at 50% 40%, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.55) 100%)',
         zIndex: 1,
       }} />
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 45%)',
+        background: 'linear-gradient(to top, rgba(0,0,0,0.70) 0%, transparent 42%)',
         zIndex: 1,
       }} />
 
-      {/* ── Main content — bottom-left pinned ── */}
-      <div className="relative flex-1 flex flex-col justify-end px-8 md:px-14 pb-32 md:pb-36" style={{ zIndex: 2 }}>
-        <div className="max-w-4xl">
+      {/* ── Main content — centred ── */}
+      <div className="relative flex-1 flex flex-col justify-center items-center px-8 md:px-14 pb-24 pt-8 text-center" style={{ zIndex: 2 }}>
+        <div className="max-w-5xl w-full">
 
           {/* Eyebrow badge */}
-          <FadeIn delay={0.1} className="mb-5">
+          <FadeIn delay={0.1} className="mb-5 flex justify-center">
             <span className="inline-flex items-center gap-2 text-[#6BBD45] font-bold tracking-widest uppercase"
               style={{ fontSize: '13px' }}>
               <span className="w-2 h-2 bg-[#6BBD45] rounded-full animate-pulse" />
@@ -124,15 +124,15 @@ export default function Hero() {
             </span>
           </FadeIn>
 
-          {/* Heading — word-by-word per line */}
+          {/* Heading — word-by-word per line, centred */}
           <h1 key={`h-${index}`} className="font-black text-white leading-[0.95] mb-6"
             style={{ fontSize: 'clamp(3.2rem, 7.5vw, 6.5rem)', letterSpacing: '-0.02em' }}>
             {slide.lines.map((line, li) => (
-              <span key={li} className="block">
+              <span key={li} className="block text-center">
                 <AnimWords text={line} delay={li * 0.18} />
               </span>
             ))}
-            <span className="block">
+            <span className="block text-center">
               <AnimWords
                 text={slide.accent}
                 delay={slide.lines.length * 0.18}
@@ -141,10 +141,10 @@ export default function Hero() {
             </span>
           </h1>
 
-          {/* Subtitle + CTA in one row */}
-          <div key={`s-${index}`} className="flex flex-col sm:flex-row sm:items-end gap-6 sm:gap-10">
+          {/* Subtitle + CTA — stacked centred */}
+          <div key={`s-${index}`} className="flex flex-col items-center gap-6">
             <p
-              className="text-white/80 leading-relaxed max-w-md"
+              className="text-white/80 leading-relaxed max-w-lg"
               style={{
                 fontSize: '17px',
                 animation: 'fadeUp 0.6s ease forwards',
@@ -156,7 +156,7 @@ export default function Hero() {
             </p>
 
             <div
-              className="flex gap-3 shrink-0"
+              className="flex gap-3"
               style={{
                 animation: 'fadeUp 0.6s ease forwards',
                 animationDelay: `${(slide.lines.length + 1) * 0.18 + 0.25}s`,

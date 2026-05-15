@@ -136,10 +136,10 @@ export default function ProcessesContent() {
       </section>
 
       {/* ── PDCA Cycle ── */}
-      <section className="py-16 px-6 lg:px-10 xl:px-14" style={{ background: 'linear-gradient(135deg, #0a1208 0%, #0F2419 60%, #0a1208 100%)' }}>
+      <section className="py-16 px-6 lg:px-10 xl:px-14 bg-white dark:bg-[#0d1117] border-t border-gray-100 dark:border-gray-800">
         <div className="flex items-center gap-3 mb-12">
           <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
-          <span className="font-black text-[#6BBD45] uppercase tracking-widest" style={{ fontSize: '12px' }}>
+          <span className="font-black text-[#1B3A2D] dark:text-[#6BBD45] uppercase tracking-widest" style={{ fontSize: '12px' }}>
             PDCA — Our Continuous Improvement Engine
           </span>
         </div>
@@ -147,23 +147,22 @@ export default function ProcessesContent() {
         <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
           {pdcaSteps.map((s, i) => (
             <div key={s.word} className="relative">
-              {/* Step number connector */}
               {i < pdcaSteps.length - 1 && (
-                <div className="hidden xl:block absolute top-8 left-full w-6 border-t-2 border-dashed border-white/10 z-10" />
+                <div className="hidden xl:block absolute top-8 left-full w-6 border-t-2 border-dashed border-gray-200 dark:border-white/10 z-10" />
               )}
-              <div className="bg-white/5 border border-white/10 hover:border-[#6BBD45]/40 rounded-2xl p-6 transition-all duration-300 hover:bg-white/8 h-full">
+              <div className="bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 hover:border-[#6BBD45]/40 rounded-2xl p-6 transition-all duration-300 hover:shadow-md h-full">
                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center font-black text-white mb-5 shrink-0"
                   style={{ background: s.color, fontSize: '22px' }}>
                   {s.letter}
                 </div>
-                <div className="font-black text-white mb-2" style={{ fontSize: '18px' }}>{s.word}</div>
-                <p className="text-gray-400 leading-relaxed" style={{ fontSize: '13px' }}>{s.desc}</p>
+                <div className="font-black text-[#1B3A2D] dark:text-white mb-2" style={{ fontSize: '18px' }}>{s.word}</div>
+                <p className="text-gray-500 dark:text-gray-400 leading-relaxed" style={{ fontSize: '13px' }}>{s.desc}</p>
               </div>
             </div>
           ))}
         </div>
 
-        <p className="text-center text-gray-500 mt-10" style={{ fontSize: '12px' }}>
+        <p className="text-center text-gray-400 mt-10" style={{ fontSize: '12px' }}>
           The PDCA cycle governs every Cofreth service contract — from FM maintenance scheduling to energy performance monitoring.
         </p>
       </section>
@@ -249,7 +248,7 @@ function CertCard({ cert, onView }: { cert: typeof certs[0]; onView: () => void 
             style={{ background: `color-mix(in srgb, ${cert.color} 15%, transparent)` }}>
             <Icon size={22} style={{ color: cert.color }} />
           </div>
-          <span className="text-gray-300 dark:text-gray-600 font-mono font-bold" style={{ fontSize: '11px' }}>
+          <span className="text-gray-400 dark:text-gray-500 font-mono font-bold" style={{ fontSize: '11px' }}>
             SIRIM QAS
           </span>
         </div>
@@ -279,7 +278,7 @@ function CertCard({ cert, onView }: { cert: typeof certs[0]; onView: () => void 
               <Eye size={13} /> View Certificate
             </button>
           ) : (
-            <span className="text-gray-300 dark:text-gray-600 italic" style={{ fontSize: '12px' }}>
+            <span className="text-gray-400 dark:text-gray-500 italic" style={{ fontSize: '12px' }}>
               Available on request
             </span>
           )}
