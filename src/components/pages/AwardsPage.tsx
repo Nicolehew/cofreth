@@ -165,7 +165,7 @@ export default function AwardsPage() {
   return (
     <>
       <PageHero
-        ytId="8mBklukeSNc"
+        ytId="PEUIqPFXPRg"
         eyebrow="Recognition & Excellence"
         eyebrowSub="National · ASEAN · International"
         title={<>Awards &amp;<br /><span className="text-[#6BBD45]">Recognition</span></>}

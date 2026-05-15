@@ -10,25 +10,25 @@ import { Building2, Zap, Leaf, Cpu, Play } from 'lucide-react';
  */
 const slides = [
   {
-    ytId:   'vCI2kmFJD_w', // City drone aerial — no copyright
+    ytId:   'ToF4c00sccE', // Workers & construction site — buildings + people
     lines:  ['Built Environment', 'Adds'],
     accent: 'CONFIDENCE',
     sub:    'Over 38 years of trusted facility management excellence across Malaysia.',
   },
   {
-    ytId:   'j-3nl88O7uI', // 4K drone aerial buildings — royalty free
+    ytId:   'O9F4rXp1Ogc', // Construction & building stock footage — HD no copyright
     lines:  ['Total Facility', 'Management'],
     accent: 'Solutions',
     sub:    'Comprehensive, technology-driven FM services for every sector.',
   },
   {
-    ytId:   '8mBklukeSNc', // Urban skyline drone — no copyright
+    ytId:   '4X23LHu0IpY', // Office work & professionals — HD no copyright
     lines:  ['We LOWER Your', 'Total Cost of'],
     accent: 'Ownership',
     sub:    'Guaranteed, measurable savings through science-based energy programs.',
   },
   {
-    ytId:   'MRl-thEidDY', // City buildings drone — royalty free
+    ytId:   'AHJVDFop9sU', // Workspace, technology, office meeting — free HD
     lines:  ['Green Building', 'Is Our'],
     accent: 'Business',
     sub:    'GBI accredited, ESCO registered, future-ready sustainable FM.',
