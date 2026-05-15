@@ -10,13 +10,13 @@ import { Building2, Zap, Leaf, Cpu, Play } from 'lucide-react';
  */
 const slides = [
   {
-    ytId:   'ToF4c00sccE', // Workers & construction site — buildings + people
+    ytId:   'c-y7qQai14Y', // Construction site timelapse 4K — buildings going up
     lines:  ['Built Environment', 'Adds'],
     accent: 'CONFIDENCE',
     sub:    'Over 38 years of trusted facility management excellence across Malaysia.',
   },
   {
-    ytId:   'O9F4rXp1Ogc', // Construction & building stock footage — HD no copyright
+    ytId:   'rMA-ic0jHdY', // Royalty-free construction workers on site HD
     lines:  ['Total Facility', 'Management'],
     accent: 'Solutions',
     sub:    'Comprehensive, technology-driven FM services for every sector.',
@@ -120,7 +120,7 @@ export default function Hero() {
           }}
         >
           <iframe
-            src={`https://www.youtube.com/embed/${s.ytId}?autoplay=1&mute=1&loop=1&playlist=${s.ytId}&controls=0&rel=0&playsinline=1&modestbranding=1&iv_load_policy=3&showinfo=0&disablekb=1`}
+            src={`https://www.youtube.com/embed/${s.ytId}?autoplay=1&mute=1&loop=1&playlist=${s.ytId}&controls=0&rel=0&playsinline=1&modestbranding=1&iv_load_policy=3&showinfo=0&disablekb=1&start=1&vq=hd1080`}
             allow="autoplay; encrypted-media"
             className="absolute border-0 pointer-events-none"
             title={`Slide ${i + 1} background`}
@@ -136,13 +136,20 @@ export default function Hero() {
         </div>
       ))}
 
-      {/* ── Overlays for text legibility ── */}
+      {/* ── Overlays: uniform base + directional ── */}
+      {/* Full-coverage base overlay — blocks YouTube UI everywhere */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'linear-gradient(to right, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 52%, rgba(0,0,0,0.08) 100%)',
+        background: 'rgba(0,0,0,0.42)',
         zIndex: 2,
       }} />
+      {/* Left-heavy gradient for text legibility */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'linear-gradient(to top, rgba(0,0,0,0.60) 0%, transparent 42%)',
+        background: 'linear-gradient(to right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.10) 55%, rgba(0,0,0,0) 100%)',
+        zIndex: 2,
+      }} />
+      {/* Bottom gradient for strip legibility */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 40%)',
         zIndex: 2,
       }} />
 
