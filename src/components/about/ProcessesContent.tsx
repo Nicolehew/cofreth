@@ -91,13 +91,13 @@ function PdfModal({ url, title, onClose }: { url: string; title: string; onClose
           <X size={15} /> Close
         </button>
       </div>
-      {/* iframe viewer */}
+      {/* iframe viewer — Google Docs embeds the PDF so X-Frame-Options on the source is bypassed */}
       <div className="flex-1 overflow-hidden">
         <iframe
-          src={`${url}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
+          src={`https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true`}
           className="w-full h-full border-0"
           title={title}
-          sandbox="allow-scripts allow-same-origin"
+          allow="autoplay"
         />
       </div>
     </div>

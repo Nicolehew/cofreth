@@ -15,10 +15,10 @@ export default function PageHero({ eyebrow, eyebrowSub, title, subtitle, stats }
   const reveal = useScrollReveal();
 
   return (
-    <div className="relative overflow-hidden bg-white dark:bg-[#0d1117] border-b border-gray-100 dark:border-gray-800 pt-24 md:pt-32">
-      {/* Subtle dot grid */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
-        style={{ backgroundImage: 'radial-gradient(#1B3A2D 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+    <div className="relative overflow-hidden bg-green-50 dark:bg-[#0d1117] border-b border-gray-100 dark:border-gray-800 pt-24 md:pt-32">
+      {/* Dot grid */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.08] dark:opacity-[0.05]"
+        style={{ backgroundImage: 'radial-gradient(#6BBD45 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
       {/* Green left accent bar */}
       <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#6BBD45]" />
 

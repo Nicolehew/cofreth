@@ -83,25 +83,54 @@ export default function NewsPage() {
 
   return (
     <>
-      {/* Hero */}
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a1208 0%, #0F2419 50%, #0a1208 100%)' }}>
-        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'linear-gradient(#6BBD45 1px, transparent 1px), linear-gradient(90deg, #6BBD45 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-        <div className="absolute top-10 right-1/4 w-80 h-80 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(107,189,69,0.12) 0%, transparent 70%)' }} />
-        <div className="absolute bottom-0 left-1/3 w-64 h-64 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(107,189,69,0.08) 0%, transparent 70%)' }} />
+      {/* Hero — light editorial style */}
+      <div className="relative overflow-hidden bg-green-50 dark:bg-[#0d1117] border-b border-gray-100 dark:border-gray-800 pt-24 md:pt-32">
+        {/* Subtle dot grid */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.035] dark:opacity-[0.06]"
+          style={{ backgroundImage: 'radial-gradient(#1B3A2D 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+        {/* Green left accent bar */}
+        <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#6BBD45]" />
 
-        <div ref={hero.ref} className="max-w-5xl mx-auto px-6 text-center transition-all duration-700"
-          style={{ opacity: hero.visible ? 1 : 0, transform: hero.visible ? 'none' : 'translateY(30px)' }}>
-          <div className="flex items-center justify-center gap-3 mb-5">
-            <div className="w-10 h-px bg-[#6BBD45]" />
-            <span className="text-[#6BBD45] font-bold tracking-widest uppercase" style={{ fontSize: '13px' }}>News & Events</span>
-            <div className="w-10 h-px bg-[#6BBD45]" />
+        <div ref={hero.ref} className="max-w-6xl mx-auto px-6 md:px-12 transition-all duration-700"
+          style={{ opacity: hero.visible ? 1 : 0, transform: hero.visible ? 'none' : 'translateY(24px)' }}>
+
+          {/* Eyebrow */}
+          <div className="flex items-center gap-2 mb-5">
+            <span className="bg-[#6BBD45]/10 dark:bg-[#6BBD45]/20 text-[#6BBD45] font-bold px-3 py-1 rounded-full uppercase tracking-widest" style={{ fontSize: '11px' }}>
+              News &amp; Events
+            </span>
+            <span className="text-gray-300 dark:text-gray-600" style={{ fontSize: '11px' }}>·</span>
+            <span className="text-gray-400 dark:text-gray-500 font-medium" style={{ fontSize: '12px' }}>Est. 1986 · Malaysia's FM Pioneer</span>
           </div>
-          <h1 className="font-black mb-6 leading-tight" style={{ fontSize: 'clamp(2.2rem, 6vw, 3.75rem)' }}>
-            Awards, Milestones &<br /><span className="text-[#6BBD45]">Industry Recognition</span>
+
+          {/* Main heading */}
+          <h1 className="font-black text-[#1B3A2D] dark:text-white leading-none mb-5"
+            style={{ fontSize: 'clamp(2.6rem, 6vw, 4.5rem)', letterSpacing: '-0.02em' }}>
+            Awards,<br />
+            <span className="text-[#6BBD45]">Milestones</span> &amp;<br />
+            Recognition
           </h1>
-          <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed" style={{ fontSize: '17px' }}>
-            Over 38 years, Cofreth has earned recognition from Malaysia's and ASEAN's most prestigious bodies — from national energy awards to Frost & Sullivan excellence recognitions.
+
+          <p className="text-gray-500 dark:text-gray-400 max-w-xl leading-relaxed mb-10" style={{ fontSize: '16px' }}>
+            Over 38 years, Cofreth has earned recognition from Malaysia's and ASEAN's most prestigious bodies — national energy awards, ASEAN accolades, and Frost &amp; Sullivan excellence recognitions.
           </p>
+
+          {/* Stats strip */}
+          <div className="flex flex-wrap gap-0 border-t border-gray-100 dark:border-gray-800">
+            {[
+              { num: '5×',  label: 'Frost & Sullivan Award' },
+              { num: '2×',  label: 'ASEAN Energy Award' },
+              { num: 'NEA', label: 'EPC Champion 2021' },
+              { num: '38+', label: 'Years of Excellence' },
+            ].map((s, i) => (
+              <div key={s.label}
+                className="flex-1 min-w-[120px] py-5 pr-8 border-r border-gray-100 dark:border-gray-800 last:border-r-0"
+                style={{ borderLeft: i === 0 ? 'none' : undefined }}>
+                <div className="font-black text-[#1B3A2D] dark:text-white mb-0.5" style={{ fontSize: '22px' }}>{s.num}</div>
+                <div className="text-gray-400 dark:text-gray-500 font-medium" style={{ fontSize: '12px' }}>{s.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

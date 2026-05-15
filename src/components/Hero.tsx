@@ -64,9 +64,9 @@ export default function Hero() {
         zIndex: 0,
       }} />
 
-      {/* Dark dramatic overlay — YTL-style deep depth */}
+      {/* Overlay — lightened so photo reads clearly */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'linear-gradient(160deg, rgba(4,10,6,0.87) 0%, rgba(10,30,18,0.78) 45%, rgba(4,10,6,0.90) 100%)',
+        background: 'linear-gradient(160deg, rgba(4,10,6,0.58) 0%, rgba(10,30,18,0.48) 45%, rgba(4,10,6,0.62) 100%)',
         zIndex: 2,
       }} />
 
