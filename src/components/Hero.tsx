@@ -3,23 +3,32 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Building2, Zap, Leaf, Cpu, Play } from 'lucide-react';
 
+/**
+ * Each slide has its own YouTube background video (no-copyright cinematic footage).
+ * To swap a video: replace the `ytId` with any YouTube video ID.
+ * Videos are muted + looped + autoplay via YouTube embed params.
+ */
 const slides = [
   {
+    ytId:   'vCI2kmFJD_w', // City drone aerial — no copyright
     lines:  ['Built Environment', 'Adds'],
     accent: 'CONFIDENCE',
     sub:    'Over 38 years of trusted facility management excellence across Malaysia.',
   },
   {
+    ytId:   'j-3nl88O7uI', // 4K drone aerial buildings — royalty free
     lines:  ['Total Facility', 'Management'],
     accent: 'Solutions',
     sub:    'Comprehensive, technology-driven FM services for every sector.',
   },
   {
+    ytId:   '8mBklukeSNc', // Urban skyline drone — no copyright
     lines:  ['We LOWER Your', 'Total Cost of'],
     accent: 'Ownership',
     sub:    'Guaranteed, measurable savings through science-based energy programs.',
   },
   {
+    ytId:   'MRl-thEidDY', // City buildings drone — royalty free
     lines:  ['Green Building', 'Is Our'],
     accent: 'Business',
     sub:    'GBI accredited, ESCO registered, future-ready sustainable FM.',
@@ -68,13 +77,13 @@ function FadeIn({ children, delay = 0, className = '' }: { children: React.React
 }
 
 export default function Hero() {
-  const [index, setIndex]       = useState(0);
+  const [index, setIndex]         = useState(0);
   const [videoOpen, setVideoOpen] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval>>(null);
 
   const startTimer = () => {
     if (timerRef.current) clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => setIndex(i => (i + 1) % slides.length), 6000);
+    timerRef.current = setInterval(() => setIndex(i => (i + 1) % slides.length), 8000);
   };
 
   useEffect(() => {
@@ -86,28 +95,45 @@ export default function Hero() {
   const slide = slides[index];
 
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden">
+    <section className="relative min-h-screen flex flex-col overflow-hidden bg-[#060e08]">
 
-      {/* ── Background image with Ken Burns zoom ── */}
-      <div
-        key={index}
-        className="absolute inset-0"
-        style={{
-          backgroundImage: 'url(/projects/klia2.jpg)',
-          backgroundSize:  'cover',
-          backgroundPosition: 'center 30%',
-          animation: 'kenBurns 7s ease-out forwards',
-          zIndex: 0,
-        }}
-      />
+      {/* ── YouTube video background — remounts on slide change to load new video ── */}
+      <div key={`bg-${index}`} className="absolute inset-0 overflow-hidden" style={{ zIndex: 0 }}>
+        {/* Static fallback shown while YouTube loads / on mobile */}
+        <div
+          className="absolute inset-0 transition-opacity duration-1000"
+          style={{
+            backgroundImage: 'url(/projects/klia2.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center 30%',
+          }}
+        />
+        {/* YouTube iframe — fills viewport at 16:9 regardless of screen size */}
+        <iframe
+          src={`https://www.youtube.com/embed/${slide.ytId}?autoplay=1&mute=1&loop=1&playlist=${slide.ytId}&controls=0&rel=0&playsinline=1&modestbranding=1&iv_load_policy=3&showinfo=0&disablekb=1`}
+          allow="autoplay; encrypted-media"
+          className="absolute border-0 pointer-events-none"
+          title={`Background video ${index + 1}`}
+          style={{
+            top: '50%',
+            left: '50%',
+            /* Always fill the viewport — wider dimension determines size */
+            width: '177.78vh',   /* 16:9 at 100vh */
+            height: '56.25vw',   /* 16:9 at 100vw */
+            minWidth: '100%',
+            minHeight: '100%',
+            transform: 'translate(-50%, -50%)',
+          }}
+        />
+      </div>
 
-      {/* Left gradient — legible text, bright centre photo */}
+      {/* ── Overlays for text legibility ── */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'linear-gradient(to right, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.22) 52%, rgba(0,0,0,0.04) 100%)',
+        background: 'linear-gradient(to right, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 52%, rgba(0,0,0,0.08) 100%)',
         zIndex: 1,
       }} />
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'linear-gradient(to top, rgba(0,0,0,0.58) 0%, transparent 40%)',
+        background: 'linear-gradient(to top, rgba(0,0,0,0.60) 0%, transparent 42%)',
         zIndex: 1,
       }} />
 
@@ -181,7 +207,8 @@ export default function Hero() {
       </div>
 
       {/* ── Bottom feature strip ── */}
-      <div className="absolute bottom-0 left-0 right-0 border-t border-white/10" style={{ background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(12px)', zIndex: 3 }}>
+      <div className="absolute bottom-0 left-0 right-0 border-t border-white/10"
+        style={{ background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(12px)', zIndex: 3 }}>
         <div className="flex">
           {services.map((svc, i) => {
             const Icon = svc.icon;
@@ -197,13 +224,13 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── Slide dots — bottom-right ── */}
+      {/* ── Slide dots ── */}
       <div className="absolute right-8 md:right-14 bottom-20 flex gap-2" style={{ zIndex: 4 }}>
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
-            className="rounded-full transition-all duration-400"
+            className="rounded-full transition-all duration-300"
             style={{
               width: i === index ? 28 : 8,
               height: 4,
@@ -213,7 +240,7 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* ── Video modal ── */}
+      {/* ── Corporate video modal ── */}
       {videoOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm px-4"
           onClick={() => setVideoOpen(false)}>
@@ -231,10 +258,6 @@ export default function Hero() {
       )}
 
       <style jsx>{`
-        @keyframes kenBurns {
-          from { transform: scale(1.0);   }
-          to   { transform: scale(1.06);  }
-        }
         @keyframes wordUp {
           from { transform: translateY(105%); opacity: 0; }
           to   { transform: translateY(0);    opacity: 1; }
