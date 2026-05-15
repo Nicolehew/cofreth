@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import PageHero from '@/components/PageHero';
 import { MapPin, ArrowRight, Building2, Zap, Leaf, Cpu } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useState } from 'react';
@@ -222,7 +223,6 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 }
 
 export default function ProjectsPage() {
-  const hero = useScrollReveal();
   const [activeFilter, setActiveFilter] = useState('All');
 
   const featured = projects.filter(p => p.featured);
@@ -230,35 +230,18 @@ export default function ProjectsPage() {
 
   return (
     <>
-      {/* Hero */}
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #060e08 0%, #0F2419 50%, #060e08 100%)' }}>
-        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'linear-gradient(#6BBD45 1px, transparent 1px), linear-gradient(90deg, #6BBD45 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-        <div className="absolute top-10 left-1/3 w-96 h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(107,189,69,0.10) 0%, transparent 70%)' }} />
-
-        <div ref={hero.ref} className="max-w-5xl mx-auto px-6 text-center transition-all duration-700"
-          style={{ opacity: hero.visible ? 1 : 0, transform: hero.visible ? 'none' : 'translateY(30px)' }}>
-          <div className="flex items-center justify-center gap-3 mb-5">
-            <div className="w-10 h-px bg-[#6BBD45]" />
-            <span className="text-[#6BBD45] text-sm font-bold tracking-widest uppercase">Project Highlights</span>
-            <div className="w-10 h-px bg-[#6BBD45]" />
-          </div>
-          <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
-            Our Track Record in<br /><span className="text-[#6BBD45]">FM & Energy Services</span>
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed mb-10">
-            From Malaysia's largest data centre to the nation's first GBI-rated office tower — 38 years of landmark projects across every sector.
-          </p>
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-2xl mx-auto">
-            {[['14+','Notable Projects'],['38+','Years Experience'],['Malaysia','Pioneer FM'],['ASEAN','Award Winner']].map(([v,l]) => (
-              <div key={l} className="bg-white/5 border border-white/10 rounded-2xl py-4 px-3">
-                <div className="text-xl font-black text-[#6BBD45]">{v}</div>
-                <div className="text-xs text-gray-400 font-medium mt-0.5">{l}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <PageHero
+        eyebrow="Project Highlights"
+        eyebrowSub="38 years of landmark FM & energy projects"
+        title={<>Our Track Record in<br /><span className="text-[#6BBD45]">FM &amp; Energy Services</span></>}
+        subtitle="From Malaysia's largest data centre to the nation's first GBI-rated office tower — 38 years of landmark projects across every sector."
+        stats={[
+          { num: '14+',    label: 'Notable Projects' },
+          { num: '38+',    label: 'Years Experience' },
+          { num: 'MY #1',  label: 'Pioneer FM ESCO' },
+          { num: 'ASEAN',  label: 'Award Winner' },
+        ]}
+      />
 
       {/* Flagship projects */}
       <section className="py-10 md:py-16 bg-gray-50">

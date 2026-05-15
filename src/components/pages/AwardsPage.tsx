@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import PageHero from '@/components/PageHero';
 import { ArrowRight, Award } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
@@ -158,41 +159,23 @@ function ISOCard({ cert, i }: { cert: typeof isoList[0]; i: number }) {
 }
 
 export default function AwardsPage() {
-  const hero = useScrollReveal();
   const fsTitle = useScrollReveal();
   const otherTitle = useScrollReveal();
 
   return (
     <>
-      {/* ── Hero ── */}
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #060e08 0%, #0F2419 50%, #060e08 100%)' }}>
-        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'linear-gradient(#6BBD45 1px, transparent 1px), linear-gradient(90deg, #6BBD45 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(107,189,69,0.12) 0%, transparent 70%)' }} />
-
-        <div ref={hero.ref} className="max-w-4xl mx-auto px-6 text-center transition-all duration-700"
-          style={{ opacity: hero.visible ? 1 : 0, transform: hero.visible ? 'none' : 'translateY(30px)' }}>
-          <div className="flex items-center justify-center gap-3 mb-5">
-            <div className="w-10 h-px bg-[#6BBD45]" />
-            <span className="text-[#6BBD45] text-sm font-bold tracking-widest uppercase">Recognition & Excellence</span>
-            <div className="w-10 h-px bg-[#6BBD45]" />
-          </div>
-          <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
-            Awards &<br /><span className="text-[#6BBD45]">Recognition</span>
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed mb-10">
-            Independently verified. Industry recognised. A proud collection of Malaysia's most prestigious awards — earned through decades of uncompromising excellence in facilities management and energy services.
-          </p>
-          {/* Counts */}
-          <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-4 sm:gap-6 max-w-sm sm:max-w-none mx-auto">
-            {[['4×', 'Frost & Sullivan Awards'], ['NEA', 'Winner 2018'], ['SME Icons', '2018'], ['BrandLaureate', '2016–2017']].map(([v, l]) => (
-              <div key={l} className="bg-white/5 border border-white/10 rounded-2xl py-4 px-3 sm:px-5 text-center">
-                <div className="text-xl font-black text-[#6BBD45]">{v}</div>
-                <div className="text-xs text-gray-400 mt-1">{l}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <PageHero
+        eyebrow="Recognition & Excellence"
+        eyebrowSub="National · ASEAN · International"
+        title={<>Awards &amp;<br /><span className="text-[#6BBD45]">Recognition</span></>}
+        subtitle="Independently verified. Industry recognised. A proud collection of Malaysia's most prestigious awards — earned through decades of uncompromising excellence in FM and energy services."
+        stats={[
+          { num: '5×',          label: 'Frost & Sullivan' },
+          { num: 'NEA',         label: 'EPC Champion 2021' },
+          { num: 'ASEAN',       label: 'Energy Award' },
+          { num: 'SME Icon',    label: '2018' },
+        ]}
+      />
 
       {/* ── Frost & Sullivan ── */}
       <section className="py-20 bg-gray-50">

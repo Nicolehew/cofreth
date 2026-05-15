@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import PageHero from '@/components/PageHero';
 import { CheckCircle, Award, ArrowRight, Menu, X } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useState, useEffect, useRef } from 'react';
@@ -83,7 +84,6 @@ function SidebarNav({ active, onSelect }: { active: string; onSelect: (id: strin
 }
 
 export default function AboutPage() {
-  const hero = useScrollReveal();
   const stats = useScrollReveal();
   const [active, setActive] = useState('about');
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -119,33 +119,18 @@ export default function AboutPage() {
 
   return (
     <>
-      {/* ── Hero ── */}
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #060e08 0%, #0F2419 50%, #060e08 100%)' }}>
-        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'linear-gradient(#6BBD45 1px, transparent 1px), linear-gradient(90deg, #6BBD45 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-        <div ref={hero.ref} className="max-w-4xl mx-auto px-6 text-center transition-all duration-700"
-          style={{ opacity: hero.visible ? 1 : 0, transform: hero.visible ? 'none' : 'translateY(30px)' }}>
-          <div className="flex items-center justify-center gap-3 mb-5">
-            <div className="w-10 h-px bg-[#6BBD45]" />
-            <span className="text-[#6BBD45] text-sm font-bold tracking-widest uppercase">Cofreth At A Glance</span>
-            <div className="w-10 h-px bg-[#6BBD45]" />
-          </div>
-          <h1 className="text-4xl md:text-6xl font-black mb-5 leading-tight">
-            38 Years of<br /><span className="text-[#6BBD45]">FM Excellence</span>
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed mb-3">
-            Since 1986, Cofreth has been Malaysia's pioneer in integrated facilities management, energy services, and sustainable built environment solutions.
-          </p>
-          <p className="text-gray-500 text-xs mb-8">Reg. No. 198601002912 (152066-P) · No. 39, Jalan USJ Sentral 3, USJ Sentral, 47600 Subang Jaya, Selangor</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-            {[['38+','Years of Excellence'],['30+','Major Clients'],['5×','ISO Certifications'],['5×','Frost & Sullivan']].map(([v,l]) => (
-              <div key={l} className="bg-white/5 border border-white/10 rounded-2xl py-4 px-3 text-center">
-                <div className="text-2xl font-black text-[#6BBD45]">{v}</div>
-                <div className="text-xs text-gray-400 mt-1">{l}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <PageHero
+        eyebrow="Cofreth At A Glance"
+        eyebrowSub="Reg. No. 198601002912 (152066-P) · Est. 1986, Subang Jaya"
+        title={<>38 Years of<br /><span className="text-[#6BBD45]">FM Excellence</span></>}
+        subtitle="Since 1986, Cofreth has been Malaysia's pioneer in integrated facilities management, energy services, and sustainable built environment solutions."
+        stats={[
+          { num: '38+', label: 'Years of Excellence' },
+          { num: '30+', label: 'Major Clients' },
+          { num: '5×',  label: 'ISO Certifications' },
+          { num: '5×',  label: 'Frost & Sullivan' },
+        ]}
+      />
 
       {/* ── Mobile nav bar ── */}
       <div className="lg:hidden sticky top-[56px] z-40 bg-white border-b border-gray-200 shadow-sm">

@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import PageHero from '@/components/PageHero';
 import { ArrowRight, ExternalLink, Building2 } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
@@ -156,39 +157,22 @@ function PartnerCard({ partner, i }: { partner: typeof partners[0]; i: number })
 }
 
 export default function GroupPage() {
-  const hero = useScrollReveal();
   const logos = useScrollReveal();
 
   return (
     <>
-      {/* ── Hero ── */}
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #060e08 0%, #0F2419 50%, #060e08 100%)' }}>
-        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'linear-gradient(#6BBD45 1px, transparent 1px), linear-gradient(90deg, #6BBD45 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-        <div className="absolute top-1/4 right-1/4 w-80 h-80 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(107,189,69,0.10) 0%, transparent 70%)' }} />
-
-        <div ref={hero.ref} className="max-w-4xl mx-auto px-6 text-center transition-all duration-700"
-          style={{ opacity: hero.visible ? 1 : 0, transform: hero.visible ? 'none' : 'translateY(30px)' }}>
-          <div className="flex items-center justify-center gap-3 mb-5">
-            <div className="w-10 h-px bg-[#6BBD45]" />
-            <span className="text-[#6BBD45] text-sm font-bold tracking-widest uppercase">Strategic Ecosystem</span>
-            <div className="w-10 h-px bg-[#6BBD45]" />
-          </div>
-          <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
-            Group of<br /><span className="text-[#6BBD45]">Companies</span>
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed mb-10">
-            Cofreth operates within a curated network of specialised strategic partners — each a leader in their domain — forming a complete, end-to-end facility management and energy solutions ecosystem.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-            {[['5', 'Strategic Partners'], ['360°', 'FM Coverage'], ['ASEAN', 'Regional Reach'], ['38+', 'Years Together']].map(([v, l]) => (
-              <div key={l} className="bg-white/5 border border-white/10 rounded-2xl py-4 px-3 text-center">
-                <div className="text-2xl font-black text-[#6BBD45]">{v}</div>
-                <div className="text-xs text-gray-400 mt-1">{l}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <PageHero
+        eyebrow="Strategic Ecosystem"
+        eyebrowSub="End-to-end FM & energy solutions"
+        title={<>Group of<br /><span className="text-[#6BBD45]">Companies</span></>}
+        subtitle="Cofreth operates within a curated network of specialised strategic partners — each a leader in their domain — forming a complete, end-to-end facility management and energy solutions ecosystem."
+        stats={[
+          { num: '5',    label: 'Strategic Partners' },
+          { num: '360°', label: 'FM Coverage' },
+          { num: 'ASEAN', label: 'Regional Reach' },
+          { num: '38+',  label: 'Years Together' },
+        ]}
+      />
 
       {/* ── Logo bar ── */}
       <div className="py-12 bg-white border-b border-gray-100">

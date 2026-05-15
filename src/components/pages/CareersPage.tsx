@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import PageHero from '@/components/PageHero';
 import { ArrowRight, Mail, Briefcase, Users, TrendingUp, Heart, Shield, Zap, Building2, Leaf, Cpu, HardHat, BarChart2 } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
@@ -63,43 +64,23 @@ function AreaCard({ area, i }: { area: typeof areas[0]; i: number }) {
 }
 
 export default function CareersPage() {
-  const hero   = useScrollReveal();
   const noJobs = useScrollReveal();
   const pool   = useScrollReveal();
 
   return (
     <>
-      {/* ── Hero ── */}
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20 text-white relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #060e08 0%, #0F2419 50%, #060e08 100%)' }}>
-        <div className="absolute inset-0 opacity-[0.06]"
-          style={{ backgroundImage: 'linear-gradient(#6BBD45 1px, transparent 1px), linear-gradient(90deg, #6BBD45 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(107,189,69,0.10) 0%, transparent 70%)' }} />
-
-        <div ref={hero.ref} className="max-w-4xl mx-auto px-6 text-center transition-all duration-700"
-          style={{ opacity: hero.visible ? 1 : 0, transform: hero.visible ? 'none' : 'translateY(30px)' }}>
-          <div className="flex items-center justify-center gap-3 mb-5">
-            <div className="w-10 h-px bg-[#6BBD45]" />
-            <span className="text-[#6BBD45] text-sm font-bold tracking-widest uppercase">Join Our Team</span>
-            <div className="w-10 h-px bg-[#6BBD45]" />
-          </div>
-          <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
-            Build Your Career<br /><span className="text-[#6BBD45]">With Cofreth</span>
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed mb-10">
-            Join Malaysia's leading Facilities Management and Energy Services company. 38 years of excellence — and we're still growing. Be part of a team that shapes the built environment.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-            {[['38+', 'Years of Growth'], ['30+', 'Major Clients'], ['5×', 'Award Winning'], ['ISO', '5 Certifications']].map(([v, l]) => (
-              <div key={l} className="bg-white/5 border border-white/10 rounded-2xl py-4 px-3 text-center">
-                <div className="text-2xl font-black text-[#6BBD45]">{v}</div>
-                <div className="text-xs text-gray-400 mt-1">{l}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <PageHero
+        eyebrow="Join Our Team"
+        eyebrowSub="We're hiring — Subang Jaya & nationwide"
+        title={<>Build Your Career<br /><span className="text-[#6BBD45]">With Cofreth</span></>}
+        subtitle="Join Malaysia's leading Facilities Management and Energy Services company. 38 years of excellence — and we're still growing. Be part of a team that shapes the built environment."
+        stats={[
+          { num: '38+', label: 'Years of Growth' },
+          { num: '30+', label: 'Major Clients' },
+          { num: '5×',  label: 'Award Winning' },
+          { num: '5',   label: 'ISO Certifications' },
+        ]}
+      />
 
       {/* ── Why Cofreth ── */}
       <section className="py-20" style={{ background: 'linear-gradient(135deg, #0a1810 0%, #1B3A2D 100%)' }}>

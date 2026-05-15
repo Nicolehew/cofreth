@@ -1,10 +1,10 @@
 'use client';
+import PageHero from '@/components/PageHero';
 import { MapPin, Phone, Printer, Mail, Clock, Send } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useState } from 'react';
 
 export default function ContactPage() {
-  const hero = useScrollReveal();
   const form = useScrollReveal();
   const info = useScrollReveal();
 
@@ -19,22 +19,18 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Hero */}
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0F2419 0%, #1B3A2D 100%)' }}>
-        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'linear-gradient(#6BBD45 1px, transparent 1px), linear-gradient(90deg, #6BBD45 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-        <div ref={hero.ref} className="max-w-5xl mx-auto px-6 text-center transition-all duration-700" style={{ opacity: hero.visible ? 1 : 0, transform: hero.visible ? 'none' : 'translateY(30px)' }}>
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-8 h-0.5 bg-[#6BBD45]" />
-            <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Contact Us</span>
-            <div className="w-8 h-0.5 bg-[#6BBD45]" />
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Let's Start a<br /><span className="text-[#6BBD45]">Conversation</span></h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            Whether you need a facility management consultation, energy audit, or green building assessment —
-            our team is ready to help. Reach out and we'll respond within one business day.
-          </p>
-        </div>
-      </div>
+      <PageHero
+        eyebrow="Contact Us"
+        eyebrowSub="Mon–Fri 08:30–17:30 · Response within 1 business day"
+        title={<>Let's Start a<br /><span className="text-[#6BBD45]">Conversation</span></>}
+        subtitle="Whether you need a facility management consultation, energy audit, or green building assessment — our team is ready to help. Reach out and we'll respond within one business day."
+        stats={[
+          { num: '+603',     label: '5637 8800' },
+          { num: 'Mon–Fri',  label: '08:30 – 17:30' },
+          { num: '1 Day',    label: 'Response Time' },
+          { num: 'Subang',   label: 'Jaya HQ' },
+        ]}
+      />
 
       {/* Main content */}
       <section className="py-20 bg-gray-50">

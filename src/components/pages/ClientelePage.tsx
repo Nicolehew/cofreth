@@ -1,4 +1,5 @@
 'use client';
+import PageHero from '@/components/PageHero';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const sectors = [
@@ -88,27 +89,22 @@ function SectorSection({ sector, index }: { sector: typeof sectors[0]; index: nu
 }
 
 export default function ClientelePage() {
-  const hero = useScrollReveal();
   const stats = useScrollReveal();
 
   return (
     <>
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0F2419 0%, #1B3A2D 100%)' }}>
-        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'linear-gradient(#6BBD45 1px, transparent 1px), linear-gradient(90deg, #6BBD45 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-        <div ref={hero.ref} className="max-w-5xl mx-auto px-6 text-center transition-all duration-700"
-          style={{ opacity: hero.visible ? 1 : 0, transform: hero.visible ? 'none' : 'translateY(30px)' }}>
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-8 h-0.5 bg-[#6BBD45]" />
-            <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Our Clientele</span>
-            <div className="w-8 h-0.5 bg-[#6BBD45]" />
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Trusted by Malaysia's<br /><span className="text-[#6BBD45]">Leading Organisations</span></h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            For over 38 years, Cofreth has earned the trust of 30+ of Malaysia's most respected organisations
-            across banking, industry, telecommunications, and property sectors.
-          </p>
-        </div>
-      </div>
+      <PageHero
+        eyebrow="Our Clientele"
+        eyebrowSub="Banking · Industry · Telco · Property · Government"
+        title={<>Trusted by Malaysia's<br /><span className="text-[#6BBD45]">Leading Organisations</span></>}
+        subtitle="For over 38 years, Cofreth has earned the trust of 30+ of Malaysia's most respected organisations across banking, industry, telecommunications, and property sectors."
+        stats={[
+          { num: '30+',   label: 'Major Clients' },
+          { num: '38+',   label: 'Years of Trust' },
+          { num: '6',     label: 'Industry Sectors' },
+          { num: 'ASEAN', label: 'Regional Reach' },
+        ]}
+      />
 
       <section className="py-14" style={{ background: 'linear-gradient(90deg, #0a1810 0%, #1B3A2D 50%, #0a1810 100%)', borderTop: '1px solid rgba(107,189,69,0.2)', borderBottom: '1px solid rgba(107,189,69,0.2)' }}>
         <div ref={stats.ref} className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center transition-all duration-700"

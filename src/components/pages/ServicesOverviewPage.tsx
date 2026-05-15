@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import PageHero from '@/components/PageHero';
 import { Building2, Zap, Leaf, Cpu, ArrowRight, CheckCircle } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useState } from 'react';
@@ -87,28 +88,22 @@ function ServiceCard({ svc, i }: { svc: typeof services[0]; i: number }) {
 }
 
 export default function ServicesOverviewPage() {
-  const hero = useScrollReveal();
   const intro = useScrollReveal();
 
   return (
     <>
-      {/* Hero with video */}
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20 text-white relative overflow-hidden min-h-[60vh] flex items-center">
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" style={{ zIndex: 0 }}>
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(12,28,18,0.93) 0%, rgba(27,58,45,0.88) 60%, rgba(12,28,18,0.95) 100%)', zIndex: 1 }} />
-        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'linear-gradient(#6BBD45 1px, transparent 1px), linear-gradient(90deg, #6BBD45 1px, transparent 1px)', backgroundSize: '60px 60px', zIndex: 2 }} />
-        <div ref={hero.ref} className="relative max-w-4xl mx-auto px-6 text-center transition-all duration-700" style={{ opacity: hero.visible ? 1 : 0, transform: hero.visible ? 'none' : 'translateY(30px)', zIndex: 3 }}>
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-8 h-0.5 bg-[#6BBD45]" />
-            <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Our Services</span>
-            <div className="w-8 h-0.5 bg-[#6BBD45]" />
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Comprehensive Solutions<br /><span className="text-[#6BBD45]">for Every Facility</span></h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">From maintenance to energy innovation — we deliver integrated solutions that enhance performance, reduce costs, and support sustainability.</p>
-        </div>
-      </div>
+      <PageHero
+        eyebrow="Our Services"
+        eyebrowSub="FM · Energy · Green · Smart Technology"
+        title={<>Comprehensive Solutions<br /><span className="text-[#6BBD45]">for Every Facility</span></>}
+        subtitle="From maintenance to energy innovation — we deliver integrated solutions that enhance performance, reduce costs, and support sustainability goals across every asset class."
+        stats={[
+          { num: '4',    label: 'Service Pillars' },
+          { num: '5×',   label: 'ISO Certified' },
+          { num: 'ESCO', label: 'Registered' },
+          { num: '38+',  label: 'Years Delivering' },
+        ]}
+      />
 
       {/* Intro strip */}
       <div ref={intro.ref} className="bg-[#6BBD45] transition-all duration-700" style={{ opacity: intro.visible ? 1 : 0 }}>
