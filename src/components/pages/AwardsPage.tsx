@@ -149,10 +149,10 @@ function ISOCard({ cert, i }: { cert: typeof isoList[0]; i: number }) {
     <div ref={reveal.ref}
       className="transition-all duration-700"
       style={{ opacity: reveal.visible ? 1 : 0, transform: reveal.visible ? 'none' : 'translateY(30px)', transitionDelay: `${i * 80}ms` }}>
-      <div className="group bg-white/5 border border-white/10 hover:border-[#6BBD45]/50 hover:bg-white/10 rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 h-full">
+      <div className="group bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 hover:border-[#6BBD45]/50 hover:shadow-md rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 h-full">
         <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300 inline-block">{cert.icon}</div>
         <div className="text-[#6BBD45] font-bold text-sm mb-1">{cert.code}</div>
-        <div className="text-white font-semibold text-xs leading-relaxed">{cert.label}</div>
+        <div className="text-[#1B3A2D] dark:text-white font-semibold text-xs leading-relaxed">{cert.label}</div>
       </div>
     </div>
   );
@@ -222,7 +222,7 @@ export default function AwardsPage() {
       </section>
 
       {/* ── ISO Certifications ── */}
-      <section className="py-20" style={{ background: 'linear-gradient(135deg, #060e08 0%, #0F2419 60%, #060e08 100%)' }}>
+      <section className="py-20 bg-white dark:bg-[#0F2419]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -230,8 +230,8 @@ export default function AwardsPage() {
               <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">International Standards</span>
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">5× ISO Certified</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto text-sm leading-relaxed">
+            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] dark:text-white mb-4">5× ISO Certified</h2>
+            <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-sm leading-relaxed">
               Independently audited and continuously maintained to the highest global standards across quality, environment, safety, energy and facility management.
             </p>
           </div>

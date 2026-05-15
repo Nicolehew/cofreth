@@ -101,22 +101,22 @@ export default function Hero() {
         }}
       />
 
-      {/* Centre vignette — keeps photo bright, only darkens edges + bottom */}
+      {/* Left gradient — legible text, bright centre photo */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 80% 80% at 50% 40%, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.55) 100%)',
+        background: 'linear-gradient(to right, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.22) 52%, rgba(0,0,0,0.04) 100%)',
         zIndex: 1,
       }} />
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'linear-gradient(to top, rgba(0,0,0,0.70) 0%, transparent 42%)',
+        background: 'linear-gradient(to top, rgba(0,0,0,0.58) 0%, transparent 40%)',
         zIndex: 1,
       }} />
 
-      {/* ── Main content — centred ── */}
-      <div className="relative flex-1 flex flex-col justify-center items-center px-8 md:px-14 pb-32 pt-4 text-center" style={{ zIndex: 2 }}>
-        <div className="max-w-5xl w-full">
+      {/* ── Main content — bottom-left pinned ── */}
+      <div className="relative flex-1 flex flex-col justify-end px-8 md:px-14 pb-32 md:pb-36" style={{ zIndex: 2 }}>
+        <div className="max-w-4xl">
 
           {/* Eyebrow badge */}
-          <FadeIn delay={0.1} className="mb-5 flex justify-center">
+          <FadeIn delay={0.1} className="mb-5">
             <span className="inline-flex items-center gap-2 text-[#6BBD45] font-bold tracking-widest uppercase"
               style={{ fontSize: '13px' }}>
               <span className="w-2 h-2 bg-[#6BBD45] rounded-full animate-pulse" />
@@ -124,15 +124,15 @@ export default function Hero() {
             </span>
           </FadeIn>
 
-          {/* Heading — word-by-word per line, centred */}
+          {/* Heading — word-by-word per line */}
           <h1 key={`h-${index}`} className="font-black text-white leading-[0.95] mb-6"
-            style={{ fontSize: 'clamp(2.6rem, 5.5vw, 5rem)', letterSpacing: '-0.02em' }}>
+            style={{ fontSize: 'clamp(3rem, 6.5vw, 5.8rem)', letterSpacing: '-0.02em' }}>
             {slide.lines.map((line, li) => (
-              <span key={li} className="block text-center">
+              <span key={li} className="block">
                 <AnimWords text={line} delay={li * 0.18} />
               </span>
             ))}
-            <span className="block text-center">
+            <span className="block">
               <AnimWords
                 text={slide.accent}
                 delay={slide.lines.length * 0.18}
@@ -141,10 +141,10 @@ export default function Hero() {
             </span>
           </h1>
 
-          {/* Subtitle + CTA — stacked centred */}
-          <div key={`s-${index}`} className="flex flex-col items-center gap-6">
+          {/* Subtitle + CTA */}
+          <div key={`s-${index}`} className="flex flex-col sm:flex-row sm:items-end gap-6 sm:gap-10">
             <p
-              className="text-white/80 leading-relaxed max-w-lg"
+              className="text-white/80 leading-relaxed max-w-md"
               style={{
                 fontSize: '17px',
                 animation: 'fadeUp 0.6s ease forwards',
@@ -156,7 +156,7 @@ export default function Hero() {
             </p>
 
             <div
-              className="flex gap-3"
+              className="flex gap-3 shrink-0"
               style={{
                 animation: 'fadeUp 0.6s ease forwards',
                 animationDelay: `${(slide.lines.length + 1) * 0.18 + 0.25}s`,
@@ -187,7 +187,7 @@ export default function Hero() {
             const Icon = svc.icon;
             return (
               <Link key={svc.label} href={svc.href}
-                className="group flex-1 flex items-center gap-3 px-5 py-4 hover:bg-white/10 transition-colors duration-200"
+                className="group flex-1 flex items-center justify-center gap-3 px-5 py-4 hover:bg-white/10 transition-colors duration-200"
                 style={{ borderRight: i < services.length - 1 ? '1px solid rgba(255,255,255,0.12)' : 'none' }}>
                 <Icon size={18} className="text-[#6BBD45] shrink-0 group-hover:scale-110 transition-transform" />
                 <span className="text-white font-semibold" style={{ fontSize: '13px' }}>{svc.label}</span>

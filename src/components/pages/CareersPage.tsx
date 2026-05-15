@@ -30,12 +30,12 @@ function PerkCard({ perk, i }: { perk: typeof perks[0]; i: number }) {
   return (
     <div ref={reveal.ref} className="transition-all duration-700"
       style={{ opacity: reveal.visible ? 1 : 0, transform: reveal.visible ? 'none' : 'translateY(30px)', transitionDelay: `${i * 80}ms` }}>
-      <div className="bg-white/5 border border-white/10 hover:border-[#6BBD45]/40 rounded-2xl p-6 h-full transition-all duration-300 hover:-translate-y-1">
+      <div className="bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 hover:border-[#6BBD45]/40 rounded-2xl p-6 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
         <div className="w-11 h-11 rounded-xl bg-[#6BBD45]/15 flex items-center justify-center mb-4">
           <Icon size={20} className="text-[#6BBD45]" />
         </div>
-        <h3 className="font-bold text-white mb-2">{perk.title}</h3>
-        <p className="text-gray-400 text-sm leading-relaxed">{perk.desc}</p>
+        <h3 className="font-bold text-[#1B3A2D] dark:text-white mb-2">{perk.title}</h3>
+        <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{perk.desc}</p>
       </div>
     </div>
   );
@@ -83,7 +83,7 @@ export default function CareersPage() {
       />
 
       {/* ── Why Cofreth ── */}
-      <section className="py-20" style={{ background: 'linear-gradient(135deg, #0a1810 0%, #1B3A2D 100%)' }}>
+      <section className="py-20 bg-white dark:bg-[#0F2419]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -91,7 +91,7 @@ export default function CareersPage() {
               <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Why Join Us</span>
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-white">Why Work at Cofreth?</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] dark:text-white">Why Work at Cofreth?</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {perks.map((p, i) => <PerkCard key={p.title} perk={p} i={i} />)}

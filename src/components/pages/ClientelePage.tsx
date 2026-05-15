@@ -106,13 +106,13 @@ export default function ClientelePage() {
         ]}
       />
 
-      <section className="py-14" style={{ background: 'linear-gradient(90deg, #0a1810 0%, #1B3A2D 50%, #0a1810 100%)', borderTop: '1px solid rgba(107,189,69,0.2)', borderBottom: '1px solid rgba(107,189,69,0.2)' }}>
+      <section className="py-14 bg-[#1B3A2D] dark:bg-[#0a1810]" style={{ borderTop: '1px solid rgba(107,189,69,0.2)', borderBottom: '1px solid rgba(107,189,69,0.2)' }}>
         <div ref={stats.ref} className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center transition-all duration-700"
           style={{ opacity: stats.visible ? 1 : 0, transform: stats.visible ? 'none' : 'translateY(20px)' }}>
           {[['30+','Active Clients'],['38+','Years of Service'],['5','Industry Sectors'],['100%','Client Retention']].map(([v,l]) => (
             <div key={l}>
               <div className="text-4xl font-bold text-[#6BBD45] mb-1">{v}</div>
-              <div className="text-gray-400 text-sm font-medium">{l}</div>
+              <div className="text-white/60 text-sm font-medium">{l}</div>
             </div>
           ))}
         </div>

@@ -28,9 +28,9 @@ export default function PageHero({ eyebrow, eyebrowSub, title, subtitle, stats }
         style={{ zIndex: 0 }}
       />
 
-      {/* Dark overlay — keeps text legible */}
+      {/* Dark overlay — strong enough for legibility, light enough to see the video */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'linear-gradient(135deg, rgba(8,20,14,0.88) 0%, rgba(27,58,45,0.78) 60%, rgba(8,20,14,0.88) 100%)',
+        background: 'linear-gradient(135deg, rgba(8,20,14,0.70) 0%, rgba(27,58,45,0.58) 60%, rgba(8,20,14,0.70) 100%)',
         zIndex: 1,
       }} />
 
