@@ -31,7 +31,7 @@ export default function ThemesPage() {
         subtitle="Each year, Cofreth adopts a corporate theme that reflects its strategic focus — guiding the organisation's culture and direction."
       />
 
-      <div className="py-12 px-6 lg:px-10 xl:px-14 bg-gray-50 dark:bg-[#0d1117]">
+      <div className="py-12 px-6 lg:px-10 xl:px-14 bg-white">
         <div className="max-w-3xl">
           <div className="space-y-3 mb-12">
             {themes.map(t => (
@@ -39,13 +39,13 @@ export default function ThemesPage() {
                 className={`flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-8 rounded-xl px-6 py-4 border transition-all ${
                   t.highlight
                     ? 'bg-[#1B3A2D] border-[#6BBD45]/30'
-                    : 'bg-white dark:bg-white/5 border-gray-100 dark:border-white/10 hover:border-[#6BBD45]/20'
+                    : 'bg-white border-gray-100 hover:border-[#6BBD45]/20'
                 }`}
               >
                 <span className={`font-black uppercase tracking-widest shrink-0 w-20 ${t.highlight ? 'text-[#6BBD45]' : 'text-gray-400'}`} style={{ fontSize: '11px' }}>
                   {t.years}
                 </span>
-                <span className={`font-semibold italic ${t.highlight ? 'text-white' : 'text-[#1B3A2D] dark:text-white'}`} style={{ fontSize: '15px' }}>
+                <span className={`font-semibold italic ${t.highlight ? 'text-white' : 'text-[#1B3A2D]'}`} style={{ fontSize: '15px' }}>
                   &ldquo;{t.theme}&rdquo;
                 </span>
               </div>

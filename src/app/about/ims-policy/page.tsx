@@ -29,14 +29,14 @@ export default function IMSPolicyPage() {
         subtitle="Quality · Safety & Health · Environmental · Energy · Facility — all unified into a single management framework."
       />
 
-      <div className="py-12 px-6 lg:px-10 xl:px-14 bg-gray-50 dark:bg-[#0d1117]">
+      <div className="py-12 px-6 lg:px-10 xl:px-14 bg-white">
         <div className="max-w-4xl">
           {/* Overview */}
-          <div className="bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-2xl p-8 mb-8">
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4" style={{ fontSize: '15px' }}>
+          <div className="bg-white border border-gray-100 rounded-2xl p-8 mb-8">
+            <p className="text-gray-600 leading-relaxed mb-4" style={{ fontSize: '15px' }}>
               By integrating quality, occupational safety and health, environmental, energy, and facility management systems into an Integrated Management System (IMS), Cofreth is committed to providing high-performance Facilities Management and Energy Services (FMES) without compromising sustainability in environmental, social and governance aspects for all stakeholders.
             </p>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed" style={{ fontSize: '15px' }}>
+            <p className="text-gray-600 leading-relaxed" style={{ fontSize: '15px' }}>
               Cofreth demonstrates a strong belief that the bedrock of excellent service delivery rests upon the adoption of a professional and ethical business strategy — revolving around business growth, developing talents, adopting innovative technologies and five well-defined management systems.
             </p>
           </div>
@@ -68,7 +68,7 @@ export default function IMSPolicyPage() {
           </div>
 
           {/* 5 Systems */}
-          <h3 className="font-black text-[#1B3A2D] dark:text-white mb-4" style={{ fontSize: '16px' }}>Five Management Systems</h3>
+          <h3 className="font-black text-[#1B3A2D] mb-4" style={{ fontSize: '16px' }}>Five Management Systems</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { code: 'ISO 9001:2015',  label: 'Quality Management System',           icon: '✓',  color: '#3b82f6' },
@@ -77,11 +77,11 @@ export default function IMSPolicyPage() {
               { code: 'ISO 50001:2018', label: 'Energy Management System',             icon: '⚡', color: '#f59e0b' },
               { code: 'ISO 41001:2018', label: 'Facility Management System',           icon: '🏢', color: '#8b5cf6' },
             ].map(s => (
-              <div key={s.code} className="flex items-center gap-4 bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-xl p-4 hover:border-[#6BBD45]/30 transition-colors">
+              <div key={s.code} className="flex items-center gap-4 bg-white border border-gray-100 rounded-xl p-4 hover:border-[#6BBD45]/30 transition-colors">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0" style={{ background: s.color + '18' }}>{s.icon}</div>
                 <div>
-                  <div className="font-black text-[#1B3A2D] dark:text-white" style={{ fontSize: '13px' }}>{s.code}</div>
-                  <div className="text-gray-500 dark:text-gray-400 mt-0.5" style={{ fontSize: '12px' }}>{s.label}</div>
+                  <div className="font-black text-[#1B3A2D]" style={{ fontSize: '13px' }}>{s.code}</div>
+                  <div className="text-gray-500 mt-0.5" style={{ fontSize: '12px' }}>{s.label}</div>
                 </div>
               </div>
             ))}

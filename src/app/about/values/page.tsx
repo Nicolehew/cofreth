@@ -26,13 +26,13 @@ export default function ValuesPage() {
         subtitle="We are committed to these values to foster relations of mutual respect with all colleagues, customers and outside partners."
       />
 
-      <div className="py-12 px-6 lg:px-10 xl:px-14 bg-gray-50 dark:bg-[#0d1117]">
-        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5 max-w-5xl mb-10">
+      <div className="py-12 px-6 lg:px-10 xl:px-14 bg-white">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5 mb-10">
           {values.map(v => (
-            <div key={v.title} className="group bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 hover:border-[#6BBD45]/40 rounded-2xl p-6 hover:shadow-md transition-all duration-300">
+            <div key={v.title} className="group bg-white border border-gray-100 hover:border-[#6BBD45]/40 rounded-2xl p-6 hover:shadow-md transition-all duration-300">
               <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform" style={{ background: v.color + '18' }}>{v.icon}</div>
-              <h3 className="font-black text-[#1B3A2D] dark:text-white mb-3 group-hover:text-[#6BBD45] transition-colors" style={{ fontSize: '15px' }}>{v.title}</h3>
-              <p className="text-gray-500 dark:text-gray-400 leading-relaxed" style={{ fontSize: '13px' }}>{v.desc}</p>
+              <h3 className="font-black text-[#1B3A2D] mb-3 group-hover:text-[#6BBD45] transition-colors" style={{ fontSize: '15px' }}>{v.title}</h3>
+              <p className="text-gray-500 leading-relaxed" style={{ fontSize: '13px' }}>{v.desc}</p>
             </div>
           ))}
         </div>

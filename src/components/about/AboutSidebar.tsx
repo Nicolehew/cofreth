@@ -23,34 +23,34 @@ export const aboutNavItems = [
 export function AboutSidebar({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(true);
   const pathname = usePathname();
-
   const isActive = (href: string) => pathname === href;
 
   return (
-    <div className="flex">
+    <div className="flex bg-white">
+
       {/* ── Desktop sidebar ── */}
       <aside
-        className="hidden lg:flex flex-col shrink-0 transition-[width] duration-300 ease-in-out sticky top-20 self-start bg-white dark:bg-[#111827] border-r border-gray-100 dark:border-gray-800"
+        className="hidden lg:flex flex-col shrink-0 transition-[width] duration-300 ease-in-out sticky top-20 self-start bg-white border-r border-gray-100"
         style={{ width: open ? '240px' : '56px', height: 'calc(100vh - 80px)', overflow: 'hidden' }}
       >
         {/* Header + toggle */}
-        <div className={`flex items-center border-b border-gray-100 dark:border-gray-800 shrink-0 py-3 ${open ? 'justify-between px-4' : 'justify-center'}`}>
+        <div className={`flex items-center border-b border-gray-100 shrink-0 py-3 ${open ? 'justify-between px-4' : 'justify-center'}`}>
           {open && (
-            <span style={{ fontSize: '10px' }} className="font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest leading-none">
+            <span style={{ fontSize: '10px' }} className="font-black text-gray-400 uppercase tracking-widest leading-none">
               Cofreth At A Glance
             </span>
           )}
           <button
             onClick={() => setOpen(v => !v)}
             aria-label={open ? 'Collapse sidebar' : 'Expand sidebar'}
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 hover:text-[#1B3A2D] dark:hover:text-[#6BBD45] hover:bg-gray-100 dark:hover:bg-white/10 transition-all shrink-0"
+            className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 hover:text-[#1B3A2D] hover:bg-gray-100 transition-all shrink-0"
           >
             {open ? <PanelLeftClose size={16} /> : <PanelLeftOpen size={16} />}
           </button>
         </div>
 
         {/* Nav links */}
-        <nav className="flex-1 py-2 overflow-y-auto overflow-x-hidden">
+        <nav className="flex-1 py-2 overflow-y-auto overflow-x-hidden bg-white">
           {aboutNavItems.map(item => {
             const Icon = item.icon;
             const active = isActive(item.href);
@@ -63,14 +63,11 @@ export function AboutSidebar({ children }: { children: React.ReactNode }) {
                   open ? 'px-4' : 'justify-center px-0 border-l-0'
                 } ${
                   active
-                    ? 'border-[#6BBD45] bg-[#6BBD45]/10 dark:bg-[#6BBD45]/15 text-[#1B3A2D] dark:text-[#6BBD45]'
-                    : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-[#1B3A2D] dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5 hover:border-gray-200'
+                    ? 'border-[#6BBD45] bg-[#6BBD45]/10 text-[#1B3A2D]'
+                    : 'border-transparent text-gray-500 hover:text-[#1B3A2D] hover:bg-gray-50 hover:border-gray-200'
                 }`}
               >
-                <Icon
-                  size={16}
-                  className={`shrink-0 ${active ? 'text-[#6BBD45]' : ''}`}
-                />
+                <Icon size={16} className={`shrink-0 ${active ? 'text-[#6BBD45]' : ''}`} />
                 {open && (
                   <span style={{ fontSize: '13px' }} className="font-semibold leading-snug">
                     {item.label}
@@ -83,8 +80,8 @@ export function AboutSidebar({ children }: { children: React.ReactNode }) {
       </aside>
 
       {/* ── Mobile: horizontal scrollable tab strip ── */}
-      <div className="flex flex-col flex-1 min-w-0">
-        <div className="lg:hidden sticky top-[64px] z-40 bg-white dark:bg-[#111827] border-b border-gray-200 dark:border-gray-800 shadow-sm">
+      <div className="flex flex-col flex-1 min-w-0 bg-white">
+        <div className="lg:hidden sticky top-[64px] z-40 bg-white border-b border-gray-200 shadow-sm">
           <div
             className="flex overflow-x-auto gap-1.5 px-3 py-2"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' } as React.CSSProperties}
@@ -99,7 +96,7 @@ export function AboutSidebar({ children }: { children: React.ReactNode }) {
                   className={`flex-shrink-0 px-3 py-1.5 rounded-full font-semibold transition-all whitespace-nowrap ${
                     active
                       ? 'bg-[#6BBD45] text-white shadow-sm'
-                      : 'text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/15'
+                      : 'text-gray-500 bg-gray-100 hover:bg-gray-200'
                   }`}
                 >
                   {item.short}
@@ -109,8 +106,8 @@ export function AboutSidebar({ children }: { children: React.ReactNode }) {
           </div>
         </div>
 
-        {/* Page content */}
-        <main className="flex-1 min-w-0">
+        {/* Page content — full width */}
+        <main className="flex-1 min-w-0 bg-white w-full">
           {children}
         </main>
       </div>

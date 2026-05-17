@@ -26,7 +26,7 @@ export default function CSRPage() {
         subtitle="Beyond business, Cofreth is committed to making a positive impact — supporting life-saving initiatives, environmental causes and the wellbeing of underserved communities."
       />
 
-      <div className="py-12 px-6 lg:px-10 xl:px-14 bg-gray-50 dark:bg-[#0d1117]">
+      <div className="py-12 px-6 lg:px-10 xl:px-14 bg-white">
         <div className="max-w-4xl">
           <div className="grid sm:grid-cols-3 gap-5 mb-10">
             {[
@@ -34,17 +34,17 @@ export default function CSRPage() {
               { icon: '🌳', title: 'Green Finger Day',        desc: "170 trees planted and river clean-up activities as part of our environmental commitment to Malaysia's green cover and biodiversity." },
               { icon: '🏠', title: 'Community Support',       desc: "Regular visits and donations to Rumah Amal Kasih Bestari and other orphanages — providing essential support, meals and activities." },
             ].map(item => (
-              <div key={item.title} className="bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-2xl p-6 hover:border-[#6BBD45]/40 hover:shadow-md transition-all duration-300">
+              <div key={item.title} className="bg-white border border-gray-100 rounded-2xl p-6 hover:border-[#6BBD45]/40 hover:shadow-md transition-all duration-300">
                 <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="font-black text-[#1B3A2D] dark:text-white mb-3" style={{ fontSize: '15px' }}>{item.title}</h3>
-                <p className="text-gray-500 dark:text-gray-400 leading-relaxed" style={{ fontSize: '13px' }}>{item.desc}</p>
+                <h3 className="font-black text-[#1B3A2D] mb-3" style={{ fontSize: '15px' }}>{item.title}</h3>
+                <p className="text-gray-500 leading-relaxed" style={{ fontSize: '13px' }}>{item.desc}</p>
               </div>
             ))}
           </div>
 
-          <div className="bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-2xl p-8">
-            <h3 className="font-black text-[#1B3A2D] dark:text-white mb-2" style={{ fontSize: '18px' }}>Sustainable Development</h3>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-6" style={{ fontSize: '14px' }}>
+          <div className="bg-white border border-gray-100 rounded-2xl p-8">
+            <h3 className="font-black text-[#1B3A2D] mb-2" style={{ fontSize: '18px' }}>Sustainable Development</h3>
+            <p className="text-gray-500 leading-relaxed mb-6" style={{ fontSize: '14px' }}>
               Cofreth&#39;s activities take into account the objectives of sustainable development from ecological, economical and social dimensions — aligned to the UN Sustainable Development Goals.
             </p>
             <div className="grid grid-cols-6 sm:grid-cols-9 gap-2">

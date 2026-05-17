@@ -25,7 +25,7 @@ export default function AboutPage() {
 
       {/* Stats bar */}
       <div className="bg-[#1B3A2D] px-6 lg:px-10 xl:px-14 py-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[['38+','Years of Excellence'],['30+','Major Clients'],['5×','ISO Certifications'],['5×','Frost & Sullivan']].map(([v,l]) => (
             <div key={l} className="text-center">
               <div className="text-2xl font-black text-[#6BBD45]">{v}</div>
@@ -36,11 +36,11 @@ export default function AboutPage() {
       </div>
 
       {/* Body */}
-      <div className="py-12 px-6 lg:px-10 xl:px-14 bg-gray-50 dark:bg-[#0d1117]">
-        <div className="grid lg:grid-cols-2 gap-10 items-start max-w-5xl">
-          <div className="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed" style={{ fontSize: '15px' }}>
-            <p>Cofreth (M) Sdn Bhd was established in <strong className="text-[#1B3A2D] dark:text-white">1986</strong> as a Malaysian company specialising in Facilities Management, Operations and Maintenance of MEP Systems, Engineering Due Diligence, Energy Audit, Energy Efficiency, Energy Performance Contracting, Green Commissioning, and District Cooling System design.</p>
-            <p>We are a registered <strong className="text-[#1B3A2D] dark:text-white">Energy Service Company (ESCO)</strong> with Malaysia Green Technology Corporation and MAESCO, and utilise the <strong className="text-[#1B3A2D] dark:text-white">ARCHIBUS TIFM</strong> for smart, data-driven facility management.</p>
+      <div className="py-12 px-6 lg:px-10 xl:px-14 bg-white">
+        <div className="grid lg:grid-cols-2 gap-10 items-start">
+          <div className="space-y-4 text-gray-600 leading-relaxed" style={{ fontSize: '15px' }}>
+            <p>Cofreth (M) Sdn Bhd was established in <strong className="text-[#1B3A2D]">1986</strong> as a Malaysian company specialising in Facilities Management, Operations and Maintenance of MEP Systems, Engineering Due Diligence, Energy Audit, Energy Efficiency, Energy Performance Contracting, Green Commissioning, and District Cooling System design.</p>
+            <p>We are a registered <strong className="text-[#1B3A2D]">Energy Service Company (ESCO)</strong> with Malaysia Green Technology Corporation and MAESCO, and utilise the <strong className="text-[#1B3A2D]">ARCHIBUS TIFM</strong> for smart, data-driven facility management.</p>
             <div className="grid grid-cols-1 gap-2.5 pt-2">
               {[
                 'First ISO-certified FM company in Malaysia (1996)',
@@ -52,7 +52,7 @@ export default function AboutPage() {
               ].map(pt => (
                 <div key={pt} className="flex items-start gap-2.5">
                   <CheckCircle size={15} className="text-[#6BBD45] mt-0.5 shrink-0" />
-                  <span className="text-gray-600 dark:text-gray-400" style={{ fontSize: '14px' }}>{pt}</span>
+                  <span className="text-gray-600" style={{ fontSize: '14px' }}>{pt}</span>
                 </div>
               ))}
             </div>
@@ -65,17 +65,17 @@ export default function AboutPage() {
               { icon: '✅', label: 'Quality', desc: 'ISO 9001 · ISO 14001 · ISO 45001 · ISO 50001 · ISO 41001 — all certified by SIRIM QAS.' },
               { icon: '⚡', label: 'ESCO', desc: 'Registered with Malaysia Green Technology Corp & MAESCO. Guaranteed savings via CEEP contracts.' },
             ].map(c => (
-              <div key={c.label} className="bg-white dark:bg-white/5 rounded-2xl p-5 border border-gray-100 dark:border-white/10 hover:border-[#6BBD45]/40 hover:shadow-md transition-all">
+              <div key={c.label} className="bg-white rounded-2xl p-5 border border-gray-100 hover:border-[#6BBD45]/40 hover:shadow-md transition-all">
                 <div className="text-2xl mb-2">{c.icon}</div>
-                <div className="font-black text-[#1B3A2D] dark:text-white mb-1" style={{ fontSize: '13px' }}>{c.label}</div>
-                <p className="text-gray-500 dark:text-gray-400 leading-relaxed" style={{ fontSize: '12px' }}>{c.desc}</p>
+                <div className="font-black text-[#1B3A2D] mb-1" style={{ fontSize: '13px' }}>{c.label}</div>
+                <p className="text-gray-500 leading-relaxed" style={{ fontSize: '12px' }}>{c.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Quick links */}
-        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+        <div className="mt-12 pt-8 border-t border-gray-200">
           <p className="font-black text-gray-400 uppercase tracking-widest mb-4" style={{ fontSize: '11px' }}>Explore more</p>
           <div className="flex flex-wrap gap-3">
             {[

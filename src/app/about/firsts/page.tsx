@@ -36,8 +36,8 @@ export default function FirstsPage() {
         subtitle="From Malaysia's first ISO-certified FM company to the first ESCO to win the National Energy Awards — Cofreth has led the industry at every turn since 1986."
       />
 
-      <div className="py-12 px-6 lg:px-10 xl:px-14 bg-gray-50 dark:bg-[#0d1117]">
-        <div className="relative max-w-3xl">
+      <div className="py-12 px-6 lg:px-10 xl:px-14 bg-white">
+        <div className="relative">
           {/* Vertical line */}
           <div className="absolute left-[18px] top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700" />
           <div className="space-y-4">
@@ -49,9 +49,9 @@ export default function FirstsPage() {
                   </div>
                 </div>
                 <div className="pb-4 flex-1">
-                  <div className="bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-xl p-4 hover:border-[#6BBD45]/30 hover:shadow-sm transition-all group">
+                  <div className="bg-white border border-gray-100 rounded-xl p-4 hover:border-[#6BBD45]/30 hover:shadow-sm transition-all group">
                     <span className="font-black text-[#6BBD45] tracking-widest uppercase block mb-1" style={{ fontSize: '11px' }}>{m.year}</span>
-                    <p className="text-gray-700 dark:text-gray-300 font-medium leading-relaxed group-hover:text-[#1B3A2D] dark:group-hover:text-white transition-colors" style={{ fontSize: '14px' }}>{m.event}</p>
+                    <p className="text-gray-700 font-medium leading-relaxed group-hover:text-[#1B3A2D] transition-colors" style={{ fontSize: '14px' }}>{m.event}</p>
                   </div>
                 </div>
               </div>
