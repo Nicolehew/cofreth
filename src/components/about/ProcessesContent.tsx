@@ -83,23 +83,9 @@ function PdfModal({ url, title, onClose }: { url: string; title: string; onClose
           <span className="text-[#1B3A2D] font-semibold" style={{ fontSize: '16px' }}>{title}</span>
         </div>
         <div className="flex items-center gap-3">
-          <a
-            href={url}
-            download
-            className="flex items-center gap-1.5 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-semibold px-4 py-1.5 rounded-full transition-all"
-            style={{ fontSize: '15px' }}
-          >
-            ↓ Download
-          </a>
-          <a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 border border-[#6BBD45] text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white font-semibold px-4 py-1.5 rounded-full transition-all"
-            style={{ fontSize: '15px' }}
-          >
-            Open in Tab ↗
-          </a>
+          <span className="bg-[#6BBD45]/15 border border-[#6BBD45]/30 text-[#6BBD45] px-3 py-1 rounded-full font-bold" style={{ fontSize: '12px' }}>
+            VIEW ONLY — Not for download
+          </span>
           <button
             onClick={onClose}
             className="flex items-center gap-2 text-gray-500 hover:text-[#1B3A2D] transition-colors px-3 py-1.5 rounded-lg hover:bg-gray-100"

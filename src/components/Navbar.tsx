@@ -219,13 +219,22 @@ export default function Navbar() {
       {open && (
         <div className="lg:hidden border-t shadow-xl nav-mobile-bg max-h-[85vh] overflow-y-auto">
           <ul className="flex flex-col">
+
+            {/* Home — first */}
+            <li>
+              <Link href="/" onClick={() => setOpen(false)}
+                className="block px-5 py-3 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-sm font-semibold border-b nav-mobile-border">
+                Home
+              </Link>
+            </li>
+
             {/* About dropdown */}
             <li>
               <button
                 onClick={() => setMobileAboutOpen(v => !v)}
-                className="flex items-center justify-between w-full px-6 py-4 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-base font-semibold border-b nav-mobile-border">
+                className="flex items-center justify-between w-full px-5 py-3 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-sm font-semibold border-b nav-mobile-border">
                 About
-                <ChevronDown size={16} className={`transition-transform ${mobileAboutOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown size={14} className={`transition-transform ${mobileAboutOpen ? 'rotate-180' : ''}`} />
               </button>
               {mobileAboutOpen && (
                 <div className="nav-mobile-sub">
@@ -233,8 +242,8 @@ export default function Navbar() {
                     const Icon = s.icon;
                     return (
                       <Link key={s.href} href={s.href} onClick={() => setOpen(false)}
-                        className="flex items-center gap-3 px-8 py-3 text-sm nav-mobile-sub-text hover:text-[#6BBD45] border-b nav-mobile-border">
-                        <Icon size={15} className="text-[#6BBD45] shrink-0" />
+                        className="flex items-center gap-2.5 px-7 py-2.5 text-xs nav-mobile-sub-text hover:text-[#6BBD45] border-b nav-mobile-border">
+                        <Icon size={13} className="text-[#6BBD45] shrink-0" />
                         {s.label}
                       </Link>
                     );
@@ -247,9 +256,9 @@ export default function Navbar() {
             <li>
               <button
                 onClick={() => setMobileServicesOpen(v => !v)}
-                className="flex items-center justify-between w-full px-6 py-4 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-base font-semibold border-b nav-mobile-border">
+                className="flex items-center justify-between w-full px-5 py-3 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-sm font-semibold border-b nav-mobile-border">
                 Services
-                <ChevronDown size={16} className={`transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown size={14} className={`transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
               </button>
               {mobileServicesOpen && (
                 <div className="nav-mobile-sub">
@@ -257,8 +266,8 @@ export default function Navbar() {
                     const Icon = s.icon;
                     return (
                       <Link key={s.href} href={s.href} onClick={() => setOpen(false)}
-                        className="flex items-center gap-3 px-8 py-3 text-sm nav-mobile-sub-text hover:text-[#6BBD45] border-b nav-mobile-border">
-                        <Icon size={15} className="text-[#6BBD45] shrink-0" />
+                        className="flex items-center gap-2.5 px-7 py-2.5 text-xs nav-mobile-sub-text hover:text-[#6BBD45] border-b nav-mobile-border">
+                        <Icon size={13} className="text-[#6BBD45] shrink-0" />
                         {s.label}
                       </Link>
                     );
@@ -269,7 +278,6 @@ export default function Navbar() {
 
             {/* Other links */}
             {[
-              { label: 'Home',      href: '/' },
               { label: 'Projects',  href: '/projects' },
               { label: 'News',      href: '/news' },
               { label: 'Clientele', href: '/clientele' },
@@ -277,15 +285,15 @@ export default function Navbar() {
             ].map((link) => (
               <li key={link.href}>
                 <Link href={link.href} onClick={() => setOpen(false)}
-                  className="block px-6 py-4 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-base font-semibold border-b nav-mobile-border">
+                  className="block px-5 py-3 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-sm font-semibold border-b nav-mobile-border">
                   {link.label}
                 </Link>
               </li>
             ))}
 
-            <li className="p-4">
+            <li className="p-3">
               <Link href="/contact" onClick={() => setOpen(false)}
-                className="block bg-[#6BBD45] text-white text-center px-5 py-3.5 rounded-full text-base font-semibold">
+                className="block bg-[#6BBD45] text-white text-center px-5 py-3 rounded-full text-sm font-semibold">
                 Get In Touch
               </Link>
             </li>

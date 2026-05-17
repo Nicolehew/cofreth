@@ -37,6 +37,26 @@ export default function AboutPage() {
 
       {/* Body */}
       <div className="py-12 px-6 lg:px-10 xl:px-14 bg-white">
+
+        {/* Mission & Vision — top, prominent */}
+        <div className="grid md:grid-cols-2 gap-5 mb-12">
+          <div className="bg-[#6BBD45] rounded-2xl p-8 text-white">
+            <div className="text-4xl mb-4">🎯</div>
+            <div className="font-black uppercase tracking-widest text-white/70 mb-2" style={{ fontSize: '11px' }}>Our Mission</div>
+            <p className="font-bold leading-snug" style={{ fontSize: '20px' }}>
+              To Be Recognised as the Leading Provider of Quality Services for Total Facilities Management and All Utilities.
+            </p>
+          </div>
+          <div className="bg-[#1B3A2D] rounded-2xl p-8 text-white">
+            <div className="text-4xl mb-4">🌐</div>
+            <div className="font-black uppercase tracking-widest text-white/50 mb-2" style={{ fontSize: '11px' }}>Our Vision</div>
+            <p className="font-bold leading-snug text-white" style={{ fontSize: '20px' }}>
+              To Be An International Service Provider in Facilities Management &amp; Energy Services.
+            </p>
+          </div>
+        </div>
+
+        {/* About text + highlights */}
         <div className="grid lg:grid-cols-2 gap-10 items-start">
           <div className="space-y-4 text-gray-600 leading-relaxed" style={{ fontSize: '17px' }}>
             <p>Cofreth (M) Sdn Bhd was established in <strong className="text-[#1B3A2D]">1986</strong> as a Malaysian company specialising in Facilities Management, Operations and Maintenance of MEP Systems, Engineering Due Diligence, Energy Audit, Energy Efficiency, Energy Performance Contracting, Green Commissioning, and District Cooling System design.</p>
@@ -60,10 +80,10 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-2 gap-4">
             {[
-              { icon: '🎯', label: 'Mission', desc: 'To Be Recognised as the Leading Provider of Quality Services for Total Facilities Management and All Utilities.' },
-              { icon: '🌐', label: 'Vision', desc: 'To Be An International Service Provider in Facilities Management & Energy Services.' },
               { icon: '✅', label: 'Quality', desc: 'ISO 9001 · ISO 14001 · ISO 45001 · ISO 50001 · ISO 41001 — all certified by SIRIM QAS.' },
               { icon: '⚡', label: 'ESCO', desc: 'Registered with Malaysia Green Technology Corp & MAESCO. Guaranteed savings via CEEP contracts.' },
+              { icon: '🏆', label: 'Awards', desc: '5× Frost & Sullivan Malaysia Excellence Award winner for FM leadership and innovation.' },
+              { icon: '🌿', label: 'Green', desc: 'GBI & GreenRE accredited professionals driving Malaysia's sustainable built environment.' },
             ].map(c => (
               <div key={c.label} className="bg-white rounded-2xl p-5 border border-gray-100 hover:border-[#6BBD45]/40 hover:shadow-md transition-all">
                 <div className="text-2xl mb-2">{c.icon}</div>
