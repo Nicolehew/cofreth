@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* ── Tailwind v4: class-based dark mode ── */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --green-primary: #6BBD45;
   --green-dark: #1B3A2D;
@@ -193,73 +196,59 @@ h1, h2, h3 { letter-spacing: -0.02em; }
 img { max-width: 100%; }
 
 /* ─── Dark mode ─── */
-/* Keep content light regardless of system dark-mode preference */
-html.dark { color-scheme: light; }
-
-html.dark body {
-  background-color: #ffffff;
-  color: #1B3A2D;
-  color-scheme: light;
+html.dark {
+  color-scheme: dark;
 }
 
-/* Content backgrounds stay WHITE in dark mode (user preference) */
-html.dark .bg-white   { background-color: #ffffff !important; }
-html.dark .bg-gray-50 { background-color: #f9fafb !important; }
+html.dark body {
+  background-color: #0d1117;
+  color: #e6edf3;
+}
 
-/* Text stays dark on white backgrounds */
-html.dark .text-gray-900 { color: #111827 !important; }
-html.dark .text-gray-800 { color: #1f2937 !important; }
-html.dark .text-gray-700 { color: #374151 !important; }
-html.dark .text-gray-600 { color: #4b5563 !important; }
-html.dark .text-gray-500 { color: #6b7280 !important; }
-html.dark .text-gray-400 { color: #9ca3af !important; }
+/* Page / section backgrounds */
+html.dark .bg-white   { background-color: #161b22 !important; }
+html.dark .bg-gray-50 { background-color: #1c2128 !important; }
+html.dark .bg-gray-100{ background-color: #21262d !important; }
 
-/* Primary dark-green text stays dark green */
-html.dark .text-\[\#1B3A2D\] { color: #1B3A2D !important; }
+/* Text */
+html.dark .text-gray-900 { color: #e6edf3 !important; }
+html.dark .text-gray-800 { color: #c9d1d9 !important; }
+html.dark .text-gray-700 { color: #b1bac4 !important; }
+html.dark .text-gray-600 { color: #8b949e !important; }
+html.dark .text-gray-500 { color: #6e7681 !important; }
+html.dark .text-gray-400 { color: #484f58 !important; }
+html.dark .text-\[\#1B3A2D\] { color: #adbac7 !important; }
 
-/* Borders stay light */
-html.dark .border-gray-100 { border-color: #f3f4f6 !important; }
-html.dark .border-gray-200 { border-color: #e5e7eb !important; }
+/* Borders */
+html.dark .border-gray-100 { border-color: #21262d !important; }
+html.dark .border-gray-200 { border-color: #30363d !important; }
 
 /* Shadows */
 html.dark .shadow-sm,
 html.dark .shadow-md,
 html.dark .shadow-lg,
 html.dark .shadow-xl,
-html.dark .shadow-2xl { box-shadow: 0 4px 20px rgba(0,0,0,0.6) !important; }
+html.dark .shadow-2xl { box-shadow: 0 4px 24px rgba(0,0,0,0.7) !important; }
 
-/* Navbar */
+/* ── Navbar (always dark-green — unchanged) ── */
 html.dark nav { border-color: rgba(107,189,69,0.15) !important; }
 
-/* Nav dropdown panels */
-.nav-dropdown-bg   { background-color: #1B3A2D; }
+.nav-dropdown-bg        { background-color: #1B3A2D; }
 html.dark .nav-dropdown-bg { background-color: #0F2419 !important; }
 
-.nav-dropdown-text { color: rgba(255,255,255,0.9); }
-html.dark .nav-dropdown-text { color: rgba(255,255,255,0.9) !important; }
-
-.nav-dropdown-footer { background-color: rgba(0,0,0,0.2); }
+.nav-dropdown-text      { color: rgba(255,255,255,0.9); }
+.nav-dropdown-footer    { background-color: rgba(0,0,0,0.2); }
 html.dark .nav-dropdown-footer { background-color: rgba(0,0,0,0.3) !important; }
 
-/* Mobile nav — dark green to match navbar */
-.nav-mobile-bg   { background-color: #1B3A2D; border-color: rgba(107,189,69,0.2); }
+.nav-mobile-bg          { background-color: #1B3A2D; }
 html.dark .nav-mobile-bg { background-color: #0F2419 !important; }
 
-.nav-mobile-text { color: rgba(255,255,255,0.85); }
-html.dark .nav-mobile-text { color: rgba(255,255,255,0.85) !important; }
-
-.nav-mobile-sub  { background-color: rgba(0,0,0,0.2); }
+.nav-mobile-text        { color: rgba(255,255,255,0.85); }
+.nav-mobile-sub         { background-color: rgba(0,0,0,0.2); }
 html.dark .nav-mobile-sub { background-color: rgba(0,0,0,0.3) !important; }
 
-.nav-mobile-sub-text { color: rgba(255,255,255,0.7); }
-html.dark .nav-mobile-sub-text { color: rgba(255,255,255,0.7) !important; }
+.nav-mobile-sub-text    { color: rgba(255,255,255,0.7); }
+.nav-mobile-border      { border-color: rgba(107,189,69,0.15); }
 
-.nav-mobile-border { border-color: rgba(107,189,69,0.15); }
-html.dark .nav-mobile-border { border-color: rgba(107,189,69,0.1) !important; }
-
-/* Card hover shadows in dark */
-html.dark .hover\:shadow-xl:hover,
-html.dark .hover\:shadow-lg:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.7) !important; }
-
-/* Footer stays dark regardless */
+/* Footer always dark */
 footer { background-color: #0a1a10 !important; }
