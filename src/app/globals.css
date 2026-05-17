@@ -193,11 +193,13 @@ h1, h2, h3 { letter-spacing: -0.02em; }
 img { max-width: 100%; }
 
 /* ─── Dark mode ─── */
-html.dark { color-scheme: dark; }
+/* Keep content light regardless of system dark-mode preference */
+html.dark { color-scheme: light; }
 
 html.dark body {
   background-color: #ffffff;
   color: #1B3A2D;
+  color-scheme: light;
 }
 
 /* Content backgrounds stay WHITE in dark mode (user preference) */

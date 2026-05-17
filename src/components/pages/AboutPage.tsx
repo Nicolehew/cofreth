@@ -163,10 +163,10 @@ export default function AboutPage() {
       </div>
 
       {/* ── Two-column layout ── */}
-      <div className="flex items-start relative">
+      <div className="flex items-start relative bg-white w-full">
 
         {/* Left sidebar — desktop only */}
-        <aside className="hidden lg:block w-64 xl:w-72 shrink-0">
+        <aside className="hidden lg:block w-64 xl:w-72 shrink-0 bg-white">
           <div className="sticky top-20 bg-white border-r border-gray-100 min-h-screen">
             <div className="px-4 py-5 border-b border-gray-100">
               <p className="text-xs font-black text-gray-400 uppercase tracking-widest">Navigation</p>
