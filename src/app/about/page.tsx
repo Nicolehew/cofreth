@@ -83,7 +83,7 @@ export default function AboutPage() {
               { icon: '✅', label: 'Quality', desc: 'ISO 9001 · ISO 14001 · ISO 45001 · ISO 50001 · ISO 41001 — all certified by SIRIM QAS.' },
               { icon: '⚡', label: 'ESCO', desc: 'Registered with Malaysia Green Technology Corp & MAESCO. Guaranteed savings via CEEP contracts.' },
               { icon: '🏆', label: 'Awards', desc: '5× Frost & Sullivan Malaysia Excellence Award winner for FM leadership and innovation.' },
-              { icon: '🌿', label: 'Green', desc: 'GBI & GreenRE accredited professionals driving Malaysia's sustainable built environment.' },
+              { icon: '🌿', label: 'Green', desc: "GBI & GreenRE accredited professionals driving Malaysia's sustainable built environment." },
             ].map(c => (
               <div key={c.label} className="bg-white rounded-2xl p-5 border border-gray-100 hover:border-[#6BBD45]/40 hover:shadow-md transition-all">
                 <div className="text-2xl mb-2">{c.icon}</div>
