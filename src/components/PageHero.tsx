@@ -63,11 +63,11 @@ export default function PageHero({
       {/* ── Content ── */}
       <div
         ref={reveal.ref}
-        className="relative max-w-6xl mx-auto px-6 md:px-12 transition-all duration-700"
+        className="relative max-w-6xl mx-auto px-6 md:px-12 transition-all duration-700 text-center"
         style={{ opacity: reveal.visible ? 1 : 0, transform: reveal.visible ? 'none' : 'translateY(24px)', zIndex: 5 }}
       >
         {/* Eyebrow */}
-        <div className="flex items-center gap-2 mb-5">
+        <div className="flex items-center justify-center gap-2 mb-5">
           <span
             className="bg-[#6BBD45]/20 border border-[#6BBD45]/40 text-[#6BBD45] font-bold px-3 py-1 rounded-full uppercase tracking-widest"
             style={{ fontSize: '11px' }}
@@ -84,7 +84,7 @@ export default function PageHero({
 
         {/* Heading */}
         <h1
-          className="font-black text-white leading-none mb-5"
+          className="font-black text-white leading-none mb-5 mx-auto"
           style={{ fontSize: 'clamp(2.4rem, 5.5vw, 4.2rem)', letterSpacing: '-0.02em' }}
         >
           {title}
@@ -92,7 +92,7 @@ export default function PageHero({
 
         {/* Subtitle */}
         <p
-          className="text-white/70 max-w-xl leading-relaxed mb-10"
+          className="text-white/70 max-w-2xl leading-relaxed mb-10 mx-auto"
           style={{ fontSize: '16px' }}
         >
           {subtitle}

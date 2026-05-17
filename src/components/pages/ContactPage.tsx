@@ -25,12 +25,7 @@ export default function ContactPage() {
         eyebrowSub="Mon–Fri 08:30–17:30 · Response within 1 business day"
         title={<>Let's Start a<br /><span className="text-[#6BBD45]">Conversation</span></>}
         subtitle="Whether you need a facility management consultation, energy audit, or green building assessment — our team is ready to help. Reach out and we'll respond within one business day."
-        stats={[
-          { num: '+603',     label: '5637 8800' },
-          { num: 'Mon–Fri',  label: '08:30 – 17:30' },
-          { num: '1 Day',    label: 'Response Time' },
-          { num: 'Subang',   label: 'Jaya HQ' },
-        ]}
+        stats={[]}
       />
 
       {/* Main content */}
@@ -172,7 +167,7 @@ export default function ContactPage() {
       {/* Map */}
       <section className="h-96 relative">
         <iframe
-          src="https://maps.google.com/maps?q=No+39+Jalan+USJ+Sentral+3+USJ+Sentral+47600+Subang+Jaya+Selangor+Malaysia&output=embed&z=17"
+          src="https://maps.google.com/maps?q=Cofreth+M+Sdn+Bhd+No+39+Jalan+USJ+Sentral+3+USJ+Sentral+47600+Subang+Jaya+Selangor&output=embed&z=18"
           width="100%"
           height="100%"
           style={{ border: 0 }}
