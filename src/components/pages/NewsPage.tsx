@@ -140,7 +140,7 @@ export default function NewsPage() {
       </div>
 
       {/* Featured article */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center gap-3 mb-8">
             <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
@@ -184,7 +184,7 @@ export default function NewsPage() {
       </section>
 
       {/* Awards timeline strip */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center gap-3 mb-10">
             <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />

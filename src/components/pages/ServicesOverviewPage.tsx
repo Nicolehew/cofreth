@@ -118,7 +118,7 @@ export default function ServicesOverviewPage() {
       </div>
 
       {/* Services grid */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-8">
             {services.map((svc, i) => <ServiceCard key={svc.title} svc={svc} i={i} />)}

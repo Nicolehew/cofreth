@@ -245,7 +245,7 @@ export default function ProjectsPage() {
       />
 
       {/* Flagship projects */}
-      <section className="py-10 md:py-16 bg-gray-50">
+      <section className="py-10 md:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-3 mb-6">
             <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
@@ -290,7 +290,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="bg-gradient-to-br from-[#0a1810] to-[#1B3A2D] rounded-3xl p-12 text-white border border-[#6BBD45]/20">
             <h2 className="text-2xl md:text-3xl font-black mb-4">Ready to Be Our Next Success Story?</h2>

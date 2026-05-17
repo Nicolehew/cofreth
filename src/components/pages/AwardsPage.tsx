@@ -179,7 +179,7 @@ export default function AwardsPage() {
       />
 
       {/* ── Frost & Sullivan ── */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div ref={fsTitle.ref} className="text-center mb-14 transition-all duration-700"
             style={{ opacity: fsTitle.visible ? 1 : 0, transform: fsTitle.visible ? 'none' : 'translateY(30px)' }}>
@@ -243,7 +243,7 @@ export default function AwardsPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <Award size={40} className="text-[#6BBD45] mx-auto mb-5" />
           <h2 className="text-2xl md:text-3xl font-black text-[#1B3A2D] mb-4">Work with an Award-Winning FM Partner</h2>

@@ -197,7 +197,7 @@ export default function GroupPage() {
       </div>
 
       {/* ── Partner detail cards ── */}
-      <section className="py-16 pb-24 bg-gray-50">
+      <section className="py-16 pb-24 bg-white">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">

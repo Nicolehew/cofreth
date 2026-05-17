@@ -93,7 +93,7 @@ export default function ServiceDetailPage({ iconName, title, subtitle, intro, he
       </div>
 
       {/* Sections */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6 space-y-8">
           {sections.map((sec, i) => (
             <SectionRow key={sec.title} sec={sec} index={i} />

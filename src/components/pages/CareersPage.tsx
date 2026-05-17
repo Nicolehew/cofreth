@@ -152,7 +152,7 @@ export default function CareersPage() {
       </section>
 
       {/* ── No Current Openings ── */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-6">
           <div ref={noJobs.ref} className="text-center transition-all duration-700"
             style={{ opacity: noJobs.visible ? 1 : 0, transform: noJobs.visible ? 'none' : 'translateY(30px)' }}>
@@ -203,7 +203,7 @@ export default function CareersPage() {
       </section>
 
       {/* ── Spontaneous Application CTA ── */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <div className="bg-gradient-to-br from-[#0F2419] to-[#1B3A2D] rounded-3xl p-10 md:p-14 text-white text-center border border-[#6BBD45]/20">
             <div className="w-14 h-14 bg-[#6BBD45]/15 rounded-2xl flex items-center justify-center mx-auto mb-6">

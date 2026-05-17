@@ -108,7 +108,7 @@ export default function ClientelePage() {
       />
 
 
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 space-y-16">
           {sectors.map((sector, i) => <SectorSection key={sector.name} sector={sector} index={i} />)}
         </div>

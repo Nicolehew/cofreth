@@ -205,7 +205,7 @@ export default function AboutPage() {
                   { icon: '✅', label: 'Quality', desc: 'ISO 9001 · ISO 14001 · ISO 45001 · ISO 50001 · ISO 41001 — all independently certified by SIRIM QAS.' },
                   { icon: '⚡', label: 'ESCO', desc: 'Registered with Malaysia Green Technology Corp & MAESCO. Guaranteed energy savings via CEEP contracts.' },
                 ].map(c => (
-                  <div key={c.label} className="bg-gray-50 rounded-2xl p-4 border border-gray-100 hover:border-[#6BBD45]/30 transition-colors">
+                  <div key={c.label} className="bg-white rounded-2xl p-4 border border-gray-200 hover:border-[#6BBD45]/40 shadow-sm transition-colors">
                     <div className="text-2xl mb-2">{c.icon}</div>
                     <div className="font-black text-[#1B3A2D] text-xs mb-1">{c.label}</div>
                     <p className="text-gray-500 text-xs leading-relaxed">{c.desc}</p>
@@ -248,7 +248,7 @@ export default function AboutPage() {
                 { n: '05', icon: '💻', title: 'Technology-Driven Efficiency', desc: 'ARCHIBUS, BAS, BIM and IoT technologies improve efficiency and reduce the total cost of ownership.' },
                 { n: '06', icon: '⚖️', title: 'Strong Corporate Values', desc: 'Professionalism, Team Spirit, Partnership, Value Creation, Respect for Environment and Good Ethics.' },
               ].map(p => (
-                <div key={p.n} className="group bg-gray-50 border border-gray-100 hover:border-[#6BBD45]/30 hover:bg-white rounded-2xl p-5 hover:shadow-lg transition-all duration-300">
+                <div key={p.n} className="group bg-white border border-gray-200 hover:border-[#6BBD45]/40 rounded-2xl p-5 hover:shadow-lg shadow-sm transition-all duration-300">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-xl">{p.icon}</span>
                     <span className="text-xs font-black text-[#6BBD45] tracking-widest">{p.n}</span>
@@ -307,7 +307,7 @@ export default function AboutPage() {
                 { code: 'ISO 14001:2015', label: 'Environmental Management', icon: '🌿', color: '#10b981', desc: 'Minimising environmental impact through responsible practices and continuous monitoring.', pdf: 'https://www.cofreth.com.my/images/ISO_14001-2015(EMS)(2023-2026).pdf' },
                 { code: 'ISO 50001:2018', label: 'Energy Management', icon: '⚡', color: '#f59e0b', desc: 'Structured energy monitoring and optimisation to reduce consumption and costs.', pdf: 'https://www.cofreth.com.my/images/ISO_50001-2018(EnMS)(2023-2026).pdf' },
               ].map(p => (
-                <div key={p.code} className="group bg-gray-50 border border-gray-100 hover:border-[#6BBD45]/30 rounded-2xl p-5 hover:shadow-lg transition-all duration-300">
+                <div key={p.code} className="group bg-white border border-gray-200 hover:border-[#6BBD45]/40 rounded-2xl p-5 hover:shadow-lg shadow-sm transition-all duration-300">
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center text-xl mb-3" style={{ background: p.color + '15' }}>{p.icon}</div>
                   <div className="font-black text-[#1B3A2D] text-xs mb-1 group-hover:text-[#6BBD45] transition-colors">{p.code}</div>
                   <div className="text-gray-600 text-xs font-semibold mb-2">{p.label}</div>
@@ -369,7 +369,7 @@ export default function AboutPage() {
                 <h3 className="font-black text-[#6BBD45] mb-3">Responsible Business Alliance</h3>
                 <p className="text-gray-300 text-sm leading-relaxed">Cofreth is fully committed and complies with the Responsible Business Alliance (RBA) as part of our code of business conduct — ensuring ethical practices across our entire supply chain and operations.</p>
               </div>
-              <div className="bg-gray-50 border border-gray-100 rounded-2xl p-8">
+              <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
                 <div className="text-3xl mb-4">📜</div>
                 <h3 className="font-black text-[#1B3A2D] mb-3">Our Governance Commitments</h3>
                 <ul className="space-y-2">
@@ -436,7 +436,7 @@ export default function AboutPage() {
                 { years: '2006', theme: 'Your Expectations, Our Commitment' },
                 { years: '2005', theme: 'Delivering High Performance' },
               ].map(t => (
-                <div key={t.years} className={`flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 rounded-2xl px-6 py-4 border transition-all ${t.highlight ? 'bg-[#1B3A2D] border-[#6BBD45]/30' : 'bg-gray-50 border-gray-100 hover:border-[#6BBD45]/20'}`}>
+                <div key={t.years} className={`flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 rounded-2xl px-6 py-4 border transition-all ${t.highlight ? 'bg-[#1B3A2D] border-[#6BBD45]/30' : 'bg-white border-gray-200 hover:border-[#6BBD45]/30 shadow-sm'}`}>
                   <span className={`text-xs font-black uppercase tracking-widest shrink-0 ${t.highlight ? 'text-[#6BBD45]' : 'text-gray-400'}`}>{t.years}</span>
                   <span className={`font-semibold text-sm italic ${t.highlight ? 'text-white' : 'text-[#1B3A2D]'}`}>"{t.theme}"</span>
                 </div>

@@ -29,7 +29,7 @@ export default function ContactPage() {
       />
 
       {/* Main content */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-5 gap-12">
 
           {/* Contact Info */}
