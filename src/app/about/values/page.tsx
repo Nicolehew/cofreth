@@ -31,8 +31,8 @@ export default function ValuesPage() {
           {values.map(v => (
             <div key={v.title} className="group bg-white border border-gray-100 hover:border-[#6BBD45]/40 rounded-2xl p-6 hover:shadow-md transition-all duration-300">
               <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform" style={{ background: v.color + '18' }}>{v.icon}</div>
-              <h3 className="font-black text-[#1B3A2D] mb-3 group-hover:text-[#6BBD45] transition-colors" style={{ fontSize: '15px' }}>{v.title}</h3>
-              <p className="text-gray-500 leading-relaxed" style={{ fontSize: '13px' }}>{v.desc}</p>
+              <h3 className="font-black text-[#1B3A2D] mb-3 group-hover:text-[#6BBD45] transition-colors" style={{ fontSize: '17px' }}>{v.title}</h3>
+              <p className="text-gray-500 leading-relaxed" style={{ fontSize: '15px' }}>{v.desc}</p>
             </div>
           ))}
         </div>
@@ -42,7 +42,7 @@ export default function ValuesPage() {
             <div className="text-4xl shrink-0">🤝</div>
             <div>
               <h3 className="font-black text-[#1B3A2D] mb-2" style={{ fontSize: '16px' }}>Responsible Business Alliance (RBA)</h3>
-              <p className="text-gray-600 leading-relaxed" style={{ fontSize: '14px' }}>Cofreth is fully committed and complies with the Responsible Business Alliance as part of our code of business conduct — ensuring ethical practices across our entire supply chain and operations, from procurement to project completion.</p>
+              <p className="text-gray-600 leading-relaxed" style={{ fontSize: '16px' }}>Cofreth is fully committed and complies with the Responsible Business Alliance as part of our code of business conduct — ensuring ethical practices across our entire supply chain and operations, from procurement to project completion.</p>
             </div>
           </div>
         </div>

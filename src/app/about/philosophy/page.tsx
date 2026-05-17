@@ -32,10 +32,10 @@ export default function PhilosophyPage() {
             <div key={p.n} className="group bg-white border border-gray-100 hover:border-[#6BBD45]/40 rounded-2xl p-6 hover:shadow-md transition-all duration-300">
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-3xl">{p.icon}</span>
-                <span className="font-black text-[#6BBD45] tracking-widest" style={{ fontSize: '11px' }}>{p.n}</span>
+                <span className="font-black text-[#6BBD45] tracking-widest" style={{ fontSize: '12px' }}>{p.n}</span>
               </div>
-              <h3 className="font-black text-[#1B3A2D] mb-3 group-hover:text-[#6BBD45] transition-colors" style={{ fontSize: '15px' }}>{p.title}</h3>
-              <p className="text-gray-500 leading-relaxed" style={{ fontSize: '13px' }}>{p.desc}</p>
+              <h3 className="font-black text-[#1B3A2D] mb-3 group-hover:text-[#6BBD45] transition-colors" style={{ fontSize: '17px' }}>{p.title}</h3>
+              <p className="text-gray-500 leading-relaxed" style={{ fontSize: '15px' }}>{p.desc}</p>
             </div>
           ))}
         </div>
@@ -44,12 +44,12 @@ export default function PhilosophyPage() {
           <div className="bg-[#6BBD45]/10 border border-[#6BBD45]/30 rounded-2xl p-8">
             <div className="text-3xl mb-4">🎯</div>
             <h3 className="font-black text-[#1B3A2D] mb-3" style={{ fontSize: '16px' }}>Our Mission</h3>
-            <p className="text-gray-600 leading-relaxed" style={{ fontSize: '14px' }}>To Be Recognised as the Leading Provider of Quality Services for Total Facilities Management and All Utilities.</p>
+            <p className="text-gray-600 leading-relaxed" style={{ fontSize: '16px' }}>To Be Recognised as the Leading Provider of Quality Services for Total Facilities Management and All Utilities.</p>
           </div>
           <div className="bg-[#6BBD45]/10 border border-[#6BBD45]/30 rounded-2xl p-8">
             <div className="text-3xl mb-4">🌐</div>
             <h3 className="font-black text-[#1B3A2D] mb-3" style={{ fontSize: '16px' }}>Our Vision</h3>
-            <p className="text-gray-600 leading-relaxed" style={{ fontSize: '14px' }}>To Be An International Service Provider in Facilities Management & Energy Services.</p>
+            <p className="text-gray-600 leading-relaxed" style={{ fontSize: '16px' }}>To Be An International Service Provider in Facilities Management & Energy Services.</p>
           </div>
         </div>
       </div>

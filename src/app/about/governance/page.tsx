@@ -22,7 +22,7 @@ export default function GovernancePage() {
             <div className="bg-[#6BBD45]/10 border border-[#6BBD45]/30 rounded-2xl p-8">
               <div className="text-4xl mb-4">🤝</div>
               <h3 className="font-black text-[#1B3A2D] mb-3" style={{ fontSize: '16px' }}>Responsible Business Alliance</h3>
-              <p className="text-gray-600 leading-relaxed" style={{ fontSize: '14px' }}>Cofreth is fully committed and complies with the Responsible Business Alliance (RBA) as part of our code of business conduct — ensuring ethical practices across our entire supply chain and operations.</p>
+              <p className="text-gray-600 leading-relaxed" style={{ fontSize: '16px' }}>Cofreth is fully committed and complies with the Responsible Business Alliance (RBA) as part of our code of business conduct — ensuring ethical practices across our entire supply chain and operations.</p>
             </div>
             <div className="bg-white border border-gray-100 rounded-2xl p-8">
               <div className="text-4xl mb-4">📜</div>
@@ -35,7 +35,7 @@ export default function GovernancePage() {
                   'Responsible procurement practices',
                   'Data privacy and information security',
                 ].map(item => (
-                  <li key={item} className="flex items-start gap-3 text-gray-600" style={{ fontSize: '14px' }}>
+                  <li key={item} className="flex items-start gap-3 text-gray-600" style={{ fontSize: '16px' }}>
                     <span className="text-[#6BBD45] font-bold shrink-0">✓</span>
                     {item}
                   </li>
@@ -54,8 +54,8 @@ export default function GovernancePage() {
             ].map(p => (
               <div key={p.title} className="bg-white border border-gray-100 rounded-2xl p-5 hover:border-[#6BBD45]/30 hover:shadow-sm transition-all">
                 <div className="text-3xl mb-3">{p.icon}</div>
-                <h4 className="font-black text-[#1B3A2D] mb-2" style={{ fontSize: '14px' }}>{p.title}</h4>
-                <p className="text-gray-500 leading-relaxed" style={{ fontSize: '12px' }}>{p.desc}</p>
+                <h4 className="font-black text-[#1B3A2D] mb-2" style={{ fontSize: '16px' }}>{p.title}</h4>
+                <p className="text-gray-500 leading-relaxed" style={{ fontSize: '13px' }}>{p.desc}</p>
               </div>
             ))}
           </div>

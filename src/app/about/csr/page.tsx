@@ -36,28 +36,28 @@ export default function CSRPage() {
             ].map(item => (
               <div key={item.title} className="bg-white border border-gray-100 rounded-2xl p-6 hover:border-[#6BBD45]/40 hover:shadow-md transition-all duration-300">
                 <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="font-black text-[#1B3A2D] mb-3" style={{ fontSize: '15px' }}>{item.title}</h3>
-                <p className="text-gray-500 leading-relaxed" style={{ fontSize: '13px' }}>{item.desc}</p>
+                <h3 className="font-black text-[#1B3A2D] mb-3" style={{ fontSize: '17px' }}>{item.title}</h3>
+                <p className="text-gray-500 leading-relaxed" style={{ fontSize: '15px' }}>{item.desc}</p>
               </div>
             ))}
           </div>
 
           <div className="bg-white border border-gray-100 rounded-2xl p-8">
             <h3 className="font-black text-[#1B3A2D] mb-2" style={{ fontSize: '18px' }}>Sustainable Development</h3>
-            <p className="text-gray-500 leading-relaxed mb-6" style={{ fontSize: '14px' }}>
+            <p className="text-gray-500 leading-relaxed mb-6" style={{ fontSize: '16px' }}>
               Cofreth&#39;s activities take into account the objectives of sustainable development from ecological, economical and social dimensions — aligned to the UN Sustainable Development Goals.
             </p>
             <div className="grid grid-cols-6 sm:grid-cols-9 gap-2">
               {sdgs.map(g => (
                 <div key={g.n}
                   className="aspect-square rounded-xl flex items-center justify-center text-white font-black hover:scale-110 transition-transform cursor-default"
-                  style={{ background: g.bg, fontSize: '13px' }}
+                  style={{ background: g.bg, fontSize: '15px' }}
                 >
                   {g.n}
                 </div>
               ))}
             </div>
-            <p className="text-gray-400 mt-4 text-center" style={{ fontSize: '12px' }}>UN Sustainable Development Goals 1–17</p>
+            <p className="text-gray-400 mt-4 text-center" style={{ fontSize: '13px' }}>UN Sustainable Development Goals 1–17</p>
           </div>
         </div>
       </div>

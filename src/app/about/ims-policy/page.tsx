@@ -32,21 +32,21 @@ export default function IMSPolicyPage() {
       <div className="py-12 px-6 lg:px-10 xl:px-14 bg-white">
           {/* Overview */}
           <div className="bg-white border border-gray-100 rounded-2xl p-8 mb-8">
-            <p className="text-gray-600 leading-relaxed mb-4" style={{ fontSize: '15px' }}>
+            <p className="text-gray-600 leading-relaxed mb-4" style={{ fontSize: '17px' }}>
               By integrating quality, occupational safety and health, environmental, energy, and facility management systems into an Integrated Management System (IMS), Cofreth is committed to providing high-performance Facilities Management and Energy Services (FMES) without compromising sustainability in environmental, social and governance aspects for all stakeholders.
             </p>
-            <p className="text-gray-600 leading-relaxed" style={{ fontSize: '15px' }}>
+            <p className="text-gray-600 leading-relaxed" style={{ fontSize: '17px' }}>
               Cofreth demonstrates a strong belief that the bedrock of excellent service delivery rests upon the adoption of a professional and ethical business strategy — revolving around business growth, developing talents, adopting innovative technologies and five well-defined management systems.
             </p>
           </div>
 
           {/* 9 Commitments */}
           <div className="bg-[#6BBD45]/8 border border-[#6BBD45]/30 rounded-2xl p-8 mb-8">
-            <h2 className="text-[#1B3A2D] font-black uppercase tracking-widest mb-6" style={{ fontSize: '12px' }}>9 Policy Commitments</h2>
+            <h2 className="text-[#1B3A2D] font-black uppercase tracking-widest mb-6" style={{ fontSize: '13px' }}>9 Policy Commitments</h2>
             <ol className="space-y-4">
               {commitments.map((item, i) => (
-                <li key={i} className="flex items-start gap-4 text-gray-700" style={{ fontSize: '14px' }}>
-                  <span className="w-7 h-7 rounded-full bg-[#6BBD45] text-white font-bold flex items-center justify-center shrink-0 mt-0.5" style={{ fontSize: '11px' }}>
+                <li key={i} className="flex items-start gap-4 text-gray-700" style={{ fontSize: '16px' }}>
+                  <span className="w-7 h-7 rounded-full bg-[#6BBD45] text-white font-bold flex items-center justify-center shrink-0 mt-0.5" style={{ fontSize: '12px' }}>
                     {i + 1}
                   </span>
                   <span className="leading-relaxed">{item}</span>
@@ -55,12 +55,12 @@ export default function IMSPolicyPage() {
             </ol>
             <div className="mt-8 pt-6 border-t border-[#6BBD45]/20 flex flex-wrap items-center gap-6">
               <div>
-                <p className="text-[#1B3A2D] font-bold" style={{ fontSize: '14px' }}>Ir. ONG CHING LOON</p>
-                <p className="text-gray-500" style={{ fontSize: '12px' }}>Managing Director</p>
+                <p className="text-[#1B3A2D] font-bold" style={{ fontSize: '16px' }}>Ir. ONG CHING LOON</p>
+                <p className="text-gray-500" style={{ fontSize: '13px' }}>Managing Director</p>
               </div>
-              <p className="text-gray-500" style={{ fontSize: '12px' }}>Revision 4 · Effective 1 August 2024</p>
+              <p className="text-gray-500" style={{ fontSize: '13px' }}>Revision 4 · Effective 1 August 2024</p>
               <a href="https://www.cofreth.com.my/images/IMS_Policy-Revision_4.pdf" target="_blank" rel="noopener noreferrer"
-                className="ml-auto bg-[#6BBD45] hover:bg-[#5aa838] text-white font-semibold px-5 py-2 rounded-full transition-all" style={{ fontSize: '13px' }}>
+                className="ml-auto bg-[#6BBD45] hover:bg-[#5aa838] text-white font-semibold px-5 py-2 rounded-full transition-all" style={{ fontSize: '15px' }}>
                 Download PDF
               </a>
             </div>
@@ -79,8 +79,8 @@ export default function IMSPolicyPage() {
               <div key={s.code} className="flex items-center gap-4 bg-white border border-gray-100 rounded-xl p-4 hover:border-[#6BBD45]/30 transition-colors">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0" style={{ background: s.color + '18' }}>{s.icon}</div>
                 <div>
-                  <div className="font-black text-[#1B3A2D]" style={{ fontSize: '13px' }}>{s.code}</div>
-                  <div className="text-gray-500 mt-0.5" style={{ fontSize: '12px' }}>{s.label}</div>
+                  <div className="font-black text-[#1B3A2D]" style={{ fontSize: '15px' }}>{s.code}</div>
+                  <div className="text-gray-500 mt-0.5" style={{ fontSize: '13px' }}>{s.label}</div>
                 </div>
               </div>
             ))}

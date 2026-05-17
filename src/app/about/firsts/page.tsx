@@ -45,13 +45,13 @@ export default function FirstsPage() {
               <div key={m.year + i} className="flex gap-4">
                 <div className="shrink-0 relative">
                   <div className="w-9 h-9 rounded-full bg-[#6BBD45] flex items-center justify-center z-10 shadow shadow-[#6BBD45]/30">
-                    <span className="text-white font-black" style={{ fontSize: '11px' }}>✓</span>
+                    <span className="text-white font-black" style={{ fontSize: '12px' }}>✓</span>
                   </div>
                 </div>
                 <div className="pb-4 flex-1">
                   <div className="bg-white border border-gray-100 rounded-xl p-4 hover:border-[#6BBD45]/30 hover:shadow-sm transition-all group">
-                    <span className="font-black text-[#6BBD45] tracking-widest uppercase block mb-1" style={{ fontSize: '11px' }}>{m.year}</span>
-                    <p className="text-gray-700 font-medium leading-relaxed group-hover:text-[#1B3A2D] transition-colors" style={{ fontSize: '14px' }}>{m.event}</p>
+                    <span className="font-black text-[#6BBD45] tracking-widest uppercase block mb-1" style={{ fontSize: '12px' }}>{m.year}</span>
+                    <p className="text-gray-700 font-medium leading-relaxed group-hover:text-[#1B3A2D] transition-colors" style={{ fontSize: '16px' }}>{m.event}</p>
                   </div>
                 </div>
               </div>
