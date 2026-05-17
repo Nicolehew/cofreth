@@ -30,7 +30,7 @@ function AdvantageCard({ r, i }: { r: typeof reasons[0]; i: number }) {
       <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl transition-all duration-300 group-hover:h-1" style={{ background: r.color }} />
 
       {/* Background number */}
-      <span className="absolute top-3 right-4 text-6xl font-black opacity-[0.04] select-none pointer-events-none" style={{ color: r.color, lineHeight: 1 }}>{r.num}</span>
+      <span className="absolute top-3 right-4 text-6xl font-black opacity-[0.12] select-none pointer-events-none" style={{ color: r.color, lineHeight: 1 }}>{r.num}</span>
 
       {/* Icon */}
       <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110" style={{ background: r.color + '15' }}>

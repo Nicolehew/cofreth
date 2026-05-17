@@ -216,7 +216,7 @@ export default function AboutPage() {
           </section>
 
           {/* Our Many Firsts */}
-          <section id="firsts" className="py-16 px-6 lg:px-10 xl:px-14 bg-gray-50">
+          <section id="firsts" className="py-16 px-6 lg:px-10 xl:px-14 bg-white">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
               <span className="text-[#6BBD45] text-xs font-bold tracking-widest uppercase">Our Many Firsts</span>
@@ -261,7 +261,7 @@ export default function AboutPage() {
           </section>
 
           {/* IMS Policy */}
-          <section id="ims-policy" className="py-16 px-6 lg:px-10 xl:px-14 bg-gray-50">
+          <section id="ims-policy" className="py-16 px-6 lg:px-10 xl:px-14 bg-white">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
               <span className="text-[#6BBD45] text-xs font-bold tracking-widest uppercase">Our IMS Policy</span>
@@ -331,7 +331,7 @@ export default function AboutPage() {
           </section>
 
           {/* Value & Ethics */}
-          <section id="values" className="py-16 px-6 lg:px-10 xl:px-14 bg-gray-50">
+          <section id="values" className="py-16 px-6 lg:px-10 xl:px-14 bg-white">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
               <span className="text-[#6BBD45] text-xs font-bold tracking-widest uppercase">Our Value &amp; Ethics</span>
@@ -384,7 +384,7 @@ export default function AboutPage() {
           </section>
 
           {/* CSR */}
-          <section id="csr" className="py-16 px-6 lg:px-10 xl:px-14 bg-gray-50">
+          <section id="csr" className="py-16 px-6 lg:px-10 xl:px-14 bg-white">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
               <span className="text-[#6BBD45] text-xs font-bold tracking-widest uppercase">Corporate Social Responsibility</span>
