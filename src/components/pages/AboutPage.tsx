@@ -174,8 +174,8 @@ export default function AboutPage() {
         <main className="flex-1 min-w-0 bg-white">
 
           {/* ── About Cofreth ── */}
-          <section id="about" className="py-20 px-6 lg:px-16 border-b border-gray-100">
-            <div className="max-w-4xl mx-auto">
+          <section id="about" className="py-20 px-8 lg:px-12 border-b border-gray-100">
+            <div className="w-full">
               <SectionHeader
                 eyebrow="About Cofreth"
                 title="Malaysia's FM Pioneer Since 1986"
@@ -212,8 +212,8 @@ export default function AboutPage() {
           </section>
 
           {/* ── Our Many Firsts ── */}
-          <section id="firsts" className="py-20 px-6 lg:px-16 border-b border-gray-100">
-            <div className="max-w-4xl mx-auto">
+          <section id="firsts" className="py-20 px-8 lg:px-12 border-b border-gray-100">
+            <div className="w-full">
               <SectionHeader
                 eyebrow="Our Many Firsts"
                 title="Industry-Leading Milestones"
@@ -229,8 +229,8 @@ export default function AboutPage() {
           </section>
 
           {/* ── Our Philosophy ── */}
-          <section id="philosophy" className="py-20 px-6 lg:px-16 border-b border-gray-100">
-            <div className="max-w-4xl mx-auto">
+          <section id="philosophy" className="py-20 px-8 lg:px-12 border-b border-gray-100">
+            <div className="w-full">
               <SectionHeader
                 eyebrow="Our Philosophy"
                 title="How We Think & Work"
@@ -257,8 +257,8 @@ export default function AboutPage() {
           </section>
 
           {/* ── IMS Policy ── */}
-          <section id="ims-policy" className="py-20 px-6 lg:px-16 border-b border-gray-100">
-            <div className="max-w-4xl mx-auto">
+          <section id="ims-policy" className="py-20 px-8 lg:px-12 border-b border-gray-100">
+            <div className="w-full">
               <SectionHeader
                 eyebrow="Our IMS Policy"
                 title="Integrated Management System Policy"
@@ -295,8 +295,8 @@ export default function AboutPage() {
           </section>
 
           {/* ── Our Processes ── */}
-          <section id="processes" className="py-20 px-6 lg:px-16 border-b border-gray-100">
-            <div className="max-w-4xl mx-auto">
+          <section id="processes" className="py-20 px-8 lg:px-12 border-b border-gray-100">
+            <div className="w-full">
               <SectionHeader
                 eyebrow="Our Processes"
                 title="Certified Service Delivery"
@@ -334,8 +334,8 @@ export default function AboutPage() {
           </section>
 
           {/* ── Value & Ethics ── */}
-          <section id="values" className="py-20 px-6 lg:px-16 border-b border-gray-100">
-            <div className="max-w-4xl mx-auto">
+          <section id="values" className="py-20 px-8 lg:px-12 border-b border-gray-100">
+            <div className="w-full">
               <SectionHeader
                 eyebrow="Our Value & Ethics"
                 title="6 Core Values"
@@ -361,8 +361,8 @@ export default function AboutPage() {
           </section>
 
           {/* ── Corporate Governance ── */}
-          <section id="governance" className="py-20 px-6 lg:px-16 border-b border-gray-100">
-            <div className="max-w-4xl mx-auto">
+          <section id="governance" className="py-20 px-8 lg:px-12 border-b border-gray-100">
+            <div className="w-full">
               <SectionHeader
                 eyebrow="Corporate Governance"
                 title="Responsible Business Conduct"
@@ -390,8 +390,8 @@ export default function AboutPage() {
           </section>
 
           {/* ── CSR ── */}
-          <section id="csr" className="py-20 px-6 lg:px-16 border-b border-gray-100">
-            <div className="max-w-4xl mx-auto">
+          <section id="csr" className="py-20 px-8 lg:px-12 border-b border-gray-100">
+            <div className="w-full">
               <SectionHeader
                 eyebrow="Corporate Social Responsibility"
                 title="Giving Back to the Community"
@@ -423,8 +423,8 @@ export default function AboutPage() {
           </section>
 
           {/* ── Corporate Themes ── */}
-          <section id="themes" className="py-20 px-6 lg:px-16">
-            <div className="max-w-4xl mx-auto">
+          <section id="themes" className="py-20 px-8 lg:px-12">
+            <div className="w-full">
               <SectionHeader
                 eyebrow="Corporate Themes"
                 title="Our Evolving Vision"
