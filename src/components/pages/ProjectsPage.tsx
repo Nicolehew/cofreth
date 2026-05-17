@@ -231,7 +231,7 @@ export default function ProjectsPage() {
   return (
     <>
       <PageHero
-        ytId="LpvioveQuAA"
+        bgImage="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=90"
         eyebrow="Project Highlights"
         eyebrowSub="38 years of landmark FM & energy projects"
         title={<>Our Track Record in<br /><span className="text-[#6BBD45]">FM &amp; Energy Services</span></>}

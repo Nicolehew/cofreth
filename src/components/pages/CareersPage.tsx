@@ -70,7 +70,7 @@ export default function CareersPage() {
   return (
     <>
       <PageHero
-        ytId="wBGd60OlF_4"
+        bgImage="https://images.unsplash.com/photo-1521737604082-14b2d77a0c0b?auto=format&fit=crop&w=1920&q=90"
         eyebrow="Join Our Team"
         eyebrowSub="We're hiring — Subang Jaya & nationwide"
         title={<>Build Your Career<br /><span className="text-[#6BBD45]">With Cofreth</span></>}

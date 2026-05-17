@@ -196,28 +196,28 @@ img { max-width: 100%; }
 html.dark { color-scheme: dark; }
 
 html.dark body {
-  background-color: #0a1810;
-  color: #d4edda;
+  background-color: #ffffff;
+  color: #1B3A2D;
 }
 
-/* Backgrounds — deep forest green theme (Cofreth brand colours) */
-html.dark .bg-white   { background-color: #0F2419 !important; }
-html.dark .bg-gray-50 { background-color: #0a1810 !important; }
+/* Content backgrounds stay WHITE in dark mode (user preference) */
+html.dark .bg-white   { background-color: #ffffff !important; }
+html.dark .bg-gray-50 { background-color: #f9fafb !important; }
 
-/* Text */
-html.dark .text-gray-900 { color: #e8f5e9 !important; }
-html.dark .text-gray-800 { color: #c8e6c9 !important; }
-html.dark .text-gray-700 { color: #a5d6a7 !important; }
-html.dark .text-gray-600 { color: #81c784 !important; }
-html.dark .text-gray-500 { color: #6dab70 !important; }
-html.dark .text-gray-400 { color: #558b58 !important; }
+/* Text stays dark on white backgrounds */
+html.dark .text-gray-900 { color: #111827 !important; }
+html.dark .text-gray-800 { color: #1f2937 !important; }
+html.dark .text-gray-700 { color: #374151 !important; }
+html.dark .text-gray-600 { color: #4b5563 !important; }
+html.dark .text-gray-500 { color: #6b7280 !important; }
+html.dark .text-gray-400 { color: #9ca3af !important; }
 
-/* Primary dark-green text becomes bright green in dark mode */
-html.dark .text-\[\#1B3A2D\] { color: #6BBD45 !important; }
+/* Primary dark-green text stays dark green */
+html.dark .text-\[\#1B3A2D\] { color: #1B3A2D !important; }
 
-/* Borders */
-html.dark .border-gray-100 { border-color: #1a3320 !important; }
-html.dark .border-gray-200 { border-color: #254d2e !important; }
+/* Borders stay light */
+html.dark .border-gray-100 { border-color: #f3f4f6 !important; }
+html.dark .border-gray-200 { border-color: #e5e7eb !important; }
 
 /* Shadows */
 html.dark .shadow-sm,

@@ -20,7 +20,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        ytId="ced0dRpd5NY"
+        bgImage="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1920&q=90"
         eyebrow="Contact Us"
         eyebrowSub="Mon–Fri 08:30–17:30 · Response within 1 business day"
         title={<>Let's Start a<br /><span className="text-[#6BBD45]">Conversation</span></>}

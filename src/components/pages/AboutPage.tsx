@@ -120,7 +120,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        ytId="rv_JbQbPeH8"
+        bgImage="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1920&q=90"
         eyebrow="Cofreth At A Glance"
         eyebrowSub="Reg. No. 198601002912 (152066-P) · Est. 1986, Subang Jaya"
         title={<>38 Years of<br /><span className="text-[#6BBD45]">FM Excellence</span></>}

@@ -165,7 +165,7 @@ export default function AwardsPage() {
   return (
     <>
       <PageHero
-        ytId="tL5neQBo7xI"
+        bgImage="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1920&q=90"
         eyebrow="Recognition & Excellence"
         eyebrowSub="National · ASEAN · International"
         title={<>Awards &amp;<br /><span className="text-[#6BBD45]">Recognition</span></>}

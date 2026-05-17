@@ -162,7 +162,7 @@ export default function GroupPage() {
   return (
     <>
       <PageHero
-        ytId="RZ1ClUBWWzQ"
+        bgImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=90"
         eyebrow="Strategic Ecosystem"
         eyebrowSub="End-to-end FM & energy solutions"
         title={<>Group of<br /><span className="text-[#6BBD45]">Companies</span></>}

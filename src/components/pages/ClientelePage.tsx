@@ -94,7 +94,7 @@ export default function ClientelePage() {
   return (
     <>
       <PageHero
-        ytId="dEN3q2zA5PI"
+        bgImage="https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=1920&q=90"
         eyebrow="Our Clientele"
         eyebrowSub="Banking · Industry · Telco · Property · Government"
         title={<>Trusted by Malaysia's<br /><span className="text-[#6BBD45]">Leading Organisations</span></>}
@@ -107,17 +107,6 @@ export default function ClientelePage() {
         ]}
       />
 
-      <section className="py-14 bg-[#1B3A2D] dark:bg-[#0a1810]" style={{ borderTop: '1px solid rgba(107,189,69,0.2)', borderBottom: '1px solid rgba(107,189,69,0.2)' }}>
-        <div ref={stats.ref} className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center transition-all duration-700"
-          style={{ opacity: stats.visible ? 1 : 0, transform: stats.visible ? 'none' : 'translateY(20px)' }}>
-          {[['30+','Active Clients'],['38+','Years of Service'],['5','Industry Sectors'],['100%','Client Retention']].map(([v,l]) => (
-            <div key={l}>
-              <div className="text-4xl font-bold text-[#6BBD45] mb-1">{v}</div>
-              <div className="text-white/60 text-sm font-medium">{l}</div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 space-y-16">
