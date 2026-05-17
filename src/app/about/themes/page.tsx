@@ -32,20 +32,19 @@ export default function ThemesPage() {
       />
 
       <div className="py-12 px-6 lg:px-10 xl:px-14 bg-white">
-        <div className="max-w-3xl">
           <div className="space-y-3 mb-12">
             {themes.map(t => (
               <div key={t.years}
                 className={`flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-8 rounded-xl px-6 py-4 border transition-all ${
                   t.highlight
-                    ? 'bg-[#1B3A2D] border-[#6BBD45]/30'
+                    ? 'bg-[#6BBD45]/10 border-[#6BBD45]/40'
                     : 'bg-white border-gray-100 hover:border-[#6BBD45]/20'
                 }`}
               >
                 <span className={`font-black uppercase tracking-widest shrink-0 w-20 ${t.highlight ? 'text-[#6BBD45]' : 'text-gray-400'}`} style={{ fontSize: '11px' }}>
                   {t.years}
                 </span>
-                <span className={`font-semibold italic ${t.highlight ? 'text-white' : 'text-[#1B3A2D]'}`} style={{ fontSize: '15px' }}>
+                <span className={`font-semibold italic ${t.highlight ? 'text-[#1B3A2D]' : 'text-[#1B3A2D]'}`} style={{ fontSize: '15px' }}>
                   &ldquo;{t.theme}&rdquo;
                 </span>
               </div>
@@ -53,23 +52,22 @@ export default function ThemesPage() {
           </div>
 
           {/* Awards CTA */}
-          <div className="bg-[#1B3A2D] rounded-2xl p-10 text-center text-white">
-            <Award size={36} className="text-[#6BBD45] mx-auto mb-4" />
-            <h3 className="font-black mb-3" style={{ fontSize: '20px' }}>Frost &amp; Sullivan Malaysia Excellence Award</h3>
-            <p className="text-gray-300 max-w-md mx-auto mb-6" style={{ fontSize: '14px' }}>
+          <div className="bg-[#6BBD45] rounded-2xl p-10 text-center">
+            <Award size={36} className="text-white mx-auto mb-4" />
+            <h3 className="font-black text-white mb-3" style={{ fontSize: '20px' }}>Frost &amp; Sullivan Malaysia Excellence Award</h3>
+            <p className="text-white/80 max-w-md mx-auto mb-6" style={{ fontSize: '14px' }}>
               Recognised five times — affirming our leadership in facilities management and energy services.
             </p>
             <div className="flex flex-wrap justify-center gap-3 mb-6">
               {['2007','2010','2015','2016','2017'].map(yr => (
-                <span key={yr} className="bg-[#6BBD45]/20 border border-[#6BBD45]/40 text-[#6BBD45] px-4 py-1.5 rounded-full font-bold" style={{ fontSize: '13px' }}>{yr}</span>
+                <span key={yr} className="bg-white/20 border border-white/40 text-white px-4 py-1.5 rounded-full font-bold" style={{ fontSize: '13px' }}>{yr}</span>
               ))}
             </div>
             <Link href="/contact"
-              className="inline-flex items-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-semibold px-8 py-3 rounded-full transition-all" style={{ fontSize: '14px' }}>
+              className="inline-flex items-center gap-2 bg-[#1B3A2D] hover:bg-[#0F2419] text-white font-semibold px-8 py-3 rounded-full transition-all" style={{ fontSize: '14px' }}>
               Partner with an Award-Winning FM →
             </Link>
           </div>
-        </div>
       </div>
     </>
   );

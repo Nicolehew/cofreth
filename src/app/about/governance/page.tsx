@@ -18,12 +18,11 @@ export default function GovernancePage() {
       />
 
       <div className="py-12 px-6 lg:px-10 xl:px-14 bg-white">
-        <div className="max-w-4xl">
           <div className="grid md:grid-cols-2 gap-6 mb-10">
-            <div className="bg-[#1B3A2D] rounded-2xl p-8 text-white">
+            <div className="bg-[#6BBD45]/10 border border-[#6BBD45]/30 rounded-2xl p-8">
               <div className="text-4xl mb-4">🤝</div>
-              <h3 className="font-black text-[#6BBD45] mb-3" style={{ fontSize: '16px' }}>Responsible Business Alliance</h3>
-              <p className="text-gray-300 leading-relaxed" style={{ fontSize: '14px' }}>Cofreth is fully committed and complies with the Responsible Business Alliance (RBA) as part of our code of business conduct — ensuring ethical practices across our entire supply chain and operations.</p>
+              <h3 className="font-black text-[#1B3A2D] mb-3" style={{ fontSize: '16px' }}>Responsible Business Alliance</h3>
+              <p className="text-gray-600 leading-relaxed" style={{ fontSize: '14px' }}>Cofreth is fully committed and complies with the Responsible Business Alliance (RBA) as part of our code of business conduct — ensuring ethical practices across our entire supply chain and operations.</p>
             </div>
             <div className="bg-white border border-gray-100 rounded-2xl p-8">
               <div className="text-4xl mb-4">📜</div>
@@ -60,7 +59,6 @@ export default function GovernancePage() {
               </div>
             ))}
           </div>
-        </div>
       </div>
     </>
   );

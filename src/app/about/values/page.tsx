@@ -37,12 +37,12 @@ export default function ValuesPage() {
           ))}
         </div>
 
-        <div className="max-w-3xl bg-[#1B3A2D] rounded-2xl p-8 text-white">
+        <div className="bg-[#6BBD45]/10 border border-[#6BBD45]/30 rounded-2xl p-8">
           <div className="flex items-start gap-5">
             <div className="text-4xl shrink-0">🤝</div>
             <div>
-              <h3 className="font-black text-[#6BBD45] mb-2" style={{ fontSize: '16px' }}>Responsible Business Alliance (RBA)</h3>
-              <p className="text-gray-300 leading-relaxed" style={{ fontSize: '14px' }}>Cofreth is fully committed and complies with the Responsible Business Alliance as part of our code of business conduct — ensuring ethical practices across our entire supply chain and operations, from procurement to project completion.</p>
+              <h3 className="font-black text-[#1B3A2D] mb-2" style={{ fontSize: '16px' }}>Responsible Business Alliance (RBA)</h3>
+              <p className="text-gray-600 leading-relaxed" style={{ fontSize: '14px' }}>Cofreth is fully committed and complies with the Responsible Business Alliance as part of our code of business conduct — ensuring ethical practices across our entire supply chain and operations, from procurement to project completion.</p>
             </div>
           </div>
         </div>

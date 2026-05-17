@@ -30,7 +30,6 @@ export default function IMSPolicyPage() {
       />
 
       <div className="py-12 px-6 lg:px-10 xl:px-14 bg-white">
-        <div className="max-w-4xl">
           {/* Overview */}
           <div className="bg-white border border-gray-100 rounded-2xl p-8 mb-8">
             <p className="text-gray-600 leading-relaxed mb-4" style={{ fontSize: '15px' }}>
@@ -42,26 +41,26 @@ export default function IMSPolicyPage() {
           </div>
 
           {/* 9 Commitments */}
-          <div className="bg-[#0F2419] rounded-2xl p-8 text-white mb-8">
-            <h2 className="text-[#6BBD45] font-black uppercase tracking-widest mb-6" style={{ fontSize: '12px' }}>9 Policy Commitments</h2>
+          <div className="bg-[#6BBD45]/8 border border-[#6BBD45]/30 rounded-2xl p-8 mb-8">
+            <h2 className="text-[#1B3A2D] font-black uppercase tracking-widest mb-6" style={{ fontSize: '12px' }}>9 Policy Commitments</h2>
             <ol className="space-y-4">
               {commitments.map((item, i) => (
-                <li key={i} className="flex items-start gap-4 text-gray-300" style={{ fontSize: '14px' }}>
-                  <span className="w-7 h-7 rounded-full bg-[#6BBD45]/20 border border-[#6BBD45]/40 text-[#6BBD45] font-bold flex items-center justify-center shrink-0 mt-0.5" style={{ fontSize: '11px' }}>
+                <li key={i} className="flex items-start gap-4 text-gray-700" style={{ fontSize: '14px' }}>
+                  <span className="w-7 h-7 rounded-full bg-[#6BBD45] text-white font-bold flex items-center justify-center shrink-0 mt-0.5" style={{ fontSize: '11px' }}>
                     {i + 1}
                   </span>
                   <span className="leading-relaxed">{item}</span>
                 </li>
               ))}
             </ol>
-            <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center gap-6">
+            <div className="mt-8 pt-6 border-t border-[#6BBD45]/20 flex flex-wrap items-center gap-6">
               <div>
-                <p className="text-white font-bold" style={{ fontSize: '14px' }}>Ir. ONG CHING LOON</p>
-                <p className="text-gray-400" style={{ fontSize: '12px' }}>Managing Director</p>
+                <p className="text-[#1B3A2D] font-bold" style={{ fontSize: '14px' }}>Ir. ONG CHING LOON</p>
+                <p className="text-gray-500" style={{ fontSize: '12px' }}>Managing Director</p>
               </div>
               <p className="text-gray-500" style={{ fontSize: '12px' }}>Revision 4 · Effective 1 August 2024</p>
               <a href="https://www.cofreth.com.my/images/IMS_Policy-Revision_4.pdf" target="_blank" rel="noopener noreferrer"
-                className="ml-auto border border-[#6BBD45]/40 text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white font-semibold px-5 py-2 rounded-full transition-all" style={{ fontSize: '13px' }}>
+                className="ml-auto bg-[#6BBD45] hover:bg-[#5aa838] text-white font-semibold px-5 py-2 rounded-full transition-all" style={{ fontSize: '13px' }}>
                 Download PDF
               </a>
             </div>
@@ -86,7 +85,6 @@ export default function IMSPolicyPage() {
               </div>
             ))}
           </div>
-        </div>
       </div>
     </>
   );

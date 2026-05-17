@@ -114,11 +114,11 @@ export default function ProcessesContent() {
       )}
 
       {/* ── ISO Certs ── */}
-      <section className="bg-white dark:bg-[#0d1117] py-16 px-6 lg:px-10 xl:px-14">
+      <section className="bg-white py-16 px-6 lg:px-10 xl:px-14">
         {/* Section label */}
         <div className="flex items-center gap-3 mb-10">
           <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
-          <span className="font-black text-[#1B3A2D] dark:text-white uppercase tracking-widest" style={{ fontSize: '12px' }}>
+          <span className="font-black text-[#1B3A2D] uppercase tracking-widest" style={{ fontSize: '12px' }}>
             ISO Certifications · SIRIM QAS Audited · Valid 2023–2026
           </span>
         </div>
@@ -136,10 +136,10 @@ export default function ProcessesContent() {
       </section>
 
       {/* ── PDCA Cycle ── */}
-      <section className="py-16 px-6 lg:px-10 xl:px-14 bg-white dark:bg-[#0d1117] border-t border-gray-100 dark:border-gray-800">
+      <section className="py-16 px-6 lg:px-10 xl:px-14 bg-white border-t border-gray-100">
         <div className="flex items-center gap-3 mb-12">
           <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
-          <span className="font-black text-[#1B3A2D] dark:text-[#6BBD45] uppercase tracking-widest" style={{ fontSize: '12px' }}>
+          <span className="font-black text-[#1B3A2D] uppercase tracking-widest" style={{ fontSize: '12px' }}>
             PDCA — Our Continuous Improvement Engine
           </span>
         </div>
@@ -148,15 +148,15 @@ export default function ProcessesContent() {
           {pdcaSteps.map((s, i) => (
             <div key={s.word} className="relative">
               {i < pdcaSteps.length - 1 && (
-                <div className="hidden xl:block absolute top-8 left-full w-6 border-t-2 border-dashed border-gray-200 dark:border-white/10 z-10" />
+                <div className="hidden xl:block absolute top-8 left-full w-6 border-t-2 border-dashed border-gray-200 z-10" />
               )}
-              <div className="bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 hover:border-[#6BBD45]/40 rounded-2xl p-6 transition-all duration-300 hover:shadow-md h-full">
+              <div className="bg-white border border-gray-100 hover:border-[#6BBD45]/40 rounded-2xl p-6 transition-all duration-300 hover:shadow-md h-full">
                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center font-black text-white mb-5 shrink-0"
                   style={{ background: s.color, fontSize: '22px' }}>
                   {s.letter}
                 </div>
-                <div className="font-black text-[#1B3A2D] dark:text-white mb-2" style={{ fontSize: '18px' }}>{s.word}</div>
-                <p className="text-gray-500 dark:text-gray-400 leading-relaxed" style={{ fontSize: '13px' }}>{s.desc}</p>
+                <div className="font-black text-[#1B3A2D] mb-2" style={{ fontSize: '18px' }}>{s.word}</div>
+                <p className="text-gray-500 leading-relaxed" style={{ fontSize: '13px' }}>{s.desc}</p>
               </div>
             </div>
           ))}
@@ -168,24 +168,24 @@ export default function ProcessesContent() {
       </section>
 
       {/* ── SIRIM + Stats ── */}
-      <section className="bg-white dark:bg-[#0d1117] py-16 px-6 lg:px-10 xl:px-14 border-t border-gray-100 dark:border-gray-800">
+      <section className="bg-white py-16 px-6 lg:px-10 xl:px-14 border-t border-gray-100">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="flex items-center gap-3 mb-6">
               <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
-              <span className="font-black text-[#1B3A2D] dark:text-white uppercase tracking-widest" style={{ fontSize: '12px' }}>
+              <span className="font-black text-[#1B3A2D] uppercase tracking-widest" style={{ fontSize: '12px' }}>
                 Certification Body
               </span>
             </div>
-            <h2 className="font-black text-[#1B3A2D] dark:text-white leading-tight mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}>
+            <h2 className="font-black text-[#1B3A2D] leading-tight mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}>
               Independently Audited by<br /><span className="text-[#6BBD45]">SIRIM QAS International</span>
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-6" style={{ fontSize: '15px' }}>
+            <p className="text-gray-500 leading-relaxed mb-6" style={{ fontSize: '15px' }}>
               All five ISO certifications are independently audited and issued by SIRIM QAS International — Malaysia's premier conformity assessment body and a member of the International Accreditation Forum (IAF).
             </p>
             <div className="flex flex-wrap gap-2">
               {['IAF Member', 'DAkkS Accredited', 'Government Linked', '40+ Years in Quality'].map(b => (
-                <span key={b} className="px-3 py-1.5 bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 rounded-full font-semibold" style={{ fontSize: '12px' }}>{b}</span>
+                <span key={b} className="px-3 py-1.5 bg-[#6BBD45]/10 text-[#1B3A2D] rounded-full font-semibold" style={{ fontSize: '12px' }}>{b}</span>
               ))}
             </div>
           </div>
@@ -197,9 +197,9 @@ export default function ProcessesContent() {
               { num: '38+',  label: 'Years in Operation',      sub: 'Est. 1986' },
               { num: '100%', label: 'Audit Pass Rate',         sub: 'Zero major non-conformances' },
             ].map(s => (
-              <div key={s.label} className="bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-2xl p-5">
+              <div key={s.label} className="bg-white border border-gray-100 rounded-2xl p-5">
                 <div className="font-black text-[#6BBD45] mb-1" style={{ fontSize: '28px' }}>{s.num}</div>
-                <div className="font-bold text-[#1B3A2D] dark:text-white mb-1" style={{ fontSize: '13px' }}>{s.label}</div>
+                <div className="font-bold text-[#1B3A2D] mb-1" style={{ fontSize: '13px' }}>{s.label}</div>
                 <div className="text-gray-400" style={{ fontSize: '11px' }}>{s.sub}</div>
               </div>
             ))}
@@ -208,28 +208,26 @@ export default function ProcessesContent() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-[#1B3A2D] py-14 px-6 lg:px-10 xl:px-14">
-        <div className="max-w-3xl">
-          <p className="font-bold text-[#6BBD45] uppercase tracking-widest mb-3" style={{ fontSize: '12px' }}>Work With a Certified FM Partner</p>
+      <section className="bg-[#6BBD45] py-14 px-6 lg:px-10 xl:px-14">
+          <p className="font-bold text-white/80 uppercase tracking-widest mb-3" style={{ fontSize: '12px' }}>Work With a Certified FM Partner</p>
           <h2 className="font-black text-white mb-4 leading-tight" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}>
             Five ISO standards. One trusted partner.
           </h2>
-          <p className="text-gray-300 mb-8 leading-relaxed" style={{ fontSize: '15px' }}>
+          <p className="text-white/80 mb-8 leading-relaxed" style={{ fontSize: '15px' }}>
             Cofreth's multi-ISO certification means your facilities are managed to the highest independently verified standards — across quality, safety, environment and energy.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/contact"
-              className="inline-flex items-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-bold px-8 py-3.5 rounded-full transition-all"
+              className="inline-flex items-center gap-2 bg-[#1B3A2D] hover:bg-[#0F2419] text-white font-bold px-8 py-3.5 rounded-full transition-all"
               style={{ fontSize: '14px' }}>
               Enquire About FM Services <ArrowRight size={16} />
             </Link>
             <Link href="/services/facilities-management"
-              className="inline-flex items-center gap-2 border border-white/20 hover:border-[#6BBD45] text-white font-semibold px-8 py-3.5 rounded-full transition-all"
+              className="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-semibold px-8 py-3.5 rounded-full transition-all"
               style={{ fontSize: '14px' }}>
               Our FM Services
             </Link>
           </div>
-        </div>
       </section>
     </>
   );
@@ -238,7 +236,7 @@ export default function ProcessesContent() {
 function CertCard({ cert, onView }: { cert: typeof certs[0]; onView: () => void }) {
   const Icon = cert.icon;
   return (
-    <div className="group bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 hover:border-[#6BBD45]/40 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col">
+    <div className="group bg-white border border-gray-100 hover:border-[#6BBD45]/40 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col">
       {/* Coloured top band */}
       <div className="h-1.5 w-full" style={{ background: cert.color }} />
       <div className="p-6 flex flex-col flex-1">
@@ -248,26 +246,26 @@ function CertCard({ cert, onView }: { cert: typeof certs[0]; onView: () => void 
             style={{ background: `color-mix(in srgb, ${cert.color} 15%, transparent)` }}>
             <Icon size={22} style={{ color: cert.color }} />
           </div>
-          <span className="text-gray-400 dark:text-gray-500 font-mono font-bold" style={{ fontSize: '11px' }}>
+          <span className="text-gray-400 font-mono font-bold" style={{ fontSize: '11px' }}>
             SIRIM QAS
           </span>
         </div>
 
-        <div className="font-black text-[#1B3A2D] dark:text-white group-hover:text-[#6BBD45] transition-colors mb-1" style={{ fontSize: '16px' }}>
+        <div className="font-black text-[#1B3A2D] group-hover:text-[#6BBD45] transition-colors mb-1" style={{ fontSize: '16px' }}>
           {cert.code}
         </div>
         <div className="font-semibold mb-3" style={{ fontSize: '13px', color: cert.color }}>
           {cert.label}
         </div>
-        <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-2 flex-1" style={{ fontSize: '13px' }}>
+        <p className="text-gray-500 leading-relaxed mb-2 flex-1" style={{ fontSize: '13px' }}>
           {cert.desc}
         </p>
-        <p className="text-gray-400 dark:text-gray-500 leading-relaxed mb-5 italic" style={{ fontSize: '12px' }}>
+        <p className="text-gray-400 leading-relaxed mb-5 italic" style={{ fontSize: '12px' }}>
           {cert.detail}
         </p>
 
         {/* Footer */}
-        <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-white/10">
+        <div className="flex items-center justify-between pt-4 border-t border-gray-100">
           <span className="text-gray-400" style={{ fontSize: '11px' }}>Valid {cert.valid}</span>
           {cert.pdf ? (
             <button
@@ -278,7 +276,7 @@ function CertCard({ cert, onView }: { cert: typeof certs[0]; onView: () => void 
               <Eye size={13} /> View Certificate
             </button>
           ) : (
-            <span className="text-gray-400 dark:text-gray-500 italic" style={{ fontSize: '12px' }}>
+            <span className="text-gray-400 italic" style={{ fontSize: '12px' }}>
               Available on request
             </span>
           )}

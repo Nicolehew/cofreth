@@ -39,7 +39,7 @@ export default function FirstsPage() {
       <div className="py-12 px-6 lg:px-10 xl:px-14 bg-white">
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-[18px] top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700" />
+          <div className="absolute left-[18px] top-0 bottom-0 w-0.5 bg-gray-200" />
           <div className="space-y-4">
             {milestones.map((m, i) => (
               <div key={m.year + i} className="flex gap-4">

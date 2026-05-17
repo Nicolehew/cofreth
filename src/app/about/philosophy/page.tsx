@@ -41,15 +41,15 @@ export default function PhilosophyPage() {
         </div>
 
         <div className="mt-10 grid md:grid-cols-2 gap-5">
-          <div className="bg-[#1B3A2D] rounded-2xl p-8 text-white">
+          <div className="bg-[#6BBD45]/10 border border-[#6BBD45]/30 rounded-2xl p-8">
             <div className="text-3xl mb-4">🎯</div>
-            <h3 className="font-black text-[#6BBD45] mb-3" style={{ fontSize: '16px' }}>Our Mission</h3>
-            <p className="text-gray-300 leading-relaxed" style={{ fontSize: '14px' }}>To Be Recognised as the Leading Provider of Quality Services for Total Facilities Management and All Utilities.</p>
+            <h3 className="font-black text-[#1B3A2D] mb-3" style={{ fontSize: '16px' }}>Our Mission</h3>
+            <p className="text-gray-600 leading-relaxed" style={{ fontSize: '14px' }}>To Be Recognised as the Leading Provider of Quality Services for Total Facilities Management and All Utilities.</p>
           </div>
-          <div className="bg-[#1B3A2D] rounded-2xl p-8 text-white">
+          <div className="bg-[#6BBD45]/10 border border-[#6BBD45]/30 rounded-2xl p-8">
             <div className="text-3xl mb-4">🌐</div>
-            <h3 className="font-black text-[#6BBD45] mb-3" style={{ fontSize: '16px' }}>Our Vision</h3>
-            <p className="text-gray-300 leading-relaxed" style={{ fontSize: '14px' }}>To Be An International Service Provider in Facilities Management & Energy Services.</p>
+            <h3 className="font-black text-[#1B3A2D] mb-3" style={{ fontSize: '16px' }}>Our Vision</h3>
+            <p className="text-gray-600 leading-relaxed" style={{ fontSize: '14px' }}>To Be An International Service Provider in Facilities Management & Energy Services.</p>
           </div>
         </div>
       </div>

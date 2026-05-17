@@ -24,12 +24,12 @@ export default function AboutPage() {
       />
 
       {/* Stats bar */}
-      <div className="bg-[#1B3A2D] px-6 lg:px-10 xl:px-14 py-6">
+      <div className="bg-[#6BBD45] px-6 lg:px-10 xl:px-14 py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[['38+','Years of Excellence'],['30+','Major Clients'],['5×','ISO Certifications'],['5×','Frost & Sullivan']].map(([v,l]) => (
             <div key={l} className="text-center">
-              <div className="text-2xl font-black text-[#6BBD45]">{v}</div>
-              <div className="text-gray-400 mt-0.5" style={{ fontSize: '12px' }}>{l}</div>
+              <div className="text-2xl font-black text-white">{v}</div>
+              <div className="text-white/70 mt-0.5" style={{ fontSize: '12px' }}>{l}</div>
             </div>
           ))}
         </div>

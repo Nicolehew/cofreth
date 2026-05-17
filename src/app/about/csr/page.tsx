@@ -27,7 +27,7 @@ export default function CSRPage() {
       />
 
       <div className="py-12 px-6 lg:px-10 xl:px-14 bg-white">
-        <div className="max-w-4xl">
+        <div>
           <div className="grid sm:grid-cols-3 gap-5 mb-10">
             {[
               { icon: '🩺', title: '"Save a Life" Campaign', desc: 'Annual blood donation drives and "Save a Life" campaigns — encouraging staff and the public to support critical healthcare needs.' },
