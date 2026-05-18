@@ -6,7 +6,7 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 const highlights = [
   { icon: Award, value: '38+', label: 'Years of Excellence', desc: 'Established in 1986, one of Malaysia\'s most experienced FM providers.' },
   { icon: Users, value: '500+', label: 'Skilled Workforce', desc: 'Trained professionals across all FM and energy service disciplines.' },
-  { icon: Globe, value: '4', label: 'ISO Certifications', desc: 'ISO 9001, 14001, 45001 & 50001 certified for quality and safety.' },
+  { icon: Globe, value: '5', label: 'ISO Certifications', desc: 'ISO 9001, 14001, 45001, 50001 & 41001 certified for quality, safety and FM.' },
   { icon: Zap, value: '#1', label: 'Energy Pioneer', desc: 'First in Asia to design District Cooling System with Thermal Energy Storage.' },
 ];
 
