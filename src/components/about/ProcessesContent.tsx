@@ -207,8 +207,7 @@ export default function ProcessesContent() {
                 <div className="hidden xl:block absolute top-8 left-full w-6 border-t-2 border-dashed border-gray-200 z-10" />
               )}
               <div className="bg-white border border-gray-100 hover:border-[#6BBD45]/40 rounded-2xl p-6 transition-all duration-300 hover:shadow-md h-full">
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center font-black text-white mb-5 shrink-0"
-                  className="text-2xl"
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center font-black text-white mb-5 shrink-0 text-2xl"
                   style={{ background: s.color }}>
                   {s.letter}
                 </div>
@@ -325,8 +324,7 @@ function CertCard({ cert, onView }: { cert: typeof certs[0]; onView: () => void 
           {cert.pdf ? (
             <button
               onClick={onView}
-              className="flex items-center gap-1.5 font-semibold transition-all hover:gap-2.5"
-              className="text-sm"
+              className="text-sm flex items-center gap-1.5 font-semibold transition-all hover:gap-2.5"
               style={{ color: cert.color }}
             >
               <Eye size={13} /> View Certificate
