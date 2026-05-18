@@ -1,7 +1,7 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { X, Shield, CheckCircle, Leaf, Zap, Building2, ArrowRight, Eye } from 'lucide-react';
+import { X, Shield, CheckCircle, Leaf, Zap, Building2, ArrowRight, Eye, RefreshCw } from 'lucide-react';
 
 const certs = [
   {
@@ -74,33 +74,88 @@ const pdcaSteps = [
 ];
 
 function PdfModal({ url, title, onClose }: { url: string; title: string; onClose: () => void }) {
+  const [attempt, setAttempt] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [failed, setFailed] = useState(false);
+
+  // Google Docs viewer wraps the PDF — no browser download toolbar shown
+  const viewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true`;
+
+  // Auto-retry up to 6 times (Google Docs viewer is slow on first load)
+  const retry = useCallback(() => {
+    setLoading(true);
+    setFailed(false);
+    setAttempt(n => n + 1);
+  }, []);
+
+  useEffect(() => {
+    if (!loading) return;
+    // If still "loading" after 12 s, auto-retry (max 6 attempts)
+    const t = setTimeout(() => {
+      if (attempt < 6) {
+        setAttempt(n => n + 1); // remount iframe → fresh request
+      } else {
+        setLoading(false);
+        setFailed(true);
+      }
+    }, 12000);
+    return () => clearTimeout(t);
+  }, [attempt, loading]);
+
   return (
-    <div className="fixed inset-0 z-[500] flex flex-col" style={{ background: 'rgba(0,0,0,0.85)' }}>
-      {/* Header bar */}
-      <div className="flex items-center justify-between px-5 py-3 bg-white border-b border-gray-200 shrink-0">
+    <div className="fixed inset-0 z-[500] flex flex-col" style={{ background: 'rgba(0,0,0,0.9)' }}>
+      {/* Header */}
+      <div className="flex items-center justify-between px-5 py-3 bg-white border-b border-gray-100 shrink-0">
         <div className="flex items-center gap-3">
           <Eye size={16} className="text-[#6BBD45]" />
-          <span className="text-[#1B3A2D] font-semibold" style={{ fontSize: '16px' }}>{title}</span>
+          <span className="text-[#1B3A2D] font-semibold truncate max-w-[60vw]" style={{ fontSize: '14px' }}>{title}</span>
         </div>
         <div className="flex items-center gap-3">
-          <span className="bg-[#6BBD45]/15 border border-[#6BBD45]/30 text-[#6BBD45] px-3 py-1 rounded-full font-bold" style={{ fontSize: '12px' }}>
-            VIEW ONLY — Not for download
+          <span className="bg-[#6BBD45]/15 border border-[#6BBD45]/30 text-[#6BBD45] px-3 py-1 rounded-full font-bold hidden sm:block" style={{ fontSize: '11px' }}>
+            VIEW ONLY
           </span>
-          <button
-            onClick={onClose}
-            className="flex items-center gap-2 text-gray-500 hover:text-[#1B3A2D] transition-colors px-3 py-1.5 rounded-lg hover:bg-gray-100"
-            style={{ fontSize: '15px' }}
-          >
+          <button onClick={onClose}
+            className="flex items-center gap-1.5 text-gray-500 hover:text-red-500 transition-colors px-3 py-1.5 rounded-lg hover:bg-gray-100"
+            style={{ fontSize: '13px' }}>
             <X size={15} /> Close
           </button>
         </div>
       </div>
-      {/* Direct PDF embed — uses browser's native PDF viewer */}
-      <div className="flex-1 overflow-hidden bg-gray-100">
+
+      {/* Viewer area */}
+      <div className="flex-1 overflow-hidden relative bg-[#404040]">
+        {/* Loading overlay */}
+        {loading && (
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 bg-[#404040]">
+            <div className="w-12 h-12 border-4 border-[#6BBD45]/30 border-t-[#6BBD45] rounded-full animate-spin" />
+            <p className="text-white font-semibold" style={{ fontSize: '15px' }}>Loading certificate…</p>
+            <p className="text-gray-400" style={{ fontSize: '12px' }}>Attempt {attempt + 1} of 6</p>
+          </div>
+        )}
+
+        {/* Failed state */}
+        {failed && (
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-5 bg-[#404040]">
+            <div className="text-4xl">📄</div>
+            <p className="text-white font-bold" style={{ fontSize: '16px' }}>Could not load the certificate</p>
+            <p className="text-gray-400 text-center max-w-xs" style={{ fontSize: '13px' }}>
+              Google's document viewer is temporarily unavailable. Please try again.
+            </p>
+            <button onClick={retry}
+              className="flex items-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-bold px-6 py-3 rounded-full transition-all"
+              style={{ fontSize: '14px' }}>
+              <RefreshCw size={16} /> Try Again
+            </button>
+          </div>
+        )}
+
+        {/* Google Docs iframe — no native PDF toolbar = no download button */}
         <iframe
-          src={url}
+          key={attempt}               /* remount on every retry */
+          src={viewerUrl}
           className="w-full h-full border-0"
           title={title}
+          onLoad={() => setLoading(false)}
         />
       </div>
     </div>
