@@ -53,8 +53,8 @@ export default function HomeServices() {
             <span className="text-[#6BBD45] text-sm font-bold tracking-widest uppercase">Our Services</span>
             <div className="w-10 h-0.5 bg-[#6BBD45]" />
           </div>
-          <h2 className="text-5xl md:text-6xl font-black text-white mb-5 leading-tight">Comprehensive Solutions<br />for Every Facility</h2>
-          <p className="text-white/60 max-w-2xl mx-auto text-lg">From maintenance to energy innovation — integrated solutions that enhance performance, reduce costs, and support sustainability.</p>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-5 leading-tight">Comprehensive Solutions<br className="hidden sm:block" /> for Every Facility</h2>
+          <p className="text-white/60 max-w-2xl mx-auto text-base md:text-lg">From maintenance to energy innovation — integrated solutions that enhance performance, reduce costs, and support sustainability.</p>
         </div>
 
         {/* Cards grid */}

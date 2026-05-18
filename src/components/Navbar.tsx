@@ -214,7 +214,7 @@ export default function Navbar() {
             {/* Home — first */}
             <li>
               <Link href="/" onClick={() => setOpen(false)}
-                className="block px-5 py-3 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-sm font-semibold border-b nav-mobile-border">
+                className="block px-5 py-4 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-base font-semibold border-b nav-mobile-border">
                 Home
               </Link>
             </li>
