@@ -204,6 +204,7 @@ export default function Navbar() {
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
+      </div>{/* end grid */}
 
       {/* Mobile menu */}
       {open && (
