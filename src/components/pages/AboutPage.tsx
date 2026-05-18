@@ -49,7 +49,7 @@ function SectionHeader({ eyebrow, title, subtitle }: { eyebrow: string; title: R
         <div className="w-8 h-0.5 bg-[#6BBD45]" />
       </div>
       <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] mb-4 leading-tight">{title}</h2>
-      {subtitle && <p className="text-gray-500 text-sm leading-relaxed max-w-2xl mx-auto">{subtitle}</p>}
+      {subtitle && <p className="text-gray-500 text-base leading-relaxed max-w-2xl mx-auto">{subtitle}</p>}
     </div>
   );
 }
@@ -182,7 +182,7 @@ export default function AboutPage() {
                 subtitle="Cofreth (M) Sdn Bhd was established in 1986 as a Malaysian company specialising in Facilities Management, Operations & Maintenance, Energy Audit, Energy Performance Contracting, Green Commissioning, and District Cooling System design."
               />
               <div className="grid lg:grid-cols-2 gap-8 items-start">
-                <div className="space-y-4 text-gray-600 text-sm leading-relaxed">
+                <div className="space-y-4 text-gray-600 text-base leading-relaxed">
                   <p>We are a registered <strong className="text-[#1B3A2D]">Energy Service Company (ESCO)</strong> with Malaysia Green Technology Corporation and MAESCO, and utilise the <strong className="text-[#1B3A2D]">ARCHIBUS Total Infrastructure Facilities Management System (TIFM)</strong> for smart, data-driven facility management.</p>
                   <div className="grid sm:grid-cols-2 gap-3 pt-2">
                     {['First ISO-certified FM company in Malaysia (1996)','First DCS with TES in Asia (1997–2000)','Registered ESCO — CEEP guaranteed savings','5× Frost & Sullivan Malaysia Excellence Awards','NEA 2018 1st Prize & NEA 2021 EPC Champion','ARCHIBUS TIFM smart FM technology platform'].map(pt => (
@@ -265,10 +265,10 @@ export default function AboutPage() {
                 subtitle="Quality, Safety & Health, Environmental, Energy and Facility — all unified under one integrated framework."
               />
               <div className="bg-gradient-to-br from-[#0F2419] to-[#1B3A2D] rounded-3xl p-8 md:p-10 text-white">
-                <p className="text-gray-300 text-sm leading-relaxed mb-6 text-center max-w-2xl mx-auto">By integrating quality, occupational safety and health, environmental, energy, and facility management systems into an IMS, Cofreth is committed to providing high-performance Facilities Management and Energy Services (FMES) without compromising sustainability in ESG aspects for all stakeholders.</p>
+                <p className="text-gray-300 text-base leading-relaxed mb-6 text-center max-w-2xl mx-auto">By integrating quality, occupational safety and health, environmental, energy, and facility management systems into an IMS, Cofreth is committed to providing high-performance Facilities Management and Energy Services (FMES) without compromising sustainability in ESG aspects for all stakeholders.</p>
                 <div className="border-t border-white/10 pt-6 mb-6">
                   <h3 className="text-[#6BBD45] font-bold text-xs uppercase tracking-widest mb-3 text-center">Our Principle</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed text-center max-w-2xl mx-auto">Cofreth demonstrates a strong belief that the bedrock of excellent service delivery rests upon the adoption of a professional and ethical business strategy — revolving around business growth, developing talents, adopting innovative technologies and five well-defined management systems.</p>
+                  <p className="text-gray-300 text-base leading-relaxed text-center max-w-2xl mx-auto">Cofreth demonstrates a strong belief that the bedrock of excellent service delivery rests upon the adoption of a professional and ethical business strategy — revolving around business growth, developing talents, adopting innovative technologies and five well-defined management systems.</p>
                 </div>
                 <h3 className="text-[#6BBD45] font-bold text-xs uppercase tracking-widest mb-5 text-center">9 Policy Commitments</h3>
                 <ol className="space-y-3 max-w-2xl mx-auto">
@@ -369,18 +369,18 @@ export default function AboutPage() {
                 subtitle="Cofreth upholds the highest standards of corporate governance — ensuring integrity, transparency and accountability across all operations."
               />
               <div className="grid sm:grid-cols-2 gap-6">
-                <div className="bg-gradient-to-br from-[#0F2419] to-[#1B3A2D] rounded-2xl p-8 text-white text-center">
-                  <div className="text-4xl mb-4">🤝</div>
-                  <h3 className="font-black text-[#6BBD45] mb-3">Responsible Business Alliance</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">Cofreth is fully committed and complies with the Responsible Business Alliance (RBA) as part of our code of business conduct — ensuring ethical practices across our entire supply chain and operations.</p>
+                <div className="rounded-2xl p-10 text-white" style={{ background: 'linear-gradient(135deg, #0F2419 0%, #1B3A2D 100%)' }}>
+                  <div className="text-5xl mb-5">🤝</div>
+                  <h3 className="font-black text-[#6BBD45] text-2xl mb-4">Responsible Business Alliance</h3>
+                  <p className="text-gray-300 text-lg leading-relaxed">Cofreth is fully committed and complies with the Responsible Business Alliance (RBA) as part of our code of business conduct — ensuring ethical practices across our entire supply chain and operations.</p>
                 </div>
-                <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm text-center">
-                  <div className="text-4xl mb-4">📜</div>
-                  <h3 className="font-black text-[#1B3A2D] mb-4">Our Governance Commitments</h3>
-                  <ul className="space-y-3 text-left">
+                <div className="rounded-2xl p-10 text-white" style={{ background: 'linear-gradient(135deg, #0F2419 0%, #1B3A2D 100%)' }}>
+                  <div className="text-5xl mb-5">📜</div>
+                  <h3 className="font-black text-white text-2xl mb-5">Governance Commitments</h3>
+                  <ul className="space-y-4">
                     {['Anti-bribery and anti-corruption policy','Transparent financial reporting','Fair treatment of employees and contractors','Responsible procurement practices','Data privacy and information security'].map(item => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
-                        <span className="text-[#6BBD45] mt-0.5 shrink-0 font-bold">✓</span>{item}
+                      <li key={item} className="flex items-start gap-3 text-base text-gray-300">
+                        <span className="text-[#6BBD45] mt-0.5 shrink-0 font-black text-lg">✓</span>{item}
                       </li>
                     ))}
                   </ul>
@@ -405,14 +405,14 @@ export default function AboutPage() {
                 ].map(item => (
                   <div key={item.title} className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#6BBD45]/30 hover:shadow-lg shadow-sm transition-all duration-300 text-center">
                     <div className="text-4xl mb-4">{item.icon}</div>
-                    <h3 className="font-black text-[#1B3A2D] text-sm mb-2">{item.title}</h3>
-                    <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+                    <h3 className="font-black text-[#1B3A2D] text-lg mb-2">{item.title}</h3>
+                    <p className="text-gray-500 text-base leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
               <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 text-center">
                 <h3 className="font-black text-[#1B3A2D] mb-2 text-lg">Sustainable Development</h3>
-                <p className="text-gray-500 text-xs leading-relaxed mb-6 max-w-xl mx-auto">Cofreth's activities take into account the objectives of sustainable development from ecological, economical and social dimensions — aligned to the UN Sustainable Development Goals.</p>
+                <p className="text-gray-500 text-base leading-relaxed mb-6 max-w-xl mx-auto">Cofreth's activities take into account the objectives of sustainable development from ecological, economical and social dimensions — aligned to the UN Sustainable Development Goals.</p>
                 <div className="grid grid-cols-6 sm:grid-cols-9 gap-2 max-w-md mx-auto">
                   {[{n:1,bg:'#e5243b'},{n:2,bg:'#dda63a'},{n:3,bg:'#4c9f38'},{n:4,bg:'#c5192d'},{n:5,bg:'#ff3a21'},{n:6,bg:'#26bde2'},{n:7,bg:'#fcc30b'},{n:8,bg:'#a21942'},{n:9,bg:'#fd6925'},{n:10,bg:'#dd1367'},{n:11,bg:'#fd9d24'},{n:12,bg:'#bf8b2e'},{n:13,bg:'#3f7e44'},{n:14,bg:'#0a97d9'},{n:15,bg:'#56c02b'},{n:16,bg:'#00689d'},{n:17,bg:'#19486a'}].map(g => (
                     <div key={g.n} className="aspect-square rounded-lg flex items-center justify-center text-white font-black text-sm hover:scale-110 transition-transform cursor-default" style={{ background: g.bg }}>{g.n}</div>
@@ -485,7 +485,7 @@ function MilestoneItem({ m, i }: { m: typeof milestones[0]; i: number }) {
       <div className="pb-5 flex-1">
         <div className="bg-white border border-gray-200 rounded-2xl p-4 hover:border-[#6BBD45]/40 hover:shadow-md transition-all duration-300 group shadow-sm">
           <span className="text-xs font-black text-[#6BBD45] tracking-widest uppercase block mb-1">{m.year}</span>
-          <p className="text-sm text-gray-700 font-medium leading-relaxed group-hover:text-[#1B3A2D] transition-colors">{m.event}</p>
+          <p className="text-base text-gray-700 font-medium leading-relaxed group-hover:text-[#1B3A2D] transition-colors">{m.event}</p>
         </div>
       </div>
     </div>

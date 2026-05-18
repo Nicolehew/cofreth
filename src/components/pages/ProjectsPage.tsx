@@ -178,7 +178,7 @@ function FeaturedProject({ project }: { project: typeof projects[0] }) {
             <span className="text-white/60 text-sm flex items-center gap-1.5"><MapPin size={13} />{project.location}</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-black text-white mb-3 leading-tight">{project.name}</h2>
-          <p className="text-gray-300 text-sm leading-relaxed mb-5 max-w-2xl">{project.scope}</p>
+          <p className="text-gray-300 text-base leading-relaxed mb-5 max-w-2xl">{project.scope}</p>
           <div className="flex flex-wrap gap-2">
             {project.highlights.map(h => (
               <span key={h} className="text-xs bg-white/10 border border-white/20 text-white px-3 py-1.5 rounded-full font-medium">{h}</span>
@@ -210,7 +210,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
             <MapPin size={12} /> {project.location}
           </div>
           <h3 className="font-bold text-[#1B3A2D] mb-3 leading-snug group-hover:text-[#6BBD45] transition-colors">{project.name}</h3>
-          <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-4">{project.scope.slice(0, 130)}…</p>
+          <p className="text-gray-500 text-base leading-relaxed flex-1 mb-4">{project.scope.slice(0, 130)}…</p>
           <div className="flex flex-wrap gap-1.5 pt-3 border-t border-gray-100">
             {project.highlights.slice(0, 3).map(h => (
               <span key={h} className="text-xs bg-[#6BBD45]/8 text-[#1B3A2D] px-2.5 py-1 rounded-full font-medium border border-[#6BBD45]/15">{h}</span>

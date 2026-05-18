@@ -135,7 +135,7 @@ function PartnerCard({ partner, i }: { partner: typeof partners[0]; i: number })
         <div className={`lg:col-span-3 bg-white p-8 lg:p-10 flex flex-col justify-center ${isReversed ? 'lg:order-1' : ''}`}>
           <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: partner.color }}>{partner.tagline}</p>
           <h2 className="text-xl md:text-2xl font-black text-[#1B3A2D] mb-3">{partner.name}</h2>
-          <p className="text-gray-500 text-sm leading-relaxed mb-5">{partner.desc}</p>
+          <p className="text-gray-500 text-base leading-relaxed mb-5">{partner.desc}</p>
 
           <div>
             <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Key Capabilities</h4>
@@ -179,16 +179,16 @@ export default function GroupPage() {
       <div className="py-12 bg-white border-b border-gray-100">
         <div ref={logos.ref} className="max-w-5xl mx-auto px-6 transition-all duration-700"
           style={{ opacity: logos.visible ? 1 : 0, transform: logos.visible ? 'none' : 'translateY(20px)' }}>
-          <p className="text-center text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">Our Strategic Partners</p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14">
+          <p className="text-center text-sm font-bold text-[#1B3A2D] uppercase tracking-widest mb-8">Our Strategic Partners</p>
+          <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
             {partners.map(p => (
               <div key={p.id} className="group flex items-center justify-center">
                 {p.website ? (
                   <a href={p.website} target="_blank" rel="noopener noreferrer" title={p.name}>
-                    <img src={p.logo} alt={p.name} className="h-10 max-w-[130px] object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300 grayscale group-hover:grayscale-0" />
+                    <img src={p.logo} alt={p.name} className="h-12 max-w-[140px] object-contain opacity-80 group-hover:opacity-100 transition-all duration-300 group-hover:scale-105" />
                   </a>
                 ) : (
-                  <img src={p.logo} alt={p.name} className="h-10 max-w-[130px] object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300 grayscale group-hover:grayscale-0" />
+                  <img src={p.logo} alt={p.name} className="h-12 max-w-[140px] object-contain opacity-80 group-hover:opacity-100 transition-all duration-300 group-hover:scale-105" />
                 )}
               </div>
             ))}
@@ -219,7 +219,7 @@ export default function GroupPage() {
           <div className="bg-gradient-to-br from-[#0F2419] to-[#1B3A2D] rounded-3xl p-10 md:p-14 text-white text-center border border-[#6BBD45]/20">
             <Building2 size={40} className="text-[#6BBD45] mx-auto mb-6" />
             <h2 className="text-2xl md:text-3xl font-black mb-4">One Call. A Complete Solution.</h2>
-            <p className="text-gray-300 max-w-xl mx-auto mb-8 leading-relaxed text-sm">
+            <p className="text-gray-300 max-w-xl mx-auto mb-8 leading-relaxed text-base">
               Whether you need FM operations, energy monitoring, BIM modelling or IWMS software — the Cofreth partner network has you covered from day one to the life of your building.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

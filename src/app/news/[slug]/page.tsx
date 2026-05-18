@@ -100,7 +100,7 @@ export default async function ArticlePage(
 
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="absolute top-24 left-0 right-0 px-6 md:px-12">
-            <ol className="flex items-center gap-2" style={{ fontSize: '13px' }}>
+            <ol className="flex items-center gap-2 text-sm">
               <li><Link href="/" className="text-white/60 hover:text-white transition-colors">Home</Link></li>
               <li className="text-white/30">/</li>
               <li><Link href="/news" className="text-white/60 hover:text-white transition-colors">News</Link></li>
@@ -111,7 +111,7 @@ export default async function ArticlePage(
 
           {/* Category + title overlay */}
           <div className="absolute bottom-0 left-0 right-0 px-6 md:px-12 pb-10">
-            <span className="inline-block bg-[#6BBD45] text-white font-bold px-3 py-1 rounded-full mb-4" style={{ fontSize: '12px' }}>
+            <span className="inline-block bg-[#6BBD45] text-white font-bold px-3 py-1 rounded-full mb-4 text-xs">
               {article.category}
             </span>
             <h1 className="text-3xl md:text-5xl font-black text-white leading-tight max-w-4xl" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}>
@@ -125,29 +125,29 @@ export default async function ArticlePage(
 
           {/* Meta row */}
           <div className="flex flex-wrap items-center gap-5 mb-10 pb-8 border-b border-gray-100 dark:border-gray-800">
-            <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400" style={{ fontSize: '14px' }}>
+            <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
               <Calendar size={15} className="text-[#6BBD45]" />
               <time dateTime={article.isoDate}>{article.date}</time>
             </div>
-            <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400" style={{ fontSize: '14px' }}>
+            <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
               <MapPin size={15} className="text-[#6BBD45]" />
               {article.location}
             </div>
-            <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400" style={{ fontSize: '14px' }}>
+            <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
               <Tag size={15} className="text-[#6BBD45]" />
               {article.tags.slice(0, 3).join(' · ')}
             </div>
           </div>
 
           {/* Excerpt / lead */}
-          <p className="text-[#1B3A2D] dark:text-[#6BBD45] font-semibold leading-relaxed mb-8" style={{ fontSize: '18px' }}>
+          <p className="text-[#1B3A2D] dark:text-[#6BBD45] font-semibold leading-relaxed mb-8 text-lg">
             {article.excerpt}
           </p>
 
           {/* Body paragraphs */}
           <article className="prose prose-gray dark:prose-invert max-w-none">
             {paragraphs.map((para, i) => (
-              <p key={i} className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5" style={{ fontSize: '16px' }}>
+              <p key={i} className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5 text-base">
                 {para}
               </p>
             ))}
@@ -156,7 +156,7 @@ export default async function ArticlePage(
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mt-10 pt-8 border-t border-gray-100 dark:border-gray-800">
             {article.tags.map(tag => (
-              <span key={tag} className="px-3 py-1 bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 rounded-full" style={{ fontSize: '13px' }}>
+              <span key={tag} className="px-3 py-1 bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 rounded-full text-sm">
                 #{tag}
               </span>
             ))}
@@ -164,10 +164,10 @@ export default async function ArticlePage(
 
           {/* Back + CTA */}
           <div className="flex items-center justify-between mt-10 pt-8 border-t border-gray-100 dark:border-gray-800">
-            <Link href="/news" className="flex items-center gap-2 text-[#6BBD45] font-semibold hover:underline" style={{ fontSize: '14px' }}>
+            <Link href="/news" className="flex items-center gap-2 text-[#6BBD45] font-semibold hover:underline text-sm">
               <ArrowLeft size={16} /> All News
             </Link>
-            <Link href="/contact" className="flex items-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-semibold px-6 py-2.5 rounded-full transition-all" style={{ fontSize: '14px' }}>
+            <Link href="/contact" className="flex items-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-semibold px-6 py-2.5 rounded-full transition-all text-sm">
               Enquire Now <ArrowRight size={16} />
             </Link>
           </div>
@@ -177,7 +177,7 @@ export default async function ArticlePage(
         {related.length > 0 && (
           <section className="bg-gray-50 dark:bg-[#111827] border-t border-gray-100 dark:border-gray-800 py-14">
             <div className="max-w-4xl mx-auto px-6 md:px-12">
-              <h2 className="font-black text-[#1B3A2D] dark:text-white mb-8" style={{ fontSize: '20px' }}>Related Articles</h2>
+              <h2 className="font-black text-[#1B3A2D] dark:text-white mb-8 text-xl">Related Articles</h2>
               <div className="grid sm:grid-cols-2 gap-6">
                 {related.map(rel => (
                   <Link key={rel.slug} href={`/news/${rel.slug}`}
@@ -186,10 +186,10 @@ export default async function ArticlePage(
                       <Image src={rel.image} alt={rel.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 640px) 100vw, 50vw" />
                     </div>
                     <div className="p-5">
-                      <span className="text-[#6BBD45] font-bold" style={{ fontSize: '11px' }}>{rel.category.toUpperCase()}</span>
-                      <h3 className="font-black text-[#1B3A2D] dark:text-white mt-1 mb-2 leading-snug group-hover:text-[#6BBD45] transition-colors" style={{ fontSize: '15px' }}>{rel.title}</h3>
-                      <p className="text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-2" style={{ fontSize: '13px' }}>{rel.excerpt}</p>
-                      <span className="flex items-center gap-1 text-[#6BBD45] font-semibold mt-3" style={{ fontSize: '13px' }}>
+                      <span className="text-[#6BBD45] font-bold text-xs">{rel.category.toUpperCase()}</span>
+                      <h3 className="font-black text-[#1B3A2D] dark:text-white mt-1 mb-2 leading-snug group-hover:text-[#6BBD45] transition-colors text-base">{rel.title}</h3>
+                      <p className="text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-2 text-sm">{rel.excerpt}</p>
+                      <span className="flex items-center gap-1 text-[#6BBD45] font-semibold mt-3 text-sm">
                         Read more <ArrowRight size={13} />
                       </span>
                     </div>

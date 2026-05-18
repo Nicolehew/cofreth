@@ -47,8 +47,8 @@ function NewsItem({ item, index }: { item: typeof items[0]; index: number }) {
             <span className="flex items-center gap-1"><Calendar size={12} /> {item.date}</span>
             <span className="flex items-center gap-1"><MapPin size={12} /> {item.location}</span>
           </div>
-          <h3 className="font-bold text-[#1B3A2D] leading-snug mb-3 group-hover:text-[#6BBD45] transition-colors">{item.title}</h3>
-          <p className="text-gray-500 text-sm leading-relaxed flex-1">{item.excerpt}</p>
+          <h3 className="font-black text-[#1B3A2D] text-xl leading-snug mb-3 group-hover:text-[#6BBD45] transition-colors">{item.title}</h3>
+          <p className="text-gray-500 text-base leading-relaxed flex-1">{item.excerpt}</p>
         </div>
       </div>
     </div>

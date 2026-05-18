@@ -57,7 +57,7 @@ function PainCard({ item, i }: { item: typeof painPoints[0]; i: number }) {
           <Icon size={22} style={{ color: item.color }} />
         </div>
         <h3 className="font-black text-[#1B3A2D] text-lg mb-3 leading-snug group-hover:text-[#6BBD45] transition-colors">{item.title}</h3>
-        <p className="text-gray-500 text-sm leading-relaxed mb-4">{item.desc}</p>
+        <p className="text-gray-500 text-base leading-relaxed mb-4">{item.desc}</p>
         <div className="flex items-center gap-2 pt-3 border-t border-gray-100">
           <CheckCircle size={13} className="text-[#6BBD45] shrink-0" />
           <span className="text-xs text-gray-400 font-medium">{item.proof}</span>
@@ -123,7 +123,7 @@ export default function HomeSME() {
                 <span className="text-[#6BBD45] text-sm font-bold tracking-wider uppercase">Free Consultation</span>
               </div>
               <h3 className="text-white font-black text-2xl md:text-3xl mb-2">Ready to Reduce Your FM Costs?</h3>
-              <p className="text-gray-400 text-sm max-w-md leading-relaxed">
+              <p className="text-gray-400 text-base max-w-md leading-relaxed">
                 Tell us about your facility. Our engineers will assess your building and propose a tailored FM + energy solution — completely obligation-free.
               </p>
             </div>

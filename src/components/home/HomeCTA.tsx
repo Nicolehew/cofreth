@@ -16,7 +16,7 @@ export default function HomeCTA() {
           <div className="relative z-10">
             <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Ready to Get Started?</span>
             <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-4">Let's Optimise Your Facilities Together</h2>
-            <p className="text-gray-300 mb-8 max-w-xl mx-auto text-sm leading-relaxed">
+            <p className="text-gray-300 mb-8 max-w-xl mx-auto text-base leading-relaxed">
               Contact our experts for a tailored facility management or energy services consultation. We'll assess your needs and propose a solution that delivers real results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -36,7 +36,7 @@ export function AboutSidebar({ children }: { children: React.ReactNode }) {
         {/* Header + toggle */}
         <div className={`flex items-center border-b border-gray-100 shrink-0 py-3 ${open ? 'justify-between px-4' : 'justify-center'}`}>
           {open && (
-            <span style={{ fontSize: '10px' }} className="font-black text-gray-400 uppercase tracking-widest leading-none">
+            <span className="text-xs font-black text-gray-400 uppercase tracking-widest leading-none">
               Cofreth At A Glance
             </span>
           )}
@@ -69,7 +69,7 @@ export function AboutSidebar({ children }: { children: React.ReactNode }) {
               >
                 <Icon size={16} className={`shrink-0 ${active ? 'text-[#6BBD45]' : ''}`} />
                 {open && (
-                  <span style={{ fontSize: '13px' }} className="font-semibold leading-snug">
+                  <span className="text-sm font-semibold leading-snug">
                     {item.label}
                   </span>
                 )}
@@ -92,8 +92,7 @@ export function AboutSidebar({ children }: { children: React.ReactNode }) {
                 <Link
                   key={item.href}
                   href={item.href}
-                  style={{ fontSize: '12px' }}
-                  className={`flex-shrink-0 px-3 py-1.5 rounded-full font-semibold transition-all whitespace-nowrap ${
+                  className={`text-xs flex-shrink-0 px-3 py-1.5 rounded-full font-semibold transition-all whitespace-nowrap ${
                     active
                       ? 'bg-[#6BBD45] text-white shadow-sm'
                       : 'text-gray-500 bg-gray-100 hover:bg-gray-200'

@@ -14,7 +14,7 @@ export default function AboutLayout({ children }: { children: React.ReactNode })
     <>
       <JsonLd data={aboutBreadcrumb} />
       <Navbar />
-      <div className="pt-20">
+      <div className="pt-[100px]">
         <AboutSidebar>
           {children}
         </AboutSidebar>

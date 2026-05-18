@@ -37,8 +37,8 @@ function AdvantageCard({ r, i }: { r: typeof reasons[0]; i: number }) {
         <Icon size={22} style={{ color: r.color }} />
       </div>
 
-      <h3 className="font-bold text-[#1B3A2D] text-sm mb-2 group-hover:text-[#1B3A2D]">{r.title}</h3>
-      <p className="text-gray-500 text-xs leading-relaxed">{r.desc}</p>
+      <h3 className="font-black text-[#1B3A2D] text-xl mb-2 group-hover:text-[#1B3A2D]">{r.title}</h3>
+      <p className="text-gray-500 text-base leading-relaxed">{r.desc}</p>
     </div>
   );
 }
@@ -59,7 +59,7 @@ export default function HomeWhyUs() {
             <div className="w-8 h-0.5 bg-[#6BBD45]" />
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-[#1B3A2D] mb-4">The Cofreth Advantage</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
+          <p className="text-gray-500 max-w-2xl mx-auto text-base leading-relaxed">
             Decades of expertise, cutting-edge technology, and a commitment to excellence set us apart as Malaysia's premier FM and energy solutions provider.
           </p>
         </div>

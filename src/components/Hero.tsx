@@ -143,8 +143,7 @@ export default function Hero() {
 
           {/* Eyebrow badge */}
           <FadeIn delay={0.1} className="mb-5">
-            <span className="inline-flex items-center gap-2 text-[#6BBD45] font-bold tracking-widest uppercase"
-              style={{ fontSize: '13px' }}>
+            <span className="inline-flex items-center gap-2 text-[#6BBD45] font-bold tracking-widest uppercase text-sm">
               <span className="w-2 h-2 bg-[#6BBD45] rounded-full animate-pulse" />
               Total Solutions Provider · Est. 1986
             </span>
@@ -170,9 +169,8 @@ export default function Hero() {
           {/* Subtitle + CTA */}
           <div key={`s-${index}`} className="flex flex-col sm:flex-row sm:items-end gap-6 sm:gap-10">
             <p
-              className="text-white/80 leading-relaxed max-w-md"
+              className="text-lg text-white/80 leading-relaxed max-w-md"
               style={{
-                fontSize: '17px',
                 animation: 'fadeUp 0.6s ease forwards',
                 animationDelay: `${(slide.lines.length + 1) * 0.18 + 0.1}s`,
                 opacity: 0,
@@ -190,14 +188,12 @@ export default function Hero() {
               }}
             >
               <Link href="/services"
-                className="bg-white text-[#1B3A2D] hover:bg-[#6BBD45] hover:text-white font-bold px-7 py-3.5 rounded-full transition-all duration-200 shadow-lg"
-                style={{ fontSize: '15px' }}>
+                className="bg-white text-[#1B3A2D] hover:bg-[#6BBD45] hover:text-white font-bold px-7 py-3.5 rounded-full transition-all duration-200 shadow-lg text-base">
                 Discover Our Services
               </Link>
               <button
                 onClick={() => setVideoOpen(true)}
-                className="inline-flex items-center gap-2 border-2 border-white/40 hover:border-[#6BBD45] text-white hover:text-[#6BBD45] font-bold px-6 py-3.5 rounded-full transition-all duration-200"
-                style={{ fontSize: '15px' }}
+                className="inline-flex items-center gap-2 border-2 border-white/40 hover:border-[#6BBD45] text-white hover:text-[#6BBD45] font-bold px-6 py-3.5 rounded-full transition-all duration-200 text-base"
               >
                 <Play size={14} fill="currentColor" /> Watch
               </button>
@@ -207,17 +203,17 @@ export default function Hero() {
       </div>
 
       {/* ── Bottom feature strip ── */}
-      <div className="absolute bottom-0 left-0 right-0 border-t border-white/10"
-        style={{ background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(12px)', zIndex: 3 }}>
+      <div className="absolute bottom-0 left-0 right-0 border-t border-[#6BBD45]/20"
+        style={{ background: 'rgba(27,58,45,0.92)', backdropFilter: 'blur(12px)', zIndex: 3 }}>
         <div className="flex">
           {services.map((svc, i) => {
             const Icon = svc.icon;
             return (
               <Link key={svc.label} href={svc.href}
-                className="group flex-1 flex items-center justify-center gap-3 px-5 py-4 hover:bg-white/10 transition-colors duration-200"
-                style={{ borderRight: i < services.length - 1 ? '1px solid rgba(255,255,255,0.12)' : 'none' }}>
-                <Icon size={18} className="text-[#6BBD45] shrink-0 group-hover:scale-110 transition-transform" />
-                <span className="text-white font-semibold" style={{ fontSize: '13px' }}>{svc.label}</span>
+                className="group flex-1 flex items-center justify-center gap-3 px-5 py-5 hover:bg-[#6BBD45]/15 transition-colors duration-200"
+                style={{ borderRight: i < services.length - 1 ? '1px solid rgba(107,189,69,0.15)' : 'none' }}>
+                <Icon size={20} className="text-[#6BBD45] shrink-0 group-hover:scale-110 transition-transform" />
+                <span className="text-white font-bold text-base">{svc.label}</span>
               </Link>
             );
           })}

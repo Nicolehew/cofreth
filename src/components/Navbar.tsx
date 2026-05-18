@@ -113,36 +113,37 @@ export default function Navbar() {
   const openAbout     = () => { if (closeAboutTimer.current) clearTimeout(closeAboutTimer.current); setAboutOpen(true);    };
   const closeAbout    = () => { closeAboutTimer.current = setTimeout(() => setAboutOpen(false),    300); };
 
-  const linkBase = `text-sm font-semibold transition-colors duration-200 pb-1 border-b-2 whitespace-nowrap`;
+  const linkBase = `text-sm font-semibold transition-colors duration-200 whitespace-nowrap px-3.5 py-1.5 rounded-md`;
   const linkCls = (href: string) =>
     `${linkBase} ${
       isActive(href)
-        ? 'border-[#6BBD45] text-[#6BBD45]'
-        : showDark
-          ? 'border-transparent text-white/90 hover:text-[#6BBD45]'
-          : 'border-transparent text-white/90 hover:text-[#6BBD45]'
+        ? 'text-[#6BBD45] bg-white/8'
+        : 'text-white/85 hover:text-white hover:bg-white/10'
     }`;
 
   const navBg = showDark
-    ? 'bg-[#1B3A2D]/97 backdrop-blur-md shadow-lg shadow-black/20 py-2'
-    : 'bg-[#1B3A2D]/70 backdrop-blur-sm py-4';
+    ? 'bg-[#1B3A2D]/97 backdrop-blur-md shadow-lg shadow-black/20'
+    : 'bg-[#1B3A2D]/85 backdrop-blur-sm';
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-[200] transition-all duration-300 ${navBg}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
-        <Link href="/" className="shrink-0">
+      {/* 3-col grid: logo left | nav centre | controls right */}
+      <div className="w-full px-4 sm:px-6 h-[100px] grid grid-cols-[auto_1fr_auto] items-center gap-4">
+
+        {/* LEFT — Logo */}
+        <Link href="/" className="shrink-0 flex items-center">
           <Image
             src="/logo-hero.png"
             alt="Cofreth Logo"
-            width={140}
-            height={56}
-            className="object-contain transition-all duration-300 w-[110px] md:w-[140px] h-auto"
+            width={180}
+            height={72}
+            className="object-contain w-[140px] md:w-[170px] h-auto"
             unoptimized
           />
         </Link>
 
-        {/* Desktop nav */}
-        <ul className="hidden lg:flex items-center gap-5 xl:gap-7">
+        {/* CENTRE — nav perfectly centered */}
+        <ul className="hidden lg:flex items-center justify-center gap-0.5">
           {navLinks.map((link) => (
             <li key={link.href} className="relative">
               {link.hasAboutDropdown ? (
@@ -181,38 +182,27 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Right controls */}
-        <div className="hidden lg:flex items-center gap-3">
-          {/* Dark/Light toggle */}
-          <button
-            onClick={toggle}
-            aria-label="Toggle dark mode"
-            className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 text-white/70 hover:text-white hover:bg-white/10"
-          >
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+        {/* RIGHT — desktop controls + mobile hamburger */}
+        <div className="flex items-center justify-end gap-2">
+          {/* Desktop */}
+          <button onClick={toggle} aria-label="Toggle dark mode"
+            className="hidden lg:flex w-9 h-9 rounded-full items-center justify-center transition-all duration-200 text-white/60 hover:text-white hover:bg-white/10">
+            {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
           </button>
-          <Link href="/contact" className="btn-glow bg-[#6BBD45] text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-[#5aa838] transition-colors whitespace-nowrap">
+          <Link href="/contact"
+            className="hidden lg:inline-flex btn-glow bg-[#6BBD45] hover:bg-[#5aa838] text-white text-sm font-bold px-5 py-2 rounded-full transition-all duration-200 whitespace-nowrap">
             Get In Touch
           </Link>
-        </div>
 
-        {/* Mobile: theme toggle + hamburger */}
-        <div className="lg:hidden flex items-center gap-2">
-          <button
-            onClick={toggle}
-            aria-label="Toggle dark mode"
-            className="w-9 h-9 rounded-full flex items-center justify-center transition-all text-white/70"
-          >
+          {/* Mobile */}
+          <button onClick={toggle} aria-label="Toggle dark mode"
+            className="lg:hidden w-9 h-9 rounded-full flex items-center justify-center text-white/70">
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <button
-            className="w-9 h-9 flex items-center justify-center text-white"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-          >
-            {open ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+          <button className="lg:hidden w-9 h-9 flex items-center justify-center text-white"
+            onClick={() => setOpen(!open)} aria-label="Toggle menu">
+          {open ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
       {/* Mobile menu */}
@@ -232,9 +222,9 @@ export default function Navbar() {
             <li>
               <button
                 onClick={() => setMobileAboutOpen(v => !v)}
-                className="flex items-center justify-between w-full px-5 py-3 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-sm font-semibold border-b nav-mobile-border">
+                className="flex items-center justify-between w-full px-5 py-4 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-base font-semibold border-b nav-mobile-border">
                 About
-                <ChevronDown size={14} className={`transition-transform ${mobileAboutOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown size={16} className={`transition-transform ${mobileAboutOpen ? 'rotate-180' : ''}`} />
               </button>
               {mobileAboutOpen && (
                 <div className="nav-mobile-sub">
@@ -242,8 +232,8 @@ export default function Navbar() {
                     const Icon = s.icon;
                     return (
                       <Link key={s.href} href={s.href} onClick={() => setOpen(false)}
-                        className="flex items-center gap-2.5 px-7 py-2.5 text-xs nav-mobile-sub-text hover:text-[#6BBD45] border-b nav-mobile-border">
-                        <Icon size={13} className="text-[#6BBD45] shrink-0" />
+                        className="flex items-center gap-3 px-7 py-3.5 text-sm nav-mobile-sub-text hover:text-[#6BBD45] border-b nav-mobile-border">
+                        <Icon size={15} className="text-[#6BBD45] shrink-0" />
                         {s.label}
                       </Link>
                     );
@@ -256,9 +246,9 @@ export default function Navbar() {
             <li>
               <button
                 onClick={() => setMobileServicesOpen(v => !v)}
-                className="flex items-center justify-between w-full px-5 py-3 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-sm font-semibold border-b nav-mobile-border">
+                className="flex items-center justify-between w-full px-5 py-4 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-base font-semibold border-b nav-mobile-border">
                 Services
-                <ChevronDown size={14} className={`transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown size={16} className={`transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
               </button>
               {mobileServicesOpen && (
                 <div className="nav-mobile-sub">
@@ -266,8 +256,8 @@ export default function Navbar() {
                     const Icon = s.icon;
                     return (
                       <Link key={s.href} href={s.href} onClick={() => setOpen(false)}
-                        className="flex items-center gap-2.5 px-7 py-2.5 text-xs nav-mobile-sub-text hover:text-[#6BBD45] border-b nav-mobile-border">
-                        <Icon size={13} className="text-[#6BBD45] shrink-0" />
+                        className="flex items-center gap-3 px-7 py-3.5 text-sm nav-mobile-sub-text hover:text-[#6BBD45] border-b nav-mobile-border">
+                        <Icon size={15} className="text-[#6BBD45] shrink-0" />
                         {s.label}
                       </Link>
                     );
@@ -285,15 +275,15 @@ export default function Navbar() {
             ].map((link) => (
               <li key={link.href}>
                 <Link href={link.href} onClick={() => setOpen(false)}
-                  className="block px-5 py-3 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-sm font-semibold border-b nav-mobile-border">
+                  className="block px-5 py-4 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-base font-semibold border-b nav-mobile-border">
                   {link.label}
                 </Link>
               </li>
             ))}
 
-            <li className="p-3">
+            <li className="p-4">
               <Link href="/contact" onClick={() => setOpen(false)}
-                className="block bg-[#6BBD45] text-white text-center px-5 py-3 rounded-full text-sm font-semibold">
+                className="block bg-[#6BBD45] text-white text-center px-5 py-3.5 rounded-full text-base font-bold">
                 Get In Touch
               </Link>
             </li>

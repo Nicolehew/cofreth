@@ -8,13 +8,51 @@ export const metadata = {
   openGraph: { title: 'Corporate Social Responsibility | Cofreth Malaysia', url: 'https://www.cofreth.com.my/about/csr' },
 };
 
+const initiatives = [
+  {
+    icon: '🩺',
+    title: '"Save a Life" Campaign',
+    stat: '500+',
+    statLabel: 'units donated',
+    desc: 'Annual blood donation drives and "Save a Life" campaigns — encouraging staff and the public to support critical healthcare needs across Malaysia.',
+    color: '#ef4444',
+  },
+  {
+    icon: '🌳',
+    title: 'Green Finger Day',
+    stat: '170',
+    statLabel: 'trees planted',
+    desc: "River clean-up activities and tree planting as part of our environmental commitment to Malaysia's green cover and biodiversity preservation.",
+    color: '#6BBD45',
+  },
+  {
+    icon: '🏠',
+    title: 'Community Support',
+    stat: '10+',
+    statLabel: 'orphanages supported',
+    desc: "Regular visits and donations to Rumah Amal Kasih Bestari and other orphanages — providing essential support, meals and meaningful activities.",
+    color: '#f59e0b',
+  },
+];
+
 const sdgs = [
-  { n: 1,  bg: '#e5243b' }, { n: 2,  bg: '#dda63a' }, { n: 3,  bg: '#4c9f38' },
-  { n: 4,  bg: '#c5192d' }, { n: 5,  bg: '#ff3a21' }, { n: 6,  bg: '#26bde2' },
-  { n: 7,  bg: '#fcc30b' }, { n: 8,  bg: '#a21942' }, { n: 9,  bg: '#fd6925' },
-  { n: 10, bg: '#dd1367' }, { n: 11, bg: '#fd9d24' }, { n: 12, bg: '#bf8b2e' },
-  { n: 13, bg: '#3f7e44' }, { n: 14, bg: '#0a97d9' }, { n: 15, bg: '#56c02b' },
-  { n: 16, bg: '#00689d' }, { n: 17, bg: '#19486a' },
+  { n: 1,  bg: '#e5243b', label: 'No Poverty' },
+  { n: 2,  bg: '#dda63a', label: 'Zero Hunger' },
+  { n: 3,  bg: '#4c9f38', label: 'Good Health' },
+  { n: 4,  bg: '#c5192d', label: 'Quality Education' },
+  { n: 5,  bg: '#ff3a21', label: 'Gender Equality' },
+  { n: 6,  bg: '#26bde2', label: 'Clean Water' },
+  { n: 7,  bg: '#fcc30b', label: 'Clean Energy' },
+  { n: 8,  bg: '#a21942', label: 'Decent Work' },
+  { n: 9,  bg: '#fd6925', label: 'Industry & Innovation' },
+  { n: 10, bg: '#dd1367', label: 'Reduced Inequalities' },
+  { n: 11, bg: '#fd9d24', label: 'Sustainable Cities' },
+  { n: 12, bg: '#bf8b2e', label: 'Responsible Consumption' },
+  { n: 13, bg: '#3f7e44', label: 'Climate Action' },
+  { n: 14, bg: '#0a97d9', label: 'Life Below Water' },
+  { n: 15, bg: '#56c02b', label: 'Life on Land' },
+  { n: 16, bg: '#00689d', label: 'Peace & Justice' },
+  { n: 17, bg: '#19486a', label: 'Partnerships' },
 ];
 
 export default function CSRPage() {
@@ -26,39 +64,69 @@ export default function CSRPage() {
         subtitle="Beyond business, Cofreth is committed to making a positive impact — supporting life-saving initiatives, environmental causes and the wellbeing of underserved communities."
       />
 
-      <div className="py-12 px-6 lg:px-10 xl:px-14 bg-white">
-        <div>
-          <div className="grid sm:grid-cols-3 gap-5 mb-10">
-            {[
-              { icon: '🩺', title: '"Save a Life" Campaign', desc: 'Annual blood donation drives and "Save a Life" campaigns — encouraging staff and the public to support critical healthcare needs.' },
-              { icon: '🌳', title: 'Green Finger Day',        desc: "170 trees planted and river clean-up activities as part of our environmental commitment to Malaysia's green cover and biodiversity." },
-              { icon: '🏠', title: 'Community Support',       desc: "Regular visits and donations to Rumah Amal Kasih Bestari and other orphanages — providing essential support, meals and activities." },
-            ].map(item => (
-              <div key={item.title} className="bg-white border border-gray-100 rounded-2xl p-6 hover:border-[#6BBD45]/40 hover:shadow-md transition-all duration-300">
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="font-black text-[#1B3A2D] mb-3" style={{ fontSize: '17px' }}>{item.title}</h3>
-                <p className="text-gray-500 leading-relaxed" style={{ fontSize: '15px' }}>{item.desc}</p>
+      {/* Section 1 — Initiatives — white */}
+      <div className="py-16 px-6 lg:px-10 xl:px-14 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-10">
+            <span className="text-xs font-black uppercase tracking-[0.2em] text-[#6BBD45]">What We Do</span>
+            <h3 className="font-black text-[#1B3A2D] text-3xl mt-2">Our Community Initiatives</h3>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-6">
+            {initiatives.map(item => (
+              <div key={item.title} className="group rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                {/* Coloured top bar */}
+                <div className="h-2" style={{ background: item.color }} />
+                <div className="p-7">
+                  <div className="text-5xl mb-4">{item.icon}</div>
+                  {/* Stat */}
+                  <div className="flex items-baseline gap-1.5 mb-4">
+                    <span className="text-4xl font-black" style={{ color: item.color }}>{item.stat}</span>
+                    <span className="text-sm font-semibold text-gray-400">{item.statLabel}</span>
+                  </div>
+                  <h3 className="font-black text-[#1B3A2D] text-xl mb-3 group-hover:text-[#6BBD45] transition-colors">{item.title}</h3>
+                  <p className="text-gray-500 text-base leading-relaxed">{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>
+        </div>
+      </div>
 
-          <div className="bg-white border border-gray-100 rounded-2xl p-8">
-            <h3 className="font-black text-[#1B3A2D] mb-2" style={{ fontSize: '18px' }}>Sustainable Development</h3>
-            <p className="text-gray-500 leading-relaxed mb-6" style={{ fontSize: '16px' }}>
-              Cofreth&#39;s activities take into account the objectives of sustainable development from ecological, economical and social dimensions — aligned to the UN Sustainable Development Goals.
+      {/* Section 2 — SDG Goals — dark green */}
+      <div className="py-16 px-6 lg:px-10 xl:px-14" style={{ background: 'linear-gradient(135deg, #0F2419 0%, #1B3A2D 100%)' }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-10">
+            <span className="text-xs font-black uppercase tracking-[0.2em] text-[#6BBD45]">UN SDGs</span>
+            <h3 className="font-black text-white text-3xl mt-2 mb-3">Sustainable Development Goals</h3>
+            <p className="text-gray-300 text-base max-w-2xl leading-relaxed">
+              Cofreth's activities take into account the objectives of sustainable development from ecological, economical and social dimensions — aligned to all 17 UN Sustainable Development Goals.
             </p>
-            <div className="grid grid-cols-6 sm:grid-cols-9 gap-2">
-              {sdgs.map(g => (
-                <div key={g.n}
-                  className="aspect-square rounded-xl flex items-center justify-center text-white font-black hover:scale-110 transition-transform cursor-default"
-                  style={{ background: g.bg, fontSize: '15px' }}
-                >
-                  {g.n}
-                </div>
-              ))}
-            </div>
-            <p className="text-gray-400 mt-4 text-center" style={{ fontSize: '13px' }}>UN Sustainable Development Goals 1–17</p>
           </div>
+
+          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
+            {sdgs.map(g => (
+              <div
+                key={g.n}
+                className="rounded-xl p-4 text-white flex flex-col justify-between hover:scale-105 hover:shadow-lg transition-all duration-200 cursor-default aspect-square"
+                style={{ background: g.bg }}
+              >
+                <span className="text-2xl font-black leading-none">{g.n}</span>
+                <span className="text-xs font-bold leading-tight mt-2 opacity-90">{g.label}</span>
+              </div>
+            ))}
+          </div>
+          <p className="text-gray-400 text-sm text-center mt-6">Aligned to all 17 UN Sustainable Development Goals</p>
+        </div>
+      </div>
+
+      {/* Section 3 — Impact quote — green */}
+      <div className="py-14 px-6 lg:px-10 xl:px-14 bg-[#6BBD45]">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="text-5xl mb-5">🌍</div>
+          <h3 className="font-black text-white text-3xl mb-4">Business with Purpose</h3>
+          <p className="text-white/90 text-base leading-relaxed">
+            Cofreth believes that sustainable business success and positive social impact go hand in hand. Every project we undertake reflects our commitment to people, planet and prosperity.
+          </p>
         </div>
       </div>
     </>

@@ -26,8 +26,8 @@ function FirstCard({ item, i }: { item: typeof firsts[0]; i: number }) {
           <span className="inline-block bg-[#6BBD45]/10 text-[#6BBD45] text-xs font-bold px-3 py-1 rounded-full">{item.badge}</span>
           <span className="text-xs font-bold text-gray-400 shrink-0 mt-0.5">{item.year}</span>
         </div>
-        <h3 className="font-black text-[#1B3A2D] text-sm mb-2 leading-snug group-hover:text-[#6BBD45] transition-colors">{item.title}</h3>
-        <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+        <h3 className="font-black text-[#1B3A2D] text-xl mb-2 leading-snug group-hover:text-[#6BBD45] transition-colors">{item.title}</h3>
+        <p className="text-gray-500 text-base leading-relaxed">{item.desc}</p>
       </div>
     </div>
   );

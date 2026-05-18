@@ -30,7 +30,7 @@ export default function PageHero({
   const reveal = useScrollReveal();
 
   return (
-    <div className="relative overflow-hidden border-b border-white/10 pt-24 md:pt-32">
+    <div className="relative overflow-hidden border-b border-white/10 pt-[110px] md:pt-[130px]">
 
       {/* ── Full-bleed background photo ── */}
       <div className="absolute inset-0">
@@ -69,15 +69,14 @@ export default function PageHero({
         {/* Eyebrow */}
         <div className="flex items-center justify-center gap-2 mb-5">
           <span
-            className="bg-[#6BBD45]/20 border border-[#6BBD45]/40 text-[#6BBD45] font-bold px-3 py-1 rounded-full uppercase tracking-widest"
-            style={{ fontSize: '11px' }}
+            className="bg-[#6BBD45]/20 border border-[#6BBD45]/40 text-[#6BBD45] font-bold px-3 py-1 rounded-full uppercase tracking-widest text-xs"
           >
             {eyebrow}
           </span>
           {eyebrowSub && (
             <>
-              <span className="text-white/30" style={{ fontSize: '11px' }}>·</span>
-              <span className="text-white/55 font-medium" style={{ fontSize: '12px' }}>{eyebrowSub}</span>
+              <span className="text-white/30 text-xs">·</span>
+              <span className="text-white/55 font-medium text-xs">{eyebrowSub}</span>
             </>
           )}
         </div>
@@ -92,8 +91,7 @@ export default function PageHero({
 
         {/* Subtitle */}
         <p
-          className="text-white/70 max-w-2xl leading-relaxed mb-10 mx-auto"
-          style={{ fontSize: '16px' }}
+          className="text-white/70 max-w-2xl leading-relaxed mb-10 mx-auto text-base"
         >
           {subtitle}
         </p>
@@ -110,8 +108,8 @@ export default function PageHero({
                   animationDelay: `${0.15 + i * 0.08}s`,
                 }}
               >
-                <div className="font-black text-white mb-0.5" style={{ fontSize: '22px' }}>{s.num}</div>
-                <div className="text-white/50 font-medium" style={{ fontSize: '12px' }}>{s.label}</div>
+                <div className="font-black text-white mb-0.5 text-2xl">{s.num}</div>
+                <div className="text-white/50 font-medium text-xs">{s.label}</div>
               </div>
             ))}
           </div>

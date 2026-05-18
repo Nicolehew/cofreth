@@ -136,7 +136,7 @@ function OtherCard({ award, i }: { award: typeof otherAwards[0]; i: number }) {
           <p className="text-xs font-bold text-[#6BBD45] tracking-widest uppercase mb-2">{award.body}</p>
           <h3 className="font-black text-[#1B3A2D] text-base leading-snug mb-2">{award.title}</h3>
           <p className="text-xs font-semibold text-gray-500 bg-gray-50 rounded-lg px-3 py-1.5 inline-self-start mb-3">{award.category}</p>
-          <p className="text-sm text-gray-500 leading-relaxed flex-1">{award.desc}</p>
+          <p className="text-base text-gray-500 leading-relaxed flex-1">{award.desc}</p>
         </div>
       </div>
     </div>
@@ -165,7 +165,7 @@ export default function AwardsPage() {
   return (
     <>
       <PageHero
-        bgImage="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1920&q=90"
+        bgImage="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1920&q=90"
         eyebrow="Recognition & Excellence"
         eyebrowSub="National · ASEAN · International"
         title={<>Awards &amp;<br /><span className="text-[#6BBD45]">Recognition</span></>}
@@ -191,7 +191,7 @@ export default function AwardsPage() {
             <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] mb-4">
               Frost & Sullivan<br />Malaysia Excellence Awards
             </h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
+            <p className="text-gray-500 max-w-2xl mx-auto text-base leading-relaxed">
               One of the most prestigious business honours in Asia Pacific, Cofreth has been recognised by Frost & Sullivan
               <strong className="text-[#1B3A2D]"> four times</strong> — in 2007, 2010, 2015 and 2016 — across different
               award categories in the Facilities Management sector.
@@ -232,7 +232,7 @@ export default function AwardsPage() {
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] mb-4">5× ISO Certified</h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
+            <p className="text-gray-500 max-w-2xl mx-auto text-base leading-relaxed">
               Independently audited and continuously maintained to the highest global standards across quality, environment, safety, energy and facility management.
             </p>
           </div>
@@ -247,7 +247,7 @@ export default function AwardsPage() {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <Award size={40} className="text-[#6BBD45] mx-auto mb-5" />
           <h2 className="text-2xl md:text-3xl font-black text-[#1B3A2D] mb-4">Work with an Award-Winning FM Partner</h2>
-          <p className="text-gray-500 mb-8 leading-relaxed text-sm max-w-xl mx-auto">
+          <p className="text-gray-500 mb-8 leading-relaxed text-base max-w-xl mx-auto">
             Our awards reflect the systems, processes and people behind every project. Let us put that proven expertise to work for your facility.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

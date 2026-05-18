@@ -113,7 +113,7 @@ export default function Services() {
                     {svc.title}
                   </h3>
                   <p
-                    className="text-sm leading-relaxed mb-6"
+                    className="text-base leading-relaxed mb-6"
                     style={{ color: isHovered ? '#d1fae5' : '#6b7280', transition: 'color 0.3s' }}
                   >
                     {svc.description}

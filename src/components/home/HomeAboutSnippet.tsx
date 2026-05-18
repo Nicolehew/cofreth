@@ -46,9 +46,9 @@ export default function HomeAboutSnippet() {
                   <div className="w-12 h-12 bg-[#6BBD45]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#6BBD45] transition-colors">
                     <Icon size={22} className="text-[#6BBD45] group-hover:text-white transition-colors" />
                   </div>
-                  <div className="text-2xl font-bold text-[#1B3A2D] mb-1">{h.value}</div>
-                  <div className="text-sm font-semibold text-gray-700 mb-2">{h.label}</div>
-                  <p className="text-xs text-gray-500 leading-relaxed">{h.desc}</p>
+                  <div className="text-3xl font-black text-[#1B3A2D] mb-1">{h.value}</div>
+                  <div className="text-base font-bold text-gray-700 mb-2">{h.label}</div>
+                  <p className="text-base text-gray-500 leading-relaxed">{h.desc}</p>
                 </div>
               );
             })}

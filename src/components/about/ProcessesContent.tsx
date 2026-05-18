@@ -108,15 +108,14 @@ function PdfModal({ url, title, onClose }: { url: string; title: string; onClose
       <div className="flex items-center justify-between px-5 py-3 bg-white border-b border-gray-100 shrink-0">
         <div className="flex items-center gap-3">
           <Eye size={16} className="text-[#6BBD45]" />
-          <span className="text-[#1B3A2D] font-semibold truncate max-w-[60vw]" style={{ fontSize: '14px' }}>{title}</span>
+          <span className="text-[#1B3A2D] font-semibold truncate max-w-[60vw] text-sm">{title}</span>
         </div>
         <div className="flex items-center gap-3">
-          <span className="bg-[#6BBD45]/15 border border-[#6BBD45]/30 text-[#6BBD45] px-3 py-1 rounded-full font-bold hidden sm:block" style={{ fontSize: '11px' }}>
+          <span className="bg-[#6BBD45]/15 border border-[#6BBD45]/30 text-[#6BBD45] px-3 py-1 rounded-full font-bold hidden sm:block text-xs">
             VIEW ONLY
           </span>
           <button onClick={onClose}
-            className="flex items-center gap-1.5 text-gray-500 hover:text-red-500 transition-colors px-3 py-1.5 rounded-lg hover:bg-gray-100"
-            style={{ fontSize: '13px' }}>
+            className="flex items-center gap-1.5 text-gray-500 hover:text-red-500 transition-colors px-3 py-1.5 rounded-lg hover:bg-gray-100 text-sm">
             <X size={15} /> Close
           </button>
         </div>
@@ -128,8 +127,8 @@ function PdfModal({ url, title, onClose }: { url: string; title: string; onClose
         {loading && (
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 bg-[#404040]">
             <div className="w-12 h-12 border-4 border-[#6BBD45]/30 border-t-[#6BBD45] rounded-full animate-spin" />
-            <p className="text-white font-semibold" style={{ fontSize: '15px' }}>Loading certificate…</p>
-            <p className="text-gray-400" style={{ fontSize: '12px' }}>Attempt {attempt + 1} of 6</p>
+            <p className="text-white font-semibold text-base">Loading certificate…</p>
+            <p className="text-gray-400 text-xs">Attempt {attempt + 1} of 6</p>
           </div>
         )}
 
@@ -137,13 +136,12 @@ function PdfModal({ url, title, onClose }: { url: string; title: string; onClose
         {failed && (
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-5 bg-[#404040]">
             <div className="text-4xl">📄</div>
-            <p className="text-white font-bold" style={{ fontSize: '16px' }}>Could not load the certificate</p>
-            <p className="text-gray-400 text-center max-w-xs" style={{ fontSize: '13px' }}>
+            <p className="text-white font-bold text-base">Could not load the certificate</p>
+            <p className="text-gray-400 text-center max-w-xs text-sm">
               Google's document viewer is temporarily unavailable. Please try again.
             </p>
             <button onClick={retry}
-              className="flex items-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-bold px-6 py-3 rounded-full transition-all"
-              style={{ fontSize: '14px' }}>
+              className="flex items-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-bold px-6 py-3 rounded-full transition-all text-sm">
               <RefreshCw size={16} /> Try Again
             </button>
           </div>
@@ -176,7 +174,7 @@ export default function ProcessesContent() {
         {/* Section label */}
         <div className="flex items-center gap-3 mb-10">
           <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
-          <span className="font-black text-[#1B3A2D] uppercase tracking-widest" style={{ fontSize: '13px' }}>
+          <span className="font-black text-[#1B3A2D] uppercase tracking-widest text-sm">
             ISO Certifications · SIRIM QAS Audited · Valid 2023–2026
           </span>
         </div>
@@ -197,7 +195,7 @@ export default function ProcessesContent() {
       <section className="py-16 px-6 lg:px-10 xl:px-14 bg-white border-t border-gray-100">
         <div className="flex items-center gap-3 mb-12">
           <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
-          <span className="font-black text-[#1B3A2D] uppercase tracking-widest" style={{ fontSize: '13px' }}>
+          <span className="font-black text-[#1B3A2D] uppercase tracking-widest text-sm">
             PDCA — Our Continuous Improvement Engine
           </span>
         </div>
@@ -210,17 +208,18 @@ export default function ProcessesContent() {
               )}
               <div className="bg-white border border-gray-100 hover:border-[#6BBD45]/40 rounded-2xl p-6 transition-all duration-300 hover:shadow-md h-full">
                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center font-black text-white mb-5 shrink-0"
-                  style={{ background: s.color, fontSize: '22px' }}>
+                  className="text-2xl"
+                  style={{ background: s.color }}>
                   {s.letter}
                 </div>
-                <div className="font-black text-[#1B3A2D] mb-2" style={{ fontSize: '18px' }}>{s.word}</div>
-                <p className="text-gray-500 leading-relaxed" style={{ fontSize: '15px' }}>{s.desc}</p>
+                <div className="font-black text-[#1B3A2D] mb-2 text-lg">{s.word}</div>
+                <p className="text-gray-500 leading-relaxed text-base">{s.desc}</p>
               </div>
             </div>
           ))}
         </div>
 
-        <p className="text-center text-gray-400 mt-10" style={{ fontSize: '13px' }}>
+        <p className="text-center text-gray-400 mt-10 text-sm">
           The PDCA cycle governs every Cofreth service contract — from FM maintenance scheduling to energy performance monitoring.
         </p>
       </section>
@@ -231,19 +230,19 @@ export default function ProcessesContent() {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
-              <span className="font-black text-[#1B3A2D] uppercase tracking-widest" style={{ fontSize: '13px' }}>
+              <span className="font-black text-[#1B3A2D] uppercase tracking-widest text-sm">
                 Certification Body
               </span>
             </div>
             <h2 className="font-black text-[#1B3A2D] leading-tight mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}>
               Independently Audited by<br /><span className="text-[#6BBD45]">SIRIM QAS International</span>
             </h2>
-            <p className="text-gray-500 leading-relaxed mb-6" style={{ fontSize: '17px' }}>
+            <p className="text-gray-500 leading-relaxed mb-6 text-lg">
               All five ISO certifications are independently audited and issued by SIRIM QAS International — Malaysia's premier conformity assessment body and a member of the International Accreditation Forum (IAF).
             </p>
             <div className="flex flex-wrap gap-2">
               {['IAF Member', 'DAkkS Accredited', 'Government Linked', '40+ Years in Quality'].map(b => (
-                <span key={b} className="px-3 py-1.5 bg-[#6BBD45]/10 text-[#1B3A2D] rounded-full font-semibold" style={{ fontSize: '13px' }}>{b}</span>
+                <span key={b} className="px-3 py-1.5 bg-[#6BBD45]/10 text-[#1B3A2D] rounded-full font-semibold text-sm">{b}</span>
               ))}
             </div>
           </div>
@@ -256,9 +255,9 @@ export default function ProcessesContent() {
               { num: '100%', label: 'Audit Pass Rate',         sub: 'Zero major non-conformances' },
             ].map(s => (
               <div key={s.label} className="bg-white border border-gray-100 rounded-2xl p-5">
-                <div className="font-black text-[#6BBD45] mb-1" style={{ fontSize: '28px' }}>{s.num}</div>
-                <div className="font-bold text-[#1B3A2D] mb-1" style={{ fontSize: '15px' }}>{s.label}</div>
-                <div className="text-gray-400" style={{ fontSize: '12px' }}>{s.sub}</div>
+                <div className="font-black text-[#6BBD45] mb-1 text-3xl">{s.num}</div>
+                <div className="font-bold text-[#1B3A2D] mb-1 text-base">{s.label}</div>
+                <div className="text-gray-400 text-xs">{s.sub}</div>
               </div>
             ))}
           </div>
@@ -267,22 +266,20 @@ export default function ProcessesContent() {
 
       {/* ── CTA ── */}
       <section className="bg-[#6BBD45] py-14 px-6 lg:px-10 xl:px-14">
-          <p className="font-bold text-white/80 uppercase tracking-widest mb-3" style={{ fontSize: '13px' }}>Work With a Certified FM Partner</p>
+          <p className="font-bold text-white/80 uppercase tracking-widest mb-3 text-sm">Work With a Certified FM Partner</p>
           <h2 className="font-black text-white mb-4 leading-tight" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}>
             Five ISO standards. One trusted partner.
           </h2>
-          <p className="text-white/80 mb-8 leading-relaxed" style={{ fontSize: '17px' }}>
+          <p className="text-white/80 mb-8 leading-relaxed text-lg">
             Cofreth's multi-ISO certification means your facilities are managed to the highest independently verified standards — across quality, safety, environment and energy.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/contact"
-              className="inline-flex items-center gap-2 bg-[#1B3A2D] hover:bg-[#0F2419] text-white font-bold px-8 py-3.5 rounded-full transition-all"
-              style={{ fontSize: '16px' }}>
+              className="inline-flex items-center gap-2 bg-[#1B3A2D] hover:bg-[#0F2419] text-white font-bold px-8 py-3.5 rounded-full transition-all text-base">
               Enquire About FM Services <ArrowRight size={16} />
             </Link>
             <Link href="/services/facilities-management"
-              className="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-semibold px-8 py-3.5 rounded-full transition-all"
-              style={{ fontSize: '16px' }}>
+              className="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-semibold px-8 py-3.5 rounded-full transition-all text-base">
               Our FM Services
             </Link>
           </div>
@@ -304,37 +301,38 @@ function CertCard({ cert, onView }: { cert: typeof certs[0]; onView: () => void 
             style={{ background: `color-mix(in srgb, ${cert.color} 15%, transparent)` }}>
             <Icon size={22} style={{ color: cert.color }} />
           </div>
-          <span className="text-gray-400 font-mono font-bold" style={{ fontSize: '12px' }}>
+          <span className="text-gray-400 font-mono font-bold text-xs">
             SIRIM QAS
           </span>
         </div>
 
-        <div className="font-black text-[#1B3A2D] group-hover:text-[#6BBD45] transition-colors mb-1" style={{ fontSize: '16px' }}>
+        <div className="font-black text-[#1B3A2D] group-hover:text-[#6BBD45] transition-colors mb-1 text-base">
           {cert.code}
         </div>
-        <div className="font-semibold mb-3" style={{ fontSize: '15px', color: cert.color }}>
+        <div className="text-base font-semibold mb-3" style={{ color: cert.color }}>
           {cert.label}
         </div>
-        <p className="text-gray-500 leading-relaxed mb-2 flex-1" style={{ fontSize: '15px' }}>
+        <p className="text-gray-500 leading-relaxed mb-2 flex-1 text-base">
           {cert.desc}
         </p>
-        <p className="text-gray-400 leading-relaxed mb-5 italic" style={{ fontSize: '13px' }}>
+        <p className="text-gray-400 leading-relaxed mb-5 italic text-sm">
           {cert.detail}
         </p>
 
         {/* Footer */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-          <span className="text-gray-400" style={{ fontSize: '12px' }}>Valid {cert.valid}</span>
+          <span className="text-gray-400 text-xs">Valid {cert.valid}</span>
           {cert.pdf ? (
             <button
               onClick={onView}
               className="flex items-center gap-1.5 font-semibold transition-all hover:gap-2.5"
-              style={{ fontSize: '13px', color: cert.color }}
+              className="text-sm"
+              style={{ color: cert.color }}
             >
               <Eye size={13} /> View Certificate
             </button>
           ) : (
-            <span className="text-gray-400 italic" style={{ fontSize: '13px' }}>
+            <span className="text-gray-400 italic text-sm">
               Available on request
             </span>
           )}

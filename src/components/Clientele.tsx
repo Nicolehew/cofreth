@@ -89,7 +89,7 @@ export default function Clientele() {
             <div className="w-8 h-0.5 bg-[#6BBD45]" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Trusted by Malaysia's Best</h2>
-          <p className="text-gray-400 max-w-xl mx-auto text-sm leading-relaxed">
+          <p className="text-gray-400 max-w-xl mx-auto text-base leading-relaxed">
             For over 38 years, we have proudly served leading organisations across banking,
             energy, corporate, education, and government sectors.
           </p>

@@ -36,7 +36,7 @@ export default function ContactPage() {
           <div ref={info.ref} className="lg:col-span-2 space-y-6 transition-all duration-700" style={{ opacity: info.visible ? 1 : 0, transform: info.visible ? 'none' : 'translateX(-30px)' }}>
             <div>
               <h2 className="text-2xl font-bold text-[#1B3A2D] mb-2">Get In Touch</h2>
-              <p className="text-gray-500 text-sm leading-relaxed">Visit us at our office or reach out through any of the channels below. Our team of FM specialists is ready to discuss your needs.</p>
+              <p className="text-gray-500 text-base leading-relaxed">Visit us at our office or reach out through any of the channels below. Our team of FM specialists is ready to discuss your needs.</p>
             </div>
 
             <div className="space-y-4">
@@ -46,7 +46,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Office Address</p>
-                  <p className="text-sm text-gray-700 leading-relaxed">
+                  <p className="text-base text-gray-700 leading-relaxed">
                     No. 39, Jalan USJ Sentral 3<br />
                     USJ Sentral, Persiaran Subang 1<br />
                     47600 Subang Jaya<br />

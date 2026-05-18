@@ -1,6 +1,7 @@
 import { CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 import { AboutPageHero } from '@/components/about/AboutPageHero';
+import StatsBar from '@/components/about/StatsBar';
 
 export const metadata = {
   title: 'About Cofreth — Malaysia\'s FM Pioneer Since 1986',
@@ -23,42 +24,44 @@ export default function AboutPage() {
         subtitle="Established in 1986, Cofreth is Malaysia's leading integrated facilities management, energy services and sustainable built environment solutions provider."
       />
 
-      {/* Stats bar */}
-      <div className="bg-[#6BBD45] px-6 lg:px-10 xl:px-14 py-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[['38+','Years of Excellence'],['30+','Major Clients'],['5×','ISO Certifications'],['5×','Frost & Sullivan']].map(([v,l]) => (
-            <div key={l} className="text-center">
-              <div className="text-2xl font-black text-white">{v}</div>
-              <div className="text-white/70 mt-0.5" style={{ fontSize: '13px' }}>{l}</div>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* Stats bar — animated */}
+      <StatsBar />
 
       {/* Body */}
       <div className="py-12 px-6 lg:px-10 xl:px-14 bg-white">
 
-        {/* Mission & Vision — top, prominent */}
-        <div className="grid md:grid-cols-2 gap-5 mb-12">
-          <div className="bg-[#6BBD45] rounded-2xl p-8 text-white">
-            <div className="text-4xl mb-4">🎯</div>
-            <div className="font-black uppercase tracking-widest text-white/70 mb-2" style={{ fontSize: '11px' }}>Our Mission</div>
-            <p className="font-bold leading-snug" style={{ fontSize: '20px' }}>
-              To Be Recognised as the Leading Provider of Quality Services for Total Facilities Management and All Utilities.
-            </p>
+        {/* Mission & Vision */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          {/* Mission */}
+          <div className="relative rounded-3xl p-10 overflow-hidden text-white" style={{ background: 'linear-gradient(135deg, #0F2419 0%, #1B3A2D 100%)' }}>
+            <div className="absolute top-0 right-0 w-48 h-48 rounded-full opacity-10 -translate-y-1/3 translate-x-1/3" style={{ background: '#6BBD45' }} />
+            <div className="relative">
+              <div className="text-5xl mb-5">🎯</div>
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-[#6BBD45] mb-3">Our Mission</p>
+              <h3 className="text-2xl font-black text-white leading-snug">
+                To Be Recognised as the Leading Provider of Quality Services for Total Facilities Management and All Utilities.
+              </h3>
+              <div className="mt-6 w-12 h-1 bg-[#6BBD45] rounded-full" />
+            </div>
           </div>
-          <div className="bg-[#1B3A2D] rounded-2xl p-8 text-white">
-            <div className="text-4xl mb-4">🌐</div>
-            <div className="font-black uppercase tracking-widest text-white/50 mb-2" style={{ fontSize: '11px' }}>Our Vision</div>
-            <p className="font-bold leading-snug text-white" style={{ fontSize: '20px' }}>
-              To Be An International Service Provider in Facilities Management &amp; Energy Services.
-            </p>
+
+          {/* Vision */}
+          <div className="relative rounded-3xl p-10 overflow-hidden text-white" style={{ background: 'linear-gradient(135deg, #1a4a30 0%, #0F2419 100%)' }}>
+            <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full opacity-10 translate-y-1/3 -translate-x-1/3" style={{ background: '#6BBD45' }} />
+            <div className="relative">
+              <div className="text-5xl mb-5">🌐</div>
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-[#6BBD45] mb-3">Our Vision</p>
+              <h3 className="text-2xl font-black text-white leading-snug">
+                To Be An International Service Provider in Facilities Management &amp; Energy Services.
+              </h3>
+              <div className="mt-6 w-12 h-1 bg-[#6BBD45] rounded-full" />
+            </div>
           </div>
         </div>
 
         {/* About text + highlights */}
         <div className="grid lg:grid-cols-2 gap-10 items-start">
-          <div className="space-y-4 text-gray-600 leading-relaxed" style={{ fontSize: '17px' }}>
+          <div className="space-y-4 text-gray-600 leading-relaxed text-lg">
             <p>Cofreth (M) Sdn Bhd was established in <strong className="text-[#1B3A2D]">1986</strong> as a Malaysian company specialising in Facilities Management, Operations and Maintenance of MEP Systems, Engineering Due Diligence, Energy Audit, Energy Efficiency, Energy Performance Contracting, Green Commissioning, and District Cooling System design.</p>
             <p>We are a registered <strong className="text-[#1B3A2D]">Energy Service Company (ESCO)</strong> with Malaysia Green Technology Corporation and MAESCO, and utilise the <strong className="text-[#1B3A2D]">ARCHIBUS TIFM</strong> for smart, data-driven facility management.</p>
             <div className="grid grid-cols-1 gap-2.5 pt-2">
@@ -72,7 +75,7 @@ export default function AboutPage() {
               ].map(pt => (
                 <div key={pt} className="flex items-start gap-2.5">
                   <CheckCircle size={15} className="text-[#6BBD45] mt-0.5 shrink-0" />
-                  <span className="text-gray-600" style={{ fontSize: '16px' }}>{pt}</span>
+                  <span className="text-gray-600" className="text-base">{pt}</span>
                 </div>
               ))}
             </div>
@@ -87,8 +90,8 @@ export default function AboutPage() {
             ].map(c => (
               <div key={c.label} className="bg-white rounded-2xl p-5 border border-gray-100 hover:border-[#6BBD45]/40 hover:shadow-md transition-all">
                 <div className="text-2xl mb-2">{c.icon}</div>
-                <div className="font-black text-[#1B3A2D] mb-1" style={{ fontSize: '15px' }}>{c.label}</div>
-                <p className="text-gray-500 leading-relaxed" style={{ fontSize: '13px' }}>{c.desc}</p>
+                <div className="font-black text-[#1B3A2D] mb-1" className="text-base">{c.label}</div>
+                <p className="text-gray-500 leading-relaxed text-base">{c.desc}</p>
               </div>
             ))}
           </div>
@@ -96,7 +99,7 @@ export default function AboutPage() {
 
         {/* Quick links */}
         <div className="mt-12 pt-8 border-t border-gray-200">
-          <p className="font-black text-gray-400 uppercase tracking-widest mb-4" style={{ fontSize: '12px' }}>Explore more</p>
+          <p className="font-black text-gray-400 uppercase tracking-widest mb-4 text-xs">Explore more</p>
           <div className="flex flex-wrap gap-3">
             {[
               { label: 'Our Many Firsts', href: '/about/firsts' },
@@ -107,7 +110,7 @@ export default function AboutPage() {
             ].map(l => (
               <Link key={l.href} href={l.href}
                 className="px-4 py-2 rounded-full border border-[#6BBD45]/40 text-[#6BBD45] font-semibold hover:bg-[#6BBD45] hover:text-white transition-all"
-                style={{ fontSize: '15px' }}>
+                className="text-base">
                 {l.label} →
               </Link>
             ))}

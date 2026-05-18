@@ -41,10 +41,10 @@ export default function ThemesPage() {
                     : 'bg-white border-gray-100 hover:border-[#6BBD45]/20'
                 }`}
               >
-                <span className={`font-black uppercase tracking-widest shrink-0 w-20 ${t.highlight ? 'text-[#6BBD45]' : 'text-gray-400'}`} style={{ fontSize: '12px' }}>
+                <span className={`text-xs font-black uppercase tracking-widest shrink-0 w-20 ${t.highlight ? 'text-[#6BBD45]' : 'text-gray-400'}`}>
                   {t.years}
                 </span>
-                <span className={`font-semibold italic ${t.highlight ? 'text-[#1B3A2D]' : 'text-[#1B3A2D]'}`} style={{ fontSize: '17px' }}>
+                <span className={`text-lg font-semibold italic ${t.highlight ? 'text-[#1B3A2D]' : 'text-[#1B3A2D]'}`}>
                   &ldquo;{t.theme}&rdquo;
                 </span>
               </div>
@@ -54,17 +54,17 @@ export default function ThemesPage() {
           {/* Awards CTA */}
           <div className="bg-[#6BBD45] rounded-2xl p-10 text-center">
             <Award size={36} className="text-white mx-auto mb-4" />
-            <h3 className="font-black text-white mb-3" style={{ fontSize: '20px' }}>Frost &amp; Sullivan Malaysia Excellence Award</h3>
-            <p className="text-white/80 max-w-md mx-auto mb-6" style={{ fontSize: '16px' }}>
+            <h3 className="font-black text-white mb-3 text-xl">Frost &amp; Sullivan Malaysia Excellence Award</h3>
+            <p className="text-white/80 max-w-md mx-auto mb-6" className="text-base">
               Recognised five times — affirming our leadership in facilities management and energy services.
             </p>
             <div className="flex flex-wrap justify-center gap-3 mb-6">
               {['2007','2010','2015','2016','2017'].map(yr => (
-                <span key={yr} className="bg-white/20 border border-white/40 text-white px-4 py-1.5 rounded-full font-bold" style={{ fontSize: '15px' }}>{yr}</span>
+                <span key={yr} className="bg-white/20 border border-white/40 text-white px-4 py-1.5 rounded-full font-bold" className="text-base">{yr}</span>
               ))}
             </div>
             <Link href="/contact"
-              className="inline-flex items-center gap-2 bg-[#1B3A2D] hover:bg-[#0F2419] text-white font-semibold px-8 py-3 rounded-full transition-all" style={{ fontSize: '16px' }}>
+              className="inline-flex items-center gap-2 bg-[#1B3A2D] hover:bg-[#0F2419] text-white font-semibold px-8 py-3 rounded-full transition-all" className="text-base">
               Partner with an Award-Winning FM →
             </Link>
           </div>

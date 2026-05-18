@@ -66,7 +66,7 @@ function ServiceCard({ svc, i }: { svc: typeof services[0]; i: number }) {
           </div>
 
           <h2 className="text-xl font-bold text-[#1B3A2D] mb-3 group-hover:text-[#6BBD45] transition-colors">{svc.title}</h2>
-          <p className="text-gray-500 text-sm leading-relaxed mb-6">{svc.desc}</p>
+          <p className="text-gray-500 text-base leading-relaxed mb-6">{svc.desc}</p>
 
           <ul className="space-y-2 mb-8">
             {svc.items.map(item => (
@@ -131,7 +131,7 @@ export default function ServicesOverviewPage() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="bg-gradient-to-br from-[#1B3A2D] to-[#0F2419] rounded-3xl p-12 text-white">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Not sure which service you need?</h2>
-            <p className="text-gray-300 text-sm mb-8 max-w-lg mx-auto">Our specialists will assess your facility and recommend the right combination of services to meet your goals and budget.</p>
+            <p className="text-gray-300 text-base mb-8 max-w-lg mx-auto">Our specialists will assess your facility and recommend the right combination of services to meet your goals and budget.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="bg-[#6BBD45] hover:bg-[#5aa838] text-white font-semibold px-8 py-3 rounded-full transition-all text-sm hover:-translate-y-0.5">
                 Schedule a Consultation
