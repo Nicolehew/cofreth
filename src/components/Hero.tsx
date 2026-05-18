@@ -202,21 +202,33 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── Bottom feature strip ── */}
-      <div className="absolute bottom-0 left-0 right-0 border-t border-[#6BBD45]/20"
-        style={{ background: 'rgba(27,58,45,0.92)', backdropFilter: 'blur(12px)', zIndex: 3 }}>
-        <div className="flex">
-          {services.map((svc, i) => {
-            const Icon = svc.icon;
-            return (
-              <Link key={svc.label} href={svc.href}
-                className="group flex-1 flex items-center justify-center gap-3 px-5 py-5 hover:bg-[#6BBD45]/15 transition-colors duration-200"
-                style={{ borderRight: i < services.length - 1 ? '1px solid rgba(107,189,69,0.15)' : 'none' }}>
-                <Icon size={20} className="text-[#6BBD45] shrink-0 group-hover:scale-110 transition-transform" />
-                <span className="text-white font-bold text-base">{svc.label}</span>
-              </Link>
-            );
-          })}
+      {/* ── Bottom ticker strip ── */}
+      <div className="absolute bottom-0 left-0 right-0 border-t border-[#6BBD45]/30 overflow-hidden"
+        style={{ background: 'rgba(14,32,22,0.96)', backdropFilter: 'blur(16px)', zIndex: 3, height: 64 }}>
+        {/* fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 pointer-events-none" style={{ background: 'linear-gradient(to right, rgba(14,32,22,1) 0%, transparent 100%)', zIndex: 2 }} />
+        <div className="absolute right-0 top-0 bottom-0 w-24 pointer-events-none" style={{ background: 'linear-gradient(to left, rgba(14,32,22,1) 0%, transparent 100%)', zIndex: 2 }} />
+
+        {/* scrolling track — duplicated 3× for seamless loop */}
+        <div className="ticker-track flex items-center h-full" style={{ width: 'max-content' }}>
+          {[0, 1, 2].map((pass) =>
+            services.map((svc) => {
+              const Icon = svc.icon;
+              return (
+                <Link key={`${pass}-${svc.label}`} href={svc.href}
+                  className="group flex items-center gap-3 px-10 h-full hover:bg-[#6BBD45]/10 transition-colors duration-300 shrink-0 border-r border-[#6BBD45]/15">
+                  {/* glowing icon bubble */}
+                  <span className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110"
+                    style={{ background: 'rgba(107,189,69,0.15)', boxShadow: '0 0 0 0 rgba(107,189,69,0.4)' }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 0 12px 3px rgba(107,189,69,0.35)'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 0 0 0 rgba(107,189,69,0.4)'; }}>
+                    <Icon size={16} className="text-[#6BBD45]" />
+                  </span>
+                  <span className="text-white/85 font-semibold text-sm whitespace-nowrap group-hover:text-[#6BBD45] transition-colors duration-300">{svc.label}</span>
+                </Link>
+              );
+            })
+          )}
         </div>
       </div>
 
@@ -265,6 +277,16 @@ export default function Hero() {
         @keyframes kenBurns {
           from { transform: scale(1.0)   translate(0, 0); }
           to   { transform: scale(1.08)  translate(-1%, -1%); }
+        }
+        @keyframes ticker {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-33.333%); }
+        }
+        .ticker-track {
+          animation: ticker 18s linear infinite;
+        }
+        .ticker-track:hover {
+          animation-play-state: paused;
         }
       `}</style>
     </section>
