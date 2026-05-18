@@ -75,7 +75,7 @@ export default function AboutPage() {
               ].map(pt => (
                 <div key={pt} className="flex items-start gap-2.5">
                   <CheckCircle size={15} className="text-[#6BBD45] mt-0.5 shrink-0" />
-                  <span className="text-gray-600" className="text-base">{pt}</span>
+                  <span className="text-base text-gray-600">{pt}</span>
                 </div>
               ))}
             </div>
@@ -90,7 +90,7 @@ export default function AboutPage() {
             ].map(c => (
               <div key={c.label} className="bg-white rounded-2xl p-5 border border-gray-100 hover:border-[#6BBD45]/40 hover:shadow-md transition-all">
                 <div className="text-2xl mb-2">{c.icon}</div>
-                <div className="font-black text-[#1B3A2D] mb-1" className="text-base">{c.label}</div>
+                <div className="text-base font-black text-[#1B3A2D] mb-1">{c.label}</div>
                 <p className="text-gray-500 leading-relaxed text-base">{c.desc}</p>
               </div>
             ))}
@@ -109,8 +109,7 @@ export default function AboutPage() {
               { label: 'Value & Ethics', href: '/about/values' },
             ].map(l => (
               <Link key={l.href} href={l.href}
-                className="px-4 py-2 rounded-full border border-[#6BBD45]/40 text-[#6BBD45] font-semibold hover:bg-[#6BBD45] hover:text-white transition-all"
-                className="text-base">
+                className="text-base px-4 py-2 rounded-full border border-[#6BBD45]/40 text-[#6BBD45] font-semibold hover:bg-[#6BBD45] hover:text-white transition-all">
                 {l.label} →
               </Link>
             ))}

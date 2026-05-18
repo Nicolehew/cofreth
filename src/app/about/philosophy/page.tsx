@@ -35,7 +35,7 @@ export default function PhilosophyPage() {
                 <span className="font-black text-[#6BBD45] tracking-widest text-xs">{p.n}</span>
               </div>
               <h3 className="font-black text-[#1B3A2D] mb-3 group-hover:text-[#6BBD45] transition-colors text-lg">{p.title}</h3>
-              <p className="text-gray-500 leading-relaxed" className="text-base">{p.desc}</p>
+              <p className="text-base text-gray-500 leading-relaxed">{p.desc}</p>
             </div>
           ))}
         </div>

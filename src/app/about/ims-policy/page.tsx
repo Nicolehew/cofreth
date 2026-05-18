@@ -45,7 +45,7 @@ export default function IMSPolicyPage() {
             <h2 className="text-[#1B3A2D] font-black uppercase tracking-widest mb-6 text-sm">9 Policy Commitments</h2>
             <ol className="space-y-4">
               {commitments.map((item, i) => (
-                <li key={i} className="flex items-start gap-4 text-gray-700" className="text-base">
+                <li key={i} className="text-base flex items-start gap-4 text-gray-700">
                   <span className="w-7 h-7 rounded-full bg-[#6BBD45] text-white font-bold flex items-center justify-center shrink-0 mt-0.5 text-xs">
                     {i + 1}
                   </span>
@@ -55,19 +55,19 @@ export default function IMSPolicyPage() {
             </ol>
             <div className="mt-8 pt-6 border-t border-[#6BBD45]/20 flex flex-wrap items-center gap-6">
               <div>
-                <p className="text-[#1B3A2D] font-bold" className="text-base">Ir. ONG CHING LOON</p>
+                <p className="text-base text-[#1B3A2D] font-bold">Ir. ONG CHING LOON</p>
                 <p className="text-gray-500 text-sm">Managing Director</p>
               </div>
               <p className="text-gray-500 text-sm">Revision 4 · Effective 1 August 2024</p>
               <a href="https://www.cofreth.com.my/images/IMS_Policy-Revision_4.pdf" target="_blank" rel="noopener noreferrer"
-                className="ml-auto bg-[#6BBD45] hover:bg-[#5aa838] text-white font-semibold px-5 py-2 rounded-full transition-all" className="text-base">
+                className="text-base ml-auto bg-[#6BBD45] hover:bg-[#5aa838] text-white font-semibold px-5 py-2 rounded-full transition-all">
                 Download PDF
               </a>
             </div>
           </div>
 
           {/* 5 Systems */}
-          <h3 className="font-black text-[#1B3A2D] mb-4" className="text-base">Five Management Systems</h3>
+          <h3 className="text-base font-black text-[#1B3A2D] mb-4">Five Management Systems</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { code: 'ISO 9001:2015',  label: 'Quality Management System',           icon: '✓',  color: '#3b82f6' },
@@ -79,7 +79,7 @@ export default function IMSPolicyPage() {
               <div key={s.code} className="flex items-center gap-4 bg-white border border-gray-100 rounded-xl p-4 hover:border-[#6BBD45]/30 transition-colors">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0" style={{ background: s.color + '18' }}>{s.icon}</div>
                 <div>
-                  <div className="font-black text-[#1B3A2D]" className="text-base">{s.code}</div>
+                  <div className="text-base font-black text-[#1B3A2D]">{s.code}</div>
                   <div className="text-gray-500 mt-0.5 text-sm">{s.label}</div>
                 </div>
               </div>

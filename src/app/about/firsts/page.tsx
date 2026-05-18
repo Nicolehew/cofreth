@@ -51,7 +51,7 @@ export default function FirstsPage() {
                 <div className="pb-4 flex-1">
                   <div className="bg-white border border-gray-100 rounded-xl p-4 hover:border-[#6BBD45]/30 hover:shadow-sm transition-all group">
                     <span className="font-black text-[#6BBD45] tracking-widest uppercase block mb-1 text-xs">{m.year}</span>
-                    <p className="text-gray-700 font-medium leading-relaxed group-hover:text-[#1B3A2D] transition-colors" className="text-base">{m.event}</p>
+                    <p className="text-base text-gray-700 font-medium leading-relaxed group-hover:text-[#1B3A2D] transition-colors">{m.event}</p>
                   </div>
                 </div>
               </div>
