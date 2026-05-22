@@ -6,11 +6,11 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const highlights: { icon: React.ElementType; value: string; label: string; desc?: string; descNode?: React.ReactNode }[] = [
   { icon: Award, value: '38+', label: 'Years of Excellence', desc: 'Established in 1986, one of Malaysia\'s most experienced FM providers.' },
-  { icon: Users, value: '100+', label: 'Skilled & Competent', desc: 'Skilled and competent persons across all FM and energy service disciplines.' },
+  { icon: Users, value: '100+', label: 'Skilled & Competent', desc: 'Trained Professionals and Competent persons across all FM and energy service discipline.' },
   { icon: Globe, value: '5',   label: 'ISO Certifications', desc: 'ISO 9001, 14001, 45001, 50001 & 41001 certified for quality, safety and FM.' },
   {
     icon: Zap, value: '#1', label: 'Energy Pioneer',
-    descNode: <>First ESCO to develop the <strong className="text-gray-700">National Energy Efficiency Master Plan &amp; Action Plan</strong> in <strong className="text-gray-700">Malaysia</strong>.</>,
+    descNode: <>First ESCO to develop the <strong className="text-gray-700">National Energy Efficiency Master Plan (NEEMP) &amp; Action Plan (NEEAP)</strong> in <strong className="text-gray-700">Malaysia</strong>.</>,
   },
 ];
 
