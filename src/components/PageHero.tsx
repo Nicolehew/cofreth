@@ -30,7 +30,7 @@ export default function PageHero({
   const reveal = useScrollReveal();
 
   return (
-    <div className="relative overflow-hidden border-b border-white/10 pt-[110px] md:pt-[130px]">
+    <div className="relative overflow-hidden border-b border-white/10 pt-[120px] md:pt-[140px]">
 
       {/* ── Full-bleed background photo ── */}
       <div className="absolute inset-0">

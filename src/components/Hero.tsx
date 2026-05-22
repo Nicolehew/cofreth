@@ -138,7 +138,12 @@ export default function Hero() {
       }} />
 
       {/* ── Main content — bottom-left pinned ── */}
-      <div className="relative flex-1 flex flex-col justify-end px-6 md:px-10 xl:px-14 pb-28 md:pb-32 xl:pb-36" style={{ zIndex: 2 }}>
+      <div className="relative flex-1 flex flex-col px-6 md:px-10 xl:px-14" style={{ zIndex: 2 }}>
+        {/* ── Navbar guard: content can NEVER render above the fixed header ── */}
+        <div className="flex-none" style={{ height: 110 }} />
+
+        {/* Remaining space: fill then pin content to bottom */}
+        <div className="flex-1 flex flex-col justify-end pb-28 md:pb-32 xl:pb-36">
         <div className="max-w-4xl">
 
           {/* Eyebrow badge */}
@@ -200,6 +205,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
+        </div>{/* end justify-end inner */}
       </div>
 
       {/* ── Bottom ticker strip ── */}

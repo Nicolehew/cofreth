@@ -84,7 +84,7 @@ export default function NewsPage() {
   return (
     <>
       {/* Hero — background photo */}
-      <div className="relative overflow-hidden border-b border-white/10 pt-[110px] md:pt-[130px]">
+      <div className="relative overflow-hidden border-b border-white/10 pt-[120px] md:pt-[140px]">
         {/* Background image */}
         <div className="absolute inset-0">
           <div className="absolute inset-0" style={{
