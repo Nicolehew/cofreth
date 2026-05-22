@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { MapPin, Phone, Printer, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 
 const serviceLinks = [
   { label: 'Facilities Management', href: '/services/facilities-management' },
@@ -94,10 +94,6 @@ export default function Footer() {
               <div className="flex gap-3 items-center">
                 <Phone size={15} className="text-[#6BBD45] shrink-0" />
                 <a href="tel:+60380238878" className="text-gray-400 hover:text-[#6BBD45] transition-colors">+(603) 8023 8878</a>
-              </div>
-              <div className="flex gap-3 items-center">
-                <Printer size={15} className="text-[#6BBD45] shrink-0" />
-                <span className="text-gray-400">+(603) 8025 1252</span>
               </div>
               <div className="flex gap-3 items-center">
                 <Mail size={15} className="text-[#6BBD45] shrink-0" />

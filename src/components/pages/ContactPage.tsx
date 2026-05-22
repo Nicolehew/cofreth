@@ -1,6 +1,6 @@
 'use client';
 import PageHero from '@/components/PageHero';
-import { MapPin, Phone, Printer, Mail, Clock, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useState } from 'react';
 
@@ -62,16 +62,6 @@ export default function ContactPage() {
                 <div>
                   <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Telephone</p>
                   <a href="tel:+60380238878" className="text-sm text-gray-700 hover:text-[#6BBD45] transition-colors">+(603) 8023 8878</a>
-                </div>
-              </div>
-
-              <div className="flex gap-4 p-4 bg-white rounded-2xl border border-gray-100 shadow-sm">
-                <div className="w-10 h-10 bg-[#6BBD45]/10 rounded-xl flex items-center justify-center shrink-0">
-                  <Printer size={18} className="text-[#6BBD45]" />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Fax</p>
-                  <p className="text-sm text-gray-700">+(603) 8025 1252</p>
                 </div>
               </div>
 

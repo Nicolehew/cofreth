@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { MapPin, Phone, Printer, Mail, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Send } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 export default function Contact() {
@@ -52,7 +52,6 @@ export default function Contact() {
                 {[
                   { icon: MapPin, label: 'Address', content: 'No. 39, Jalan USJ Sentral 3,\nUSJ Sentral, Persiaran Subang 1,\n47600 Subang Jaya, Selangor, Malaysia.', href: undefined },
                   { icon: Phone, label: 'Telephone', content: '+(603) 8023 8878', href: 'tel:+60380238878' },
-                  { icon: Printer, label: 'Fax', content: '+(603) 8025 1252', href: undefined },
                   { icon: Mail, label: 'Email', content: 'info@cofreth.com.my', href: 'mailto:info@cofreth.com.my' },
                 ].map(({ icon: Icon, label, content, href }) => (
                   <div key={label} className="flex gap-4">
