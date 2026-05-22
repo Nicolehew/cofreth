@@ -15,7 +15,7 @@ export default function HomeAboutSnippet() {
   const right = useScrollReveal(0.1);
 
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-16 lg:py-20 xl:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div ref={left.ref} className="transition-all duration-700" style={{ opacity: left.visible ? 1 : 0, transform: left.visible ? 'none' : 'translateX(-40px)' }}>
@@ -48,7 +48,7 @@ export default function HomeAboutSnippet() {
                   </div>
                   <div className="text-3xl font-black text-[#1B3A2D] mb-1">{h.value}</div>
                   <div className="text-base font-bold text-gray-700 mb-2">{h.label}</div>
-                  <p className="text-base text-gray-500 leading-relaxed">{h.desc}</p>
+                  <p className="text-sm text-gray-500 leading-relaxed">{h.desc}</p>
                 </div>
               );
             })}

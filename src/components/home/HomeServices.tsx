@@ -43,7 +43,7 @@ export default function HomeServices() {
   const grid = useScrollReveal(0.05);
 
   return (
-    <section id="services" className="py-28 bg-[#1B3A2D] overflow-hidden">
+    <section id="services" className="py-16 lg:py-24 xl:py-28 bg-[#1B3A2D] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section header */}
         <div ref={header.ref} className="text-center mb-16 transition-all duration-700"

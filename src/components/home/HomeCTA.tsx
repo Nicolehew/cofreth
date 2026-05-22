@@ -6,7 +6,7 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 export default function HomeCTA() {
   const section = useScrollReveal();
   return (
-    <section className="py-24 bg-gray-50 overflow-hidden">
+    <section className="py-16 lg:py-20 xl:py-24 bg-gray-50 overflow-hidden">
       <div className="max-w-4xl mx-auto px-6 text-center"
         ref={section.ref}
         style={{ opacity: section.visible ? 1 : 0, transform: section.visible ? 'none' : 'translateY(30px)', transition: 'all 0.7s ease' }}>

@@ -47,7 +47,7 @@ export default function HomeWhyUs() {
   const header = useScrollReveal();
 
   return (
-    <section className="py-24 bg-gray-50 overflow-hidden">
+    <section className="py-16 lg:py-20 xl:py-24 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
@@ -65,7 +65,7 @@ export default function HomeWhyUs() {
         </div>
 
         {/* Card grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
           {reasons.map((r, i) => <AdvantageCard key={r.title} r={r} i={i} />)}
         </div>
       </div>

@@ -39,7 +39,7 @@ export default function HomeAwards() {
   const strip = useScrollReveal(0.05);
 
   return (
-    <section className="py-24 overflow-hidden" style={{ background: 'linear-gradient(135deg, #060d08 0%, #0e2218 50%, #060d08 100%)' }}>
+    <section className="py-16 lg:py-20 xl:py-24 overflow-hidden" style={{ background: 'linear-gradient(135deg, #060d08 0%, #0e2218 50%, #060d08 100%)' }}>
       {/* Subtle grid */}
       <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(107,189,69,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(107,189,69,0.04) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
 

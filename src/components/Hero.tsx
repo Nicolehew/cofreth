@@ -138,7 +138,7 @@ export default function Hero() {
       }} />
 
       {/* ── Main content — bottom-left pinned ── */}
-      <div className="relative flex-1 flex flex-col justify-end px-8 md:px-14 pb-32 md:pb-36" style={{ zIndex: 2 }}>
+      <div className="relative flex-1 flex flex-col justify-end px-6 md:px-10 xl:px-14 pb-28 md:pb-32 xl:pb-36" style={{ zIndex: 2 }}>
         <div className="max-w-4xl">
 
           {/* Eyebrow badge */}
@@ -151,7 +151,7 @@ export default function Hero() {
 
           {/* Heading — word-by-word per line */}
           <h1 key={`h-${index}`} className="font-black text-white leading-[0.95] mb-6"
-            style={{ fontSize: 'clamp(3rem, 6.5vw, 5.8rem)', letterSpacing: '-0.02em' }}>
+            style={{ fontSize: 'clamp(2.6rem, 5.5vw, 5.8rem)', letterSpacing: '-0.02em' }}>
             {slide.lines.map((line, li) => (
               <span key={li} className="block">
                 <AnimWords text={line} delay={li * 0.18} />

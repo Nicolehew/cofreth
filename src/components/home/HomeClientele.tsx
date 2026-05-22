@@ -48,7 +48,7 @@ export default function HomeClientele() {
   const row2 = clients.slice(8);
 
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-16 lg:py-20 xl:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div ref={header.ref} className="text-center mb-14 transition-all duration-700"
           style={{ opacity: header.visible ? 1 : 0, transform: header.visible ? 'none' : 'translateY(30px)' }}>

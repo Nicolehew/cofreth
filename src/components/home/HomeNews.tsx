@@ -59,7 +59,7 @@ export default function HomeNews() {
   const header = useScrollReveal();
 
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-16 lg:py-20 xl:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div ref={header.ref} className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12 transition-all duration-700"
           style={{ opacity: header.visible ? 1 : 0, transform: header.visible ? 'none' : 'translateY(30px)' }}>
