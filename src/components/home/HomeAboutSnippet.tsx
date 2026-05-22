@@ -1,13 +1,17 @@
 'use client';
+import React from 'react';
 import Link from 'next/link';
 import { Award, Users, Globe, Zap } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
-const highlights = [
+const highlights: { icon: React.ElementType; value: string; label: string; desc?: string; descNode?: React.ReactNode }[] = [
   { icon: Award, value: '38+', label: 'Years of Excellence', desc: 'Established in 1986, one of Malaysia\'s most experienced FM providers.' },
-  { icon: Users, value: '500+', label: 'Skilled Workforce', desc: 'Trained professionals across all FM and energy service disciplines.' },
-  { icon: Globe, value: '5', label: 'ISO Certifications', desc: 'ISO 9001, 14001, 45001, 50001 & 41001 certified for quality, safety and FM.' },
-  { icon: Zap, value: '#1', label: 'Energy Pioneer', desc: 'First in Asia to design District Cooling System with Thermal Energy Storage.' },
+  { icon: Users, value: '100+', label: 'Skilled & Competent', desc: 'Skilled and competent persons across all FM and energy service disciplines.' },
+  { icon: Globe, value: '5',   label: 'ISO Certifications', desc: 'ISO 9001, 14001, 45001, 50001 & 41001 certified for quality, safety and FM.' },
+  {
+    icon: Zap, value: '#1', label: 'Energy Pioneer',
+    descNode: <>First ESCO to develop the <strong className="text-gray-700">National Energy Efficiency Master Plan &amp; Action Plan</strong> in <strong className="text-gray-700">Malaysia</strong>.</>,
+  },
 ];
 
 export default function HomeAboutSnippet() {
@@ -48,7 +52,7 @@ export default function HomeAboutSnippet() {
                   </div>
                   <div className="text-3xl font-black text-[#1B3A2D] mb-1">{h.value}</div>
                   <div className="text-base font-bold text-gray-700 mb-2">{h.label}</div>
-                  <p className="text-sm text-gray-500 leading-relaxed">{h.desc}</p>
+                  <p className="text-sm text-gray-500 leading-relaxed">{h.descNode ?? h.desc}</p>
                 </div>
               );
             })}
