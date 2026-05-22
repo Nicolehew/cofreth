@@ -113,7 +113,7 @@ export default function Navbar() {
   const openAbout     = () => { if (closeAboutTimer.current) clearTimeout(closeAboutTimer.current); setAboutOpen(true);    };
   const closeAbout    = () => { closeAboutTimer.current = setTimeout(() => setAboutOpen(false),    300); };
 
-  const linkBase = `text-sm font-semibold transition-colors duration-200 whitespace-nowrap px-3.5 py-1.5 rounded-md`;
+  const linkBase = `text-sm font-semibold transition-colors duration-200 whitespace-nowrap px-2.5 py-1 rounded-md`;
   const linkCls = (href: string) =>
     `${linkBase} ${
       isActive(href)
@@ -143,7 +143,7 @@ export default function Navbar() {
         </Link>
 
         {/* CENTRE — nav perfectly centered */}
-        <ul className="hidden lg:flex items-center justify-center gap-0.5">
+        <ul className="nav-desk items-center justify-center gap-0.5">
           {navLinks.map((link) => (
             <li key={link.href} className="relative">
               {link.hasAboutDropdown ? (
@@ -184,31 +184,31 @@ export default function Navbar() {
 
         {/* RIGHT — desktop controls + mobile hamburger */}
         <div className="flex items-center justify-end gap-2">
-          {/* Desktop */}
+          {/* Desktop (900px+) */}
           <button onClick={toggle} aria-label="Toggle dark mode"
-            className="hidden lg:flex w-9 h-9 rounded-full items-center justify-center transition-all duration-200 text-white/60 hover:text-white hover:bg-white/10">
+            className="nav-desk w-9 h-9 rounded-full items-center justify-center transition-all duration-200 text-white/60 hover:text-white hover:bg-white/10">
             {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
           </button>
           <Link href="/contact"
-            className="hidden lg:inline-flex btn-glow bg-[#6BBD45] hover:bg-[#5aa838] text-white text-sm font-bold px-5 py-2 rounded-full transition-all duration-200 whitespace-nowrap">
+            className="nav-desk-i btn-glow bg-[#6BBD45] hover:bg-[#5aa838] text-white text-sm font-bold px-4 py-2 rounded-full transition-all duration-200 whitespace-nowrap">
             Get In Touch
           </Link>
 
-          {/* Mobile */}
+          {/* Mobile only (below 900px) */}
           <button onClick={toggle} aria-label="Toggle dark mode"
-            className="lg:hidden w-9 h-9 rounded-full flex items-center justify-center text-white/70">
+            className="nav-mob w-9 h-9 rounded-full items-center justify-center text-white/70">
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <button className="lg:hidden w-9 h-9 flex items-center justify-center text-white"
+          <button className="nav-mob w-9 h-9 items-center justify-center text-white"
             onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
       </div>{/* end grid */}
 
-      {/* Mobile menu */}
+      {/* Mobile menu — only rendered below 900px (open state controlled by hamburger) */}
       {open && (
-        <div className="lg:hidden border-t shadow-xl nav-mobile-bg max-h-[85vh] overflow-y-auto">
+        <div className="border-t shadow-xl nav-mobile-bg max-h-[85vh] overflow-y-auto">
           <ul className="flex flex-col">
 
             {/* Home — first */}

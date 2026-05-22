@@ -212,11 +212,27 @@ h1, h2, h3 { letter-spacing: -0.02em; }
   nav a, nav button { min-height: auto; }
 }
 
-/* ─── Laptop / medium screen overrides (1024–1279px) ─── */
-@media (min-width: 1024px) and (max-width: 1279px) {
-  /* Slightly tighten base text so layouts breathe at 1024px */
-  .text-base { font-size: 1rem !important; }   /* 16px instead of 18px */
+/* ─── Laptop / medium screen overrides (900–1279px) ─── */
+@media (min-width: 900px) and (max-width: 1279px) {
+  /* Slightly tighten base text so layouts breathe at laptop widths */
+  .text-base { font-size: 1rem !important; }    /* 16px instead of 18px */
   .text-lg   { font-size: 1.125rem !important; } /* 18px instead of 20px */
+}
+
+/* ── Custom navbar breakpoint at 900px ──────────────────────────────
+   Replaces lg: (1024px) so the desktop nav shows on more laptops.
+   .nav-desk   → hidden below 900px, flex at 900px+
+   .nav-desk-i → hidden below 900px, inline-flex at 900px+
+   .nav-mob    → flex below 900px, hidden at 900px+
+   ─────────────────────────────────────────────────────────────────── */
+.nav-desk   { display: none !important; }
+.nav-desk-i { display: none !important; }
+.nav-mob    { display: flex !important; }
+
+@media (min-width: 900px) {
+  .nav-desk   { display: flex !important; }
+  .nav-desk-i { display: inline-flex !important; }
+  .nav-mob    { display: none !important; }
 }
 
 /* Prevent layout overflow on all screen sizes */
