@@ -1,10 +1,9 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, Building2, Zap, Leaf, Cpu, Info, Award, Users, Sun, Moon, Briefcase } from 'lucide-react';
+import { Menu, X, ChevronDown, Building2, Zap, Leaf, Cpu, Info, Award, Users, Briefcase } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useTheme } from '@/components/ThemeProvider';
 
 const services = [
   { label: 'Facilities Management', href: '/services/facilities-management', icon: Building2, desc: 'Total FM, O&M, consultancy' },
@@ -93,8 +92,6 @@ export default function Navbar() {
   const closeAboutTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
   const isHome = pathname === '/';
-  const { theme, toggle } = useTheme();
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
@@ -184,21 +181,11 @@ export default function Navbar() {
 
         {/* RIGHT — desktop controls + mobile hamburger */}
         <div className="flex items-center justify-end gap-2">
-          {/* Desktop (900px+) */}
-          <button onClick={toggle} aria-label="Toggle dark mode"
-            className="nav-desk w-9 h-9 rounded-full items-center justify-center transition-all duration-200 text-white/60 hover:text-white hover:bg-white/10">
-            {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
-          </button>
           <Link href="/contact"
             className="nav-desk-i btn-glow bg-[#6BBD45] hover:bg-[#5aa838] text-white text-sm font-bold px-4 py-2 rounded-full transition-all duration-200 whitespace-nowrap">
             Get In Touch
           </Link>
 
-          {/* Mobile only (below 900px) */}
-          <button onClick={toggle} aria-label="Toggle dark mode"
-            className="nav-mob w-9 h-9 rounded-full items-center justify-center text-white/70">
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
           <button className="nav-mob w-9 h-9 items-center justify-center text-white"
             onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X size={24} /> : <Menu size={24} />}

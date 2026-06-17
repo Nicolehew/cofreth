@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import ScrollProgress from '@/components/ScrollProgress';
-import { ThemeProvider } from '@/components/ThemeProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -74,18 +73,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en-MY" className="h-full antialiased" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('cofreth-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.classList.toggle('dark',t==='dark')}catch(e){}})()`,
-          }}
-        />
-      </head>
       <body className={`${inter.variable} font-sans min-h-full flex flex-col`}>
-        <ThemeProvider>
-          <ScrollProgress />
-          {children}
-        </ThemeProvider>
+        <ScrollProgress />
+        {children}
       </body>
     </html>
   );
