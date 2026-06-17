@@ -74,10 +74,10 @@ export default function PageHero({
             {eyebrow}
           </span>
           {eyebrowSub && (
-            <>
+            <span className="hidden sm:contents">
               <span className="text-white/30 text-xs">·</span>
               <span className="text-white/55 font-medium text-xs">{eyebrowSub}</span>
-            </>
+            </span>
           )}
         </div>
 

@@ -143,7 +143,7 @@ export default function Hero() {
         <div className="flex-none" style={{ height: 110 }} />
 
         {/* Remaining space: fill then pin content to bottom */}
-        <div className="flex-1 flex flex-col justify-end pb-28 md:pb-32 xl:pb-36">
+        <div className="flex-1 flex flex-col justify-end pb-24 md:pb-32 xl:pb-36">
         <div className="max-w-4xl">
 
           {/* Eyebrow badge */}
@@ -172,9 +172,9 @@ export default function Hero() {
           </h1>
 
           {/* Subtitle + CTA */}
-          <div key={`s-${index}`} className="flex flex-col sm:flex-row sm:items-end gap-6 sm:gap-10">
+          <div key={`s-${index}`} className="flex flex-col sm:flex-row sm:items-end gap-5 sm:gap-10">
             <p
-              className="text-lg text-white/80 leading-relaxed max-w-md"
+              className="text-base md:text-lg text-white/80 leading-relaxed max-w-md"
               style={{
                 animation: 'fadeUp 0.6s ease forwards',
                 animationDelay: `${(slide.lines.length + 1) * 0.18 + 0.1}s`,
@@ -185,7 +185,7 @@ export default function Hero() {
             </p>
 
             <div
-              className="flex gap-3 shrink-0"
+              className="flex flex-wrap gap-3 shrink-0"
               style={{
                 animation: 'fadeUp 0.6s ease forwards',
                 animationDelay: `${(slide.lines.length + 1) * 0.18 + 0.25}s`,

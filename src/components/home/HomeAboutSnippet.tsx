@@ -45,14 +45,15 @@ export default function HomeAboutSnippet() {
             {highlights.map((h, i) => {
               const Icon = h.icon;
               return (
-                <div key={h.label} className="p-6 rounded-2xl border border-gray-100 hover:border-[#6BBD45] hover:shadow-lg transition-all duration-300 group"
+                <div key={h.label} className="p-4 sm:p-6 rounded-2xl border border-gray-100 hover:border-[#6BBD45] hover:shadow-lg transition-all duration-300 group"
                   style={{ opacity: right.visible ? 1 : 0, transform: right.visible ? 'none' : 'translateY(20px)', transition: `all 0.5s ease ${i * 100}ms` }}>
-                  <div className="w-12 h-12 bg-[#6BBD45]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#6BBD45] transition-colors">
-                    <Icon size={22} className="text-[#6BBD45] group-hover:text-white transition-colors" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#6BBD45]/10 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-[#6BBD45] transition-colors">
+                    <Icon size={18} className="text-[#6BBD45] group-hover:text-white transition-colors sm:hidden" />
+                    <Icon size={22} className="text-[#6BBD45] group-hover:text-white transition-colors hidden sm:block" />
                   </div>
-                  <div className="text-3xl font-black text-[#1B3A2D] mb-1">{h.value}</div>
-                  <div className="text-base font-bold text-gray-700 mb-2">{h.label}</div>
-                  <p className="text-sm text-gray-500 leading-relaxed">{h.descNode ?? h.desc}</p>
+                  <div className="text-2xl sm:text-3xl font-black text-[#1B3A2D] mb-1">{h.value}</div>
+                  <div className="text-sm sm:text-base font-bold text-gray-700 mb-2">{h.label}</div>
+                  <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">{h.descNode ?? h.desc}</p>
                 </div>
               );
             })}
