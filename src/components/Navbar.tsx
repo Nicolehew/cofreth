@@ -129,14 +129,16 @@ export default function Navbar() {
 
         {/* LEFT — Logo */}
         <Link href="/" className="shrink-0 flex items-center">
-          <Image
-            src="/logo-hero.png"
-            alt="Cofreth Logo"
-            width={180}
-            height={72}
-            className="object-contain w-[140px] md:w-[170px] h-auto"
-            unoptimized
-          />
+          <div className="bg-white rounded-xl px-3 py-1.5">
+            <Image
+              src="/logo-hero.png"
+              alt="Cofreth Logo"
+              width={180}
+              height={72}
+              className="object-contain w-[120px] md:w-[150px] h-auto"
+              unoptimized
+            />
+          </div>
         </Link>
 
         {/* CENTRE — nav perfectly centered */}
