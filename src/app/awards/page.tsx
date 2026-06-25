@@ -3,13 +3,13 @@ import Footer from '@/components/Footer';
 import AwardsPage from '@/components/pages/AwardsPage';
 
 export const metadata = {
-  title: 'Awards & Recognition — Frost & Sullivan, NEA & More',
+  title: 'Cofreth Awards | Frost & Sullivan, NEA & ASEAN Recognition',
   description:
-    'Cofreth awards: 5× Frost & Sullivan Malaysia Excellence Award (2007–2017), National Energy Awards 1st Prize 2018, NEA EPC Champion 2021, ASEAN Energy Award and more. Malaysia\'s most decorated FM company.',
+    "5× Frost & Sullivan Malaysia Excellence Award, NEA EPC Champion 2022, ASEAN Energy Award & more. Malaysia's most decorated FM & energy company.",
   alternates: { canonical: '/awards' },
   openGraph: {
-    title:       'Awards & Recognition | Cofreth Malaysia',
-    description: '5× Frost & Sullivan winner, NEA 1st Prize 2018, ASEAN Energy Award — Malaysia\'s most awarded FM company.',
+    title:       'Cofreth Awards | Frost & Sullivan, NEA & ASEAN Recognition',
+    description: "5× Frost & Sullivan winner, NEA EPC Champion 2022, ASEAN Energy Award — Malaysia's most decorated FM & energy company.",
     url:         'https://www.cofreth.com.my/awards',
   },
 };

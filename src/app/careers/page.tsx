@@ -3,13 +3,13 @@ import Footer from '@/components/Footer';
 import CareersPage from '@/components/pages/CareersPage';
 
 export const metadata = {
-  title: 'Careers at Cofreth — Join Malaysia\'s FM Pioneer',
+  title: "Careers at Cofreth | Join Malaysia's FM & Energy Leader",
   description:
-    'Build your career in facilities management, energy services and smart technology at Cofreth (M) Sdn Bhd — Malaysia\'s FM pioneer since 1986. View current openings in Subang Jaya, Selangor.',
+    'Explore career opportunities in FM, energy & smart technology at Cofreth Malaysia. Based in Subang Jaya, Selangor. Join our award-winning team.',
   alternates: { canonical: '/careers' },
   openGraph: {
-    title:       'Careers at Cofreth | Malaysia FM & Energy',
-    description: 'Join Malaysia\'s leading FM and energy services company. Current openings in Subang Jaya.',
+    title:       "Careers at Cofreth | Join Malaysia's FM & Energy Leader",
+    description: 'Explore career opportunities in FM, energy & smart technology at Cofreth Malaysia. Based in Subang Jaya, Selangor.',
     url:         'https://www.cofreth.com.my/careers',
   },
 };

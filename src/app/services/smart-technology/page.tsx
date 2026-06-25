@@ -33,13 +33,13 @@ const data = {
 import { JsonLd, breadcrumbSchema, serviceSchema } from '@/components/JsonLd';
 
 export const metadata = {
-  title: 'Smart FM Technology — ARCHIBUS, BIM & IoT Malaysia',
+  title: 'Smart FM Technology Malaysia | ARCHIBUS, BIM & IoT | Cofreth',
   description:
-    'ARCHIBUS Total Infrastructure FM System, BIM implementation, IoT and cloud-based energy monitoring for smart buildings in Malaysia. Cofreth — technology-driven facilities management since 1986.',
+    'ARCHIBUS IWMS, BIM & IoT solutions for smart buildings in Malaysia. Technology-driven FM for data centres, hospitals & commercial buildings since 1986.',
   alternates: { canonical: '/services/smart-technology' },
   openGraph: {
-    title:       'Smart FM Technology — ARCHIBUS, BIM & IoT | Cofreth Malaysia',
-    description: 'ARCHIBUS TIFM, BIM and IoT smart building solutions from Malaysia\'s FM pioneer.',
+    title:       'Smart FM Technology Malaysia | ARCHIBUS, BIM & IoT | Cofreth',
+    description: 'ARCHIBUS IWMS, BIM & IoT solutions for smart buildings in Malaysia. Technology-driven FM for data centres, hospitals & commercial buildings.',
     url:         'https://www.cofreth.com.my/services/smart-technology',
   },
 };

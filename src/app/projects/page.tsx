@@ -3,13 +3,13 @@ import Footer from '@/components/Footer';
 import ProjectsPage from '@/components/pages/ProjectsPage';
 
 export const metadata = {
-  title: 'Project Highlights — Landmark FM & Energy Projects Malaysia',
+  title: 'Project Portfolio | Cofreth FM & Energy Malaysia',
   description:
-    'Cofreth project portfolio: KLIA2, Putrajaya ICC, KL Eco City, data centres, hospitals, universities and more. 38+ years of landmark facilities management and energy projects across Malaysia.',
+    '38+ years of landmark projects — KLIA2, Putrajaya ICC, KL Eco City, data centres, hospitals & universities. Malaysia\'s most experienced FM & energy company.',
   alternates: { canonical: '/projects' },
   openGraph: {
-    title:       'Project Highlights | Cofreth Malaysia',
-    description: 'Landmark FM & energy projects — airports, data centres, hospitals and iconic buildings across Malaysia.',
+    title:       'Project Portfolio | Cofreth FM & Energy Malaysia',
+    description: 'Landmark projects — KLIA2, Putrajaya ICC, KL Eco City, data centres, hospitals & universities across Malaysia.',
     url:         'https://www.cofreth.com.my/projects',
   },
 };

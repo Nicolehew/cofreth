@@ -3,13 +3,13 @@ import Footer from '@/components/Footer';
 import GroupPage from '@/components/pages/GroupPage';
 
 export const metadata = {
-  title: 'Group of Companies — Cofreth Strategic Partners',
+  title: 'Group of Companies | Cofreth Strategic Ecosystem',
   description:
-    'Cofreth Group of Companies and strategic partners — a network of specialist firms delivering comprehensive facilities management, energy, green building and technology solutions across Malaysia.',
+    "Cofreth's strategic partner network — BEST Energy, GIS-BIM, Archibus ASCHT & more. Delivering end-to-end FM & energy solutions across Malaysia.",
   alternates: { canonical: '/group' },
   openGraph: {
-    title:       'Group of Companies | Cofreth Malaysia',
-    description: 'Cofreth\'s network of strategic partners delivering FM, energy and green building solutions.',
+    title:       'Group of Companies | Cofreth Strategic Ecosystem',
+    description: "Cofreth's strategic partner network delivering end-to-end FM, energy & green building solutions across Malaysia.",
     url:         'https://www.cofreth.com.my/group',
   },
 };

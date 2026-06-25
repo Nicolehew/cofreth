@@ -39,13 +39,13 @@ const data = {
 import { JsonLd, breadcrumbSchema, serviceSchema } from '@/components/JsonLd';
 
 export const metadata = {
-  title: 'Facilities Management Services Malaysia',
+  title: 'Facilities Management Malaysia | Total FM & O&M | Cofreth',
   description:
-    'Comprehensive Facilities Management in Malaysia — Total FM, Operations & Maintenance, Technical Due Diligence and FM Consultancy. 38+ years experience. ISO certified. Call Cofreth today.',
+    "Total FM, O&M, Technical Due Diligence & FM Consultancy in Malaysia. ISO certified, 38+ years experience. Malaysia's most trusted FM service provider.",
   alternates: { canonical: '/services/facilities-management' },
   openGraph: {
-    title:       'Facilities Management Services Malaysia | Cofreth',
-    description: 'Total FM, O&M, Technical Due Diligence and Consultancy. Malaysia\'s FM pioneer since 1986.',
+    title:       'Facilities Management Malaysia | Total FM & O&M | Cofreth',
+    description: "Total FM, O&M, Technical Due Diligence & FM Consultancy in Malaysia. ISO certified, 38+ years experience.",
     url:         'https://www.cofreth.com.my/services/facilities-management',
   },
 };

@@ -45,13 +45,13 @@ const data = {
 import { JsonLd, breadcrumbSchema, serviceSchema } from '@/components/JsonLd';
 
 export const metadata = {
-  title: 'Energy Services & ESCO Malaysia — Audits, EPC & CEEP',
+  title: 'Energy Services Malaysia | ESCO, Audits & EPC | Cofreth',
   description:
-    'Registered ESCO in Malaysia delivering energy audits, Energy Performance Contracting (EPC) and Capped & Guaranteed Energy Efficiency Performance (CEEP) contracts. Cofreth — first to win Malaysia\'s NEA 1st Prize.',
+    "Registered ESCO in Malaysia — energy audits, EPC & CEEP contracts. NEA 2022 EPC Champion with proven savings across airports, data centres & offices.",
   alternates: { canonical: '/services/energy-services' },
   openGraph: {
-    title:       'Energy Services & ESCO Malaysia | Cofreth',
-    description: 'Energy audits, EPC and guaranteed savings from Malaysia\'s pioneering registered ESCO.',
+    title:       'Energy Services Malaysia | ESCO, Audits & EPC | Cofreth',
+    description: "Registered ESCO — energy audits, EPC & CEEP contracts. NEA 2022 EPC Champion with proven savings across Malaysia.",
     url:         'https://www.cofreth.com.my/services/energy-services',
   },
 };

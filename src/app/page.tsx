@@ -13,13 +13,13 @@ import HomeCTA from '@/components/home/HomeCTA';
 import { JsonLd, COFRETH_ORG } from '@/components/JsonLd';
 
 export const metadata = {
-  title: 'Cofreth (M) Sdn Bhd — Facilities Management & Energy Services Malaysia',
+  title: 'Cofreth Malaysia | Facilities Management & Energy Services',
   description:
-    "Malaysia's leading Facilities Management and Energy Services company since 1986. ISO 9001, 14001, 45001, 50001 & 41001 certified. 5× Frost & Sullivan Award winner. Registered ESCO serving 30+ major clients.",
+    "Malaysia's #1 FM & Energy company since 1986. ISO certified ESCO, 5× Frost & Sullivan Award winner. Serving airports, data centres & government buildings nationwide.",
   alternates: { canonical: '/' },
   openGraph: {
-    title:       'Cofreth (M) Sdn Bhd — Facilities Management & Energy Services Malaysia',
-    description: "Malaysia's FM and Energy Services pioneer since 1986. ISO certified, ESCO registered, award-winning.",
+    title:       'Cofreth Malaysia | Facilities Management & Energy Services',
+    description: "Malaysia's FM & Energy pioneer since 1986. ISO certified ESCO, 5× Frost & Sullivan Award winner. Airports, data centres & government buildings.",
     url:         'https://www.cofreth.com.my',
   },
 };

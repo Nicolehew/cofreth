@@ -4,13 +4,13 @@ import ContactPage from '@/components/pages/ContactPage';
 import { JsonLd, COFRETH_ORG } from '@/components/JsonLd';
 
 export const metadata = {
-  title: 'Contact Cofreth — FM & Energy Services Enquiries Malaysia',
+  title: 'Contact Cofreth | FM & Energy Services Malaysia',
   description:
-    'Contact Cofreth (M) Sdn Bhd in Subang Jaya, Selangor for Facilities Management, Energy Services and Green Building enquiries. Tel: +603-5637-8800. Mon–Fri 8:30am–5:30pm.',
+    'Contact Cofreth in Subang Jaya, Selangor. Tel: +603-8023-8878. Enquiries for FM, energy & green building services welcome. Mon–Fri 8:30am–5:30pm.',
   alternates: { canonical: '/contact' },
   openGraph: {
     title:       'Contact Cofreth | FM & Energy Services Malaysia',
-    description: 'Get in touch with Malaysia\'s FM pioneer. Office in Subang Jaya, Selangor.',
+    description: 'Contact Cofreth in Subang Jaya, Selangor. Tel: +603-8023-8878. FM, energy & green building enquiries welcome.',
     url:         'https://www.cofreth.com.my/contact',
   },
 };

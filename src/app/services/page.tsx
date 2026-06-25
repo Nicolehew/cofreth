@@ -3,13 +3,13 @@ import Footer from '@/components/Footer';
 import ServicesOverviewPage from '@/components/pages/ServicesOverviewPage';
 
 export const metadata = {
-  title: 'Our Services — FM, Energy, Green & Smart Technology',
+  title: 'FM & Energy Services Malaysia | Cofreth',
   description:
-    'Four integrated service pillars: Facilities Management, Energy Services, Green Building Expertise and Smart Technology. ISO certified, award-winning delivery across Malaysia since 1986.',
+    'Integrated FM, Energy, Green Building & Smart Technology solutions. ISO certified, award-winning delivery across Malaysia since 1986.',
   alternates: { canonical: '/services' },
   openGraph: {
-    title: 'Our Services | Cofreth Malaysia',
-    description: 'FM, Energy Services, Green Expertise and Smart Technology — integrated, ISO-certified delivery across Malaysia.',
+    title: 'FM & Energy Services Malaysia | Cofreth',
+    description: 'Integrated FM, Energy, Green Building & Smart Technology solutions. ISO certified, award-winning delivery across Malaysia since 1986.',
     url: 'https://www.cofreth.com.my/services',
   },
 };

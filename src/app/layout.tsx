@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
 
   title: {
-    default:  'Cofreth (M) Sdn Bhd — Facilities Management & Energy Services Malaysia',
+    default:  'Cofreth Malaysia | Facilities Management & Energy Services',
     template: '%s | Cofreth Malaysia',
   },
   description:
-    "Malaysia's leading Facilities Management and Energy Services company since 1986. ISO 9001, 14001, 45001, 50001 & 41001 certified. 5× Frost & Sullivan Award winner. Registered ESCO.",
+    "Malaysia's leading Facilities Management & Energy Services company since 1986. ISO certified ESCO, 5× Frost & Sullivan Award winner. Serving airports, data centres & government buildings.",
 
   applicationName: 'Cofreth (M) Sdn Bhd',
   authors:   [{ name: 'Cofreth (M) Sdn Bhd', url: BASE_URL }],
@@ -31,13 +31,13 @@ export const metadata: Metadata = {
     type:        'website',
     locale:      'en_MY',
     siteName:    'Cofreth (M) Sdn Bhd',
-    title:       'Cofreth (M) Sdn Bhd — Facilities Management & Energy Services Malaysia',
-    description: "Malaysia's leading FM and Energy Services company since 1986. ISO certified, ESCO registered, 5× Frost & Sullivan Award winner.",
+    title:       'Cofreth Malaysia | Facilities Management & Energy Services',
+    description: "Malaysia's FM & Energy pioneer since 1986. ISO certified ESCO, 5× Frost & Sullivan Award winner. Airports, data centres & government buildings.",
     images: [{
       url:    '/og-image.png',
       width:  1200,
       height: 630,
-      alt:    'Cofreth (M) Sdn Bhd — Facilities Management & Energy Services Malaysia',
+      alt:    'Cofreth Malaysia | Facilities Management & Energy Services',
     }],
   },
 
