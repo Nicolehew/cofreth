@@ -179,7 +179,7 @@ export default function GroupPage() {
       <div className="py-14 bg-gray-50 border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <p className="text-sm font-bold text-[#1B3A2D] uppercase tracking-widest mb-8">Our Shareholder</p>
-          <a href="https://www.jes.co.jp" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.jes24.co.jp/en/index.html" target="_blank" rel="noopener noreferrer"
             className="inline-flex flex-col items-center gap-4 group">
             <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-[#6BBD45]/30 transition-all duration-300 group-hover:-translate-y-1">
               <img
