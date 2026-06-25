@@ -179,22 +179,18 @@ export default function GroupPage() {
       <div className="py-10 sm:py-14 bg-gray-50 border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <p className="text-sm font-bold text-[#1B3A2D] uppercase tracking-widest mb-6 sm:mb-8">Our Shareholder</p>
-          <a href="https://www.jes24.co.jp/en/index.html" target="_blank" rel="noopener noreferrer"
-            className="inline-flex flex-col items-center gap-3 sm:gap-4 group">
-            <div className="bg-white rounded-2xl p-5 sm:p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-[#6BBD45]/30 transition-all duration-300 group-hover:-translate-y-1">
+          <div className="inline-flex flex-col items-center gap-3 sm:gap-4">
+            <div className="bg-white rounded-2xl p-5 sm:p-8 shadow-sm border border-gray-100">
               <img
                 src="/partners/jes.png"
                 alt="Japan Elevator Service"
-                className="h-20 sm:h-24 max-w-[160px] sm:max-w-[200px] object-contain"
+                className="h-28 sm:h-36 max-w-[200px] sm:max-w-[260px] object-contain"
               />
             </div>
             <div className="px-4">
               <p className="font-bold text-[#1B3A2D] text-base sm:text-lg leading-snug">Japan Elevator Service Holdings Co., Ltd.</p>
-              <p className="text-sm text-[#6BBD45] font-semibold mt-1 flex items-center justify-center gap-1">
-                Visit Official Website <ExternalLink size={13} />
-              </p>
             </div>
-          </a>
+          </div>
         </div>
       </div>
 
@@ -203,16 +199,10 @@ export default function GroupPage() {
         <div ref={logos.ref} className="max-w-5xl mx-auto px-6 transition-all duration-700"
           style={{ opacity: logos.visible ? 1 : 0, transform: logos.visible ? 'none' : 'translateY(20px)' }}>
           <p className="text-center text-sm font-bold text-[#1B3A2D] uppercase tracking-widest mb-6 sm:mb-8">Our Strategic Partners</p>
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 md:gap-16">
+          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-10 md:gap-16">
             {partners.map(p => (
-              <div key={p.id} className="group flex items-center justify-center">
-                {p.website ? (
-                  <a href={p.website} target="_blank" rel="noopener noreferrer" title={p.name}>
-                    <img src={p.logo} alt={p.name} className="h-12 max-w-[140px] object-contain opacity-80 group-hover:opacity-100 transition-all duration-300 group-hover:scale-105" />
-                  </a>
-                ) : (
-                  <img src={p.logo} alt={p.name} className="h-12 max-w-[140px] object-contain opacity-80 group-hover:opacity-100 transition-all duration-300 group-hover:scale-105" />
-                )}
+              <div key={p.id} className="flex items-center justify-center">
+                <img src={p.logo} alt={p.name} className="h-14 sm:h-16 max-w-[130px] sm:max-w-[160px] object-contain" />
               </div>
             ))}
           </div>
