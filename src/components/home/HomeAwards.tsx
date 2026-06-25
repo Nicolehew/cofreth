@@ -78,7 +78,7 @@ export default function HomeAwards() {
 
         {/* ISO certifications strip */}
         <div className="mt-10 flex flex-wrap justify-center gap-3">
-          {['ISO 9001:2015 — Quality', 'ISO 14001:2015 — Environment', 'ISO 45001:2018 — Safety', 'ISO 50001:2011 — Energy'].map(cert => (
+          {['ISO 9001:2015 — Quality', 'ISO 14001:2015 — Environment', 'ISO 45001:2018 — Safety', 'ISO 50001:2018 — Energy'].map(cert => (
             <span key={cert} className="text-xs text-gray-400 border border-white/10 px-4 py-2 rounded-full font-medium hover:border-[#6BBD45]/40 hover:text-[#6BBD45] transition-colors cursor-default">
               {cert}
             </span>
