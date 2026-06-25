@@ -176,20 +176,20 @@ export default function GroupPage() {
       />
 
       {/* ── Shareholder section ── */}
-      <div className="py-14 bg-gray-50 border-b border-gray-100">
+      <div className="py-10 sm:py-14 bg-gray-50 border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <p className="text-sm font-bold text-[#1B3A2D] uppercase tracking-widest mb-8">Our Shareholder</p>
+          <p className="text-sm font-bold text-[#1B3A2D] uppercase tracking-widest mb-6 sm:mb-8">Our Shareholder</p>
           <a href="https://www.jes24.co.jp/en/index.html" target="_blank" rel="noopener noreferrer"
-            className="inline-flex flex-col items-center gap-4 group">
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-[#6BBD45]/30 transition-all duration-300 group-hover:-translate-y-1">
+            className="inline-flex flex-col items-center gap-3 sm:gap-4 group">
+            <div className="bg-white rounded-2xl p-5 sm:p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-[#6BBD45]/30 transition-all duration-300 group-hover:-translate-y-1">
               <img
                 src="/partners/jes.png"
                 alt="Japan Elevator Service"
-                className="h-24 max-w-[200px] object-contain"
+                className="h-20 sm:h-24 max-w-[160px] sm:max-w-[200px] object-contain"
               />
             </div>
-            <div>
-              <p className="font-bold text-[#1B3A2D] text-lg">Japan Elevator Service Holdings Co., Ltd.</p>
+            <div className="px-4">
+              <p className="font-bold text-[#1B3A2D] text-base sm:text-lg leading-snug">Japan Elevator Service Holdings Co., Ltd.</p>
               <p className="text-sm text-[#6BBD45] font-semibold mt-1 flex items-center justify-center gap-1">
                 Visit Official Website <ExternalLink size={13} />
               </p>
@@ -199,11 +199,11 @@ export default function GroupPage() {
       </div>
 
       {/* ── Logo bar ── */}
-      <div className="py-12 bg-white border-b border-gray-100">
+      <div className="py-10 sm:py-12 bg-white border-b border-gray-100">
         <div ref={logos.ref} className="max-w-5xl mx-auto px-6 transition-all duration-700"
           style={{ opacity: logos.visible ? 1 : 0, transform: logos.visible ? 'none' : 'translateY(20px)' }}>
-          <p className="text-center text-sm font-bold text-[#1B3A2D] uppercase tracking-widest mb-8">Our Strategic Partners</p>
-          <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+          <p className="text-center text-sm font-bold text-[#1B3A2D] uppercase tracking-widest mb-6 sm:mb-8">Our Strategic Partners</p>
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 md:gap-16">
             {partners.map(p => (
               <div key={p.id} className="group flex items-center justify-center">
                 {p.website ? (
