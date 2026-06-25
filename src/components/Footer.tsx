@@ -19,6 +19,7 @@ const quickLinks = [
   { label: 'News & Events', href: '/news' },
   { label: 'Clientele', href: '/clientele' },
   { label: 'Contact', href: '/contact' },
+  { label: 'Cofreth Webmail', href: 'https://webmail.cofreth.com.my', external: true },
 ];
 
 const certs = ['ISO 9001:2015', 'ISO 14001:2015', 'ISO 45001:2018', 'ISO 50001:2018', 'ISO 41001:2018'];
@@ -59,7 +60,8 @@ export default function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-gray-400 hover:text-[#6BBD45] transition-colors flex items-center gap-2">
+                  <Link href={l.href} {...(l.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    className="text-sm text-gray-400 hover:text-[#6BBD45] transition-colors flex items-center gap-2">
                     <span className="w-1 h-1 bg-[#6BBD45] rounded-full" />
                     {l.label}
                   </Link>
