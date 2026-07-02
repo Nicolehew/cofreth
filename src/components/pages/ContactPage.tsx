@@ -10,11 +10,33 @@ export default function ContactPage() {
 
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSending(true);
-    setTimeout(() => { setSending(false); setSubmitted(true); }, 1200);
+    setError('');
+    const fd = new FormData(e.currentTarget);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name:    fd.get('name'),
+          company: fd.get('company'),
+          email:   fd.get('email'),
+          phone:   fd.get('phone'),
+          service: fd.get('service'),
+          message: fd.get('message'),
+        }),
+      });
+      if (!res.ok) throw new Error('Failed');
+      setSubmitted(true);
+    } catch {
+      setError('Something went wrong. Please email us directly at business@cofreth.com.my');
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -108,26 +130,26 @@ export default function ContactPage() {
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">Full Name *</label>
-                      <input required type="text" placeholder="Your name" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors" />
+                      <input required type="text" name="name" placeholder="Your name" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors" />
                     </div>
                     <div>
                       <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">Company</label>
-                      <input type="text" placeholder="Your company" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors" />
+                      <input type="text" name="company" placeholder="Your company" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors" />
                     </div>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">Email *</label>
-                      <input required type="email" placeholder="your@email.com" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors" />
+                      <input required type="email" name="email" placeholder="your@email.com" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors" />
                     </div>
                     <div>
                       <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">Phone</label>
-                      <input type="tel" placeholder="+60 ..." className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors" />
+                      <input type="tel" name="phone" placeholder="+60 ..." className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors" />
                     </div>
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">Service of Interest</label>
-                    <select className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors text-gray-700 bg-white">
+                    <select name="service" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors text-gray-700 bg-white">
                       <option value="">Select a service...</option>
                       <option>Facilities Management</option>
                       <option>Energy Services</option>
@@ -138,8 +160,11 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">Message *</label>
-                    <textarea required rows={5} placeholder="Tell us about your needs or project..." className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors resize-none" />
+                    <textarea required name="message" rows={5} placeholder="Tell us about your needs or project..." className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors resize-none" />
                   </div>
+                  {error && (
+                    <p className="text-red-500 text-sm">{error}</p>
+                  )}
                   <button
                     type="submit"
                     disabled={sending}
