@@ -17,45 +17,47 @@ export async function POST(req: NextRequest) {
       replyTo: email,
       subject: `New Enquiry from ${name}${company ? ` (${company})` : ''}`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; width: 100%;">
           <div style="background: #1B3A2D; padding: 24px; border-radius: 8px 8px 0 0;">
             <h1 style="color: #6BBD45; margin: 0; font-size: 20px;">New Website Enquiry</h1>
             <p style="color: #ffffff; margin: 4px 0 0; font-size: 13px;">Received from cofreth.com.my contact form</p>
           </div>
-          <div style="background: #f9fafb; padding: 24px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 8px 8px;">
-            <table style="width: 100%; border-collapse: collapse;">
-              <tr>
-                <td style="padding: 8px 0; color: #6b7280; font-size: 13px; width: 130px; vertical-align: top;">Full Name</td>
-                <td style="padding: 8px 0; color: #111827; font-size: 14px; font-weight: 600;">${name}</td>
-              </tr>
-              ${company ? `<tr>
-                <td style="padding: 8px 0; color: #6b7280; font-size: 13px; vertical-align: top;">Company</td>
-                <td style="padding: 8px 0; color: #111827; font-size: 14px;">${company}</td>
-              </tr>` : ''}
-              <tr>
-                <td style="padding: 8px 0; color: #6b7280; font-size: 13px; vertical-align: top;">Email</td>
-                <td style="padding: 8px 0;"><a href="mailto:${email}" style="color: #1B3A2D; font-size: 14px;">${email}</a></td>
-              </tr>
-              ${phone ? `<tr>
-                <td style="padding: 8px 0; color: #6b7280; font-size: 13px; vertical-align: top;">Phone</td>
-                <td style="padding: 8px 0; color: #111827; font-size: 14px;">${phone}</td>
-              </tr>` : ''}
-              ${service ? `<tr>
-                <td style="padding: 8px 0; color: #6b7280; font-size: 13px; vertical-align: top;">Service</td>
-                <td style="padding: 8px 0;">
-                  <span style="background: #6BBD45; color: white; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 600;">${service}</span>
-                </td>
-              </tr>` : ''}
-              <tr>
-                <td colspan="2" style="padding-top: 16px; border-top: 1px solid #e5e7eb;">
-                  <p style="color: #6b7280; font-size: 13px; margin: 0 0 8px;">Message</p>
-                  <p style="color: #111827; font-size: 14px; line-height: 1.6; margin: 0; white-space: pre-wrap;">${message}</p>
-                </td>
-              </tr>
-            </table>
-            <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #e5e7eb;">
-              <a href="mailto:${email}" style="background: #1B3A2D; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600;">Reply to ${name}</a>
+          <div style="background: #f9fafb; padding: 24px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 8px 8px; box-sizing: border-box;">
+
+            <div style="margin-bottom: 16px;">
+              <p style="margin: 0 0 4px; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Full Name</p>
+              <p style="margin: 0; color: #111827; font-size: 15px; font-weight: 600; word-break: break-word;">${name}</p>
             </div>
+
+            ${company ? `<div style="margin-bottom: 16px;">
+              <p style="margin: 0 0 4px; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Company</p>
+              <p style="margin: 0; color: #111827; font-size: 15px; word-break: break-word;">${company}</p>
+            </div>` : ''}
+
+            <div style="margin-bottom: 16px;">
+              <p style="margin: 0 0 4px; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Email</p>
+              <a href="mailto:${email}" style="color: #1B3A2D; font-size: 15px; word-break: break-all; text-decoration: none;">${email}</a>
+            </div>
+
+            ${phone ? `<div style="margin-bottom: 16px;">
+              <p style="margin: 0 0 4px; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Phone</p>
+              <p style="margin: 0; color: #111827; font-size: 15px; word-break: break-word;">${phone}</p>
+            </div>` : ''}
+
+            ${service ? `<div style="margin-bottom: 16px;">
+              <p style="margin: 0 0 4px; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Service</p>
+              <span style="display: inline-block; background: #6BBD45; color: white; padding: 3px 12px; border-radius: 999px; font-size: 13px; font-weight: 600;">${service}</span>
+            </div>` : ''}
+
+            <div style="margin-bottom: 16px; padding-top: 16px; border-top: 1px solid #e5e7eb;">
+              <p style="margin: 0 0 4px; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Message</p>
+              <p style="margin: 0; color: #111827; font-size: 15px; line-height: 1.6; white-space: pre-wrap; word-break: break-word;">${message}</p>
+            </div>
+
+            <div style="padding-top: 16px; border-top: 1px solid #e5e7eb;">
+              <a href="mailto:${email}" style="display: inline-block; background: #1B3A2D; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 600;">Reply to ${name}</a>
+            </div>
+
           </div>
         </div>
       `,
