@@ -4,20 +4,21 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
   Building2, Trophy, Lightbulb, FileText,
-  Settings, Heart, Scale, Globe, Flag,
+  Settings, Heart, Scale, Globe, Leaf, Flag,
   PanelLeftClose, PanelLeftOpen,
 } from 'lucide-react';
 
 export const aboutNavItems = [
-  { label: 'About Cofreth',                  short: 'About',      href: '/about',            icon: Building2 },
-  { label: 'Our Many Firsts',                 short: 'Firsts',     href: '/about/firsts',     icon: Trophy    },
-  { label: 'Our Philosophy',                  short: 'Philosophy', href: '/about/philosophy', icon: Lightbulb },
-  { label: 'Our IMS Policy',                  short: 'IMS Policy', href: '/about/ims-policy', icon: FileText  },
-  { label: 'Our Processes',                   short: 'Processes',  href: '/about/processes',  icon: Settings  },
-  { label: 'Our Value & Ethics',              short: 'Values',     href: '/about/values',     icon: Heart     },
-  { label: 'Corporate Governance',            short: 'Governance', href: '/about/governance', icon: Scale     },
-  { label: 'Corporate Social Responsibility', short: 'CSR',        href: '/about/csr',        icon: Globe     },
-  { label: 'Corporate Themes',                short: 'Themes',     href: '/about/themes',     icon: Flag      },
+  { label: 'About Cofreth',                  short: 'About',      href: '/about',                  icon: Building2 },
+  { label: 'Our Many Firsts',                 short: 'Firsts',     href: '/about/firsts',           icon: Trophy    },
+  { label: 'Our Philosophy',                  short: 'Philosophy', href: '/about/philosophy',       icon: Lightbulb },
+  { label: 'Our IMS Policy',                  short: 'IMS Policy', href: '/about/ims-policy',       icon: FileText  },
+  { label: 'Our Processes',                   short: 'Processes',  href: '/about/processes',        icon: Settings  },
+  { label: 'Our Value & Ethics',              short: 'Values',     href: '/about/values',           icon: Heart     },
+  { label: 'Corporate Governance',            short: 'Governance', href: '/about/governance',       icon: Scale     },
+  { label: 'Corporate Social Responsibility', short: 'CSR',        href: '/about/csr',              icon: Globe     },
+  { label: 'Sustainability',                  short: 'ESG',        href: '/about/sustainability',   icon: Leaf      },
+  { label: 'Corporate Themes',                short: 'Themes',     href: '/about/themes',           icon: Flag      },
 ];
 
 export function AboutSidebar({ children }: { children: React.ReactNode }) {

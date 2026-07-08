@@ -64,6 +64,40 @@ export default function CSRPage() {
         subtitle="Beyond business, Cofreth is committed to making a positive impact — supporting life-saving initiatives, environmental causes and the wellbeing of underserved communities."
       />
 
+      {/* Section 0 — CSR Policy — light green */}
+      <div className="py-10 px-6 lg:px-10 xl:px-14 bg-[#f8fdf5] border-b border-[#6BBD45]/20">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-start gap-8">
+            <div className="flex-1">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-[#6BBD45]">CSR Policy · Section 13 · Issue 2</span>
+              <h3 className="font-black text-[#1B3A2D] text-2xl mt-2 mb-4">Our CSR Commitment</h3>
+              <p className="text-gray-600 text-base leading-relaxed mb-5">
+                Cofreth (M) Sdn Bhd is committed to operating in an economically, socially and environmentally responsible manner while recognising the interests of its stakeholders. Our CSR policy covers two dimensions: <strong>Compliance</strong> — our commitment to legality and community values; and <strong>Proactiveness</strong> — every initiative to promote human rights, help communities and protect our natural environment.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-3 mb-5">
+                {[
+                  'Legal Responsibilities — Full compliance with Malaysian laws and regulations',
+                  'Economic Responsibilities — Ethical governance and sustainable procurement',
+                  'Social & Cultural — Equitable treatment and education partnerships',
+                  'Environment, Health & Safety — Zero accidents goal and environmental stewardship',
+                ].map(item => (
+                  <div key={item} className="flex items-start gap-2">
+                    <span className="text-[#6BBD45] mt-0.5 shrink-0 font-bold">✓</span>
+                    <span className="text-sm text-gray-600">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="shrink-0">
+              <a href="/documents/CSR_Policy.pdf" target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#1B3A2D] hover:bg-[#6BBD45] text-white font-semibold px-6 py-3 rounded-full transition-all text-sm whitespace-nowrap">
+                Download CSR Policy →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Section 1 — Initiatives — white */}
       <div className="py-16 px-6 lg:px-10 xl:px-14 bg-white">
         <div className="max-w-5xl mx-auto">

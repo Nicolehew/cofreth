@@ -1,7 +1,7 @@
 'use client';
-import { useState, useEffect, useCallback } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import { X, Shield, CheckCircle, Leaf, Zap, Building2, ArrowRight, Eye, RefreshCw } from 'lucide-react';
+import { X, Shield, CheckCircle, Leaf, Zap, Building2, ArrowRight, Eye } from 'lucide-react';
 
 const certs = [
   {
@@ -13,7 +13,7 @@ const certs = [
     darkBg:'rgba(239,68,68,0.12)',
     desc:  'Systematic hazard identification and OHS risk control across all site operations — ensuring every Cofreth-managed facility is a safe working environment.',
     detail: 'Covers risk assessments, incident investigation, emergency preparedness, and legal compliance across all FM contracts.',
-    pdf:   'https://www.cofreth.com.my/images/ISO_45001-2018(OHS)(2023-2026).pdf',
+    pdf:   '/documents/ISO_45001-2018_OHS.pdf',
     valid:  '2023–2026',
   },
   {
@@ -25,7 +25,7 @@ const certs = [
     darkBg:'rgba(59,130,246,0.12)',
     desc:  'Consistent, high-quality service delivery backed by documented procedures, regular audits and continuous improvement across every service line.',
     detail: 'Customer-focused QMS covering service planning, delivery, performance monitoring and corrective actions.',
-    pdf:   'https://www.cofreth.com.my/images/ISO_9001-2015_(QMS)(2023-2026).pdf',
+    pdf:   '/documents/ISO_9001-2015_QMS.pdf',
     valid:  '2023–2026',
   },
   {
@@ -37,7 +37,7 @@ const certs = [
     darkBg:'rgba(16,185,129,0.12)',
     desc:  'Minimising environmental impact through responsible operational practices, waste management, and continuous environmental performance monitoring.',
     detail: 'Lifecycle-based environmental planning covering energy, water, waste and emissions across all managed assets.',
-    pdf:   'https://www.cofreth.com.my/images/ISO_14001-2015(EMS)(2023-2026).pdf',
+    pdf:   '/documents/ISO_14001-2015_EMS.pdf',
     valid:  '2023–2026',
   },
   {
@@ -49,7 +49,7 @@ const certs = [
     darkBg:'rgba(245,158,11,0.12)',
     desc:  'Structured energy monitoring, targeting and optimisation — reducing client energy consumption and costs through data-driven performance management.',
     detail: 'Energy reviews, performance indicators, baselines and action plans aligned with Cofreth\'s ESCO and CoPC models.',
-    pdf:   'https://www.cofreth.com.my/images/ISO_50001-2018(EnMS)(2023-2026).pdf',
+    pdf:   '/documents/ISO_50001-2018_EnMS.pdf',
     valid:  '2023–2026',
   },
   {
@@ -61,8 +61,8 @@ const certs = [
     darkBg:'rgba(139,92,246,0.12)',
     desc:  'The global standard for FM systems — defining how organisations structure and deliver facility management to achieve organisational objectives.',
     detail: 'Strategic FM framework covering leadership, planning, support, operations and performance evaluation.',
-    pdf:   null,
-    valid:  '2023–2026',
+    pdf:   '/documents/ISO_41001-2018_FMS.pdf',
+    valid:  '2025–2028',
   },
 ];
 
@@ -74,33 +74,7 @@ const pdcaSteps = [
 ];
 
 function PdfModal({ url, title, onClose }: { url: string; title: string; onClose: () => void }) {
-  const [attempt, setAttempt] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [failed, setFailed] = useState(false);
-
-  // Google Docs viewer wraps the PDF — no browser download toolbar shown
-  const viewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true`;
-
-  // Auto-retry up to 6 times (Google Docs viewer is slow on first load)
-  const retry = useCallback(() => {
-    setLoading(true);
-    setFailed(false);
-    setAttempt(n => n + 1);
-  }, []);
-
-  useEffect(() => {
-    if (!loading) return;
-    // If still "loading" after 12 s, auto-retry (max 6 attempts)
-    const t = setTimeout(() => {
-      if (attempt < 6) {
-        setAttempt(n => n + 1); // remount iframe → fresh request
-      } else {
-        setLoading(false);
-        setFailed(true);
-      }
-    }, 12000);
-    return () => clearTimeout(t);
-  }, [attempt, loading]);
 
   return (
     <div className="fixed inset-0 z-[500] flex flex-col" style={{ background: 'rgba(0,0,0,0.9)' }}>
@@ -110,47 +84,22 @@ function PdfModal({ url, title, onClose }: { url: string; title: string; onClose
           <Eye size={16} className="text-[#6BBD45]" />
           <span className="text-[#1B3A2D] font-semibold truncate max-w-[60vw] text-sm">{title}</span>
         </div>
-        <div className="flex items-center gap-3">
-          <span className="bg-[#6BBD45]/15 border border-[#6BBD45]/30 text-[#6BBD45] px-3 py-1 rounded-full font-bold hidden sm:block text-xs">
-            VIEW ONLY
-          </span>
-          <button onClick={onClose}
-            className="flex items-center gap-1.5 text-gray-500 hover:text-red-500 transition-colors px-3 py-1.5 rounded-lg hover:bg-gray-100 text-sm">
-            <X size={15} /> Close
-          </button>
-        </div>
+        <button onClick={onClose}
+          className="flex items-center gap-1.5 text-gray-500 hover:text-red-500 transition-colors px-3 py-1.5 rounded-lg hover:bg-gray-100 text-sm">
+          <X size={15} /> Close
+        </button>
       </div>
 
       {/* Viewer area */}
       <div className="flex-1 overflow-hidden relative bg-[#404040]">
-        {/* Loading overlay */}
         {loading && (
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 bg-[#404040]">
             <div className="w-12 h-12 border-4 border-[#6BBD45]/30 border-t-[#6BBD45] rounded-full animate-spin" />
             <p className="text-white font-semibold text-base">Loading certificate…</p>
-            <p className="text-gray-400 text-xs">Attempt {attempt + 1} of 6</p>
           </div>
         )}
-
-        {/* Failed state */}
-        {failed && (
-          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-5 bg-[#404040]">
-            <div className="text-4xl">📄</div>
-            <p className="text-white font-bold text-base">Could not load the certificate</p>
-            <p className="text-gray-400 text-center max-w-xs text-sm">
-              Google's document viewer is temporarily unavailable. Please try again.
-            </p>
-            <button onClick={retry}
-              className="flex items-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-bold px-6 py-3 rounded-full transition-all text-sm">
-              <RefreshCw size={16} /> Try Again
-            </button>
-          </div>
-        )}
-
-        {/* Google Docs iframe — no native PDF toolbar = no download button */}
         <iframe
-          key={attempt}               /* remount on every retry */
-          src={viewerUrl}
+          src={url}
           className="w-full h-full border-0"
           title={title}
           onLoad={() => setLoading(false)}

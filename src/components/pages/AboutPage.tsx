@@ -7,15 +7,16 @@ import { useState, useEffect, useRef } from 'react';
 
 /* ── Nav sections ── */
 const navItems = [
-  { id: 'about',      label: 'About Cofreth' },
-  { id: 'firsts',     label: 'Our Many Firsts' },
-  { id: 'philosophy', label: 'Our Philosophy' },
-  { id: 'ims-policy', label: 'Our IMS Policy' },
-  { id: 'processes',  label: 'Our Processes' },
-  { id: 'values',     label: 'Our Value & Ethics' },
-  { id: 'governance', label: 'Corporate Governance' },
-  { id: 'csr',        label: 'Corporate Social Responsibility' },
-  { id: 'themes',     label: 'Corporate Themes' },
+  { id: 'about',          label: 'About Cofreth' },
+  { id: 'firsts',         label: 'Our Many Firsts' },
+  { id: 'philosophy',     label: 'Our Philosophy' },
+  { id: 'ims-policy',     label: 'Our IMS Policy' },
+  { id: 'processes',      label: 'Our Processes' },
+  { id: 'values',         label: 'Our Value & Ethics' },
+  { id: 'governance',     label: 'Corporate Governance' },
+  { id: 'csr',            label: 'Corporate Social Responsibility' },
+  { id: 'sustainability', label: 'Sustainability' },
+  { id: 'themes',         label: 'Corporate Themes' },
 ];
 
 const milestones = [
@@ -285,7 +286,7 @@ export default function AboutPage() {
                     <p className="text-gray-400 text-xs">Managing Director</p>
                   </div>
                   <p className="text-gray-500 text-xs">Revision 4 · Effective 1 August 2024</p>
-                  <a href="https://www.cofreth.com.my/images/IMS_Policy-Revision_4.pdf" target="_blank" rel="noopener noreferrer"
+                  <a href="/documents/IMS_Policy_Revision_4.pdf" target="_blank" rel="noopener noreferrer"
                     className="border border-[#6BBD45]/40 text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white text-xs font-semibold px-5 py-2 rounded-full transition-all">
                     Download PDF
                   </a>
@@ -302,12 +303,13 @@ export default function AboutPage() {
                 title="Certified Service Delivery"
                 subtitle="Our service delivery processes are independently certified to five ISO standards — guaranteeing consistent quality, safety, environmental responsibility and energy performance across every engagement."
               />
-              <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-5 mb-10">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 mb-10">
                 {[
-                  { code: 'ISO 45001:2018', label: 'Occupational Health & Safety', icon: '🛡️', color: '#ef4444', desc: 'Systematic hazard identification and OHS risk control across all site operations.', pdf: 'https://www.cofreth.com.my/images/ISO_45001-2018(OHS)(2023-2026).pdf' },
-                  { code: 'ISO 9001:2015',  label: 'Quality Management',           icon: '✓',   color: '#3b82f6', desc: 'Consistent, high-quality service delivery backed by documented procedures and audits.', pdf: 'https://www.cofreth.com.my/images/ISO_9001-2015_(QMS)(2023-2026).pdf' },
-                  { code: 'ISO 14001:2015', label: 'Environmental Management',     icon: '🌿',  color: '#10b981', desc: 'Minimising environmental impact through responsible practices and continuous monitoring.', pdf: 'https://www.cofreth.com.my/images/ISO_14001-2015(EMS)(2023-2026).pdf' },
-                  { code: 'ISO 50001:2018', label: 'Energy Management',            icon: '⚡',  color: '#f59e0b', desc: 'Structured energy monitoring and optimisation to reduce consumption and costs.', pdf: 'https://www.cofreth.com.my/images/ISO_50001-2018(EnMS)(2023-2026).pdf' },
+                  { code: 'ISO 45001:2018', label: 'Occupational Health & Safety', icon: '🛡️', color: '#ef4444', desc: 'Systematic hazard identification and OHS risk control across all site operations.', pdf: '/documents/ISO_45001-2018_OHS.pdf' },
+                  { code: 'ISO 9001:2015',  label: 'Quality Management',           icon: '✓',   color: '#3b82f6', desc: 'Consistent, high-quality service delivery backed by documented procedures and audits.', pdf: '/documents/ISO_9001-2015_QMS.pdf' },
+                  { code: 'ISO 14001:2015', label: 'Environmental Management',     icon: '🌿',  color: '#10b981', desc: 'Minimising environmental impact through responsible practices and continuous monitoring.', pdf: '/documents/ISO_14001-2015_EMS.pdf' },
+                  { code: 'ISO 50001:2018', label: 'Energy Management',            icon: '⚡',  color: '#f59e0b', desc: 'Structured energy monitoring and optimisation to reduce consumption and costs.', pdf: '/documents/ISO_50001-2018_EnMS.pdf' },
+                  { code: 'ISO 41001:2018', label: 'Facilities Management',        icon: '🏢',  color: '#8b5cf6', desc: 'Integrated FM systems and processes certified to the international FM management standard.', pdf: '/documents/ISO_41001-2018_FMS.pdf' },
                 ].map(p => (
                   <div key={p.code} className="group bg-white border border-gray-200 hover:border-[#6BBD45]/40 rounded-2xl p-5 hover:shadow-lg shadow-sm transition-all duration-300 text-center">
                     <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-4 mx-auto" style={{ background: p.color + '15' }}>{p.icon}</div>
@@ -357,6 +359,15 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
+              <div className="mt-8 bg-[#1B3A2D] rounded-2xl p-8 text-white flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                <div className="flex-1">
+                  <h3 className="font-black text-[#6BBD45] mb-2">Ethics &amp; Core Values Charter</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">Our Ethics and Core Values Charter (Rev 0, effective 1 July 2007) formalises these 6 core values as the foundation of all business conduct — governing how every employee, partner and stakeholder is treated.</p>
+                </div>
+                <a href="/documents/Ethics_Core_Values_Charter.pdf" target="_blank" rel="noopener noreferrer" className="shrink-0 border border-[#6BBD45]/40 text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-all whitespace-nowrap">
+                  Download Charter →
+                </a>
+              </div>
             </div>
           </section>
 
@@ -368,7 +379,7 @@ export default function AboutPage() {
                 title="Responsible Business Conduct"
                 subtitle="Cofreth upholds the highest standards of corporate governance — ensuring integrity, transparency and accountability across all operations."
               />
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="grid sm:grid-cols-2 gap-6 mb-8">
                 <div className="rounded-2xl p-10 text-white" style={{ background: 'linear-gradient(135deg, #0F2419 0%, #1B3A2D 100%)' }}>
                   <div className="text-5xl mb-5">🤝</div>
                   <h3 className="font-black text-[#6BBD45] text-2xl mb-4">Responsible Business Alliance</h3>
@@ -386,6 +397,22 @@ export default function AboutPage() {
                   </ul>
                 </div>
               </div>
+              <h3 className="text-xs font-black text-gray-400 uppercase tracking-widest mb-4">Policy Documents</h3>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {[
+                  { icon: '📣', title: 'Whistleblowing Policy', desc: 'Report unethical conduct with full protection under the Whistleblower Protection Act 2010. Contact: Ms Nor Niza Md Ajib, Chief Audit Executive, nor-niza.md-ajib@cofreth.com.my', pdf: '/documents/Whistleblowing_Policy.pdf' },
+                  { icon: '🚫', title: 'Anti-Bribery & Corruption Policy', desc: 'Zero-tolerance policy aligned with MACCA Act 2009, covering gifts, facilitation payments, conflicts of interest and third-party due diligence (effective 1 Oct 2022).', pdf: '/documents/Anti_Bribery_Corruption_Policy.pdf' },
+                  { icon: '📋', title: 'Standard of Business Conduct', desc: 'Our code of conduct governing legal compliance, conflicts of interest, information security, EHS, fair labour and disciplinary practices across all staff and partners.', pdf: '/documents/Standard_of_Business_Conduct.pdf' },
+                  { icon: '🔒', title: 'Personal Data Protection Policy', desc: 'How Cofreth collects, uses, protects and provides access to personal data for customers and prospective customers in compliance with Malaysian law.', pdf: '/documents/Personal_Data_Protection_Policy.pdf' },
+                ].map(p => (
+                  <div key={p.title} className="bg-white border border-gray-200 rounded-2xl p-5 hover:border-[#6BBD45]/40 hover:shadow-md shadow-sm transition-all">
+                    <div className="text-2xl mb-3">{p.icon}</div>
+                    <h4 className="font-black text-[#1B3A2D] text-sm mb-2">{p.title}</h4>
+                    <p className="text-gray-500 text-xs leading-relaxed mb-4">{p.desc}</p>
+                    <a href={p.pdf} target="_blank" rel="noopener noreferrer" className="text-[#6BBD45] text-xs font-semibold hover:underline">View Policy →</a>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
 
@@ -397,7 +424,25 @@ export default function AboutPage() {
                 title="Giving Back to the Community"
                 subtitle="Beyond business, Cofreth is committed to making a positive impact — supporting life-saving initiatives, environmental causes and the wellbeing of underserved communities."
               />
-              <div className="grid sm:grid-cols-3 gap-5 mb-10">
+              <div className="bg-[#f8fdf5] border border-[#6BBD45]/30 rounded-2xl p-6 mb-10">
+                <h3 className="font-black text-[#1B3A2D] text-xs uppercase tracking-widest mb-3">CSR Policy</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">Cofreth (M) Sdn Bhd is committed to operating in an economically, socially and environmentally responsible manner while recognising the interests of its stakeholders. Our CSR policy covers two dimensions: <strong>Compliance</strong> — our commitment to legality and community values; and <strong>Proactiveness</strong> — every initiative to promote human rights, help communities and protect our natural environment.</p>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
+                  {[
+                    'Legal Responsibilities — Full compliance with Malaysian laws, taxes and regulatory requirements',
+                    'Economic Responsibilities — Ethical governance, risk management and sustainable procurement practices',
+                    'Social & Cultural Responsibilities — Equitable treatment, community service and education partnerships',
+                    'Environment, Health & Safety — Zero accidents goal, pollution prevention and environmental stewardship',
+                  ].map(item => (
+                    <div key={item} className="flex items-start gap-2">
+                      <span className="text-[#6BBD45] mt-0.5 shrink-0 font-bold text-sm">✓</span>
+                      <span className="text-xs text-gray-600">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <a href="/documents/CSR_Policy.pdf" target="_blank" rel="noopener noreferrer" className="text-[#6BBD45] text-xs font-semibold hover:underline">Download CSR Policy →</a>
+              </div>
+              <div className="grid sm:grid-cols-3 gap-5">
                 {[
                   { icon: '🩺', title: '"Save a Life" Campaign', desc: 'Cofreth organises annual blood donation drives and "Save a Life" campaigns — encouraging staff and the public to support critical healthcare needs.' },
                   { icon: '🌳', title: 'Green Finger Day', desc: '170 trees planted and river clean-up activities as part of our environmental commitment to Malaysia\'s green cover and biodiversity.' },
@@ -410,8 +455,49 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
+            </div>
+          </section>
+
+          {/* ── Sustainability ── */}
+          <section id="sustainability" className="py-20 px-8 lg:px-12 border-b border-gray-100">
+            <div className="w-full">
+              <SectionHeader
+                eyebrow="Sustainability"
+                title="Environmental, Social & Governance"
+                subtitle="Cofreth embeds ESG principles into every aspect of our operations — creating long-term value for the environment, our people, and all stakeholders."
+              />
+              <div className="bg-gradient-to-br from-[#0F2419] to-[#1B3A2D] rounded-3xl p-8 md:p-10 text-white mb-10">
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-6 mb-8">
+                  <div>
+                    <h3 className="text-[#6BBD45] font-bold text-xs uppercase tracking-widest mb-2">ESG Policy — Revision 0 · 1 April 2025</h3>
+                    <p className="text-gray-300 text-base leading-relaxed max-w-2xl">Our ESG Policy demonstrates our commitment to sustainability, integrity, and transparency — signed by Ir. ONG CHING LOON, Managing Director, and overseen by the ESG Committee for annual review and continuous improvement.</p>
+                  </div>
+                  <a href="/documents/ESG_Policy.pdf" target="_blank" rel="noopener noreferrer" className="shrink-0 border border-[#6BBD45]/40 text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-all whitespace-nowrap">
+                    Download ESG Policy →
+                  </a>
+                </div>
+                <div className="grid md:grid-cols-3 gap-6">
+                  {[
+                    { icon: '🌍', title: 'Environmental', items: ['Energy efficiency — 3% GHG reduction annually', 'Responsible water management & prevention of wastage', 'Waste reduction through 3R principles', 'Carbon neutrality targets & emission monitoring'] },
+                    { icon: '👥', title: 'Social', items: ['Community outreach & volunteer initiatives', 'Diversity, equality & inclusion (DEI)', 'Safe & healthy workplace — risk prevention', 'Fair labour — no child or forced labour'] },
+                    { icon: '🏛️', title: 'Governance', items: ['Integrity-driven corporate governance', 'ESG Committee oversight & annual reporting', 'Zero-tolerance anti-bribery & corruption', 'Data privacy, risk management & financial transparency'] },
+                  ].map(pillar => (
+                    <div key={pillar.title} className="bg-white/5 rounded-2xl p-6">
+                      <div className="text-2xl mb-3">{pillar.icon}</div>
+                      <h4 className="font-black text-[#6BBD45] text-sm mb-4">{pillar.title}</h4>
+                      <ul className="space-y-2">
+                        {pillar.items.map(item => (
+                          <li key={item} className="flex items-start gap-2 text-xs text-gray-300">
+                            <span className="text-[#6BBD45] mt-0.5 shrink-0">✓</span>{item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
               <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 text-center">
-                <h3 className="font-black text-[#1B3A2D] mb-2 text-lg">Sustainable Development</h3>
+                <h3 className="font-black text-[#1B3A2D] mb-2 text-lg">UN Sustainable Development Goals</h3>
                 <p className="text-gray-500 text-base leading-relaxed mb-6 max-w-xl mx-auto">Cofreth's activities take into account the objectives of sustainable development from ecological, economical and social dimensions — aligned to the UN Sustainable Development Goals.</p>
                 <div className="grid grid-cols-6 sm:grid-cols-9 gap-2 max-w-md mx-auto">
                   {[{n:1,bg:'#e5243b'},{n:2,bg:'#dda63a'},{n:3,bg:'#4c9f38'},{n:4,bg:'#c5192d'},{n:5,bg:'#ff3a21'},{n:6,bg:'#26bde2'},{n:7,bg:'#fcc30b'},{n:8,bg:'#a21942'},{n:9,bg:'#fd6925'},{n:10,bg:'#dd1367'},{n:11,bg:'#fd9d24'},{n:12,bg:'#bf8b2e'},{n:13,bg:'#3f7e44'},{n:14,bg:'#0a97d9'},{n:15,bg:'#56c02b'},{n:16,bg:'#00689d'},{n:17,bg:'#19486a'}].map(g => (
@@ -432,7 +518,8 @@ export default function AboutPage() {
               />
               <div className="space-y-3 mb-12">
                 {[
-                  { years: '2018–2020', theme: 'Connect The Possibles, Connecting The Impossibles', highlight: true },
+                  { years: '2025', theme: 'Environmental, Social & Governance (ESG)', highlight: true },
+                  { years: '2018–2024', theme: 'Connecting The Possible…' },
                   { years: '2015–2017', theme: 'We Never Stop: Believing. Synergizing. Delivering' },
                   { years: '2012–2014', theme: 'Change, Innovate, Achieve' },
                   { years: '2010–2011', theme: 'Right, Fast Actions: Key to Success' },

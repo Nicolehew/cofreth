@@ -98,6 +98,54 @@ export default function GovernancePage() {
         </div>
       </div>
 
+      {/* Section 2b — Policy Documents — white */}
+      <div className="py-16 px-6 lg:px-10 xl:px-14 bg-white border-t border-gray-100">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.2em] text-[#6BBD45]">Policy Documents</span>
+            <h3 className="font-black text-[#1B3A2D] text-3xl mt-2">Our Governance Policies</h3>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-5">
+            {[
+              {
+                icon: '📣',
+                title: 'Whistleblowing Policy',
+                desc: 'Report unethical conduct with full protection under the Whistleblower Protection Act 2010. Contact: Ms Nor Niza Md Ajib, Chief Audit Executive — nor-niza.md-ajib@cofreth.com.my, Tel: 03-8023 8878.',
+                pdf: '/documents/Whistleblowing_Policy.pdf',
+              },
+              {
+                icon: '🚫',
+                title: 'Anti-Bribery & Corruption Policy',
+                desc: 'Zero-tolerance policy aligned with MACCA Act 2009. Covers gifts, facilitation payments, conflicts of interest and third-party due diligence across all operations (Issue 2, effective 1 Oct 2022).',
+                pdf: '/documents/Anti_Bribery_Corruption_Policy.pdf',
+              },
+              {
+                icon: '📋',
+                title: 'Standard of Business Conduct',
+                desc: 'Cofreth\'s code of conduct governing legal compliance, conflicts of interest, information security, EHS standards, fair labour and disciplinary practices for all staff and partners.',
+                pdf: '/documents/Standard_of_Business_Conduct.pdf',
+              },
+              {
+                icon: '🔒',
+                title: 'Personal Data Protection Policy',
+                desc: 'How Cofreth collects, uses, protects and provides access to personal data for customers and prospective customers in compliance with the Malaysian Personal Data Protection Act.',
+                pdf: '/documents/Personal_Data_Protection_Policy.pdf',
+              },
+            ].map(p => (
+              <div key={p.title} className="bg-white border border-gray-100 rounded-2xl p-6 hover:border-[#6BBD45]/40 hover:shadow-md transition-all">
+                <div className="text-3xl mb-4">{p.icon}</div>
+                <h4 className="font-black text-[#1B3A2D] text-lg mb-3">{p.title}</h4>
+                <p className="text-gray-500 text-base leading-relaxed mb-5">{p.desc}</p>
+                <a href={p.pdf} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[#6BBD45] font-semibold text-sm hover:underline">
+                  View Policy →
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Section 3 — Four Pillars — gray */}
       <div className="py-16 px-6 lg:px-10 xl:px-14 bg-gray-50">
         <div className="max-w-5xl mx-auto">

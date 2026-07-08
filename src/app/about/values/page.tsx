@@ -37,7 +37,7 @@ export default function ValuesPage() {
           ))}
         </div>
 
-        <div className="bg-[#6BBD45]/10 border border-[#6BBD45]/30 rounded-2xl p-8">
+        <div className="bg-[#6BBD45]/10 border border-[#6BBD45]/30 rounded-2xl p-8 mb-6">
           <div className="flex items-start gap-5">
             <div className="text-4xl shrink-0">🤝</div>
             <div>
@@ -45,6 +45,17 @@ export default function ValuesPage() {
               <p className="text-base text-gray-600 leading-relaxed">Cofreth is fully committed and complies with the Responsible Business Alliance as part of our code of business conduct — ensuring ethical practices across our entire supply chain and operations, from procurement to project completion.</p>
             </div>
           </div>
+        </div>
+
+        <div className="bg-[#1B3A2D] rounded-2xl p-8 text-white flex flex-col sm:flex-row items-start sm:items-center gap-6">
+          <div className="flex-1">
+            <h3 className="font-black text-[#6BBD45] text-lg mb-2">Ethics &amp; Core Values Charter</h3>
+            <p className="text-gray-300 text-base leading-relaxed">Our Ethics and Core Values Charter (Rev 0, effective 1 July 2007) formalises these 6 core values as the foundation of all business conduct — governing how every employee, partner and stakeholder is treated across all Cofreth operations.</p>
+          </div>
+          <a href="/documents/Ethics_Core_Values_Charter.pdf" target="_blank" rel="noopener noreferrer"
+            className="shrink-0 border border-[#6BBD45]/40 text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white font-semibold px-6 py-3 rounded-full transition-all whitespace-nowrap text-sm">
+            Download Charter →
+          </a>
         </div>
       </div>
     </>

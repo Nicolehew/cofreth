@@ -11,7 +11,8 @@ export const metadata = {
 };
 
 const themes = [
-  { years: '2018–2020', theme: 'Connect The Possibles, Connecting The Impossibles', highlight: true },
+  { years: '2025',      theme: 'Environmental, Social & Governance (ESG)', highlight: true },
+  { years: '2018–2024', theme: 'Connecting The Possible…' },
   { years: '2015–2017', theme: 'We Never Stop: Believing. Synergizing. Delivering' },
   { years: '2012–2014', theme: 'Change, Innovate, Achieve' },
   { years: '2010–2011', theme: 'Right, Fast Actions: Key to Success' },

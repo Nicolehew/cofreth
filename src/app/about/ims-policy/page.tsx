@@ -59,7 +59,7 @@ export default function IMSPolicyPage() {
                 <p className="text-gray-500 text-sm">Managing Director</p>
               </div>
               <p className="text-gray-500 text-sm">Revision 4 · Effective 1 August 2024</p>
-              <a href="https://www.cofreth.com.my/images/IMS_Policy-Revision_4.pdf" target="_blank" rel="noopener noreferrer"
+              <a href="/documents/IMS_Policy_Revision_4.pdf" target="_blank" rel="noopener noreferrer"
                 className="text-base ml-auto bg-[#6BBD45] hover:bg-[#5aa838] text-white font-semibold px-5 py-2 rounded-full transition-all">
                 Download PDF
               </a>
