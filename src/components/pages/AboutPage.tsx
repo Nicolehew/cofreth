@@ -362,7 +362,7 @@ export default function AboutPage() {
               <div className="mt-8 bg-[#1B3A2D] rounded-2xl p-8 text-white flex flex-col sm:flex-row items-start sm:items-center gap-6">
                 <div className="flex-1">
                   <h3 className="font-black text-[#6BBD45] mb-2">Ethics &amp; Core Values Charter</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">Our Ethics and Core Values Charter (Rev 0, effective 1 July 2007) formalises these 6 core values as the foundation of all business conduct — governing how every employee, partner and stakeholder is treated.</p>
+                  <p className="text-gray-300 text-sm leading-relaxed">Our Ethics and Core Values Charter formalises these 6 core values as the foundation of all business conduct — governing how every employee, partner and stakeholder is treated.</p>
                 </div>
                 <a href="/documents/Ethics_Core_Values_Charter.pdf" target="_blank" rel="noopener noreferrer" className="shrink-0 border border-[#6BBD45]/40 text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-all whitespace-nowrap">
                   Download Charter →
