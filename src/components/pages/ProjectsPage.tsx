@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import PageHero from '@/components/PageHero';
-import { MapPin, ArrowRight, Building2, Zap, Leaf, Cpu } from 'lucide-react';
+import { MapPin, ArrowRight, Building2, Zap, Leaf, Cpu, X } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useState } from 'react';
 
@@ -10,25 +10,25 @@ const filterTabs = ['All', 'Facilities Management', 'Energy & Cooling', 'Green B
 const projects = [
   {
     id: 1,
-    name: 'KLIA2 — Kuala Lumpur International Airport 2',
-    type: 'Energy & Cooling',
-    location: 'Sepang, Selangor',
-    scope: 'District Cooling Plant — first-of-its-kind thermal energy storage system for Malaysia\'s second international airport. Centralised chilled water distribution serving millions of passengers annually.',
-    highlights: ['District Cooling System', 'Thermal Energy Storage', 'ESCO-guaranteed savings'],
-    image: '/projects/klia2.jpg',
+    name: 'Technology Integration Project',
+    type: 'Technology',
+    location: 'Malaysia',
+    scope: 'Smart building technology integration project combining three key systems: Energy Storage System (ESS) for optimal power management, Building Energy Management System (BEMS) for real-time monitoring and control, and Solar Panel installation for renewable energy generation — delivering intelligent, sustainable energy management across the facility.',
+    highlights: ['Energy Storage System (ESS)', 'Building Energy Management System (BEMS)', 'Solar Panel Integration'],
+    image: '/projects/technology-project.jpg',
     featured: true,
-    icon: Zap,
+    icon: Cpu,
   },
   {
     id: 2,
-    name: 'CX5, Cyberjaya — Largest Datacentre in South East Asia',
-    type: 'Facilities Management',
-    location: 'Cyberjaya, Selangor',
-    scope: 'Total Facilities Management for CX5, the largest data centre in Southeast Asia. Mission-critical FM operations including MEP maintenance, power systems, precision cooling and 24/7 uptime assurance.',
-    highlights: ['Mission-critical FM', 'Precision cooling systems', '24/7 operations', 'Largest DC in SEA'],
-    image: '/projects/cx5-datacenter.jpg',
-    featured: true,
-    icon: Building2,
+    name: 'KLIA2 — Green Building Commissioning',
+    type: 'Green Building',
+    location: 'Sepang, Selangor',
+    scope: 'Green Building Commissioning for KLIA2, Kuala Lumpur International Airport 2 — Cofreth provided expert green building consultancy and commissioning services for Malaysia\'s second international airport, supporting the facility\'s sustainability targets and building performance certification.',
+    highlights: ['Green Building Commissioning', 'Airport sector', 'Sustainability consultancy', 'GBI compliance'],
+    image: '/projects/klia2-green-building.jpg',
+    featured: false,
+    icon: Leaf,
   },
   {
     id: 3,
@@ -54,25 +54,25 @@ const projects = [
   },
   {
     id: 5,
-    name: 'Menara AIA Capsquare',
-    type: 'Facilities Management',
+    name: 'Menara AIA Capsquare — Green Building Commissioning',
+    type: 'Green Building',
     location: 'Kuala Lumpur',
-    scope: 'Comprehensive O&M services for one of KL\'s premium Grade A office towers, delivering high-standard facility operations for AIA\'s flagship Malaysia headquarters.',
-    highlights: ['Grade A office FM', 'MEP operations', 'Tenant services'],
-    image: '/projects/menara-aia-capsquare.jpg',
+    scope: 'Green Building Commissioning for Menara AIA Capsquare — Cofreth provided expert green building consultancy and commissioning services for one of KL\'s premium Grade A office towers, supporting GBI certification and sustainable building performance.',
+    highlights: ['Green Building Commissioning', 'GBI certification', 'Grade A office tower', 'Sustainability'],
+    image: '/projects/menara-aia-green.jpg',
     featured: false,
-    icon: Building2,
+    icon: Leaf,
   },
   {
     id: 6,
-    name: 'PNB 1194 (MAS Office Tower & Hotel)',
-    type: 'Facilities Management',
+    name: 'PNB 1194 — Green Building Commissioning',
+    type: 'Green Building',
     location: 'Kuala Lumpur',
-    scope: 'Integrated FM for this dual-tower development comprising the Malaysia Airlines office headquarters and a premium hotel — a complex, high-profile asset requiring round-the-clock FM excellence.',
-    highlights: ['Dual-tower FM', 'Office + hospitality', '24/7 operations'],
-    image: '/projects/pnb-1194.jpg',
+    scope: 'Green Building Commissioning for PNB 1194 (MAS Office Tower & Hotel) — Cofreth delivered green building consultancy and commissioning services for this dual-tower development comprising the Malaysia Airlines headquarters and premium hotel, supporting its sustainability and GBI certification targets.',
+    highlights: ['Green Building Commissioning', 'GBI certification', 'MAS HQ tower', 'Dual-tower development'],
+    image: '/projects/pnb-1194-green.png',
     featured: false,
-    icon: Building2,
+    icon: Leaf,
   },
   {
     id: 7,
@@ -92,7 +92,7 @@ const projects = [
     location: 'Malaysia',
     scope: 'Cofreth was engaged as green building commissioning specialist for Malaysia\'s first data centre to achieve green certification — a landmark achievement in sustainable technology infrastructure.',
     highlights: ['Malaysia\'s 1st green DC', 'Green commissioning', 'Technology sector'],
-    image: '/projects/green-datacenter.jpg',
+    image: '/projects/data-centre-green.jpg',
     featured: false,
     icon: Leaf,
   },
@@ -109,14 +109,14 @@ const projects = [
   },
   {
     id: 10,
-    name: 'Cyberjaya Mosque',
-    type: 'Facilities Management',
+    name: 'Cyberjaya Mosque — GBI Facilitator',
+    type: 'Green Building',
     location: 'Cyberjaya, Selangor',
-    scope: 'Facilities management and maintenance for Cyberjaya\'s landmark mosque — a community icon requiring sensitive, high-quality FM that respects the significance and heritage of the facility.',
-    highlights: ['Landmark facility', 'Sensitive FM', 'Community icon'],
-    image: '/projects/cyberjaya-mosque.jpg',
+    scope: 'GBI Facilitator for Cyberjaya Mosque — Cofreth served as the Green Building Index (GBI) Facilitator for this landmark mosque, guiding the facility through the GBI certification process and ensuring it meets Malaysia\'s sustainability and green building standards.',
+    highlights: ['GBI Facilitator', 'Green certification', 'Landmark mosque', 'Sustainability'],
+    image: '/projects/cyberjaya-mosque-gbi.jpg',
     featured: false,
-    icon: Building2,
+    icon: Leaf,
   },
   {
     id: 11,
@@ -132,13 +132,13 @@ const projects = [
   {
     id: 12,
     name: 'British American Tobacco (BAT)',
-    type: 'Energy & Cooling',
+    type: 'Facilities Management',
     location: 'Malaysia',
-    scope: 'Energy audit and CEEP© energy efficiency programme implementation for BAT\'s Malaysian operations, delivering verified energy cost savings and improved environmental performance across manufacturing facilities.',
-    highlights: ['Energy audit', 'CEEP©', 'Industrial sector', 'Verified savings'],
-    image: '/projects/bat-guoco-tower.jpg',
+    scope: 'Operations & Maintenance services for British American Tobacco\'s Malaysian facilities — delivering comprehensive MEP maintenance, planned preventive maintenance programmes and responsive corrective maintenance across BAT\'s manufacturing and office operations.',
+    highlights: ['Operations & Maintenance', 'MEP systems', 'PPM programmes', 'Industrial sector'],
+    image: '/projects/bat-om.jpg',
     featured: false,
-    icon: Zap,
+    icon: Building2,
   },
   {
     id: 13,
@@ -153,6 +153,28 @@ const projects = [
   },
   {
     id: 14,
+    name: 'Energy Audit Projects',
+    type: 'Energy & Cooling',
+    location: 'Malaysia',
+    scope: 'Comprehensive energy audits conducted for major commercial clients including Genting Highland Hotels & Casino and One Utama Shopping Centre — identifying energy inefficiencies, benchmarking consumption, and delivering actionable recommendations for measurable cost reduction.',
+    highlights: ['Genting Highland Hotels & Casino', 'One Utama Shopping Centre', 'Energy audits', 'Cost reduction'],
+    image: '/projects/energy-audit-project.jpg',
+    featured: false,
+    icon: Zap,
+  },
+  {
+    id: 15,
+    name: 'Energy Performance Contracting (EPC)',
+    type: 'Energy & Cooling',
+    location: 'Malaysia',
+    scope: 'Guaranteed Energy Performance Contracting (EPC) engagements delivering CEEP©-backed energy savings. Cofreth assumes the full performance risk — clients receive verified, measurable reductions in energy expenditure with savings guaranteed by contract.',
+    highlights: ['EPC contracts', 'Guaranteed savings', 'CEEP© model', 'Performance risk transfer'],
+    image: '/projects/epc-project.jpg',
+    featured: false,
+    icon: Zap,
+  },
+  {
+    id: 16,
     name: 'KLIA2 District Cooling Plant',
     type: 'Energy & Cooling',
     location: 'Sepang, Selangor',
@@ -190,15 +212,45 @@ function FeaturedProject({ project }: { project: typeof projects[0] }) {
   );
 }
 
-function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
+function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClose: () => void }) {
+  const Icon = project.icon;
+  return (
+    <div className="fixed inset-0 z-[500] flex items-center justify-center p-4" style={{ background: 'rgba(0,0,0,0.75)' }} onClick={onClose}>
+      <div className="bg-white rounded-3xl overflow-hidden max-w-2xl w-full shadow-2xl" onClick={e => e.stopPropagation()}>
+        <div className="relative h-56">
+          <img src={project.image} alt={project.name} className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(4,12,8,0.95) 0%, rgba(4,12,8,0.4) 100%)' }} />
+          <button onClick={onClose} className="absolute top-4 right-4 w-9 h-9 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all">
+            <X size={16} />
+          </button>
+          <div className="absolute bottom-4 left-5 right-5">
+            <span className="bg-[#6BBD45] text-white text-xs font-bold px-3 py-1.5 rounded-full tracking-widest uppercase mb-2 inline-block">{project.type}</span>
+            <h2 className="text-white font-black text-xl leading-tight">{project.name}</h2>
+            <p className="text-white/70 text-xs flex items-center gap-1 mt-1"><MapPin size={11} />{project.location}</p>
+          </div>
+        </div>
+        <div className="p-6">
+          <p className="text-gray-600 text-base leading-relaxed mb-5">{project.scope}</p>
+          <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-100">
+            {project.highlights.map(h => (
+              <span key={h} className="text-xs bg-[#6BBD45]/10 text-[#1B3A2D] px-3 py-1.5 rounded-full font-semibold border border-[#6BBD45]/20">{h}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProjectCard({ project, index, onSelect }: { project: typeof projects[0]; index: number; onSelect: () => void }) {
   const reveal = useScrollReveal(0.1);
   const Icon = project.icon;
   return (
     <div ref={reveal.ref} className="transition-all duration-700"
       style={{ opacity: reveal.visible ? 1 : 0, transform: reveal.visible ? 'none' : 'translateY(40px)', transitionDelay: `${index * 60}ms` }}>
-      <div className="group bg-white border border-gray-100 hover:border-[#6BBD45]/40 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-400 hover:-translate-y-2 flex flex-col h-full">
+      <button onClick={onSelect} className="group bg-white border border-gray-100 hover:border-[#6BBD45]/40 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-400 hover:-translate-y-2 flex flex-col h-full w-full text-left">
         <div className="relative h-52 overflow-hidden">
-          <img src={project.image} alt={project.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-108" />
+          <img src={project.image} alt={project.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           <span className="absolute top-4 left-4 bg-white/15 backdrop-blur-sm border border-white/25 text-white text-xs font-bold px-3 py-1.5 rounded-full tracking-wider">{project.type}</span>
           <div className="absolute bottom-4 right-4 w-9 h-9 bg-[#6BBD45] rounded-xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -216,20 +268,23 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
               <span key={h} className="text-xs bg-[#6BBD45]/8 text-[#1B3A2D] px-2.5 py-1 rounded-full font-medium border border-[#6BBD45]/15">{h}</span>
             ))}
           </div>
+          <p className="text-[#6BBD45] text-xs font-semibold mt-3">Read more →</p>
         </div>
-      </div>
+      </button>
     </div>
   );
 }
 
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [selected, setSelected] = useState<typeof projects[0] | null>(null);
 
   const featured = projects.filter(p => p.featured);
   const rest = projects.filter(p => !p.featured && (activeFilter === 'All' || p.type === activeFilter));
 
   return (
     <>
+      {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
       <PageHero
         bgImage="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=90"
         eyebrow="Project Highlights"
@@ -237,7 +292,7 @@ export default function ProjectsPage() {
         title={<>Our Track Record in<br /><span className="text-[#6BBD45]">FM &amp; Energy Services</span></>}
         subtitle="From Malaysia's largest data centre to the nation's first GBI-rated office tower — 38 years of landmark projects across every sector."
         stats={[
-          { num: '14+',    label: 'Notable Projects' },
+          { num: '16+',    label: 'Notable Projects' },
           { num: '38+',    label: 'Years Experience' },
           { num: 'MY #1',  label: 'Pioneer FM ESCO' },
           { num: 'ASEAN',  label: 'Award Winner' },
@@ -252,7 +307,11 @@ export default function ProjectsPage() {
             <h2 className="text-lg font-bold text-[#1B3A2D]">Flagship Projects</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-5">
-            {featured.map(p => <FeaturedProject key={p.id} project={p} />)}
+            {featured.map(p => (
+              <button key={p.id} onClick={() => setSelected(p)} className="text-left w-full">
+                <FeaturedProject project={p} />
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -284,7 +343,7 @@ export default function ProjectsPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {rest.map((project, i) => <ProjectCard key={project.id} project={project} index={i} />)}
+            {rest.map((project, i) => <ProjectCard key={project.id} project={project} index={i} onSelect={() => setSelected(project)} />)}
           </div>
         </div>
       </section>
