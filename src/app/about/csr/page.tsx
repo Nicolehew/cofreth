@@ -126,7 +126,60 @@ export default function CSRPage() {
         </div>
       </div>
 
-      {/* Section 2 — SDG Goals — dark green */}
+      {/* Section 2 — Contributions to Publications */}
+      <div className="py-16 px-6 lg:px-10 xl:px-14 bg-[#f8fdf5] border-t border-[#6BBD45]/20">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-10">
+            <span className="text-xs font-black uppercase tracking-[0.2em] text-[#6BBD45]">Thought Leadership</span>
+            <h3 className="font-black text-[#1B3A2D] text-3xl mt-2 mb-3">Contributions to Publications</h3>
+            <p className="text-gray-600 text-base leading-relaxed max-w-2xl">
+              Cofreth's technical experts have contributed to shaping Malaysia's national standards and industry guidelines — sharing knowledge that raises the bar for the entire sector.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              {
+                label: 'JKR Guidelines',
+                title: 'Prevention of Mould Growth in Buildings',
+                body: 'Co-authored guidelines under Jabatan Kerja Raya (JKR) to address mould prevention in built environments across Malaysia.',
+              },
+              {
+                label: 'MAESCO',
+                title: 'Energy Audit Guidelines',
+                body: 'Contributed to the Malaysian Association of Energy Service Companies (MAESCO) energy audit guidelines — the benchmark for energy audits in Malaysia.',
+              },
+              {
+                label: 'MS 1525:2014',
+                title: 'Energy Efficiency for Non-Residential Buildings',
+                body: 'Code of practice on energy efficiency and use of renewable energy for non-residential buildings — a revised national standard.',
+              },
+              {
+                label: 'MS 2578-1/2/3:2014',
+                title: 'Industrial Electrical Equipment Standards',
+                body: 'New Malaysian Standards for energy efficiency and conservation for fans, cooling towers and motors used in industrial facilities.',
+              },
+              {
+                label: 'Energy Guidelines',
+                title: 'Energy Efficiency & Conservation Guidelines for Malaysian Industries',
+                body: 'Contributed to both Part 1 (Electrical Energy-use Equipment) and Part 2 (Thermal Energy-use Equipment) of this national industry guideline.',
+              },
+              {
+                label: 'Code of Practice',
+                title: 'Mould Prevention Standard',
+                body: 'Contributed technical expertise to the national Code of Practice on Mould Prevention — protecting indoor air quality across Malaysian buildings.',
+              },
+            ].map(pub => (
+              <div key={pub.title} className="bg-white border border-[#6BBD45]/20 rounded-2xl p-6 hover:shadow-md hover:border-[#6BBD45]/50 transition-all">
+                <span className="inline-block text-xs font-black text-[#6BBD45] bg-[#6BBD45]/10 px-3 py-1 rounded-full mb-3 tracking-wider uppercase">{pub.label}</span>
+                <h4 className="font-black text-[#1B3A2D] text-base mb-2">{pub.title}</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">{pub.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Section 3 — SDG Goals — dark green */}
       <div className="py-16 px-6 lg:px-10 xl:px-14" style={{ background: 'linear-gradient(135deg, #0F2419 0%, #1B3A2D 100%)' }}>
         <div className="max-w-5xl mx-auto">
           <div className="mb-10">
