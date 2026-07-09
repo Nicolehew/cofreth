@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import PageHero from '@/components/PageHero';
-import { MapPin, ArrowRight, Building2, Zap, Leaf, Cpu, X } from 'lucide-react';
+import { MapPin, ArrowRight, Building2, Zap, Leaf, Cpu, X, Download } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useState } from 'react';
 
@@ -18,6 +18,7 @@ const projects = [
     image: '/projects/technology-project.jpg',
     featured: false,
     icon: Cpu,
+    pptx: '/documents/Technology_Project.pptx',
   },
   {
     id: 2,
@@ -29,6 +30,7 @@ const projects = [
     image: '/projects/klia2-green-building.jpg',
     featured: false,
     icon: Leaf,
+    pptx: '/documents/KLIA2_Green_Building_Consultancy.pptx',
   },
   {
     id: 3,
@@ -62,6 +64,7 @@ const projects = [
     image: '/projects/menara-aia-green.jpg',
     featured: false,
     icon: Leaf,
+    pptx: '/documents/Menara_AIA_Capsquare.pptx',
   },
   {
     id: 6,
@@ -73,6 +76,7 @@ const projects = [
     image: '/projects/pnb-1194-green.png',
     featured: false,
     icon: Leaf,
+    pptx: '/documents/PNB_1194_Green_Building_Consultancy.pptx',
   },
   {
     id: 7,
@@ -95,6 +99,7 @@ const projects = [
     image: '/projects/data-centre-green.jpg',
     featured: false,
     icon: Leaf,
+    pptx: '/documents/Data_Centre.pptx',
   },
   {
     id: 9,
@@ -117,6 +122,7 @@ const projects = [
     image: '/projects/cyberjaya-mosque-gbi.jpg',
     featured: false,
     icon: Leaf,
+    pptx: '/documents/Cyberjaya_Mosque_GBI_Facilitator.pptx',
   },
   {
     id: 11,
@@ -139,6 +145,7 @@ const projects = [
     image: '/projects/bat-gbi.jpg',
     featured: false,
     icon: Leaf,
+    pptx: '/documents/BAT_GBI_Facilitator.pptx',
   },
   {
     id: 13,
@@ -161,6 +168,7 @@ const projects = [
     image: '/projects/energy-audit-project.jpg',
     featured: false,
     icon: Zap,
+    pptx: '/documents/Energy_Audit_Projects.pptx',
   },
   {
     id: 15,
@@ -172,6 +180,7 @@ const projects = [
     image: '/projects/epc-project.jpg',
     featured: false,
     icon: Zap,
+    pptx: '/documents/EPC_Project.pptx',
   },
   {
     id: 16,
@@ -205,11 +214,20 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
         </div>
         <div className="p-6">
           <p className="text-gray-600 text-base leading-relaxed mb-5">{project.scope}</p>
-          <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-100">
+          <div className="flex flex-wrap gap-2 pb-4 border-b border-gray-100 mb-4">
             {project.highlights.map(h => (
               <span key={h} className="text-xs bg-[#6BBD45]/10 text-[#1B3A2D] px-3 py-1.5 rounded-full font-semibold border border-[#6BBD45]/20">{h}</span>
             ))}
           </div>
+          {project.pptx && (
+            <a
+              href={project.pptx}
+              download
+              className="inline-flex items-center gap-2 bg-[#1B3A2D] hover:bg-[#6BBD45] text-white font-semibold px-5 py-2.5 rounded-full transition-all text-sm"
+            >
+              <Download size={14} /> Download Presentation
+            </a>
+          )}
         </div>
       </div>
     </div>
