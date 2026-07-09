@@ -16,7 +16,7 @@ const projects = [
     scope: 'Smart building technology integration project combining three key systems: Energy Storage System (ESS) for optimal power management, Building Energy Management System (BEMS) for real-time monitoring and control, and Solar Panel installation for renewable energy generation — delivering intelligent, sustainable energy management across the facility.',
     highlights: ['Energy Storage System (ESS)', 'Building Energy Management System (BEMS)', 'Solar Panel Integration'],
     image: '/projects/technology-project.jpg',
-    featured: true,
+    featured: false,
     icon: Cpu,
   },
   {
@@ -186,32 +186,6 @@ const projects = [
   },
 ];
 
-function FeaturedProject({ project }: { project: typeof projects[0] }) {
-  const reveal = useScrollReveal();
-  const Icon = project.icon;
-  return (
-    <div ref={reveal.ref} className="transition-all duration-700" style={{ opacity: reveal.visible ? 1 : 0, transform: reveal.visible ? 'none' : 'translateY(30px)' }}>
-      <div className="group relative rounded-3xl overflow-hidden shadow-2xl" style={{ minHeight: 480 }}>
-        <img src={project.image} alt={project.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(4,12,8,0.97) 0%, rgba(4,12,8,0.70) 50%, rgba(4,12,8,0.20) 100%)' }} />
-        <div className="absolute inset-0 p-8 lg:p-12 flex flex-col justify-end">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="bg-[#6BBD45] text-white text-xs font-bold px-3 py-1.5 rounded-full tracking-widest uppercase">{project.type}</span>
-            <span className="text-white/60 text-sm flex items-center gap-1.5"><MapPin size={13} />{project.location}</span>
-          </div>
-          <h2 className="text-2xl md:text-3xl font-black text-white mb-3 leading-tight">{project.name}</h2>
-          <p className="text-gray-300 text-base leading-relaxed mb-5 max-w-2xl">{project.scope}</p>
-          <div className="flex flex-wrap gap-2">
-            {project.highlights.map(h => (
-              <span key={h} className="text-xs bg-white/10 border border-white/20 text-white px-3 py-1.5 rounded-full font-medium">{h}</span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClose: () => void }) {
   const Icon = project.icon;
   return (
@@ -279,8 +253,7 @@ export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [selected, setSelected] = useState<typeof projects[0] | null>(null);
 
-  const featured = projects.filter(p => p.featured);
-  const rest = projects.filter(p => !p.featured && (activeFilter === 'All' || p.type === activeFilter));
+  const rest = projects.filter(p => activeFilter === 'All' || p.type === activeFilter);
 
   return (
     <>
@@ -298,23 +271,6 @@ export default function ProjectsPage() {
           { num: 'ASEAN',  label: 'Award Winner' },
         ]}
       />
-
-      {/* Flagship projects */}
-      <section className="py-10 md:py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
-            <h2 className="text-lg font-bold text-[#1B3A2D]">Flagship Projects</h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-5">
-            {featured.map(p => (
-              <button key={p.id} onClick={() => setSelected(p)} className="text-left w-full">
-                <FeaturedProject project={p} />
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Filtered grid */}
       <section className="py-10 md:py-16 bg-white">
