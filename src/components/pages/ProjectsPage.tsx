@@ -132,13 +132,13 @@ const projects = [
   {
     id: 12,
     name: 'British American Tobacco (BAT)',
-    type: 'Facilities Management',
+    type: 'Green Building',
     location: 'Malaysia',
-    scope: 'Operations & Maintenance services for British American Tobacco\'s Malaysian facilities — delivering comprehensive MEP maintenance, planned preventive maintenance programmes and responsive corrective maintenance across BAT\'s manufacturing and office operations.',
-    highlights: ['Operations & Maintenance', 'MEP systems', 'PPM programmes', 'Industrial sector'],
-    image: '/projects/bat-om.jpg',
+    scope: 'GBI Facilitator for British American Tobacco\'s Malaysian facility — Cofreth served as the Green Building Index (GBI) Facilitator, guiding BAT through the GBI certification process and ensuring the facility meets Malaysia\'s sustainability and green building standards.',
+    highlights: ['GBI Facilitator', 'Green certification', 'Industrial sector', 'Sustainability'],
+    image: '/projects/bat-gbi.jpg',
     featured: false,
-    icon: Building2,
+    icon: Leaf,
   },
   {
     id: 13,
