@@ -201,9 +201,17 @@ export default function GroupPage() {
           <p className="text-center text-sm font-bold text-[#1B3A2D] uppercase tracking-widest mb-6 sm:mb-8">Our Strategic Partners</p>
           <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-10 md:gap-16">
             {partners.map(p => (
-              <div key={p.id} className="flex items-center justify-center">
-                <img src={p.logo} alt={p.name} className="h-14 sm:h-16 max-w-[130px] sm:max-w-[160px] object-contain" />
-              </div>
+              p.website ? (
+                <a key={p.id} href={p.website} target="_blank" rel="noopener noreferrer"
+                  title={`Visit ${p.name}`}
+                  className="flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-200 hover:scale-105 transform">
+                  <img src={p.logo} alt={p.name} className="h-14 sm:h-16 max-w-[130px] sm:max-w-[160px] object-contain" />
+                </a>
+              ) : (
+                <div key={p.id} className="flex items-center justify-center opacity-70">
+                  <img src={p.logo} alt={p.name} className="h-14 sm:h-16 max-w-[130px] sm:max-w-[160px] object-contain" />
+                </div>
+              )
             ))}
           </div>
         </div>
