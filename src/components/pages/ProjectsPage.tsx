@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import PageHero from '@/components/PageHero';
 import { MapPin, ArrowRight, Building2, Zap, Leaf, Cpu, X, Download } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
@@ -73,7 +74,7 @@ const projects = [
     location: 'Kuala Lumpur',
     scope: 'Green Building Consultancy for PNB 1194 (MAS Office Tower & Hotel) — Cofreth delivered green building consultancy services for this dual-tower development comprising the Malaysia Airlines headquarters and premium hotel, supporting its sustainability and GBI certification targets.',
     highlights: ['Green Building Consultancy', 'GBI certification', 'MAS HQ tower', 'Dual-tower development'],
-    image: '/projects/pnb-1194-green.png',
+    image: '/projects/pnb-1194-green.jpg',
     featured: false,
     icon: Leaf,
     pptx: '/documents/PNB_1194_Green_Building_Consultancy.pptx',
@@ -138,11 +139,11 @@ const projects = [
   {
     id: 12,
     name: 'British American Tobacco (BAT)',
-    type: 'Green Building',
+    type: 'Facilities Management',
     location: 'Malaysia',
-    scope: 'GBI Facilitator for British American Tobacco\'s Malaysian facility — Cofreth served as the Green Building Index (GBI) Facilitator, guiding BAT through the GBI certification process and ensuring the facility meets Malaysia\'s sustainability and green building standards.',
-    highlights: ['GBI Facilitator', 'Green certification', 'Industrial sector', 'Sustainability'],
-    image: '/projects/bat-gbi.jpg',
+    scope: 'Comprehensive Facilities Maintenance for British American Tobacco\'s Malaysian facilities — delivering end-to-end MEP maintenance, planned preventive maintenance programmes and responsive corrective maintenance across BAT\'s manufacturing and office operations.',
+    highlights: ['Comprehensive FM', 'MEP maintenance', 'PPM programmes', 'Industrial sector'],
+    image: '/projects/bat-guoco-tower.jpg',
     featured: false,
     icon: Leaf,
     pptx: '/documents/BAT_GBI_Facilitator.pptx',
@@ -201,7 +202,7 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
     <div className="fixed inset-0 z-[500] flex items-center justify-center p-4" style={{ background: 'rgba(0,0,0,0.75)' }} onClick={onClose}>
       <div className="bg-white rounded-3xl overflow-hidden max-w-2xl w-full shadow-2xl" onClick={e => e.stopPropagation()}>
         <div className="relative h-56">
-          <img src={project.image} alt={project.name} className="absolute inset-0 w-full h-full object-cover" />
+          <Image src={project.image} alt={project.name} fill className="object-cover" sizes="672px" />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(4,12,8,0.95) 0%, rgba(4,12,8,0.4) 100%)' }} />
           <button onClick={onClose} className="absolute top-4 right-4 w-9 h-9 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all">
             <X size={16} />
@@ -242,7 +243,7 @@ function ProjectCard({ project, index, onSelect }: { project: typeof projects[0]
       style={{ opacity: reveal.visible ? 1 : 0, transform: reveal.visible ? 'none' : 'translateY(40px)', transitionDelay: `${index * 60}ms` }}>
       <button onClick={onSelect} className="group bg-white border border-gray-100 hover:border-[#6BBD45]/40 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-400 hover:-translate-y-2 flex flex-col h-full w-full text-left">
         <div className="relative h-52 overflow-hidden">
-          <img src={project.image} alt={project.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <Image src={project.image} alt={project.name} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           <span className="absolute top-4 left-4 bg-white/15 backdrop-blur-sm border border-white/25 text-white text-xs font-bold px-3 py-1.5 rounded-full tracking-wider">{project.type}</span>
           <div className="absolute bottom-4 right-4 w-9 h-9 bg-[#6BBD45] rounded-xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
