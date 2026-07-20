@@ -180,7 +180,7 @@ export default function GroupPage() {
         <div className="max-w-5xl mx-auto px-6 text-center">
           <p className="text-sm font-bold text-[#1B3A2D] uppercase tracking-widest mb-6 sm:mb-8">Our Shareholder</p>
           <div className="inline-flex flex-col items-center gap-3 sm:gap-4">
-            <a href="https://www.j-els.co.jp/" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.jes24.co.jp/en/index.html" target="_blank" rel="noopener noreferrer"
               className="bg-white rounded-2xl p-5 sm:p-8 shadow-sm border border-gray-100 hover:border-[#1B3A2D]/30 hover:shadow-md transition-all">
               <img
                 src="/partners/jes.png"
@@ -190,9 +190,9 @@ export default function GroupPage() {
             </a>
             <div className="px-4 text-center">
               <p className="font-bold text-[#1B3A2D] text-base sm:text-lg leading-snug">Japan Elevator Service Holdings Co., Ltd.</p>
-              <a href="https://www.j-els.co.jp/" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.jes24.co.jp/en/index.html" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-400 hover:text-[#1B3A2D] transition-colors mt-1">
-                <ExternalLink size={11} /> j-els.co.jp
+                <ExternalLink size={11} /> jes24.co.jp
               </a>
             </div>
           </div>
