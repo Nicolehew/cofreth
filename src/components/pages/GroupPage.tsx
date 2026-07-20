@@ -10,8 +10,8 @@ const partners = [
     id: 1,
     name: 'BEST Energy Saving',
     logo: '/partners/best.png',
-    website: 'https://bestenergysaving.com/eniscope',
-    websiteLabel: 'bestenergysaving.com',
+    website: 'https://best.energy/solutions/energy-monitoring',
+    websiteLabel: 'best.energy',
     tagline: 'Energy Monitoring & Saving Solutions',
     color: '#f59e0b',
     desc: 'BEST Energy Saving is Cofreth\'s strategic partner for energy monitoring, measurement and saving solutions. Specialising in the Eniscope real-time energy management platform, BEST enables facilities to monitor energy consumption at the circuit level — delivering granular insight that drives measurable savings. Working hand-in-hand with Cofreth\'s ESCO operations, BEST ensures every energy conservation measure is supported by proven, real-time monitoring technology.',
@@ -46,8 +46,8 @@ const partners = [
     id: 3,
     name: 'Archibus ASCHT',
     logo: '/partners/archibus.png',
-    website: 'http://www.archibus-ascht.com',
-    websiteLabel: 'archibus-ascht.com',
+    website: 'http://eptura.com',
+    websiteLabel: 'eptura.com',
     tagline: 'Integrated Workplace Management System (IWMS)',
     color: '#8b5cf6',
     desc: 'Archibus ASCHT is an authorised Archibus solution partner delivering world-class Integrated Workplace Management System (IWMS) solutions to enterprises, government bodies and institutions. Archibus is the global gold standard for FM and real estate software. Through this partnership, Cofreth is able to offer clients a complete technology-driven FM platform — combining operational expertise with enterprise-grade software to reduce costs and elevate the occupant experience.',
@@ -180,15 +180,20 @@ export default function GroupPage() {
         <div className="max-w-5xl mx-auto px-6 text-center">
           <p className="text-sm font-bold text-[#1B3A2D] uppercase tracking-widest mb-6 sm:mb-8">Our Shareholder</p>
           <div className="inline-flex flex-col items-center gap-3 sm:gap-4">
-            <div className="bg-white rounded-2xl p-5 sm:p-8 shadow-sm border border-gray-100">
+            <a href="https://www.j-els.co.jp/" target="_blank" rel="noopener noreferrer"
+              className="bg-white rounded-2xl p-5 sm:p-8 shadow-sm border border-gray-100 hover:border-[#1B3A2D]/30 hover:shadow-md transition-all">
               <img
                 src="/partners/jes.png"
                 alt="Japan Elevator Service"
                 className="h-28 sm:h-36 max-w-[200px] sm:max-w-[260px] object-contain"
               />
-            </div>
-            <div className="px-4">
+            </a>
+            <div className="px-4 text-center">
               <p className="font-bold text-[#1B3A2D] text-base sm:text-lg leading-snug">Japan Elevator Service Holdings Co., Ltd.</p>
+              <a href="https://www.j-els.co.jp/" target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-400 hover:text-[#1B3A2D] transition-colors mt-1">
+                <ExternalLink size={11} /> j-els.co.jp
+              </a>
             </div>
           </div>
         </div>
