@@ -16,7 +16,6 @@ const aboutLinks = [
   { label: 'Cofreth At A Glance',   href: '/about',    icon: Info,      desc: 'Our story, history & certifications' },
   { label: 'Group Of Companies',    href: '/group',    icon: Users,     desc: 'Our strategic partners' },
   { label: 'Awards & Recognitions', href: '/awards',   icon: Award,     desc: 'Frost & Sullivan, NEA & more' },
-  { label: 'Careers',               href: '/careers',  icon: Briefcase, desc: 'Join the Cofreth team' },
 ];
 
 const navLinks = [
@@ -26,6 +25,7 @@ const navLinks = [
   { label: 'Projects',  href: '/projects' },
   { label: 'News',      href: '/news' },
   { label: 'Clientele', href: '/clientele' },
+  { label: 'Careers',   href: '/careers' },
   { label: 'Contact',   href: '/contact' },
 ];
 
@@ -259,6 +259,7 @@ export default function Navbar() {
               { label: 'Projects',  href: '/projects' },
               { label: 'News',      href: '/news' },
               { label: 'Clientele', href: '/clientele' },
+              { label: 'Careers',   href: '/careers' },
               { label: 'Contact',   href: '/contact' },
             ].map((link) => (
               <li key={link.href}>
