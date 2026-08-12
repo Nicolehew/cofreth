@@ -5,101 +5,21 @@ import { ArrowRight, ExternalLink, Building2 } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-/* ── Exact partners from cofreth.com.my/group.php ── */
-const partners = [
-  {
-    id: 1,
-    name: 'BEST Energy Saving',
-    logo: '/partners/best.png',
-    website: 'https://best.energy/solutions/energy-monitoring',
-    websiteLabel: 'best.energy',
-    tagline: 'Energy Monitoring & Saving Solutions',
-    color: '#f59e0b',
-    desc: 'BEST Energy Saving is Cofreth\'s strategic partner for energy monitoring, measurement and saving solutions. Specialising in the Eniscope real-time energy management platform, BEST enables facilities to monitor energy consumption at the circuit level — delivering granular insight that drives measurable savings. Working hand-in-hand with Cofreth\'s ESCO operations, BEST ensures every energy conservation measure is supported by proven, real-time monitoring technology.',
-    capabilities: [
-      'Eniscope real-time energy monitoring platform',
-      'Circuit-level energy measurement',
-      'Energy dashboards & analytics',
-      'Carbon footprint tracking',
-      'Remote energy management',
-      'Demand side management support',
-    ],
-  },
-  {
-    id: 2,
-    name: 'GIS-BIM',
-    logo: '/partners/junesun.png',
-    website: 'http://www.gis-bim.com',
-    websiteLabel: 'gis-bim.com',
-    tagline: 'Building Information Modelling & Intelligent Engineering',
-    color: '#6BBD45',
-    desc: 'GIS-BIM (宗陞智能工程) is a digital strategy expert specialising in Building Information Modelling (BIM), Project Management Information Systems (PMIS) and Facilities Management technology. The company delivers integrated software solutions for infrastructure clients in engineering and operations maintenance — creating digital twins, smart city simulations and IoT-enabled FM operations that transform how facilities are managed throughout their lifecycle.',
-    capabilities: [
-      'Building Information Modelling (BIM) implementation',
-      'Digital twin creation for facilities',
-      'Project Management Information Systems (PMIS)',
-      'BIM-enabled FM operations (BIM-FM)',
-      'IoT monitoring & building automation',
-      '4D cloud-based construction management',
-    ],
-  },
-  {
-    id: 3,
-    name: 'Archibus ASCHT',
-    logo: '/partners/archibus.png',
-    website: 'http://eptura.com',
-    websiteLabel: 'eptura.com',
-    tagline: 'Integrated Workplace Management System (IWMS)',
-    color: '#8b5cf6',
-    desc: 'Archibus ASCHT is an authorised Archibus solution partner delivering world-class Integrated Workplace Management System (IWMS) solutions to enterprises, government bodies and institutions. Archibus is the global gold standard for FM and real estate software. Through this partnership, Cofreth is able to offer clients a complete technology-driven FM platform — combining operational expertise with enterprise-grade software to reduce costs and elevate the occupant experience.',
-    capabilities: [
-      'Archibus IWMS implementation & customisation',
-      'Space & occupancy management',
-      'Asset & maintenance management (CMMS)',
-      'Move management & space planning',
-      'Real estate portfolio management',
-      'Sustainability & energy reporting',
-    ],
-  },
-  {
-    id: 4,
-    name: 'C.eXergy International',
-    logo: '/partners/cexergy.png',
-    website: null,
-    websiteLabel: null,
-    tagline: 'Cooling & Energy Optimisation',
-    color: '#3b82f6',
-    desc: 'C.eXergy International is a specialist in cooling system optimisation and energy efficiency for chilled water and HVAC systems. As a strategic partner, C.eXergy contributes advanced engineering expertise in thermal systems — enabling Cofreth to deliver enhanced performance for district cooling, precision cooling for data centres and complex multi-chiller plant optimisation projects across Malaysia and the region.',
-    capabilities: [
-      'Chilled water system optimisation',
-      'Multi-chiller plant performance tuning',
-      'District cooling system support',
-      'HVAC energy efficiency programmes',
-      'Precision cooling for data centres',
-      'Thermal energy storage engineering',
-    ],
-  },
-  {
-    id: 5,
-    name: 'TI FM International',
-    logo: '/partners/tifm.png',
-    website: null,
-    websiteLabel: null,
-    tagline: 'International FM Expertise & Networks',
-    color: '#ef4444',
-    desc: 'TI FM International brings international facilities management expertise and networks to the Cofreth group. As a global FM knowledge and partnership platform, TI FM International connects Cofreth with international best practices, benchmarking standards and cross-border FM opportunities — strengthening our ability to serve multinational clients with internationally aligned FM delivery models.',
-    capabilities: [
-      'International FM best practices',
-      'Global FM benchmarking & standards',
-      'Cross-border FM operations support',
-      'Multinational client programme management',
-      'International FM knowledge networks',
-      'Regional ASEAN FM expertise',
-    ],
-  },
+const PARTNER_META = [
+  { id: 1, name: 'BEST Energy Saving',    logo: '/partners/best.png',     website: 'https://best.energy/solutions/energy-monitoring', websiteLabel: 'best.energy',  color: '#f59e0b' },
+  { id: 2, name: 'GIS-BIM',               logo: '/partners/junesun.png',  website: 'http://www.gis-bim.com',                          websiteLabel: 'gis-bim.com',  color: '#6BBD45' },
+  { id: 3, name: 'Archibus ASCHT',         logo: '/partners/archibus.png', website: 'http://eptura.com',                               websiteLabel: 'eptura.com',   color: '#8b5cf6' },
+  { id: 4, name: 'C.eXergy International', logo: '/partners/cexergy.png', website: null,                                              websiteLabel: null,           color: '#3b82f6' },
+  { id: 5, name: 'TI FM International',    logo: '/partners/tifm.png',    website: null,                                              websiteLabel: null,           color: '#ef4444' },
 ];
 
-function PartnerCard({ partner, i }: { partner: typeof partners[0]; i: number }) {
+interface PartnerEntry {
+  id: number; name: string; logo: string;
+  website: string | null; websiteLabel: string | null; color: string;
+  tagline: string; desc: string; capabilities: readonly string[];
+}
+
+function PartnerCard({ partner, i }: { partner: PartnerEntry; i: number }) {
   const reveal = useScrollReveal(0.05);
   const { t } = useLanguage();
   const isReversed = i % 2 !== 0;
@@ -120,7 +40,7 @@ function PartnerCard({ partner, i }: { partner: typeof partners[0]; i: number })
             <div className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full mt-1"
               style={{ background: partner.color + '15', color: partner.color }}>
               <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: partner.color }} />
-              Strategic Partner
+              {t.common.strategicPartner}
             </div>
           </div>
           {partner.website && (
@@ -163,6 +83,13 @@ export default function GroupPage() {
   const { t } = useLanguage();
   const p = t.pages.group;
 
+  const partners = PARTNER_META.map((meta, i) => ({
+    ...meta,
+    tagline: p.partners[i].tagline,
+    desc: p.partners[i].desc,
+    capabilities: p.partners[i].capabilities,
+  }));
+
   return (
     <>
       <PageHero
@@ -172,10 +99,10 @@ export default function GroupPage() {
         title={<>{p.heroTitle1}<br /><span className="text-[#6BBD45]">{p.heroTitleAccent}</span></>}
         subtitle={p.heroSubtitle}
         stats={[
-          { num: '5',    label: 'Strategic Partners' },
-          { num: '360°', label: 'FM Coverage' },
-          { num: 'ASEAN', label: 'Regional Reach' },
-          { num: '38+',  label: 'Years Together' },
+          { num: '5',    label: p.heroStats[0] },
+          { num: '360°', label: p.heroStats[1] },
+          { num: 'ASEAN', label: p.heroStats[2] },
+          { num: '38+',  label: p.heroStats[3] },
         ]}
       />
 
@@ -209,16 +136,16 @@ export default function GroupPage() {
           style={{ opacity: logos.visible ? 1 : 0, transform: logos.visible ? 'none' : 'translateY(20px)' }}>
           <p className="text-center text-sm font-bold text-[#1B3A2D] uppercase tracking-widest mb-6 sm:mb-8">{p.partnersLabel}</p>
           <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-10 md:gap-16">
-            {partners.map(p => (
-              p.website ? (
-                <a key={p.id} href={p.website} target="_blank" rel="noopener noreferrer"
-                  title={`Visit ${p.name}`}
+            {partners.map(pm => (
+              pm.website ? (
+                <a key={pm.id} href={pm.website} target="_blank" rel="noopener noreferrer"
+                  title={`Visit ${pm.name}`}
                   className="flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-200 hover:scale-105 transform">
-                  <img src={p.logo} alt={p.name} className="h-14 sm:h-16 max-w-[130px] sm:max-w-[160px] object-contain" />
+                  <img src={pm.logo} alt={pm.name} className="h-14 sm:h-16 max-w-[130px] sm:max-w-[160px] object-contain" />
                 </a>
               ) : (
-                <div key={p.id} className="flex items-center justify-center opacity-70">
-                  <img src={p.logo} alt={p.name} className="h-14 sm:h-16 max-w-[130px] sm:max-w-[160px] object-contain" />
+                <div key={pm.id} className="flex items-center justify-center opacity-70">
+                  <img src={pm.logo} alt={pm.name} className="h-14 sm:h-16 max-w-[130px] sm:max-w-[160px] object-contain" />
                 </div>
               )
             ))}

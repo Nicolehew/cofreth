@@ -288,6 +288,14 @@ const zh = {
       ctaBody: '无论您需要FM运营、能源监控、BIM建模还是IWMS软件——Cofreth合作伙伴网络从第一天到建筑整个生命周期都为您提供支持。',
       ctaBtn1: '联系我们的团队', ctaBtn2: '探索我们的服务',
       keyCapabilities: '核心能力',
+      heroStats: ['战略合作伙伴', 'FM覆盖范围', '东盟覆盖', '合作年数'],
+      partners: [
+        { tagline: '能源监测与节能解决方案', desc: 'BEST Energy Saving是Cofreth在能源监测、测量和节能解决方案领域的战略合作伙伴。专注于Eniscope实时能源管理平台，BEST使设施能够在电路级别监测能源消耗——提供推动可量化节省的精细化洞察。与Cofreth ESCO运营紧密协作，BEST确保每项节能措施都有经过验证的实时监测技术支撑。', capabilities: ['Eniscope实时能源监测平台', '电路级能源测量', '能源仪表盘与分析', '碳足迹追踪', '远程能源管理', '需求侧管理支持'] },
+        { tagline: '建筑信息建模与智能工程', desc: 'GIS-BIM（宗陞智能工程）是专注于建筑信息建模（BIM）、项目管理信息系统（PMIS）和设施管理技术的数字战略专家。公司为工程和运营维护领域的基础设施客户提供集成软件解决方案——创建数字孪生、智慧城市模拟和支持IoT的FM运营，彻底改变设施全生命周期的管理方式。', capabilities: ['建筑信息建模（BIM）实施', '设施数字孪生创建', '项目管理信息系统（PMIS）', 'BIM赋能FM运营（BIM-FM）', 'IoT监控与楼宇自动化', '4D云端建设管理'] },
+        { tagline: '集成工作场所管理系统（IWMS）', desc: 'Archibus ASCHT是授权Archibus解决方案合作伙伴，为企业、政府机构和相关机构提供世界级集成工作场所管理系统（IWMS）解决方案。Archibus是FM和房地产软件的全球黄金标准。通过此合作，Cofreth能够为客户提供完整的技术驱动FM平台——将运营专业知识与企业级软件结合，降低成本并提升使用者体验。', capabilities: ['Archibus IWMS实施与定制', '空间与入住管理', '资产与维护管理（CMMS）', '移动管理与空间规划', '房地产组合管理', '可持续发展与能源报告'] },
+        { tagline: '冷却与能源优化', desc: 'C.eXergy International是冷冻水和HVAC系统冷却优化与能源效率的专家。作为战略合作伙伴，C.eXergy在热力系统方面提供先进工程专业知识——使Cofreth能够为区域供冷、数据中心精密冷却及马来西亚各地复杂的多冷机组优化项目提供卓越性能。', capabilities: ['冷冻水系统优化', '多冷机组性能调优', '区域供冷系统支持', 'HVAC能效方案', '数据中心精密冷却', '热能储存工程'] },
+        { tagline: '国际FM专业知识与网络', desc: 'TI FM International为Cofreth集团带来国际设施管理专业知识和网络。作为全球FM知识与合作平台，TI FM International将Cofreth与国际最佳实践、基准标准和跨境FM机会连接起来——增强我们以国际对齐的FM交付模式服务跨国客户的能力。', capabilities: ['国际FM最佳实践', '全球FM基准测试与标准', '跨境FM运营支持', '跨国客户项目管理', '国际FM知识网络', '东盟地区FM专业知识'] },
+      ],
     },
     projects: {
       heroEyebrow: '我们的项目组合', heroEyebrowSub: 'FM · 能源 · 绿色建筑 · 技术',
@@ -307,6 +315,9 @@ const zh = {
       notSureTitle: '不确定需要哪种服务？',
       notSureBody: '我们的专家将评估您的设施，并推荐满足您目标和预算的最佳服务组合。',
       exploreServiceLabel: '了解服务',
+      ctaBtn1: '预约咨询', ctaBtn2: '了解Cofreth',
+      heroStats: ['服务支柱', 'ISO认证', 'ESCO注册', '服务年限'],
+      serviceStats: ['FM从业年数', '注册——保证节能', '认证专业人员', '数字孪生与IoT就绪'],
     },
     serviceDetails: {
       fm: {

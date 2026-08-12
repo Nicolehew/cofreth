@@ -81,7 +81,7 @@ export default function ServicesOverviewPage() {
       title: sd.fm.title,
       desc: sd.fm.intro,
       items: sd.fm.sections.map(s => s.title),
-      stat: { value: '38+', label: 'Years FM experience' },
+      stat: { value: '38+', label: p.serviceStats[0] },
     },
     {
       icon: Zap, href: '/services/energy-services',
@@ -89,7 +89,7 @@ export default function ServicesOverviewPage() {
       title: sd.energy.title,
       desc: sd.energy.intro,
       items: sd.energy.sections.map(s => s.title),
-      stat: { value: 'ESCO', label: 'Registered — guaranteed savings' },
+      stat: { value: 'ESCO', label: p.serviceStats[1] },
     },
     {
       icon: Leaf, href: '/services/green-expertise',
@@ -97,7 +97,7 @@ export default function ServicesOverviewPage() {
       title: sd.green.title,
       desc: sd.green.intro,
       items: sd.green.sections.map(s => s.title),
-      stat: { value: 'GBI', label: 'Accredited professionals' },
+      stat: { value: 'GBI', label: p.serviceStats[2] },
     },
     {
       icon: Cpu, href: '/services/smart-technology',
@@ -105,7 +105,7 @@ export default function ServicesOverviewPage() {
       title: sd.smart.title,
       desc: sd.smart.intro,
       items: sd.smart.sections.map(s => s.title),
-      stat: { value: 'BIM', label: 'Digital twin & IoT ready' },
+      stat: { value: 'BIM', label: p.serviceStats[3] },
     },
   ];
 
@@ -118,10 +118,10 @@ export default function ServicesOverviewPage() {
         title={<>{p.heroTitle1}<br /><span className="text-[#6BBD45]">{p.heroTitleAccent}</span></>}
         subtitle={p.heroSubtitle}
         stats={[
-          { num: '4',    label: 'Service Pillars' },
-          { num: '5×',   label: 'ISO Certified' },
-          { num: 'ESCO', label: 'Registered' },
-          { num: '38+',  label: 'Years Delivering' },
+          { num: '4',    label: p.heroStats[0] },
+          { num: '5×',   label: p.heroStats[1] },
+          { num: 'ESCO', label: p.heroStats[2] },
+          { num: '38+',  label: p.heroStats[3] },
         ]}
       />
 
@@ -153,10 +153,10 @@ export default function ServicesOverviewPage() {
             <p className="text-gray-300 text-base mb-8 max-w-lg mx-auto">{p.notSureBody}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="bg-[#6BBD45] hover:bg-[#5aa838] text-white font-semibold px-8 py-3 rounded-full transition-all text-sm hover:-translate-y-0.5">
-                Schedule a Consultation
+                {p.ctaBtn1}
               </Link>
               <Link href="/about" className="border border-white/30 hover:border-[#6BBD45] text-white hover:text-[#6BBD45] font-semibold px-8 py-3 rounded-full transition-all text-sm">
-                Learn About Cofreth
+                {p.ctaBtn2}
               </Link>
             </div>
           </div>
