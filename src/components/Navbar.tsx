@@ -1,33 +1,11 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, Building2, Zap, Leaf, Cpu, Info, Award, Users, Briefcase } from 'lucide-react';
+import { Menu, X, ChevronDown, Building2, Zap, Leaf, Cpu, Info, Award, Users } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-const services = [
-  { label: 'Facilities Management', href: '/services/facilities-management', icon: Building2, desc: 'Total FM, O&M, consultancy' },
-  { label: 'Energy Services',       href: '/services/energy-services',       icon: Zap,       desc: 'Audits, ESCO, CoPC' },
-  { label: 'Green Expertise',       href: '/services/green-expertise',       icon: Leaf,      desc: 'GBI, renewables, solar' },
-  { label: 'Smart Technology',      href: '/services/smart-technology',      icon: Cpu,       desc: 'ARCHIBUS, BIM, IoT' },
-];
-
-const aboutLinks = [
-  { label: 'Cofreth At A Glance',   href: '/about',    icon: Info,      desc: 'Our story, history & certifications' },
-  { label: 'Group Of Companies',    href: '/group',    icon: Users,     desc: 'Our strategic partners' },
-  { label: 'Awards & Recognitions', href: '/awards',   icon: Award,     desc: 'Frost & Sullivan, NEA & more' },
-];
-
-const navLinks = [
-  { label: 'Home',      href: '/' },
-  { label: 'About',     href: '/about',    hasAboutDropdown: true },
-  { label: 'Services',  href: '/services', hasDropdown: true },
-  { label: 'Projects',  href: '/projects' },
-  { label: 'News',      href: '/news' },
-  { label: 'Clientele', href: '/clientele' },
-  { label: 'Careers',   href: '/careers' },
-  { label: 'Contact',   href: '/contact' },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 function Dropdown({
   isOpen, onEnter, onLeave, items, footer,
@@ -92,6 +70,31 @@ export default function Navbar() {
   const closeAboutTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
   const isHome = pathname === '/';
+  const { t } = useLanguage();
+
+  const aboutLinks = [
+    { label: t.aboutLinks.glance,  href: '/about',   icon: Info,  desc: t.aboutLinks.glanceDesc },
+    { label: t.aboutLinks.group,   href: '/group',   icon: Users, desc: t.aboutLinks.groupDesc  },
+    { label: t.aboutLinks.awards,  href: '/awards',  icon: Award, desc: t.aboutLinks.awardsDesc },
+  ];
+
+  const services = [
+    { label: t.serviceLinks.fm,     href: '/services/facilities-management', icon: Building2, desc: t.serviceLinks.fmDesc     },
+    { label: t.serviceLinks.energy, href: '/services/energy-services',       icon: Zap,       desc: t.serviceLinks.energyDesc },
+    { label: t.serviceLinks.green,  href: '/services/green-expertise',       icon: Leaf,      desc: t.serviceLinks.greenDesc  },
+    { label: t.serviceLinks.smart,  href: '/services/smart-technology',      icon: Cpu,       desc: t.serviceLinks.smartDesc  },
+  ];
+
+  const navLinks = [
+    { label: t.nav.home,      href: '/' },
+    { label: t.nav.about,     href: '/about',    hasAboutDropdown: true },
+    { label: t.nav.services,  href: '/services', hasDropdown: true },
+    { label: t.nav.projects,  href: '/projects' },
+    { label: t.nav.news,      href: '/news' },
+    { label: t.nav.clientele, href: '/clientele' },
+    { label: t.nav.careers,   href: '/careers' },
+    { label: t.nav.contact,   href: '/contact' },
+  ];
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
@@ -181,9 +184,12 @@ export default function Navbar() {
 
         {/* RIGHT — desktop controls + mobile hamburger */}
         <div className="flex items-center justify-end gap-2">
+          <div className="nav-desk-i">
+            <LanguageSwitcher />
+          </div>
           <Link href="/contact"
             className="nav-desk-i btn-glow bg-[#6BBD45] hover:bg-[#5aa838] text-white text-sm font-bold px-4 py-2 rounded-full transition-all duration-200 whitespace-nowrap">
-            Get In Touch
+            {t.nav.getInTouch}
           </Link>
 
           <button className="nav-mob w-9 h-9 items-center justify-center text-white"
@@ -198,11 +204,14 @@ export default function Navbar() {
         <div className="border-t shadow-xl nav-mobile-bg max-h-[85vh] overflow-y-auto">
           <ul className="flex flex-col">
 
+            {/* Language switcher — mobile */}
+            <li><LanguageSwitcher mobile /></li>
+
             {/* Home — first */}
             <li>
               <Link href="/" onClick={() => setOpen(false)}
                 className="block px-5 py-4 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-base font-semibold border-b nav-mobile-border">
-                Home
+                {t.nav.home}
               </Link>
             </li>
 
@@ -211,7 +220,7 @@ export default function Navbar() {
               <button
                 onClick={() => setMobileAboutOpen(v => !v)}
                 className="flex items-center justify-between w-full px-5 py-4 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-base font-semibold border-b nav-mobile-border">
-                About
+                {t.nav.about}
                 <ChevronDown size={16} className={`transition-transform ${mobileAboutOpen ? 'rotate-180' : ''}`} />
               </button>
               {mobileAboutOpen && (
@@ -235,7 +244,7 @@ export default function Navbar() {
               <button
                 onClick={() => setMobileServicesOpen(v => !v)}
                 className="flex items-center justify-between w-full px-5 py-4 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-base font-semibold border-b nav-mobile-border">
-                Services
+                {t.nav.services}
                 <ChevronDown size={16} className={`transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
               </button>
               {mobileServicesOpen && (
@@ -256,11 +265,11 @@ export default function Navbar() {
 
             {/* Other links */}
             {[
-              { label: 'Projects',  href: '/projects' },
-              { label: 'News',      href: '/news' },
-              { label: 'Clientele', href: '/clientele' },
-              { label: 'Careers',   href: '/careers' },
-              { label: 'Contact',   href: '/contact' },
+              { label: t.nav.projects,  href: '/projects' },
+              { label: t.nav.news,      href: '/news' },
+              { label: t.nav.clientele, href: '/clientele' },
+              { label: t.nav.careers,   href: '/careers' },
+              { label: t.nav.contact,   href: '/contact' },
             ].map((link) => (
               <li key={link.href}>
                 <Link href={link.href} onClick={() => setOpen(false)}
@@ -273,7 +282,7 @@ export default function Navbar() {
             <li className="p-4">
               <Link href="/contact" onClick={() => setOpen(false)}
                 className="block bg-[#6BBD45] text-white text-center px-5 py-3.5 rounded-full text-base font-bold">
-                Get In Touch
+                {t.nav.getInTouch}
               </Link>
             </li>
           </ul>

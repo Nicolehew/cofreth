@@ -3,20 +3,22 @@ import React from 'react';
 import Link from 'next/link';
 import { Award, Users, Globe, Zap } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-
-const highlights: { icon: React.ElementType; value: string; label: string; desc?: string; descNode?: React.ReactNode }[] = [
-  { icon: Award, value: '38+', label: 'Years of Excellence', desc: 'Established in 1986, one of Malaysia\'s most experienced FM providers.' },
-  { icon: Users, value: '100+', label: 'Skilled & Competent', desc: 'Trained Professionals and Competent persons across all FM and energy service discipline.' },
-  { icon: Globe, value: '5',   label: 'ISO Certifications', desc: 'ISO 9001, 14001, 45001, 50001 & 41001 certified for quality, safety and FM.' },
-  {
-    icon: Zap, value: '#1', label: 'Energy Pioneer',
-    descNode: <>First ESCO to develop the <strong className="text-gray-700">National Energy Efficiency Master Plan (NEEMP) &amp; Action Plan (NEEAP)</strong> in <strong className="text-gray-700">Malaysia</strong>.</>,
-  },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function HomeAboutSnippet() {
   const left = useScrollReveal();
   const right = useScrollReveal(0.1);
+  const { t } = useLanguage();
+
+  const highlights: { icon: React.ElementType; value: string; label: string; desc?: string; descNode?: React.ReactNode }[] = [
+    { icon: Award, value: '38+', label: t.about.stat1Label, desc: t.about.stat1Desc },
+    { icon: Users, value: '100+', label: t.about.stat2Label, desc: t.about.stat2Desc },
+    { icon: Globe, value: '5',   label: t.about.stat3Label, desc: t.about.stat3Desc },
+    {
+      icon: Zap, value: '#1', label: t.about.stat4Label,
+      descNode: <>First ESCO to develop the <strong className="text-gray-700">National Energy Efficiency Master Plan (NEEMP) &amp; Action Plan (NEEAP)</strong> in <strong className="text-gray-700">Malaysia</strong>.</>,
+    },
+  ];
 
   return (
     <section className="py-16 lg:py-20 xl:py-24 bg-white overflow-hidden">
@@ -25,19 +27,15 @@ export default function HomeAboutSnippet() {
           <div ref={left.ref} className="transition-all duration-700" style={{ opacity: left.visible ? 1 : 0, transform: left.visible ? 'none' : 'translateX(-40px)' }}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
-              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Who We Are</span>
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">{t.about.sectionLabel}</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-[#1B3A2D] leading-tight mb-6">
-              Malaysia's Trusted FM & Energy Solutions Provider
+              {t.about.headline}
             </h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              Cofreth (M) Sdn Bhd is a Malaysian company established since <strong>1986</strong>, and one of the most experienced Total Solutions Providers for Facilities Management and Energy Services in Malaysia.
-            </p>
-            <p className="text-gray-600 leading-relaxed mb-8">
-              Our <strong>Mission</strong> is to be recognised as the Leading Provider of Quality Services for Total Facilities Management and All Utilities. Our <strong>Vision</strong> is to become an International Service Provider in Facilities Management & Energy Services.
-            </p>
+            <p className="text-gray-600 leading-relaxed mb-4">{t.about.body1}</p>
+            <p className="text-gray-600 leading-relaxed mb-8">{t.about.body2}</p>
             <Link href="/about" className="inline-flex items-center gap-2 bg-[#1B3A2D] hover:bg-[#6BBD45] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 text-sm">
-              Learn About Us
+              {t.about.cta}
             </Link>
           </div>
 

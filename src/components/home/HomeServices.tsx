@@ -2,45 +2,26 @@
 import Link from 'next/link';
 import { Building2, Zap, Leaf, Cpu, ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-const services = [
-  {
-    icon: Building2,
-    title: 'Facilities Management',
-    href: '/services/facilities-management',
-    desc: 'Total facility management, operation & maintenance, technical due diligence, and FM consultancy for every type of built environment.',
-    tags: ['Total FM', 'O&M', 'Consultancy'],
-    image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80&fit=crop&auto=format',
-  },
-  {
-    icon: Zap,
-    title: 'Energy Services',
-    href: '/services/energy-services',
-    desc: 'Energy audits, efficiency programs, performance contracting, and district cooling solutions that guarantee measurable savings.',
-    tags: ['Energy Audit', 'CEEP©', 'CoPC'],
-    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=900&q=80&fit=crop&auto=format',
-  },
-  {
-    icon: Leaf,
-    title: 'Green Expertise',
-    href: '/services/green-expertise',
-    desc: 'Green building commissioning, accredited professional services, renewable energy, and solar thermal solutions.',
-    tags: ['Green Building', 'Solar', 'Cogeneration'],
-    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=900&q=80&fit=crop&auto=format',
-  },
-  {
-    icon: Cpu,
-    title: 'Smart Technology',
-    href: '/services/smart-technology',
-    desc: 'ARCHIBUS-powered TIFM, BIM, and cloud-based energy monitoring platforms for intelligent facility operations.',
-    tags: ['ARCHIBUS', 'BIM', 'IoT Monitoring'],
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&fit=crop&auto=format',
-  },
+const serviceBase = [
+  { icon: Building2, href: '/services/facilities-management', tags: ['Total FM', 'O&M', 'Consultancy'],        image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80&fit=crop&auto=format' },
+  { icon: Zap,       href: '/services/energy-services',       tags: ['Energy Audit', 'CEEP©', 'CoPC'],         image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=900&q=80&fit=crop&auto=format' },
+  { icon: Leaf,      href: '/services/green-expertise',       tags: ['Green Building', 'Solar', 'Cogeneration'],image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=900&q=80&fit=crop&auto=format' },
+  { icon: Cpu,       href: '/services/smart-technology',      tags: ['ARCHIBUS', 'BIM', 'IoT Monitoring'],      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&fit=crop&auto=format' },
 ];
 
 export default function HomeServices() {
   const header = useScrollReveal();
   const grid = useScrollReveal(0.05);
+  const { t } = useLanguage();
+
+  const services = [
+    { ...serviceBase[0], title: t.services.fm.title,     desc: t.services.fm.desc     },
+    { ...serviceBase[1], title: t.services.energy.title, desc: t.services.energy.desc },
+    { ...serviceBase[2], title: t.services.green.title,  desc: t.services.green.desc  },
+    { ...serviceBase[3], title: t.services.smart.title,  desc: t.services.smart.desc  },
+  ];
 
   return (
     <section id="services" className="py-16 lg:py-24 xl:py-28 bg-[#1B3A2D] overflow-hidden">
@@ -50,11 +31,11 @@ export default function HomeServices() {
           style={{ opacity: header.visible ? 1 : 0, transform: header.visible ? 'none' : 'translateY(30px)' }}>
           <div className="flex items-center justify-center gap-3 mb-5">
             <div className="w-10 h-0.5 bg-[#6BBD45]" />
-            <span className="text-[#6BBD45] text-sm font-bold tracking-widest uppercase">Our Services</span>
+            <span className="text-[#6BBD45] text-sm font-bold tracking-widest uppercase">{t.services.sectionLabel}</span>
             <div className="w-10 h-0.5 bg-[#6BBD45]" />
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-5 leading-tight">Comprehensive Solutions<br className="hidden sm:block" /> for Every Facility</h2>
-          <p className="text-white/60 max-w-2xl mx-auto text-base md:text-lg">From maintenance to energy innovation — integrated solutions that enhance performance, reduce costs, and support sustainability.</p>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-5 leading-tight">{t.services.headline}</h2>
+          <p className="text-white/60 max-w-2xl mx-auto text-base md:text-lg">{t.services.sub}</p>
         </div>
 
         {/* Cards grid */}
@@ -101,10 +82,10 @@ export default function HomeServices() {
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2">
-                    {svc.tags.map(t => (
-                      <span key={t}
+                    {svc.tags.map(tag => (
+                      <span key={tag}
                         className="bg-[#6BBD45]/8 border border-[#6BBD45]/25 text-[#1B3A2D] group-hover:bg-[#6BBD45]/15 px-4 py-1.5 rounded-full font-medium transition-colors text-sm">
-                        {t}
+                        {tag}
                       </span>
                     ))}
                   </div>

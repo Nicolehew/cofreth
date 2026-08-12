@@ -2,44 +2,20 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Building2, Zap, Leaf, Cpu, Play } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-/**
- * Each slide has a high-resolution Unsplash building/FM photo.
- * No iframes, no YouTube controls, no autoplay issues.
- * Subtle Ken Burns (zoom) CSS animation creates the motion effect.
- */
-const slides = [
-  {
-    bg: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1920&q=90',
-    lines:  ['Built Environment', 'Adds'],
-    accent: 'CONFIDENCE',
-    sub:    'Over 38 years of trusted facility management excellence across Malaysia.',
-  },
-  {
-    bg: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=90',
-    lines:  ['Total Facility', 'Management'],
-    accent: 'Solutions',
-    sub:    'Comprehensive, technology-driven FM services for every sector.',
-  },
-  {
-    bg: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=90',
-    lines:  ['We LOWER Your', 'Total Cost of'],
-    accent: 'Ownership',
-    sub:    'Guaranteed, measurable savings through science-based energy programs.',
-  },
-  {
-    bg: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1920&q=90',
-    lines:  ['Green Building', 'Is Our'],
-    accent: 'Business',
-    sub:    'GBI accredited, ESCO registered, future-ready sustainable FM.',
-  },
+const slideBgs = [
+  'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1920&q=90',
+  'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=90',
+  'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=90',
+  'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1920&q=90',
 ];
 
-const services = [
-  { icon: Building2, label: 'Facilities Management', href: '/services/facilities-management' },
-  { icon: Zap,       label: 'Energy Services',       href: '/services/energy-services' },
-  { icon: Leaf,      label: 'Green Expertise',       href: '/services/green-expertise' },
-  { icon: Cpu,       label: 'Smart Technology',      href: '/services/smart-technology' },
+const serviceIcons = [
+  { icon: Building2, href: '/services/facilities-management' },
+  { icon: Zap,       href: '/services/energy-services' },
+  { icon: Leaf,      href: '/services/green-expertise' },
+  { icon: Cpu,       href: '/services/smart-technology' },
 ];
 
 /* ── Word-by-word animated text ── */
@@ -80,6 +56,19 @@ export default function Hero() {
   const [index, setIndex]         = useState(0);
   const [videoOpen, setVideoOpen] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval>>(null);
+  const { t } = useLanguage();
+
+  const slides = [
+    { bg: slideBgs[0], lines: t.hero.slide1Lines, accent: t.hero.slide1Accent, sub: t.hero.slide1Sub },
+    { bg: slideBgs[1], lines: t.hero.slide2Lines, accent: t.hero.slide2Accent, sub: t.hero.slide2Sub },
+    { bg: slideBgs[2], lines: t.hero.slide3Lines, accent: t.hero.slide3Accent, sub: t.hero.slide3Sub },
+    { bg: slideBgs[3], lines: t.hero.slide4Lines, accent: t.hero.slide4Accent, sub: t.hero.slide4Sub },
+  ];
+
+  const services = serviceIcons.map((s, i) => ({
+    ...s,
+    label: [t.serviceLinks.fm, t.serviceLinks.energy, t.serviceLinks.green, t.serviceLinks.smart][i],
+  }));
 
   const startTimer = () => {
     if (timerRef.current) clearInterval(timerRef.current);
@@ -194,7 +183,7 @@ export default function Hero() {
             >
               <Link href="/services"
                 className="bg-white text-[#1B3A2D] hover:bg-[#6BBD45] hover:text-white font-bold px-7 py-3.5 rounded-full transition-all duration-200 shadow-lg text-base">
-                Discover Our Services
+                {t.hero.exploreServices}
               </Link>
               <button
                 onClick={() => setVideoOpen(true)}
