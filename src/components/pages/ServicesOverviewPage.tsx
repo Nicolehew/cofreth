@@ -4,41 +4,22 @@ import PageHero from '@/components/PageHero';
 import { Building2, Zap, Leaf, Cpu, ArrowRight, CheckCircle } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-const services = [
-  {
-    icon: Building2, title: 'Facilities Management', href: '/services/facilities-management',
-    color: '#1B3A2D',
-    desc: 'Total facility management, operation & maintenance, technical due diligence, and FM consultancy to keep your assets performing at their best.',
-    items: ['Total Facility Management', 'Operation & Maintenance', 'Technical Due Diligence', 'FM Consultancy Services'],
-    stat: { value: '38+', label: 'Years FM experience' },
-  },
-  {
-    icon: Zap, title: 'Energy Services', href: '/services/energy-services',
-    color: '#2d5a1b',
-    desc: 'Comprehensive energy audit, efficiency programs, performance contracting and district cooling solutions that guarantee measurable savings.',
-    items: ['Energy Audit (ASHRAE Levels 1–3)', 'Cofreth Energy Efficiency Programme (CEEP©)', 'Energy Performance Contracting (CoPC)', 'District Cooling & Thermal Energy Storage', 'Energy Consultancy'],
-    stat: { value: 'ESCO', label: 'Registered — guaranteed savings' },
-  },
-  {
-    icon: Leaf, title: 'Green Expertise', href: '/services/green-expertise',
-    color: '#3a7a22',
-    desc: 'Accredited green building commissioning, renewable energy and solar thermal solutions for a sustainable built environment.',
-    items: ['Green Building Commissioning Agent', 'GBI & GreenRE Accredited Professional', 'Renewable Energy & Cogeneration', 'Solar Thermal Solutions'],
-    stat: { value: 'GBI', label: 'Accredited professionals' },
-  },
-  {
-    icon: Cpu, title: 'Smart Technology', href: '/services/smart-technology',
-    color: '#4a9230',
-    desc: 'ARCHIBUS-powered TIFM, Building Information Modeling, and cloud-based energy monitoring for intelligent facility management.',
-    items: ['Total Infrastructure FM (TIFM) — ARCHIBUS', 'Building Information Modeling (BIM)', 'Cloud-Based Energy Monitoring', 'Digital Twin Development'],
-    stat: { value: 'BIM', label: 'Digital twin & IoT ready' },
-  },
-];
+interface ServiceEntry {
+  icon: React.ElementType;
+  href: string;
+  color: string;
+  title: string;
+  desc: string;
+  items: readonly string[];
+  stat: { value: string; label: string };
+}
 
-function ServiceCard({ svc, i }: { svc: typeof services[0]; i: number }) {
+function ServiceCard({ svc, i }: { svc: ServiceEntry; i: number }) {
   const reveal = useScrollReveal(0.1);
   const [hovered, setHovered] = useState(false);
+  const { t } = useLanguage();
   const Icon = svc.icon;
 
   return (
@@ -79,7 +60,7 @@ function ServiceCard({ svc, i }: { svc: typeof services[0]; i: number }) {
 
           <Link href={svc.href}
             className="inline-flex items-center gap-2 bg-[#1B3A2D] group-hover:bg-[#6BBD45] text-white font-semibold px-6 py-3 rounded-full text-sm transition-all duration-300">
-            Explore Service <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+            {t.pages.servicesOverview.exploreServiceLabel} <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>
@@ -89,15 +70,53 @@ function ServiceCard({ svc, i }: { svc: typeof services[0]; i: number }) {
 
 export default function ServicesOverviewPage() {
   const intro = useScrollReveal();
+  const { t } = useLanguage();
+  const p = t.pages.servicesOverview;
+  const sd = t.pages.serviceDetails;
+
+  const services = [
+    {
+      icon: Building2, href: '/services/facilities-management',
+      color: '#1B3A2D',
+      title: sd.fm.title,
+      desc: sd.fm.intro,
+      items: sd.fm.sections.map(s => s.title),
+      stat: { value: '38+', label: 'Years FM experience' },
+    },
+    {
+      icon: Zap, href: '/services/energy-services',
+      color: '#2d5a1b',
+      title: sd.energy.title,
+      desc: sd.energy.intro,
+      items: sd.energy.sections.map(s => s.title),
+      stat: { value: 'ESCO', label: 'Registered — guaranteed savings' },
+    },
+    {
+      icon: Leaf, href: '/services/green-expertise',
+      color: '#3a7a22',
+      title: sd.green.title,
+      desc: sd.green.intro,
+      items: sd.green.sections.map(s => s.title),
+      stat: { value: 'GBI', label: 'Accredited professionals' },
+    },
+    {
+      icon: Cpu, href: '/services/smart-technology',
+      color: '#4a9230',
+      title: sd.smart.title,
+      desc: sd.smart.intro,
+      items: sd.smart.sections.map(s => s.title),
+      stat: { value: 'BIM', label: 'Digital twin & IoT ready' },
+    },
+  ];
 
   return (
     <>
       <PageHero
         bgImage="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=90"
-        eyebrow="Our Services"
-        eyebrowSub="FM · Energy · Green · Smart Technology"
-        title={<>Comprehensive Solutions<br /><span className="text-[#6BBD45]">for Every Facility</span></>}
-        subtitle="From maintenance to energy innovation — we deliver integrated solutions that enhance performance, reduce costs, and support sustainability goals across every asset class."
+        eyebrow={p.heroEyebrow}
+        eyebrowSub={p.heroEyebrowSub}
+        title={<>{p.heroTitle1}<br /><span className="text-[#6BBD45]">{p.heroTitleAccent}</span></>}
+        subtitle={p.heroSubtitle}
         stats={[
           { num: '4',    label: 'Service Pillars' },
           { num: '5×',   label: 'ISO Certified' },
@@ -109,7 +128,7 @@ export default function ServicesOverviewPage() {
       {/* Intro strip */}
       <div ref={intro.ref} className="bg-[#6BBD45] transition-all duration-700" style={{ opacity: intro.visible ? 1 : 0 }}>
         <div className="max-w-6xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
-          {['Facilities Management', 'Energy Services', 'Green Expertise', 'Smart Technology'].map((s, i) => (
+          {[sd.fm.title, sd.energy.title, sd.green.title, sd.smart.title].map((s, i) => (
             <div key={s} className="flex items-center justify-center gap-2 text-sm font-semibold">
               <span className="w-2 h-2 bg-white/60 rounded-full shrink-0" />{s}
             </div>
@@ -130,8 +149,8 @@ export default function ServicesOverviewPage() {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="bg-gradient-to-br from-[#1B3A2D] to-[#0F2419] rounded-3xl p-12 text-white">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Not sure which service you need?</h2>
-            <p className="text-gray-300 text-base mb-8 max-w-lg mx-auto">Our specialists will assess your facility and recommend the right combination of services to meet your goals and budget.</p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">{p.notSureTitle}</h2>
+            <p className="text-gray-300 text-base mb-8 max-w-lg mx-auto">{p.notSureBody}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="bg-[#6BBD45] hover:bg-[#5aa838] text-white font-semibold px-8 py-3 rounded-full transition-all text-sm hover:-translate-y-0.5">
                 Schedule a Consultation

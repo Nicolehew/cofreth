@@ -3,10 +3,13 @@ import PageHero from '@/components/PageHero';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ContactPage() {
   const form = useScrollReveal();
   const info = useScrollReveal();
+  const { t } = useLanguage();
+  const p = t.pages.contact;
 
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -43,10 +46,10 @@ export default function ContactPage() {
     <>
       <PageHero
         bgImage="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1920&q=90"
-        eyebrow="Contact Us"
-        eyebrowSub="Mon–Fri 08:30–17:30 · Response within 1 business day"
-        title={<>Let's Start a<br /><span className="text-[#6BBD45]">Conversation</span></>}
-        subtitle="Whether you need a facility management consultation, energy audit, or green building assessment — our team is ready to help. Reach out and we'll respond within one business day."
+        eyebrow={p.heroEyebrow}
+        eyebrowSub={p.heroEyebrowSub}
+        title={<>{p.heroTitle1}<br /><span className="text-[#6BBD45]">{p.heroTitleAccent}</span></>}
+        subtitle={p.heroSubtitle}
         stats={[]}
       />
 
@@ -57,8 +60,8 @@ export default function ContactPage() {
           {/* Contact Info */}
           <div ref={info.ref} className="lg:col-span-2 space-y-6 transition-all duration-700" style={{ opacity: info.visible ? 1 : 0, transform: info.visible ? 'none' : 'translateX(-30px)' }}>
             <div>
-              <h2 className="text-2xl font-bold text-[#1B3A2D] mb-2">Get In Touch</h2>
-              <p className="text-gray-500 text-base leading-relaxed">Visit us at our office or reach out through any of the channels below. Our team of FM specialists is ready to discuss your needs.</p>
+              <h2 className="text-2xl font-bold text-[#1B3A2D] mb-2">{p.getInTouchTitle}</h2>
+              <p className="text-gray-500 text-base leading-relaxed">{p.getInTouchBody}</p>
             </div>
 
             <div className="space-y-4">
@@ -67,7 +70,7 @@ export default function ContactPage() {
                   <MapPin size={18} className="text-[#6BBD45]" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Office Address</p>
+                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">{p.addressLabel}</p>
                   <p className="text-base text-gray-700 leading-relaxed">
                     No. 39, Jalan USJ Sentral 3<br />
                     USJ Sentral, Persiaran Subang 1<br />
@@ -82,7 +85,7 @@ export default function ContactPage() {
                   <Phone size={18} className="text-[#6BBD45]" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Telephone</p>
+                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">{p.phoneLabel}</p>
                   <a href="tel:+60380238878" className="text-sm text-gray-700 hover:text-[#6BBD45] transition-colors">+(603) 8023 8878</a>
                 </div>
               </div>
@@ -92,7 +95,7 @@ export default function ContactPage() {
                   <Mail size={18} className="text-[#6BBD45]" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Email</p>
+                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">{p.emailLabel}</p>
                   <a href="mailto:business@cofreth.com.my" className="text-sm text-gray-700 hover:text-[#6BBD45] transition-colors block">business@cofreth.com.my</a>
                   <a href="mailto:cofreth@cofreth.com.my" className="text-sm text-gray-700 hover:text-[#6BBD45] transition-colors block">cofreth@cofreth.com.my</a>
                 </div>
@@ -103,9 +106,9 @@ export default function ContactPage() {
                   <Clock size={18} className="text-[#6BBD45]" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Business Hours</p>
-                  <p className="text-sm text-gray-700">Monday – Friday: 8:30 AM – 5:30 PM</p>
-                  <p className="text-sm text-gray-500">Saturday – Sunday: Closed</p>
+                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">{p.hoursLabel}</p>
+                  <p className="text-sm text-gray-700">{p.hours1}</p>
+                  <p className="text-sm text-gray-500">{p.hours2}</p>
                 </div>
               </div>
             </div>
@@ -114,53 +117,49 @@ export default function ContactPage() {
           {/* Enquiry Form */}
           <div ref={form.ref} className="lg:col-span-3 transition-all duration-700" style={{ opacity: form.visible ? 1 : 0, transform: form.visible ? 'none' : 'translateX(30px)' }}>
             <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
-              <h3 className="text-xl font-bold text-[#1B3A2D] mb-2">Send Us an Enquiry</h3>
-              <p className="text-gray-500 text-sm mb-8">Fill in the form below and one of our specialists will be in touch shortly.</p>
+              <h3 className="text-xl font-bold text-[#1B3A2D] mb-2">{p.formTitle}</h3>
+              <p className="text-gray-500 text-sm mb-8">{p.formSubtitle}</p>
 
               {submitted ? (
                 <div className="text-center py-12">
                   <div className="w-16 h-16 bg-[#6BBD45]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Send size={28} className="text-[#6BBD45]" />
                   </div>
-                  <h4 className="text-lg font-bold text-[#1B3A2D] mb-2">Message Sent!</h4>
-                  <p className="text-gray-500 text-sm">Thank you for your enquiry. We'll get back to you within one business day.</p>
+                  <h4 className="text-lg font-bold text-[#1B3A2D] mb-2">{t.common.messageSent}</h4>
+                  <p className="text-gray-500 text-sm">{t.common.thankYouEnquiry}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">Full Name *</label>
-                      <input required type="text" name="name" placeholder="Your name" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors" />
+                      <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">{p.nameLabel}</label>
+                      <input required type="text" name="name" placeholder={p.namePlaceholder} className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors" />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">Company</label>
-                      <input type="text" name="company" placeholder="Your company" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors" />
+                      <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">{p.companyLabel}</label>
+                      <input type="text" name="company" placeholder={p.companyPlaceholder} className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors" />
                     </div>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">Email *</label>
+                      <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">{p.emailInputLabel}</label>
                       <input required type="email" name="email" placeholder="your@email.com" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors" />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">Phone</label>
+                      <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">{p.phoneInputLabel}</label>
                       <input type="tel" name="phone" placeholder="+60 ..." className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors" />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">Service of Interest</label>
+                    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">{p.serviceLabel}</label>
                     <select name="service" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors text-gray-700 bg-white">
-                      <option value="">Select a service...</option>
-                      <option>Facilities Management</option>
-                      <option>Energy Services</option>
-                      <option>Green Expertise</option>
-                      <option>Smart Technology</option>
-                      <option>General Enquiry</option>
+                      <option value="">{p.serviceDefault}</option>
+                      {p.serviceOptions.map((opt) => <option key={opt}>{opt}</option>)}
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">Message *</label>
-                    <textarea required name="message" rows={5} placeholder="Tell us about your needs or project..." className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors resize-none" />
+                    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">{p.messageLabel}</label>
+                    <textarea required name="message" rows={5} placeholder={p.messagePlaceholder} className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#6BBD45] transition-colors resize-none" />
                   </div>
                   {error && (
                     <p className="text-red-500 text-sm">{error}</p>
@@ -170,7 +169,7 @@ export default function ContactPage() {
                     disabled={sending}
                     className="w-full bg-[#1B3A2D] hover:bg-[#6BBD45] text-white font-semibold py-3.5 rounded-xl transition-colors duration-200 text-sm flex items-center justify-center gap-2 disabled:opacity-60"
                   >
-                    {sending ? 'Sending...' : <><Send size={15} /> Send Enquiry</>}
+                    {sending ? t.common.sending : <><Send size={15} /> {t.common.sendEnquiry}</>}
                   </button>
                 </form>
               )}

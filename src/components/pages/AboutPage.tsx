@@ -4,20 +4,9 @@ import PageHero from '@/components/PageHero';
 import { CheckCircle, Award, ArrowRight, Menu, X } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-/* ── Nav sections ── */
-const navItems = [
-  { id: 'about',          label: 'About Cofreth' },
-  { id: 'firsts',         label: 'Our Many Firsts' },
-  { id: 'philosophy',     label: 'Our Philosophy' },
-  { id: 'ims-policy',     label: 'Our IMS Policy' },
-  { id: 'processes',      label: 'Our Processes' },
-  { id: 'values',         label: 'Our Value & Ethics' },
-  { id: 'governance',     label: 'Corporate Governance' },
-  { id: 'csr',            label: 'Corporate Social Responsibility' },
-  { id: 'sustainability', label: 'Sustainability' },
-  { id: 'themes',         label: 'Corporate Themes' },
-];
+const NAV_IDS = ['about', 'firsts', 'philosophy', 'ims-policy', 'processes', 'values', 'governance', 'csr', 'sustainability', 'themes'];
 
 const milestones = [
   { year: '1986',      event: 'Cofreth (M) Sdn Bhd incorporated in Malaysia (Reg. No. 198601002912 | 152066-P)' },
@@ -38,7 +27,39 @@ const milestones = [
   { year: 'Today',     event: '5× ISO certified ESCO with 38+ years of excellence, serving airports, data centres, universities and landmark buildings across Malaysia' },
 ];
 
-/* ── Reusable centred section header (matches Awards page style) ── */
+const GOVERNANCE_POLICY_ICONS = ['📣', '🚫', '📋', '🔒'];
+const GOVERNANCE_POLICY_PDFS = [
+  '/documents/Whistleblowing_Policy.pdf',
+  '/documents/Anti_Bribery_Corruption_Policy.pdf',
+  '/documents/Standard_of_Business_Conduct.pdf',
+  '/documents/Personal_Data_Protection_Policy.pdf',
+];
+const ISO_CODES = [
+  { code: 'ISO 45001:2018', icon: '🛡️', color: '#ef4444', pdf: '/documents/ISO_45001-2018_OHS.pdf' },
+  { code: 'ISO 9001:2015',  icon: '✓',   color: '#3b82f6', pdf: '/documents/ISO_9001-2015_QMS.pdf' },
+  { code: 'ISO 14001:2015', icon: '🌿',  color: '#10b981', pdf: '/documents/ISO_14001-2015_EMS.pdf' },
+  { code: 'ISO 50001:2018', icon: '⚡',  color: '#f59e0b', pdf: '/documents/ISO_50001-2018_EnMS.pdf' },
+  { code: 'ISO 41001:2018', icon: '🏢',  color: '#8b5cf6', pdf: '/documents/ISO_41001-2018_FMS.pdf' },
+];
+const VALUE_ICONS = ['👥', '🤝', '🌟', '💡', '🌱', '⚖️'];
+const VALUE_COLORS = ['#3b82f6', '#6BBD45', '#f59e0b', '#8b5cf6', '#10b981', '#ef4444'];
+const PILLAR_ICONS = ['🌍', '👥', '🏛️'];
+const SDG = [{n:1,bg:'#e5243b'},{n:2,bg:'#dda63a'},{n:3,bg:'#4c9f38'},{n:4,bg:'#c5192d'},{n:5,bg:'#ff3a21'},{n:6,bg:'#26bde2'},{n:7,bg:'#fcc30b'},{n:8,bg:'#a21942'},{n:9,bg:'#fd6925'},{n:10,bg:'#dd1367'},{n:11,bg:'#fd9d24'},{n:12,bg:'#bf8b2e'},{n:13,bg:'#3f7e44'},{n:14,bg:'#0a97d9'},{n:15,bg:'#56c02b'},{n:16,bg:'#00689d'},{n:17,bg:'#19486a'}];
+const THEMES = [
+  { years: '2025',      theme: 'Environmental, Social & Governance (ESG)', highlight: true },
+  { years: '2018–2024', theme: 'Connecting The Possible…' },
+  { years: '2015–2017', theme: 'We Never Stop: Believing. Synergizing. Delivering' },
+  { years: '2012–2014', theme: 'Change, Innovate, Achieve' },
+  { years: '2010–2011', theme: 'Right, Fast Actions: Key to Success' },
+  { years: '2009',      theme: 'Your Smiles, Our Pride' },
+  { years: '2008',      theme: 'Service Excellence, Our Forte' },
+  { years: '2007',      theme: 'We Add Value, We Value-Add' },
+  { years: '2006',      theme: 'Your Expectations, Our Commitment' },
+  { years: '2005',      theme: 'Delivering High Performance' },
+];
+const PHILOSOPHY_ICONS = ['🏢', '💰', '📋', '🔄', '💻', '⚖️'];
+const PDCA_ICONS = ['🔍', '⚙️', '📊'];
+
 function SectionHeader({ eyebrow, title, subtitle }: { eyebrow: string; title: React.ReactNode; subtitle?: string }) {
   const reveal = useScrollReveal();
   return (
@@ -55,7 +76,6 @@ function SectionHeader({ eyebrow, title, subtitle }: { eyebrow: string; title: R
   );
 }
 
-/* ── Counter ── */
 function Counter({ target, suffix = '' }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
@@ -80,8 +100,7 @@ function Counter({ target, suffix = '' }: { target: number; suffix?: string }) {
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
-/* ── Sidebar nav ── */
-function SidebarNav({ active, onSelect }: { active: string; onSelect: (id: string) => void }) {
+function SidebarNav({ active, onSelect, navItems }: { active: string; onSelect: (id: string) => void; navItems: { id: string; label: string }[] }) {
   return (
     <nav className="py-6">
       {navItems.map(item => (
@@ -104,13 +123,28 @@ function SidebarNav({ active, onSelect }: { active: string; onSelect: (id: strin
 export default function AboutPage() {
   const [active, setActive] = useState('about');
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const { t } = useLanguage();
+  const p = t.pages.about;
+
+  const navItems = [
+    { id: 'about',          label: p.nav.about },
+    { id: 'firsts',         label: p.nav.firsts },
+    { id: 'philosophy',     label: p.nav.philosophy },
+    { id: 'ims-policy',     label: p.nav.ims },
+    { id: 'processes',      label: p.nav.processes },
+    { id: 'values',         label: p.nav.values },
+    { id: 'governance',     label: p.nav.governance },
+    { id: 'csr',            label: p.nav.csr },
+    { id: 'sustainability', label: p.nav.sustainability },
+    { id: 'themes',         label: p.nav.themes },
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => { entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); }); },
       { threshold: 0.2, rootMargin: '-80px 0px -50% 0px' }
     );
-    navItems.forEach(({ id }) => { const el = document.getElementById(id); if (el) observer.observe(el); });
+    NAV_IDS.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
     return () => observer.disconnect();
   }, []);
 
@@ -120,16 +154,26 @@ export default function AboutPage() {
     setMobileNavOpen(false);
   };
 
-  const activeLabel = navItems.find(n => n.id === active)?.label ?? 'About Cofreth';
+  const activeLabel = navItems.find(n => n.id === active)?.label ?? p.nav.about;
+  const as = p.aboutSection;
+  const fs = p.firstsSection;
+  const ph = p.philosophySection;
+  const im = p.imsSection;
+  const pr = p.processesSection;
+  const vs = p.valuesSection;
+  const gv = p.governanceSection;
+  const cs = p.csrSection;
+  const su = p.sustainabilitySection;
+  const th = p.themesSection;
 
   return (
     <>
       <PageHero
         bgImage="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1920&q=90"
-        eyebrow="Cofreth At A Glance"
-        eyebrowSub="Reg. No. 198601002912 (152066-P) · Est. 1986, Subang Jaya"
-        title={<>38 Years of<br /><span className="text-[#6BBD45]">FM Excellence</span></>}
-        subtitle="Since 1986, Cofreth has been Malaysia's pioneer in integrated facilities management, energy services, and sustainable built environment solutions."
+        eyebrow={p.heroEyebrow}
+        eyebrowSub={p.heroEyebrowSub}
+        title={<>{p.heroTitle1}<br /><span className="text-[#6BBD45]">{p.heroTitleAccent}</span></>}
+        subtitle={p.heroSubtitle}
         stats={[
           { num: '38+', label: 'Years of Excellence' },
           { num: '30+', label: 'Major Clients' },
@@ -165,9 +209,9 @@ export default function AboutPage() {
         <aside className="hidden lg:block w-64 xl:w-72 shrink-0 bg-white">
           <div className="sticky top-20 bg-white border-r border-gray-100 min-h-screen">
             <div className="px-4 py-5 border-b border-gray-100">
-              <p className="text-xs font-black text-gray-400 uppercase tracking-widest">Navigation</p>
+              <p className="text-xs font-black text-gray-400 uppercase tracking-widest">{p.navLabel}</p>
             </div>
-            <SidebarNav active={active} onSelect={scrollTo} />
+            <SidebarNav active={active} onSelect={scrollTo} navItems={navItems} />
           </div>
         </aside>
 
@@ -177,16 +221,12 @@ export default function AboutPage() {
           {/* ── About Cofreth ── */}
           <section id="about" className="py-20 px-8 lg:px-12 border-b border-gray-100">
             <div className="w-full">
-              <SectionHeader
-                eyebrow="About Cofreth"
-                title="Malaysia's FM Pioneer Since 1986"
-                subtitle="Cofreth (M) Sdn Bhd was established in 1986 as a Malaysian company specialising in Facilities Management, Operations & Maintenance, Energy Audit, Energy Performance Contracting, Green Commissioning, and District Cooling System design."
-              />
+              <SectionHeader eyebrow={as.eyebrow} title={as.title} subtitle={as.subtitle} />
               <div className="grid lg:grid-cols-2 gap-8 items-start">
                 <div className="space-y-4 text-gray-600 text-base leading-relaxed">
                   <p>We are a registered <strong className="text-[#1B3A2D]">Energy Service Company (ESCO)</strong> with Malaysia Green Technology Corporation and MAESCO, and utilise the <strong className="text-[#1B3A2D]">ARCHIBUS Total Infrastructure Facilities Management System (TIFM)</strong> for smart, data-driven facility management.</p>
                   <div className="grid sm:grid-cols-2 gap-3 pt-2">
-                    {['First ISO-certified FM company in Malaysia (1996)','First DCS with TES in Asia (1997–2000)','Registered ESCO — CEEP guaranteed savings','5× Frost & Sullivan Malaysia Excellence Awards','NEA 2018 1st Prize & NEA 2021 EPC Champion','ARCHIBUS TIFM smart FM technology platform'].map(pt => (
+                    {as.highlights.map(pt => (
                       <div key={pt} className="flex items-start gap-2">
                         <CheckCircle size={14} className="text-[#6BBD45] mt-0.5 shrink-0" />
                         <span className="text-xs text-gray-600">{pt}</span>
@@ -196,10 +236,10 @@ export default function AboutPage() {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { icon: '🏢', label: 'Mission', desc: 'To Be Recognised as the Leading Provider of Quality Services for Total Facilities Management and All Utilities.' },
-                    { icon: '🌐', label: 'Vision', desc: 'To Be An International Service Provider in Facilities Management & Energy Services.' },
-                    { icon: '✅', label: 'Quality', desc: 'ISO 9001 · 14001 · 45001 · 50001 · 41001 — all independently certified by SIRIM QAS.' },
-                    { icon: '⚡', label: 'ESCO', desc: 'Registered with Malaysia Green Technology Corp & MAESCO. Guaranteed energy savings via CEEP contracts.' },
+                    { icon: '🏢', label: as.missionLabel, desc: as.missionDesc },
+                    { icon: '🌐', label: as.visionLabel,  desc: as.visionDesc },
+                    { icon: '✅', label: as.qualityLabel, desc: as.qualityDesc },
+                    { icon: '⚡', label: as.escoLabel,    desc: as.escoDesc },
                   ].map(c => (
                     <div key={c.label} className="bg-white rounded-2xl p-4 border border-gray-200 hover:border-[#6BBD45]/40 shadow-sm hover:shadow-md transition-all">
                       <div className="text-2xl mb-2">{c.icon}</div>
@@ -215,11 +255,7 @@ export default function AboutPage() {
           {/* ── Our Many Firsts ── */}
           <section id="firsts" className="py-20 px-8 lg:px-12 border-b border-gray-100">
             <div className="w-full">
-              <SectionHeader
-                eyebrow="Our Many Firsts"
-                title="Industry-Leading Milestones"
-                subtitle="For over 38 years, Cofreth has pioneered breakthroughs in FM and energy services — setting standards that the industry still follows today."
-              />
+              <SectionHeader eyebrow={fs.eyebrow} title={fs.title} subtitle={fs.subtitle} />
               <div className="relative">
                 <div className="absolute left-[18px] top-0 bottom-0 w-0.5 bg-gray-200" />
                 <div className="space-y-5">
@@ -232,25 +268,14 @@ export default function AboutPage() {
           {/* ── Our Philosophy ── */}
           <section id="philosophy" className="py-20 px-8 lg:px-12 border-b border-gray-100">
             <div className="w-full">
-              <SectionHeader
-                eyebrow="Our Philosophy"
-                title="How We Think & Work"
-                subtitle="Six guiding principles that shape every decision, every engagement and every outcome we deliver for our clients."
-              />
+              <SectionHeader eyebrow={ph.eyebrow} title={ph.title} subtitle={ph.subtitle} />
               <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
-                {[
-                  { n: '01', icon: '🏢', title: 'Safe, Comfortable & Clean', desc: 'Every facility we manage maintains the highest standards of safety, comfort and cleanliness for all occupants.' },
-                  { n: '02', icon: '💰', title: 'High Quality at Affordable Price', desc: 'Best-value services without compromising quality — our efficiency enables competitive pricing for every client.' },
-                  { n: '03', icon: '📋', title: 'Consistent Service Levels', desc: 'High service levels consistently achieved through established procedures, work systems and SOPs.' },
-                  { n: '04', icon: '🔄', title: 'Continuous Improvement', desc: 'Every audit, every review and every client interaction is an opportunity to do better — it\'s our culture.' },
-                  { n: '05', icon: '💻', title: 'Technology-Driven Efficiency', desc: 'ARCHIBUS, BAS, BIM and IoT technologies improve efficiency and reduce the total cost of ownership.' },
-                  { n: '06', icon: '⚖️', title: 'Strong Corporate Values', desc: 'Professionalism, Team Spirit, Partnership, Value Creation, Respect for Environment and Good Ethics.' },
-                ].map(p => (
-                  <div key={p.n} className="group bg-white border border-gray-200 hover:border-[#6BBD45]/50 rounded-2xl p-6 hover:shadow-lg shadow-sm transition-all duration-300 text-center">
-                    <div className="text-3xl mb-3">{p.icon}</div>
-                    <span className="text-xs font-black text-[#6BBD45] tracking-widest block mb-2">{p.n}</span>
-                    <h3 className="font-black text-[#1B3A2D] text-sm mb-2 group-hover:text-[#6BBD45] transition-colors">{p.title}</h3>
-                    <p className="text-gray-500 text-xs leading-relaxed">{p.desc}</p>
+                {ph.principles.map((principle, i) => (
+                  <div key={principle.n} className="group bg-white border border-gray-200 hover:border-[#6BBD45]/50 rounded-2xl p-6 hover:shadow-lg shadow-sm transition-all duration-300 text-center">
+                    <div className="text-3xl mb-3">{PHILOSOPHY_ICONS[i]}</div>
+                    <span className="text-xs font-black text-[#6BBD45] tracking-widest block mb-2">{principle.n}</span>
+                    <h3 className="font-black text-[#1B3A2D] text-sm mb-2 group-hover:text-[#6BBD45] transition-colors">{principle.title}</h3>
+                    <p className="text-gray-500 text-xs leading-relaxed">{principle.desc}</p>
                   </div>
                 ))}
               </div>
@@ -260,20 +285,16 @@ export default function AboutPage() {
           {/* ── IMS Policy ── */}
           <section id="ims-policy" className="py-20 px-8 lg:px-12 border-b border-gray-100">
             <div className="w-full">
-              <SectionHeader
-                eyebrow="Our IMS Policy"
-                title="Integrated Management System Policy"
-                subtitle="Quality, Safety & Health, Environmental, Energy and Facility — all unified under one integrated framework."
-              />
+              <SectionHeader eyebrow={im.eyebrow} title={im.title} subtitle={im.subtitle} />
               <div className="bg-gradient-to-br from-[#0F2419] to-[#1B3A2D] rounded-3xl p-8 md:p-10 text-white">
-                <p className="text-gray-300 text-base leading-relaxed mb-6 text-center max-w-2xl mx-auto">By integrating quality, occupational safety and health, environmental, energy, and facility management systems into an IMS, Cofreth is committed to providing high-performance Facilities Management and Energy Services (FMES) without compromising sustainability in ESG aspects for all stakeholders.</p>
+                <p className="text-gray-300 text-base leading-relaxed mb-6 text-center max-w-2xl mx-auto">{im.body}</p>
                 <div className="border-t border-white/10 pt-6 mb-6">
-                  <h3 className="text-[#6BBD45] font-bold text-xs uppercase tracking-widest mb-3 text-center">Our Principle</h3>
-                  <p className="text-gray-300 text-base leading-relaxed text-center max-w-2xl mx-auto">Cofreth demonstrates a strong belief that the bedrock of excellent service delivery rests upon the adoption of a professional and ethical business strategy — revolving around business growth, developing talents, adopting innovative technologies and five well-defined management systems.</p>
+                  <h3 className="text-[#6BBD45] font-bold text-xs uppercase tracking-widest mb-3 text-center">{im.principleLabel}</h3>
+                  <p className="text-gray-300 text-base leading-relaxed text-center max-w-2xl mx-auto">{im.principleBody}</p>
                 </div>
-                <h3 className="text-[#6BBD45] font-bold text-xs uppercase tracking-widest mb-5 text-center">9 Policy Commitments</h3>
+                <h3 className="text-[#6BBD45] font-bold text-xs uppercase tracking-widest mb-5 text-center">{im.commitmentsLabel}</h3>
                 <ol className="space-y-3 max-w-2xl mx-auto">
-                  {['Deliver high quality, best value services as agreed with our customers','Comply with relevant statutory, contractual and other requirements under IMS','Eliminate potential hazards, reduce environmental pollution & OHS risk','Manage the risks and opportunities identified in the IMS Risk and Opportunity Registers','Optimise building energy performance through energy-efficient procurement and design','Provide necessary information and resources to achieve IMS objectives and targets','Encourage staff and vendors to participate in IMS programme development','Instill awareness, develop effective leaders and maintain competent workforce through training','Continually improve IMS through audits, management reviews and improvement activities'].map((item, i) => (
+                  {im.commitments.map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm text-gray-300">
                       <span className="w-6 h-6 rounded-full bg-[#6BBD45]/20 border border-[#6BBD45]/40 text-[#6BBD45] text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">{i+1}</span>
                       {item}
@@ -288,7 +309,7 @@ export default function AboutPage() {
                   <p className="text-gray-500 text-xs">Revision 4 · Effective 1 August 2024</p>
                   <a href="/documents/IMS_Policy_Revision_4.pdf" target="_blank" rel="noopener noreferrer"
                     className="border border-[#6BBD45]/40 text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white text-xs font-semibold px-5 py-2 rounded-full transition-all">
-                    Download PDF
+                    {t.common.downloadPdf}
                   </a>
                 </div>
               </div>
@@ -298,34 +319,22 @@ export default function AboutPage() {
           {/* ── Our Processes ── */}
           <section id="processes" className="py-20 px-8 lg:px-12 border-b border-gray-100">
             <div className="w-full">
-              <SectionHeader
-                eyebrow="Our Processes"
-                title="Certified Service Delivery"
-                subtitle="Our service delivery processes are independently certified to five ISO standards — guaranteeing consistent quality, safety, environmental responsibility and energy performance across every engagement."
-              />
+              <SectionHeader eyebrow={pr.eyebrow} title={pr.title} subtitle={pr.subtitle} />
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 mb-10">
-                {[
-                  { code: 'ISO 45001:2018', label: 'Occupational Health & Safety', icon: '🛡️', color: '#ef4444', desc: 'Systematic hazard identification and OHS risk control across all site operations.', pdf: '/documents/ISO_45001-2018_OHS.pdf' },
-                  { code: 'ISO 9001:2015',  label: 'Quality Management',           icon: '✓',   color: '#3b82f6', desc: 'Consistent, high-quality service delivery backed by documented procedures and audits.', pdf: '/documents/ISO_9001-2015_QMS.pdf' },
-                  { code: 'ISO 14001:2015', label: 'Environmental Management',     icon: '🌿',  color: '#10b981', desc: 'Minimising environmental impact through responsible practices and continuous monitoring.', pdf: '/documents/ISO_14001-2015_EMS.pdf' },
-                  { code: 'ISO 50001:2018', label: 'Energy Management',            icon: '⚡',  color: '#f59e0b', desc: 'Structured energy monitoring and optimisation to reduce consumption and costs.', pdf: '/documents/ISO_50001-2018_EnMS.pdf' },
-                  { code: 'ISO 41001:2018', label: 'Facilities Management',        icon: '🏢',  color: '#8b5cf6', desc: 'Integrated FM systems and processes certified to the international FM management standard.', pdf: '/documents/ISO_41001-2018_FMS.pdf' },
-                ].map(p => (
-                  <div key={p.code} className="group bg-white border border-gray-200 hover:border-[#6BBD45]/40 rounded-2xl p-5 hover:shadow-lg shadow-sm transition-all duration-300 text-center">
-                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-4 mx-auto" style={{ background: p.color + '15' }}>{p.icon}</div>
-                    <div className="font-black text-[#1B3A2D] text-xs mb-1 group-hover:text-[#6BBD45] transition-colors">{p.code}</div>
-                    <div className="text-gray-600 text-xs font-semibold mb-2">{p.label}</div>
-                    <p className="text-gray-400 text-xs leading-relaxed mb-3">{p.desc}</p>
-                    <a href={p.pdf} target="_blank" rel="noopener noreferrer" className="text-[#6BBD45] text-xs font-semibold hover:underline">View Certificate →</a>
+                {ISO_CODES.map(iso => (
+                  <div key={iso.code} className="group bg-white border border-gray-200 hover:border-[#6BBD45]/40 rounded-2xl p-5 hover:shadow-lg shadow-sm transition-all duration-300 text-center">
+                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-4 mx-auto" style={{ background: iso.color + '15' }}>{iso.icon}</div>
+                    <div className="font-black text-[#1B3A2D] text-xs mb-1 group-hover:text-[#6BBD45] transition-colors">{iso.code}</div>
+                    <a href={iso.pdf} target="_blank" rel="noopener noreferrer" className="text-[#6BBD45] text-xs font-semibold hover:underline">{t.common.viewCertificate}</a>
                   </div>
                 ))}
               </div>
               <div className="bg-gradient-to-r from-[#0F2419] to-[#1B3A2D] rounded-2xl p-8 text-white">
-                <p className="text-xs font-bold text-[#6BBD45] uppercase tracking-widest text-center mb-6">PDCA — Our Service Delivery Cycle</p>
+                <p className="text-xs font-bold text-[#6BBD45] uppercase tracking-widest text-center mb-6">{pr.pdcaLabel}</p>
                 <div className="grid md:grid-cols-3 gap-6 text-center">
-                  {[{icon:'🔍',title:'Plan',desc:'Define objectives, identify risks and plan the FM or energy solution tailored to your facility.'},{icon:'⚙️',title:'Do',desc:'Execute with certified engineers and technicians following ISO-compliant procedures and SOPs.'},{icon:'📊',title:'Check & Act',desc:'Monitor KPIs, conduct audits and continuously improve — the PDCA cycle drives all we do.'}].map(s => (
+                  {pr.pdcaItems.map((s, i) => (
                     <div key={s.title}>
-                      <div className="text-3xl mb-3">{s.icon}</div>
+                      <div className="text-3xl mb-3">{PDCA_ICONS[i]}</div>
                       <div className="font-black text-[#6BBD45] mb-2">{s.title}</div>
                       <p className="text-gray-400 text-xs leading-relaxed">{s.desc}</p>
                     </div>
@@ -338,22 +347,11 @@ export default function AboutPage() {
           {/* ── Value & Ethics ── */}
           <section id="values" className="py-20 px-8 lg:px-12 border-b border-gray-100">
             <div className="w-full">
-              <SectionHeader
-                eyebrow="Our Value & Ethics"
-                title="6 Core Values"
-                subtitle="We are committed to these values to foster relations of mutual respect with all colleagues, customers and outside partners."
-              />
+              <SectionHeader eyebrow={vs.eyebrow} title={vs.title} subtitle={vs.subtitle} />
               <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
-                {[
-                  { icon: '👥', title: 'Professionalism',            color: '#3b82f6', desc: 'Highest standards of conduct, expertise and service delivery in everything we do.' },
-                  { icon: '🤝', title: 'Partnership',                color: '#6BBD45', desc: 'Building long-term, trust-based relationships with clients, vendors and strategic partners.' },
-                  { icon: '🌟', title: 'Team Spirit',                color: '#f59e0b', desc: 'Collaboration and camaraderie — we celebrate wins together and support each other.' },
-                  { icon: '💡', title: 'Value Creation',             color: '#8b5cf6', desc: 'Every engagement creates measurable, lasting value for clients and stakeholders.' },
-                  { icon: '🌱', title: 'Respect For The Environment', color: '#10b981', desc: 'Genuine commitment to sustainability aligned with UN Sustainable Development Goals.' },
-                  { icon: '⚖️', title: 'Ethics',                     color: '#ef4444', desc: 'Integrity, honesty and transparency — we comply fully with the Responsible Business Alliance.' },
-                ].map(v => (
+                {vs.values.map((v, i) => (
                   <div key={v.title} className="group bg-white border border-gray-200 hover:border-[#6BBD45]/40 rounded-2xl p-6 hover:shadow-lg shadow-sm transition-all duration-300 text-center">
-                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-4 mx-auto group-hover:scale-110 transition-transform" style={{ background: v.color + '15' }}>{v.icon}</div>
+                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-4 mx-auto group-hover:scale-110 transition-transform" style={{ background: VALUE_COLORS[i] + '15' }}>{VALUE_ICONS[i]}</div>
                     <h3 className="font-black text-[#1B3A2D] text-sm mb-2 group-hover:text-[#6BBD45] transition-colors">{v.title}</h3>
                     <p className="text-gray-500 text-xs leading-relaxed">{v.desc}</p>
                   </div>
@@ -361,11 +359,11 @@ export default function AboutPage() {
               </div>
               <div className="mt-8 bg-[#1B3A2D] rounded-2xl p-8 text-white flex flex-col sm:flex-row items-start sm:items-center gap-6">
                 <div className="flex-1">
-                  <h3 className="font-black text-[#6BBD45] mb-2">Ethics &amp; Core Values Charter</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">Our Ethics and Core Values Charter formalises these 6 core values as the foundation of all business conduct — governing how every employee, partner and stakeholder is treated.</p>
+                  <h3 className="font-black text-[#6BBD45] mb-2">{vs.charterTitle}</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">{vs.charterDesc}</p>
                 </div>
                 <a href="/documents/Ethics_Core_Values_Charter.pdf" target="_blank" rel="noopener noreferrer" className="shrink-0 border border-[#6BBD45]/40 text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-all whitespace-nowrap">
-                  Download Charter →
+                  {t.common.downloadCharter}
                 </a>
               </div>
             </div>
@@ -374,22 +372,18 @@ export default function AboutPage() {
           {/* ── Corporate Governance ── */}
           <section id="governance" className="py-20 px-8 lg:px-12 border-b border-gray-100">
             <div className="w-full">
-              <SectionHeader
-                eyebrow="Corporate Governance"
-                title="Responsible Business Conduct"
-                subtitle="Cofreth upholds the highest standards of corporate governance — ensuring integrity, transparency and accountability across all operations."
-              />
+              <SectionHeader eyebrow={gv.eyebrow} title={gv.title} subtitle={gv.subtitle} />
               <div className="grid sm:grid-cols-2 gap-6 mb-8">
                 <div className="rounded-2xl p-10 text-white" style={{ background: 'linear-gradient(135deg, #0F2419 0%, #1B3A2D 100%)' }}>
                   <div className="text-5xl mb-5">🤝</div>
-                  <h3 className="font-black text-[#6BBD45] text-2xl mb-4">Responsible Business Alliance</h3>
-                  <p className="text-gray-300 text-lg leading-relaxed">Cofreth is fully committed and complies with the Responsible Business Alliance (RBA) as part of our code of business conduct — ensuring ethical practices across our entire supply chain and operations.</p>
+                  <h3 className="font-black text-[#6BBD45] text-2xl mb-4">{gv.rbaTitle}</h3>
+                  <p className="text-gray-300 text-lg leading-relaxed">{gv.rbaDesc}</p>
                 </div>
                 <div className="rounded-2xl p-10 text-white" style={{ background: 'linear-gradient(135deg, #0F2419 0%, #1B3A2D 100%)' }}>
                   <div className="text-5xl mb-5">📜</div>
-                  <h3 className="font-black text-white text-2xl mb-5">Governance Commitments</h3>
+                  <h3 className="font-black text-white text-2xl mb-5">{gv.commitmentsTitle}</h3>
                   <ul className="space-y-4">
-                    {['Anti-bribery and anti-corruption policy','Transparent financial reporting','Fair treatment of employees and contractors','Responsible procurement practices','Data privacy and information security'].map(item => (
+                    {gv.commitments.map(item => (
                       <li key={item} className="flex items-start gap-3 text-base text-gray-300">
                         <span className="text-[#6BBD45] mt-0.5 shrink-0 font-black text-lg">✓</span>{item}
                       </li>
@@ -397,19 +391,19 @@ export default function AboutPage() {
                   </ul>
                 </div>
               </div>
-              <h3 className="text-xs font-black text-gray-400 uppercase tracking-widest mb-4">Policy Documents</h3>
+              <h3 className="text-xs font-black text-gray-400 uppercase tracking-widest mb-4">{gv.policyDocsTitle}</h3>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { icon: '📣', title: 'Whistleblowing Policy', desc: 'Report unethical conduct with full protection under the Whistleblower Protection Act 2010. Contact: Ms Nor Niza Md Ajib, Chief Audit Executive, nor-niza.md-ajib@cofreth.com.my', pdf: '/documents/Whistleblowing_Policy.pdf' },
-                  { icon: '🚫', title: 'Anti-Bribery & Corruption Policy', desc: 'Zero-tolerance policy aligned with MACCA Act 2009, covering gifts, facilitation payments, conflicts of interest and third-party due diligence (effective 1 Oct 2022).', pdf: '/documents/Anti_Bribery_Corruption_Policy.pdf' },
-                  { icon: '📋', title: 'Standard of Business Conduct', desc: 'Our code of conduct governing legal compliance, conflicts of interest, information security, EHS, fair labour and disciplinary practices across all staff and partners.', pdf: '/documents/Standard_of_Business_Conduct.pdf' },
-                  { icon: '🔒', title: 'Personal Data Protection Policy', desc: 'How Cofreth collects, uses, protects and provides access to personal data for customers and prospective customers in compliance with Malaysian law.', pdf: '/documents/Personal_Data_Protection_Policy.pdf' },
-                ].map(p => (
-                  <div key={p.title} className="bg-white border border-gray-200 rounded-2xl p-5 hover:border-[#6BBD45]/40 hover:shadow-md shadow-sm transition-all">
-                    <div className="text-2xl mb-3">{p.icon}</div>
-                    <h4 className="font-black text-[#1B3A2D] text-sm mb-2">{p.title}</h4>
-                    <p className="text-gray-500 text-xs leading-relaxed mb-4">{p.desc}</p>
-                    <a href={p.pdf} target="_blank" rel="noopener noreferrer" className="text-[#6BBD45] text-xs font-semibold hover:underline">View Policy →</a>
+                  { title: 'Whistleblowing Policy', desc: 'Report unethical conduct with full protection under the Whistleblower Protection Act 2010. Contact: Ms Nor Niza Md Ajib, Chief Audit Executive, nor-niza.md-ajib@cofreth.com.my' },
+                  { title: 'Anti-Bribery & Corruption Policy', desc: 'Zero-tolerance policy aligned with MACCA Act 2009, covering gifts, facilitation payments, conflicts of interest and third-party due diligence (effective 1 Oct 2022).' },
+                  { title: 'Standard of Business Conduct', desc: 'Our code of conduct governing legal compliance, conflicts of interest, information security, EHS, fair labour and disciplinary practices across all staff and partners.' },
+                  { title: 'Personal Data Protection Policy', desc: 'How Cofreth collects, uses, protects and provides access to personal data for customers and prospective customers in compliance with Malaysian law.' },
+                ].map((pol, i) => (
+                  <div key={pol.title} className="bg-white border border-gray-200 rounded-2xl p-5 hover:border-[#6BBD45]/40 hover:shadow-md shadow-sm transition-all">
+                    <div className="text-2xl mb-3">{GOVERNANCE_POLICY_ICONS[i]}</div>
+                    <h4 className="font-black text-[#1B3A2D] text-sm mb-2">{pol.title}</h4>
+                    <p className="text-gray-500 text-xs leading-relaxed mb-4">{pol.desc}</p>
+                    <a href={GOVERNANCE_POLICY_PDFS[i]} target="_blank" rel="noopener noreferrer" className="text-[#6BBD45] text-xs font-semibold hover:underline">{t.common.viewPolicy}</a>
                   </div>
                 ))}
               </div>
@@ -419,37 +413,24 @@ export default function AboutPage() {
           {/* ── CSR ── */}
           <section id="csr" className="py-20 px-8 lg:px-12 border-b border-gray-100">
             <div className="w-full">
-              <SectionHeader
-                eyebrow="Corporate Social Responsibility"
-                title="Giving Back to the Community"
-                subtitle="Beyond business, Cofreth is committed to making a positive impact — supporting life-saving initiatives, environmental causes and the wellbeing of underserved communities."
-              />
+              <SectionHeader eyebrow={cs.eyebrow} title={cs.title} subtitle={cs.subtitle} />
               <div className="bg-[#f8fdf5] border border-[#6BBD45]/30 rounded-2xl p-6 mb-10">
-                <h3 className="font-black text-[#1B3A2D] text-xs uppercase tracking-widest mb-3">CSR Policy</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">Cofreth (M) Sdn Bhd is committed to operating in an economically, socially and environmentally responsible manner while recognising the interests of its stakeholders. Our CSR policy covers two dimensions: <strong>Compliance</strong> — our commitment to legality and community values; and <strong>Proactiveness</strong> — every initiative to promote human rights, help communities and protect our natural environment.</p>
+                <h3 className="font-black text-[#1B3A2D] text-xs uppercase tracking-widest mb-3">{cs.policyTitle}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">{cs.policyBody}</p>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
-                  {[
-                    'Legal Responsibilities — Full compliance with Malaysian laws, taxes and regulatory requirements',
-                    'Economic Responsibilities — Ethical governance, risk management and sustainable procurement practices',
-                    'Social & Cultural Responsibilities — Equitable treatment, community service and education partnerships',
-                    'Environment, Health & Safety — Zero accidents goal, pollution prevention and environmental stewardship',
-                  ].map(item => (
+                  {cs.dimensions.map(item => (
                     <div key={item} className="flex items-start gap-2">
                       <span className="text-[#6BBD45] mt-0.5 shrink-0 font-bold text-sm">✓</span>
                       <span className="text-xs text-gray-600">{item}</span>
                     </div>
                   ))}
                 </div>
-                <a href="/documents/CSR_Policy.pdf" target="_blank" rel="noopener noreferrer" className="text-[#6BBD45] text-xs font-semibold hover:underline">Download CSR Policy →</a>
+                <a href="/documents/CSR_Policy.pdf" target="_blank" rel="noopener noreferrer" className="text-[#6BBD45] text-xs font-semibold hover:underline">{t.common.downloadPdf} →</a>
               </div>
               <div className="grid sm:grid-cols-3 gap-5">
-                {[
-                  { icon: '🩺', title: '"Save a Life" Campaign', desc: 'Cofreth organises annual blood donation drives and "Save a Life" campaigns — encouraging staff and the public to support critical healthcare needs.' },
-                  { icon: '🌳', title: 'Green Finger Day', desc: '170 trees planted and river clean-up activities as part of our environmental commitment to Malaysia\'s green cover and biodiversity.' },
-                  { icon: '🏠', title: 'Orphanage & Community Support', desc: 'Regular visits and donations to Rumah Amal Kasih Bestari and other orphanages — providing essential support, meals and activities.' },
-                ].map(item => (
+                {cs.initiatives.map((item, i) => (
                   <div key={item.title} className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#6BBD45]/30 hover:shadow-lg shadow-sm transition-all duration-300 text-center">
-                    <div className="text-4xl mb-4">{item.icon}</div>
+                    <div className="text-4xl mb-4">{['🩺', '🌳', '🏠'][i]}</div>
                     <h3 className="font-black text-[#1B3A2D] text-lg mb-2">{item.title}</h3>
                     <p className="text-gray-500 text-base leading-relaxed">{item.desc}</p>
                   </div>
@@ -461,29 +442,21 @@ export default function AboutPage() {
           {/* ── Sustainability ── */}
           <section id="sustainability" className="py-20 px-8 lg:px-12 border-b border-gray-100">
             <div className="w-full">
-              <SectionHeader
-                eyebrow="Sustainability"
-                title="Environmental, Social & Governance"
-                subtitle="Cofreth embeds ESG principles into every aspect of our operations — creating long-term value for the environment, our people, and all stakeholders."
-              />
+              <SectionHeader eyebrow={su.eyebrow} title={su.title} subtitle={su.subtitle} />
               <div className="bg-gradient-to-br from-[#0F2419] to-[#1B3A2D] rounded-3xl p-8 md:p-10 text-white mb-10">
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-6 mb-8">
                   <div>
-                    <h3 className="text-[#6BBD45] font-bold text-xs uppercase tracking-widest mb-2">ESG Policy — Revision 0 · 1 April 2025</h3>
-                    <p className="text-gray-300 text-base leading-relaxed max-w-2xl">Our ESG Policy demonstrates our commitment to sustainability, integrity, and transparency — signed by Ir. ONG CHING LOON, Managing Director, and overseen by the ESG Committee for annual review and continuous improvement.</p>
+                    <h3 className="text-[#6BBD45] font-bold text-xs uppercase tracking-widest mb-2">{su.esgLabel}</h3>
+                    <p className="text-gray-300 text-base leading-relaxed max-w-2xl">{su.esgBody}</p>
                   </div>
                   <a href="/documents/ESG_Policy.pdf" target="_blank" rel="noopener noreferrer" className="shrink-0 border border-[#6BBD45]/40 text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-all whitespace-nowrap">
-                    Download ESG Policy →
+                    {t.common.downloadPdf} →
                   </a>
                 </div>
                 <div className="grid md:grid-cols-3 gap-6">
-                  {[
-                    { icon: '🌍', title: 'Environmental', items: ['Energy efficiency — 3% GHG reduction annually', 'Responsible water management & prevention of wastage', 'Waste reduction through 3R principles', 'Carbon neutrality targets & emission monitoring'] },
-                    { icon: '👥', title: 'Social', items: ['Community outreach & volunteer initiatives', 'Diversity, equality & inclusion (DEI)', 'Safe & healthy workplace — risk prevention', 'Fair labour — no child or forced labour'] },
-                    { icon: '🏛️', title: 'Governance', items: ['Integrity-driven corporate governance', 'ESG Committee oversight & annual reporting', 'Zero-tolerance anti-bribery & corruption', 'Data privacy, risk management & financial transparency'] },
-                  ].map(pillar => (
+                  {su.pillars.map((pillar, i) => (
                     <div key={pillar.title} className="bg-white/5 rounded-2xl p-6">
-                      <div className="text-2xl mb-3">{pillar.icon}</div>
+                      <div className="text-2xl mb-3">{PILLAR_ICONS[i]}</div>
                       <h4 className="font-black text-[#6BBD45] text-sm mb-4">{pillar.title}</h4>
                       <ul className="space-y-2">
                         {pillar.items.map(item => (
@@ -497,10 +470,10 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 text-center">
-                <h3 className="font-black text-[#1B3A2D] mb-2 text-lg">UN Sustainable Development Goals</h3>
-                <p className="text-gray-500 text-base leading-relaxed mb-6 max-w-xl mx-auto">Cofreth's activities take into account the objectives of sustainable development from ecological, economical and social dimensions — aligned to the UN Sustainable Development Goals.</p>
+                <h3 className="font-black text-[#1B3A2D] mb-2 text-lg">{su.sdgTitle}</h3>
+                <p className="text-gray-500 text-base leading-relaxed mb-6 max-w-xl mx-auto">{su.sdgBody}</p>
                 <div className="grid grid-cols-6 sm:grid-cols-9 gap-2 max-w-md mx-auto">
-                  {[{n:1,bg:'#e5243b'},{n:2,bg:'#dda63a'},{n:3,bg:'#4c9f38'},{n:4,bg:'#c5192d'},{n:5,bg:'#ff3a21'},{n:6,bg:'#26bde2'},{n:7,bg:'#fcc30b'},{n:8,bg:'#a21942'},{n:9,bg:'#fd6925'},{n:10,bg:'#dd1367'},{n:11,bg:'#fd9d24'},{n:12,bg:'#bf8b2e'},{n:13,bg:'#3f7e44'},{n:14,bg:'#0a97d9'},{n:15,bg:'#56c02b'},{n:16,bg:'#00689d'},{n:17,bg:'#19486a'}].map(g => (
+                  {SDG.map(g => (
                     <div key={g.n} className="aspect-square rounded-lg flex items-center justify-center text-white font-black text-sm hover:scale-110 transition-transform cursor-default" style={{ background: g.bg }}>{g.n}</div>
                   ))}
                 </div>
@@ -511,27 +484,12 @@ export default function AboutPage() {
           {/* ── Corporate Themes ── */}
           <section id="themes" className="py-20 px-8 lg:px-12">
             <div className="w-full">
-              <SectionHeader
-                eyebrow="Corporate Themes"
-                title="Our Evolving Vision"
-                subtitle="Each year, Cofreth adopts a corporate theme that reflects its strategic focus — guiding the organisation's culture and direction."
-              />
+              <SectionHeader eyebrow={th.eyebrow} title={th.title} subtitle={th.subtitle} />
               <div className="space-y-3 mb-12">
-                {[
-                  { years: '2025', theme: 'Environmental, Social & Governance (ESG)', highlight: true },
-                  { years: '2018–2024', theme: 'Connecting The Possible…' },
-                  { years: '2015–2017', theme: 'We Never Stop: Believing. Synergizing. Delivering' },
-                  { years: '2012–2014', theme: 'Change, Innovate, Achieve' },
-                  { years: '2010–2011', theme: 'Right, Fast Actions: Key to Success' },
-                  { years: '2009',      theme: 'Your Smiles, Our Pride' },
-                  { years: '2008',      theme: 'Service Excellence, Our Forte' },
-                  { years: '2007',      theme: 'We Add Value, We Value-Add' },
-                  { years: '2006',      theme: 'Your Expectations, Our Commitment' },
-                  { years: '2005',      theme: 'Delivering High Performance' },
-                ].map(t => (
-                  <div key={t.years} className={`flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 rounded-2xl px-6 py-4 border transition-all ${t.highlight ? 'bg-[#1B3A2D] border-[#6BBD45]/30' : 'bg-white border-gray-200 hover:border-[#6BBD45]/30 shadow-sm'}`}>
-                    <span className={`text-xs font-black uppercase tracking-widest shrink-0 ${t.highlight ? 'text-[#6BBD45]' : 'text-gray-400'}`}>{t.years}</span>
-                    <span className={`font-semibold text-sm italic ${t.highlight ? 'text-white' : 'text-[#1B3A2D]'}`}>"{t.theme}"</span>
+                {THEMES.map(theme => (
+                  <div key={theme.years} className={`flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 rounded-2xl px-6 py-4 border transition-all ${theme.highlight ? 'bg-[#1B3A2D] border-[#6BBD45]/30' : 'bg-white border-gray-200 hover:border-[#6BBD45]/30 shadow-sm'}`}>
+                    <span className={`text-xs font-black uppercase tracking-widest shrink-0 ${theme.highlight ? 'text-[#6BBD45]' : 'text-gray-400'}`}>{theme.years}</span>
+                    <span className={`font-semibold text-sm italic ${theme.highlight ? 'text-white' : 'text-[#1B3A2D]'}`}>"{theme.theme}"</span>
                   </div>
                 ))}
               </div>
@@ -539,15 +497,15 @@ export default function AboutPage() {
               {/* Awards CTA */}
               <div className="bg-gradient-to-br from-[#1B3A2D] to-[#0F2419] rounded-3xl p-10 text-center text-white">
                 <Award size={40} className="text-[#6BBD45] mx-auto mb-4" />
-                <h3 className="text-2xl font-black mb-3">Frost & Sullivan Malaysia Excellence Award</h3>
-                <p className="text-gray-300 text-sm max-w-xl mx-auto mb-5">Recognised five times — 2007, 2010, 2015, 2016 and 2017 — affirming our leadership in facilities management and energy services.</p>
+                <h3 className="text-2xl font-black mb-3">{th.awardsTitle}</h3>
+                <p className="text-gray-300 text-sm max-w-xl mx-auto mb-5">{th.awardsBody}</p>
                 <div className="flex flex-wrap justify-center gap-3 mb-6">
                   {['2007','2010','2015','2016','2017'].map(yr => (
                     <span key={yr} className="bg-[#6BBD45]/20 border border-[#6BBD45]/40 text-[#6BBD45] px-4 py-1.5 rounded-full text-sm font-bold">{yr}</span>
                   ))}
                 </div>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-semibold px-8 py-3 rounded-full transition-all text-sm">
-                  Partner with an Award-Winning FM <ArrowRight size={16} />
+                  {th.awardsBtn} <ArrowRight size={16} />
                 </Link>
               </div>
             </div>

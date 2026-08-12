@@ -1,6 +1,7 @@
 'use client';
 import PageHero from '@/components/PageHero';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const sectors = [
   {
@@ -89,16 +90,17 @@ function SectorSection({ sector, index }: { sector: typeof sectors[0]; index: nu
 }
 
 export default function ClientelePage() {
-  const stats = useScrollReveal();
+  const { t } = useLanguage();
+  const p = t.pages.clientele;
 
   return (
     <>
       <PageHero
         bgImage="https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=1920&q=90"
-        eyebrow="Our Clientele"
-        eyebrowSub="Banking · Industry · Telco · Property · Government"
-        title={<>Trusted by Malaysia's<br /><span className="text-[#6BBD45]">Leading Organisations</span></>}
-        subtitle="For over 38 years, Cofreth has earned the trust of 30+ of Malaysia's most respected organisations across banking, industry, telecommunications, and property sectors."
+        eyebrow={p.heroEyebrow}
+        eyebrowSub={p.heroEyebrowSub}
+        title={<>{p.heroTitle1}<br /><span className="text-[#6BBD45]">{p.heroTitleAccent}</span></>}
+        subtitle={p.heroSubtitle}
         stats={[
           { num: '30+',   label: 'Major Clients' },
           { num: '38+',   label: 'Years of Trust' },
@@ -106,7 +108,6 @@ export default function ClientelePage() {
           { num: 'ASEAN', label: 'Regional Reach' },
         ]}
       />
-
 
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 space-y-16">
@@ -118,12 +119,9 @@ export default function ClientelePage() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="bg-gradient-to-br from-[#1B3A2D] to-[#0F2419] rounded-3xl p-12 text-white">
             <div className="text-[#6BBD45] text-5xl font-serif mb-6">"</div>
-            <p className="text-lg text-gray-200 leading-relaxed mb-8">
-              Our clients choose Cofreth not just for our technical expertise, but for our commitment to
-              accountability, transparency, and guaranteed outcomes.
-            </p>
+            <p className="text-lg text-gray-200 leading-relaxed mb-8">{p.quote}</p>
             <div className="w-16 h-0.5 bg-[#6BBD45] mx-auto mb-4" />
-            <p className="text-[#6BBD45] font-semibold text-sm tracking-widest uppercase">Cofreth Leadership</p>
+            <p className="text-[#6BBD45] font-semibold text-sm tracking-widest uppercase">{p.quoteAuthor}</p>
           </div>
         </div>
       </section>

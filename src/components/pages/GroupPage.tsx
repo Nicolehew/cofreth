@@ -3,6 +3,7 @@ import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 import { ArrowRight, ExternalLink, Building2 } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /* ── Exact partners from cofreth.com.my/group.php ── */
 const partners = [
@@ -100,6 +101,7 @@ const partners = [
 
 function PartnerCard({ partner, i }: { partner: typeof partners[0]; i: number }) {
   const reveal = useScrollReveal(0.05);
+  const { t } = useLanguage();
   const isReversed = i % 2 !== 0;
 
   return (
@@ -138,7 +140,7 @@ function PartnerCard({ partner, i }: { partner: typeof partners[0]; i: number })
           <p className="text-gray-500 text-base leading-relaxed mb-5">{partner.desc}</p>
 
           <div>
-            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Key Capabilities</h4>
+            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">{t.pages.group.keyCapabilities}</h4>
             <div className="grid sm:grid-cols-2 gap-y-1.5 gap-x-4">
               {partner.capabilities.map(cap => (
                 <div key={cap} className="flex items-start gap-2">
@@ -158,15 +160,17 @@ function PartnerCard({ partner, i }: { partner: typeof partners[0]; i: number })
 
 export default function GroupPage() {
   const logos = useScrollReveal();
+  const { t } = useLanguage();
+  const p = t.pages.group;
 
   return (
     <>
       <PageHero
         bgImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=90"
-        eyebrow="Strategic Ecosystem"
-        eyebrowSub="End-to-end FM & energy solutions"
-        title={<>Group of<br /><span className="text-[#6BBD45]">Companies</span></>}
-        subtitle="Cofreth operates within a curated network of specialised strategic partners — each a leader in their domain — forming a complete, end-to-end facility management and energy solutions ecosystem."
+        eyebrow={p.heroEyebrow}
+        eyebrowSub={p.heroEyebrowSub}
+        title={<>{p.heroTitle1}<br /><span className="text-[#6BBD45]">{p.heroTitleAccent}</span></>}
+        subtitle={p.heroSubtitle}
         stats={[
           { num: '5',    label: 'Strategic Partners' },
           { num: '360°', label: 'FM Coverage' },
@@ -178,7 +182,7 @@ export default function GroupPage() {
       {/* ── Shareholder section ── */}
       <div className="py-10 sm:py-14 bg-gray-50 border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <p className="text-sm font-bold text-[#1B3A2D] uppercase tracking-widest mb-6 sm:mb-8">Our Shareholder</p>
+          <p className="text-sm font-bold text-[#1B3A2D] uppercase tracking-widest mb-6 sm:mb-8">{p.shareholderLabel}</p>
           <div className="inline-flex flex-col items-center gap-3 sm:gap-4">
             <a href="https://www.jes24.co.jp/en/index.html" target="_blank" rel="noopener noreferrer"
               className="bg-white rounded-2xl p-5 sm:p-8 shadow-sm border border-gray-100 hover:border-[#1B3A2D]/30 hover:shadow-md transition-all">
@@ -203,7 +207,7 @@ export default function GroupPage() {
       <div className="py-10 sm:py-12 bg-white border-b border-gray-100">
         <div ref={logos.ref} className="max-w-5xl mx-auto px-6 transition-all duration-700"
           style={{ opacity: logos.visible ? 1 : 0, transform: logos.visible ? 'none' : 'translateY(20px)' }}>
-          <p className="text-center text-sm font-bold text-[#1B3A2D] uppercase tracking-widest mb-6 sm:mb-8">Our Strategic Partners</p>
+          <p className="text-center text-sm font-bold text-[#1B3A2D] uppercase tracking-widest mb-6 sm:mb-8">{p.partnersLabel}</p>
           <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-10 md:gap-16">
             {partners.map(p => (
               p.website ? (
@@ -228,10 +232,10 @@ export default function GroupPage() {
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
-              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Our Network</span>
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">{p.networkEyebrow}</span>
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-black text-[#1B3A2D]">Meet Our Partners</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-[#1B3A2D]">{p.networkTitle}</h2>
           </div>
           <div className="space-y-8">
             {partners.map((p, i) => <PartnerCard key={p.id} partner={p} i={i} />)}
@@ -244,16 +248,14 @@ export default function GroupPage() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="bg-gradient-to-br from-[#0F2419] to-[#1B3A2D] rounded-3xl p-10 md:p-14 text-white text-center border border-[#6BBD45]/20">
             <Building2 size={40} className="text-[#6BBD45] mx-auto mb-6" />
-            <h2 className="text-2xl md:text-3xl font-black mb-4">One Call. A Complete Solution.</h2>
-            <p className="text-gray-300 max-w-xl mx-auto mb-8 leading-relaxed text-base">
-              Whether you need FM operations, energy monitoring, BIM modelling or IWMS software — the Cofreth partner network has you covered from day one to the life of your building.
-            </p>
+            <h2 className="text-2xl md:text-3xl font-black mb-4">{p.ctaTitle}</h2>
+            <p className="text-gray-300 max-w-xl mx-auto mb-8 leading-relaxed text-base">{p.ctaBody}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="inline-flex items-center justify-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-bold px-10 py-4 rounded-full transition-all hover:-translate-y-0.5">
-                Talk to Our Team <ArrowRight size={18} />
+                {p.ctaBtn1} <ArrowRight size={18} />
               </Link>
               <Link href="/services" className="inline-flex items-center justify-center gap-2 border-2 border-white/25 text-white hover:border-[#6BBD45] hover:text-[#6BBD45] font-bold px-10 py-4 rounded-full transition-all hover:-translate-y-0.5">
-                Explore Our Services
+                {p.ctaBtn2}
               </Link>
             </div>
           </div>

@@ -1,11 +1,12 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-const stats = [
-  { value: 38, suffix: '+', label: 'Years of Excellence', desc: 'Est. 1986' },
-  { value: 30, suffix: '+', label: 'Major Clients', desc: 'Nationwide' },
-  { value: 5,  suffix: '×', label: 'ISO Certifications', desc: '9001 · 14001 · 45001 · 50001 · 41001' },
-  { value: 5,  suffix: '×', label: 'Frost & Sullivan', desc: 'Malaysia Excellence Award' },
+const statValues = [
+  { value: 38, suffix: '+' },
+  { value: 30, suffix: '+' },
+  { value: 5,  suffix: '×' },
+  { value: 5,  suffix: '×' },
 ];
 
 function AnimatedNumber({ target, suffix, active }: { target: number; suffix: string; active: boolean }) {
@@ -18,7 +19,6 @@ function AnimatedNumber({ target, suffix, active }: { target: number; suffix: st
     const tick = (now: number) => {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      // ease-out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       setCurrent(Math.round(eased * target));
       if (progress < 1) requestAnimationFrame(tick);
@@ -37,6 +37,14 @@ function AnimatedNumber({ target, suffix, active }: { target: number; suffix: st
 export default function StatsBar() {
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
+  const { t } = useLanguage();
+
+  const stats = [
+    { ...statValues[0], label: t.statsBar.stat1Label, desc: t.statsBar.stat1Desc },
+    { ...statValues[1], label: t.statsBar.stat2Label, desc: t.statsBar.stat2Desc },
+    { ...statValues[2], label: t.statsBar.stat3Label, desc: t.statsBar.stat3Desc },
+    { ...statValues[3], label: t.statsBar.stat4Label, desc: t.statsBar.stat4Desc },
+  ];
 
   useEffect(() => {
     const el = ref.current;
@@ -55,7 +63,6 @@ export default function StatsBar() {
       className="relative overflow-hidden"
       style={{ background: 'linear-gradient(135deg, #0F2419 0%, #1B3A2D 50%, #0F2419 100%)' }}
     >
-      {/* Subtle animated background shimmer */}
       <div
         className="absolute inset-0 opacity-20"
         style={{
@@ -67,7 +74,7 @@ export default function StatsBar() {
       <div className="relative max-w-5xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((s, i) => (
           <div
-            key={s.label}
+            key={i}
             className="text-center group"
             style={{
               opacity: active ? 1 : 0,
@@ -75,18 +82,11 @@ export default function StatsBar() {
               transition: `opacity 0.6s ease ${i * 120}ms, transform 0.6s ease ${i * 120}ms`,
             }}
           >
-            {/* Number */}
             <div className="text-4xl md:text-5xl font-black text-white mb-1 tabular-nums leading-none">
               <AnimatedNumber target={s.value} suffix={s.suffix} active={active} />
             </div>
-
-            {/* Label */}
             <div className="text-base font-bold text-white/90 mb-0.5">{s.label}</div>
-
-            {/* Sub-label */}
             <div className="text-xs text-[#6BBD45]/80 font-medium">{s.desc}</div>
-
-            {/* Bottom accent line */}
             <div
               className="mx-auto mt-3 h-0.5 bg-[#6BBD45] rounded-full"
               style={{

@@ -3,30 +3,15 @@ import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 import { ArrowRight, Mail, Briefcase, Users, TrendingUp, Heart, Shield, Zap, Building2, Leaf, Cpu, HardHat, BarChart2 } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-/* ── Why work at Cofreth ── */
-const perks = [
-  { icon: TrendingUp, title: 'Career Growth',          desc: 'Structured career pathways with mentoring, training and promotion opportunities across all levels.',      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=75&fit=crop' },
-  { icon: Shield,     title: 'Comprehensive Benefits', desc: 'Competitive salary, medical coverage, performance bonuses and annual increment reviews.',                  image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=75&fit=crop' },
-  { icon: Heart,      title: 'Work-Life Balance',      desc: 'Supportive environment that respects personal time with flexible working where possible.',                 image: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=75&fit=crop' },
-  { icon: Zap,        title: 'Meaningful Work',        desc: "Contribute directly to Malaysia's sustainability journey through energy and green building programmes.",    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=75&fit=crop' },
-  { icon: Users,      title: 'Great Team Culture',     desc: '38+ years of camaraderie — a professional yet close-knit team that celebrates wins together.',            image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=75&fit=crop' },
-  { icon: Briefcase,  title: 'Diverse Experience',     desc: 'Work across airports, data centres, convention centres, universities and landmark buildings.',             image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=75&fit=crop' },
-];
+const perkIcons = [TrendingUp, Shield, Heart, Zap, Users, Briefcase];
+const areaColors = ['#6BBD45', '#f59e0b', '#10b981', '#3b82f6', '#8b5cf6', '#ef4444'];
+const areaIcons = [Building2, Zap, Leaf, Cpu, HardHat, BarChart2];
 
-/* ── Talent pool interest areas ── */
-const areas = [
-  { icon: Building2, title: 'Facilities Management',         desc: 'FM Managers, Building Technicians, M&E Engineers, Supervisors',     color: '#6BBD45', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=75&fit=crop' },
-  { icon: Zap,       title: 'Energy Services',               desc: 'Energy Auditors, ESCO Engineers, M&V Specialists, Project Managers', color: '#f59e0b', image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=75&fit=crop' },
-  { icon: Leaf,      title: 'Green Building & Sustainability',desc: 'GBI Consultants, Commissioning Engineers, Green Facilitators',      color: '#10b981', image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=75&fit=crop' },
-  { icon: Cpu,       title: 'Smart Technology & BIM',        desc: 'BAS/IoT Technicians, ARCHIBUS Consultants, BIM Modellers',          color: '#3b82f6', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75&fit=crop' },
-  { icon: HardHat,   title: 'Engineering & Technical',       desc: 'Mechanical, Electrical & Civil Engineers, Project Engineers',       color: '#8b5cf6', image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=75&fit=crop' },
-  { icon: BarChart2, title: 'Business & Corporate',          desc: 'Business Development, Finance, HR, Administration, IT',            color: '#ef4444', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=75&fit=crop' },
-];
-
-function PerkCard({ perk, i }: { perk: typeof perks[0]; i: number }) {
+function PerkCard({ title, desc, i }: { title: string; desc: string; i: number }) {
   const reveal = useScrollReveal(0.05);
-  const Icon = perk.icon;
+  const Icon = perkIcons[i];
   return (
     <div ref={reveal.ref} className="transition-all duration-700"
       style={{ opacity: reveal.visible ? 1 : 0, transform: reveal.visible ? 'none' : 'translateY(30px)', transitionDelay: `${i * 80}ms` }}>
@@ -34,28 +19,29 @@ function PerkCard({ perk, i }: { perk: typeof perks[0]; i: number }) {
         <div className="w-16 h-16 rounded-2xl bg-[#6BBD45] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300" style={{ boxShadow: '0 4px 14px rgba(107,189,69,0.35)' }}>
           <Icon size={28} className="text-white" />
         </div>
-        <h3 className="font-black text-white mb-3 text-xl">{perk.title}</h3>
-        <p className="text-white/70 leading-relaxed text-base">{perk.desc}</p>
+        <h3 className="font-black text-white mb-3 text-xl">{title}</h3>
+        <p className="text-white/70 leading-relaxed text-base">{desc}</p>
       </div>
     </div>
   );
 }
 
-function AreaCard({ area, i }: { area: typeof areas[0]; i: number }) {
+function AreaCard({ title, desc, i }: { title: string; desc: string; i: number }) {
   const reveal = useScrollReveal(0.05);
-  const Icon = area.icon;
+  const Icon = areaIcons[i];
+  const color = areaColors[i];
   return (
     <div ref={reveal.ref} className="transition-all duration-700"
       style={{ opacity: reveal.visible ? 1 : 0, transform: reveal.visible ? 'none' : 'translateY(30px)', transitionDelay: `${i * 70}ms` }}>
-      <a href={`mailto:careers@cofreth.com.my?subject=Talent Pool: ${encodeURIComponent(area.title)}`}
+      <a href={`mailto:careers@cofreth.com.my?subject=Talent Pool: ${encodeURIComponent(title)}`}
         className="group flex items-start gap-5 bg-white border border-gray-200 hover:border-[#6BBD45]/50 rounded-2xl p-7 h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer shadow-sm">
         <div className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300"
-          style={{ background: area.color + '18' }}>
-          <Icon size={26} style={{ color: area.color }} />
+          style={{ background: color + '18' }}>
+          <Icon size={26} style={{ color }} />
         </div>
         <div className="flex-1">
-          <h3 className="font-black text-[#1B3A2D] group-hover:text-[#6BBD45] transition-colors mb-2 text-xl">{area.title}</h3>
-          <p className="text-gray-500 leading-relaxed text-base">{area.desc}</p>
+          <h3 className="font-black text-[#1B3A2D] group-hover:text-[#6BBD45] transition-colors mb-2 text-xl">{title}</h3>
+          <p className="text-gray-500 leading-relaxed text-base">{desc}</p>
         </div>
         <ArrowRight size={18} className="text-gray-300 group-hover:text-[#6BBD45] transition-all duration-200 shrink-0 mt-1 group-hover:translate-x-1" />
       </a>
@@ -66,15 +52,17 @@ function AreaCard({ area, i }: { area: typeof areas[0]; i: number }) {
 export default function CareersPage() {
   const noJobs = useScrollReveal();
   const pool   = useScrollReveal();
+  const { t } = useLanguage();
+  const p = t.pages.careers;
 
   return (
     <>
       <PageHero
         bgImage="https://images.unsplash.com/photo-1521737604082-14b2d77a0c0b?auto=format&fit=crop&w=1920&q=90"
-        eyebrow="Join Our Team"
-        eyebrowSub="We're hiring — Subang Jaya & nationwide"
-        title={<>Build Your Career<br /><span className="text-[#6BBD45]">With Cofreth</span></>}
-        subtitle="Join Malaysia's leading Facilities Management and Energy Services company. 38 years of excellence — and we're still growing. Be part of a team that shapes the built environment."
+        eyebrow={p.heroEyebrow}
+        eyebrowSub={p.heroEyebrowSub}
+        title={<>{p.heroTitle1}<br /><span className="text-[#6BBD45]">{p.heroTitleAccent}</span></>}
+        subtitle={p.heroSubtitle}
         stats={[
           { num: '38+', label: 'Years of Growth' },
           { num: '30+', label: 'Major Clients' },
@@ -89,10 +77,10 @@ export default function CareersPage() {
           <div className="text-center mb-10">
             <div className="flex items-center justify-center gap-3 mb-3">
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
-              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Life at Cofreth</span>
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">{p.lifeEyebrow}</span>
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
             </div>
-            <h2 className="text-3xl font-black text-[#1B3A2D]">Real People. Real Work.</h2>
+            <h2 className="text-3xl font-black text-[#1B3A2D]">{p.lifeTitle}</h2>
           </div>
           {/* Asymmetric photo grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3">
@@ -140,13 +128,13 @@ export default function CareersPage() {
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
-              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Why Join Us</span>
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">{p.whyEyebrow}</span>
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
             </div>
-            <h2 className="text-5xl md:text-6xl font-black text-white">Why Work at Cofreth?</h2>
+            <h2 className="text-5xl md:text-6xl font-black text-white">{p.whyTitle}</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {perks.map((p, i) => <PerkCard key={p.title} perk={p} i={i} />)}
+            {p.perks.map((perk, i) => <PerkCard key={i} title={perk.title} desc={perk.desc} i={i} />)}
           </div>
         </div>
       </section>
@@ -158,23 +146,21 @@ export default function CareersPage() {
             style={{ opacity: noJobs.visible ? 1 : 0, transform: noJobs.visible ? 'none' : 'translateY(30px)' }}>
             <div className="flex items-center justify-center gap-3 mb-4">
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
-              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Current Openings</span>
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">{p.openingsEyebrow}</span>
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] mb-6">Open Positions</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] mb-6">{p.openingsTitle}</h2>
 
             {/* No openings card */}
             <div className="bg-white border-2 border-dashed border-gray-200 rounded-3xl p-12 flex flex-col items-center">
               <div className="w-16 h-16 bg-[#6BBD45]/10 rounded-2xl flex items-center justify-center mb-5">
                 <Briefcase size={30} className="text-[#6BBD45]" />
               </div>
-              <h3 className="text-xl font-black text-[#1B3A2D] mb-3">No Vacancies at This Time</h3>
-              <p className="text-gray-500 text-base leading-relaxed max-w-md mx-auto mb-6">
-                We don't have any advertised openings right now — but we're always interested in connecting with exceptional talent. Register your interest below and we'll reach out when a role that matches your profile becomes available.
-              </p>
+              <h3 className="text-xl font-black text-[#1B3A2D] mb-3">{p.noJobsTitle}</h3>
+              <p className="text-gray-500 text-base leading-relaxed max-w-md mx-auto mb-6">{p.noJobsBody}</p>
               <div className="flex items-center gap-2 bg-[#6BBD45]/8 border border-[#6BBD45]/20 rounded-full px-5 py-2.5">
                 <span className="w-2 h-2 bg-[#6BBD45] rounded-full animate-pulse" />
-                <span className="text-sm font-semibold text-[#1B3A2D]">Check back regularly — we grow fast</span>
+                <span className="text-sm font-semibold text-[#1B3A2D]">{p.noJobsNote}</span>
               </div>
             </div>
           </div>
@@ -188,16 +174,14 @@ export default function CareersPage() {
             style={{ opacity: pool.visible ? 1 : 0, transform: pool.visible ? 'none' : 'translateY(30px)' }}>
             <div className="flex items-center justify-center gap-3 mb-4">
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
-              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Talent Pool</span>
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">{p.poolEyebrow}</span>
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
             </div>
-            <h2 className="text-5xl md:text-6xl font-black text-[#1B3A2D] mb-4">Register Your Interest</h2>
-            <p className="text-gray-600 max-w-xl mx-auto leading-relaxed text-lg">
-              Click on any area below to send us your CV. We'll hold it in our talent pool and reach out when a relevant position opens up.
-            </p>
+            <h2 className="text-5xl md:text-6xl font-black text-[#1B3A2D] mb-4">{p.poolTitle}</h2>
+            <p className="text-gray-600 max-w-xl mx-auto leading-relaxed text-lg">{p.poolBody}</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {areas.map((a, i) => <AreaCard key={a.title} area={a} i={i} />)}
+            {p.areas.map((area, i) => <AreaCard key={i} title={area.title} desc={area.desc} i={i} />)}
           </div>
         </div>
       </section>
@@ -209,18 +193,16 @@ export default function CareersPage() {
             <div className="w-14 h-14 bg-[#6BBD45]/15 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <Mail size={28} className="text-[#6BBD45]" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-black mb-4">Send Us Your CV Anytime</h2>
-            <p className="text-gray-300 max-w-xl mx-auto mb-8 leading-relaxed text-base">
-              Don't wait for a vacancy to be posted. Send us your CV and cover letter — tell us what you're good at and what you're looking for. We review every application personally.
-            </p>
+            <h2 className="text-2xl md:text-3xl font-black mb-4">{p.cvTitle}</h2>
+            <p className="text-gray-300 max-w-xl mx-auto mb-8 leading-relaxed text-base">{p.cvBody}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="mailto:careers@cofreth.com.my?subject=Spontaneous Application — Cofreth"
                 className="inline-flex items-center justify-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-bold px-10 py-4 rounded-full transition-all hover:-translate-y-0.5">
-                Email Your CV <ArrowRight size={18} />
+                {p.cvBtn1} <ArrowRight size={18} />
               </a>
               <Link href="/contact"
                 className="inline-flex items-center justify-center gap-2 border-2 border-white/25 text-white hover:border-[#6BBD45] hover:text-[#6BBD45] font-bold px-10 py-4 rounded-full transition-all hover:-translate-y-0.5">
-                Contact HR Team
+                {p.cvBtn2}
               </Link>
             </div>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-xs text-gray-500">

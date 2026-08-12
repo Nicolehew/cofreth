@@ -5,8 +5,7 @@ import PageHero from '@/components/PageHero';
 import { MapPin, ArrowRight, Building2, Zap, Leaf, Cpu, X, Download } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useState } from 'react';
-
-const filterTabs = ['All', 'Facilities Management', 'Energy & Cooling', 'Green Building', 'Technology'];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const projects = [
   {
@@ -198,6 +197,8 @@ const projects = [
 
 function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClose: () => void }) {
   const Icon = project.icon;
+  const { t } = useLanguage();
+  const p = t.pages.projects;
   return (
     <div className="fixed inset-0 z-[500] flex items-center justify-center p-4" style={{ background: 'rgba(0,0,0,0.75)' }} onClick={onClose}>
       <div className="bg-white rounded-3xl overflow-hidden max-w-2xl w-full shadow-2xl" onClick={e => e.stopPropagation()}>
@@ -226,7 +227,7 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
               download
               className="inline-flex items-center gap-2 bg-[#1B3A2D] hover:bg-[#6BBD45] text-white font-semibold px-5 py-2.5 rounded-full transition-all text-sm"
             >
-              <Download size={14} /> Download Presentation
+              <Download size={14} /> {p.downloadPptx}
             </a>
           )}
         </div>
@@ -237,6 +238,7 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
 
 function ProjectCard({ project, index, onSelect }: { project: typeof projects[0]; index: number; onSelect: () => void }) {
   const reveal = useScrollReveal(0.1);
+  const { t } = useLanguage();
   const Icon = project.icon;
   return (
     <div ref={reveal.ref} className="transition-all duration-700"
@@ -261,28 +263,34 @@ function ProjectCard({ project, index, onSelect }: { project: typeof projects[0]
               <span key={h} className="text-xs bg-[#6BBD45]/8 text-[#1B3A2D] px-2.5 py-1 rounded-full font-medium border border-[#6BBD45]/15">{h}</span>
             ))}
           </div>
-          <p className="text-[#6BBD45] text-xs font-semibold mt-3">Read more →</p>
+          <p className="text-[#6BBD45] text-xs font-semibold mt-3">{t.pages.projects.viewDetails} →</p>
         </div>
       </button>
     </div>
   );
 }
 
-export default function ProjectsPage() {
-  const [activeFilter, setActiveFilter] = useState('All');
-  const [selected, setSelected] = useState<typeof projects[0] | null>(null);
+const filterValues = ['All', 'Facilities Management', 'Energy & Cooling', 'Green Building', 'Technology'];
 
-  const rest = projects.filter(p => activeFilter === 'All' || p.type === activeFilter);
+export default function ProjectsPage() {
+  const [filterIdx, setFilterIdx] = useState(0);
+  const [selected, setSelected] = useState<typeof projects[0] | null>(null);
+  const { t } = useLanguage();
+  const p = t.pages.projects;
+
+  const filterTabs = [p.filterAll, p.filterFM, p.filterEnergy, p.filterGreen, p.filterTech];
+
+  const rest = projects.filter(proj => filterIdx === 0 || proj.type === filterValues[filterIdx]);
 
   return (
     <>
       {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
       <PageHero
         bgImage="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=90"
-        eyebrow="Project Highlights"
-        eyebrowSub="38 years of landmark FM & energy projects"
-        title={<>Our Track Record in<br /><span className="text-[#6BBD45]">FM &amp; Energy Services</span></>}
-        subtitle="From Malaysia's largest data centre to the nation's first GBI-rated office tower — 38 years of landmark projects across every sector."
+        eyebrow={p.heroEyebrow}
+        eyebrowSub={p.heroEyebrowSub}
+        title={<>{p.heroTitle1}<br /><span className="text-[#6BBD45]">{p.heroTitleAccent}</span></>}
+        subtitle={p.heroSubtitle}
         stats={[
           { num: '16+',    label: 'Notable Projects' },
           { num: '38+',    label: 'Years Experience' },
@@ -297,18 +305,18 @@ export default function ProjectsPage() {
           <div className="flex items-center justify-between flex-wrap gap-4 mb-10">
             <div className="flex items-center gap-3">
               <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
-              <h2 className="text-lg font-bold text-[#1B3A2D]">All Projects</h2>
+              <h2 className="text-lg font-bold text-[#1B3A2D]">{p.projectsTitle}</h2>
             </div>
             <div className="flex gap-2 flex-wrap">
-              {filterTabs.map(tab => (
+              {filterTabs.map((tab, i) => (
                 <button
-                  key={tab}
-                  onClick={() => setActiveFilter(tab)}
+                  key={i}
+                  onClick={() => setFilterIdx(i)}
                   className="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200"
                   style={{
-                    background: activeFilter === tab ? '#6BBD45' : '#f3f4f6',
-                    color: activeFilter === tab ? '#fff' : '#6b7280',
-                    transform: activeFilter === tab ? 'scale(1.05)' : 'none',
+                    background: filterIdx === i ? '#6BBD45' : '#f3f4f6',
+                    color: filterIdx === i ? '#fff' : '#6b7280',
+                    transform: filterIdx === i ? 'scale(1.05)' : 'none',
                   }}
                 >
                   {tab}

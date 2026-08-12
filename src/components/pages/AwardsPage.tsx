@@ -3,6 +3,7 @@ import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 import { ArrowRight, Award } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /* ── Exact data from cofreth.com.my/awards.php ── */
 const frostSullivan = [
@@ -71,11 +72,11 @@ const otherAwards = [
 ];
 
 const isoList = [
-  { code: 'ISO 9001:2015',  label: 'Quality Management System',        icon: '✓' },
-  { code: 'ISO 14001:2015', label: 'Environmental Management System',   icon: '🌿' },
-  { code: 'ISO 45001:2018', label: 'Occupational Health & Safety',      icon: '🛡️' },
-  { code: 'ISO 50001:2018', label: 'Energy Management System',          icon: '⚡' },
-  { code: 'ISO 41001:2018', label: 'Facility Management System',        icon: '🏢' },
+  { code: 'ISO 9001:2015',  icon: '✓' },
+  { code: 'ISO 14001:2015', icon: '🌿' },
+  { code: 'ISO 45001:2018', icon: '🛡️' },
+  { code: 'ISO 50001:2018', icon: '⚡' },
+  { code: 'ISO 41001:2018', icon: '🏢' },
 ];
 
 function FSCard({ award, i }: { award: typeof frostSullivan[0]; i: number }) {
@@ -143,7 +144,7 @@ function OtherCard({ award, i }: { award: typeof otherAwards[0]; i: number }) {
   );
 }
 
-function ISOCard({ cert, i }: { cert: typeof isoList[0]; i: number }) {
+function ISOCard({ cert, label, i }: { cert: typeof isoList[0]; label: string; i: number }) {
   const reveal = useScrollReveal(0.05);
   return (
     <div ref={reveal.ref}
@@ -152,7 +153,7 @@ function ISOCard({ cert, i }: { cert: typeof isoList[0]; i: number }) {
       <div className="group bg-gray-50 border border-gray-100 hover:border-[#6BBD45]/50 hover:shadow-md rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 h-full">
         <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300 inline-block">{cert.icon}</div>
         <div className="text-[#6BBD45] font-bold text-sm mb-1">{cert.code}</div>
-        <div className="text-[#1B3A2D] font-semibold text-xs leading-relaxed">{cert.label}</div>
+        <div className="text-[#1B3A2D] font-semibold text-xs leading-relaxed">{label}</div>
       </div>
     </div>
   );
@@ -161,20 +162,22 @@ function ISOCard({ cert, i }: { cert: typeof isoList[0]; i: number }) {
 export default function AwardsPage() {
   const fsTitle = useScrollReveal();
   const otherTitle = useScrollReveal();
+  const { t } = useLanguage();
+  const p = t.pages.awards;
 
   return (
     <>
       <PageHero
         bgImage="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1920&q=90"
-        eyebrow="Recognition & Excellence"
-        eyebrowSub="National · ASEAN · International"
-        title={<>Awards &amp;<br /><span className="text-[#6BBD45]">Recognition</span></>}
-        subtitle="Independently verified. Industry recognised. A proud collection of Malaysia's most prestigious awards — earned through decades of uncompromising excellence in FM and energy services."
+        eyebrow={p.heroEyebrow}
+        eyebrowSub={p.heroEyebrowSub}
+        title={<>{p.heroTitle1}<br /><span className="text-[#6BBD45]">{p.heroTitleAccent}</span></>}
+        subtitle={p.heroSubtitle}
         stats={[
-          { num: '5×',          label: 'Frost & Sullivan' },
-          { num: 'NEA',         label: 'EPC Champion 2021' },
-          { num: 'ASEAN',       label: 'Energy Award' },
-          { num: 'SME Icon',    label: '2018' },
+          { num: '5×',       label: 'Frost & Sullivan' },
+          { num: 'NEA',      label: 'EPC Champion 2021' },
+          { num: 'ASEAN',    label: 'Energy Award' },
+          { num: 'SME Icon', label: '2018' },
         ]}
       />
 
@@ -185,17 +188,11 @@ export default function AwardsPage() {
             style={{ opacity: fsTitle.visible ? 1 : 0, transform: fsTitle.visible ? 'none' : 'translateY(30px)' }}>
             <div className="flex items-center justify-center gap-3 mb-4">
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
-              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">Industry Leadership</span>
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">{p.fsEyebrow}</span>
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] mb-4">
-              Frost & Sullivan<br />Malaysia Excellence Awards
-            </h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-base leading-relaxed">
-              One of the most prestigious business honours in Asia Pacific, Cofreth has been recognised by Frost & Sullivan
-              <strong className="text-[#1B3A2D]"> four times</strong> — in 2007, 2010, 2015 and 2016 — across different
-              award categories in the Facilities Management sector.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] mb-4">{p.fsTitle}</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto text-base leading-relaxed">{p.fsSubtitle}</p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -211,10 +208,10 @@ export default function AwardsPage() {
             style={{ opacity: otherTitle.visible ? 1 : 0, transform: otherTitle.visible ? 'none' : 'translateY(30px)' }}>
             <div className="flex items-center justify-center gap-3 mb-4">
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
-              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">National Honours</span>
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">{p.otherEyebrow}</span>
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D]">More Awards & Recognition</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D]">{p.otherTitle}</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {otherAwards.map((a, i) => <OtherCard key={a.title} award={a} i={i} />)}
@@ -228,16 +225,14 @@ export default function AwardsPage() {
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
-              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">International Standards</span>
+              <span className="text-[#6BBD45] text-sm font-semibold tracking-widest uppercase">{p.isoEyebrow}</span>
               <div className="w-8 h-0.5 bg-[#6BBD45]" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] mb-4">5× ISO Certified</h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-base leading-relaxed">
-              Independently audited and continuously maintained to the highest global standards across quality, environment, safety, energy and facility management.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A2D] mb-4">{p.isoTitle}</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto text-base leading-relaxed">{p.isoSubtitle}</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {isoList.map((c, i) => <ISOCard key={c.code} cert={c} i={i} />)}
+            {isoList.map((c, i) => <ISOCard key={c.code} cert={c} label={p.isoLabels[i]} i={i} />)}
           </div>
         </div>
       </section>
@@ -246,16 +241,14 @@ export default function AwardsPage() {
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <Award size={40} className="text-[#6BBD45] mx-auto mb-5" />
-          <h2 className="text-2xl md:text-3xl font-black text-[#1B3A2D] mb-4">Work with an Award-Winning FM Partner</h2>
-          <p className="text-gray-500 mb-8 leading-relaxed text-base max-w-xl mx-auto">
-            Our awards reflect the systems, processes and people behind every project. Let us put that proven expertise to work for your facility.
-          </p>
+          <h2 className="text-2xl md:text-3xl font-black text-[#1B3A2D] mb-4">{p.ctaTitle}</h2>
+          <p className="text-gray-500 mb-8 leading-relaxed text-base max-w-xl mx-auto">{p.ctaBody}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="inline-flex items-center justify-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-bold px-10 py-4 rounded-full transition-all hover:-translate-y-0.5 shadow-lg">
-              Get In Touch <ArrowRight size={18} />
+              {p.ctaBtn1} <ArrowRight size={18} />
             </Link>
             <Link href="/services" className="inline-flex items-center justify-center gap-2 border-2 border-[#1B3A2D] text-[#1B3A2D] hover:border-[#6BBD45] hover:text-[#6BBD45] font-bold px-10 py-4 rounded-full transition-all hover:-translate-y-0.5">
-              Our Services
+              {p.ctaBtn2}
             </Link>
           </div>
         </div>

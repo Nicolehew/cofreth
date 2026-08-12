@@ -5,10 +5,11 @@ import { Calendar, MapPin, ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useState } from 'react';
 import news, { type NewsArticle } from '@/data/news';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const categories = ['All', 'Awards', 'Energy', 'Projects', 'Events'];
 
-function FeaturedCard({ item }: { item: NewsArticle }) {
+function FeaturedCard({ item, readMore }: { item: NewsArticle; readMore: string }) {
   const reveal = useScrollReveal();
   return (
     <div ref={reveal.ref} className="transition-all duration-700" style={{ opacity: reveal.visible ? 1 : 0, transform: reveal.visible ? 'none' : 'translateY(30px)' }}>
@@ -32,7 +33,7 @@ function FeaturedCard({ item }: { item: NewsArticle }) {
           <h2 className="font-bold text-[#1B3A2D] mb-4 leading-snug group-hover:text-[#6BBD45] transition-colors text-2xl">{item.title}</h2>
           <p className="text-gray-500 leading-relaxed mb-6 text-base">{item.excerpt}</p>
           <span className="inline-flex items-center gap-2 text-[#6BBD45] font-semibold group-hover:gap-3 transition-all text-sm">
-            Read full article <ArrowRight size={15} />
+            {readMore} <ArrowRight size={15} />
           </span>
         </div>
       </Link>
@@ -40,7 +41,7 @@ function FeaturedCard({ item }: { item: NewsArticle }) {
   );
 }
 
-function NewsCard({ item, index }: { item: NewsArticle; index: number }) {
+function NewsCard({ item, index, readMore }: { item: NewsArticle; index: number; readMore: string }) {
   const reveal = useScrollReveal(0.1);
   return (
     <div ref={reveal.ref} className="transition-all duration-700"
@@ -66,7 +67,7 @@ function NewsCard({ item, index }: { item: NewsArticle; index: number }) {
           <h3 className="font-bold text-[#1B3A2D] mb-3 leading-snug group-hover:text-[#6BBD45] transition-colors flex-1 text-base">{item.title}</h3>
           <p className="text-gray-500 leading-relaxed mb-4 line-clamp-2 text-sm">{item.excerpt}</p>
           <span className="inline-flex items-center gap-1.5 text-[#6BBD45] font-semibold group-hover:gap-2.5 transition-all text-sm">
-            Read more <ArrowRight size={13} />
+            {readMore} <ArrowRight size={13} />
           </span>
         </div>
       </Link>
@@ -77,6 +78,8 @@ function NewsCard({ item, index }: { item: NewsArticle; index: number }) {
 export default function NewsPage() {
   const hero = useScrollReveal();
   const [activeCategory, setActiveCategory] = useState('All');
+  const { t } = useLanguage();
+  const p = t.pages.news;
 
   const featured = news.find(n => n.featured)!;
   const filtered = news.filter(n => !n.featured && (activeCategory === 'All' || n.category === activeCategory));
@@ -104,7 +107,7 @@ export default function NewsPage() {
           {/* Eyebrow */}
           <div className="flex items-center gap-2 mb-5">
             <span className="bg-[#6BBD45]/20 border border-[#6BBD45]/40 text-[#6BBD45] font-bold px-3 py-1 rounded-full uppercase tracking-widest text-xs">
-              News &amp; Events
+              {p.eyebrow}
             </span>
             <span className="text-white/30 text-xs">·</span>
             <span className="text-white/55 font-medium text-xs">Est. 1986 · Malaysia's FM Pioneer</span>
@@ -113,22 +116,20 @@ export default function NewsPage() {
           {/* Main heading */}
           <h1 className="font-black text-white leading-none mb-5"
             style={{ fontSize: 'clamp(2.6rem, 6vw, 4.5rem)', letterSpacing: '-0.02em' }}>
-            Latest<br />
-            <span className="text-[#6BBD45]">News</span> &amp;<br />
-            Updates
+            {p.title1}<br />
+            <span className="text-[#6BBD45]">{p.titleAccent}</span> &amp;<br />
+            {p.title3}
           </h1>
 
-          <p className="text-white/70 max-w-xl leading-relaxed mb-10 text-base">
-            Stay updated with Cofreth's latest achievements, industry insights, project milestones and corporate announcements from Malaysia's leading FM and energy services company.
-          </p>
+          <p className="text-white/70 max-w-xl leading-relaxed mb-10 text-base">{p.subtitle}</p>
 
           {/* Stats strip */}
           <div className="flex flex-wrap gap-0 border-t border-white/15">
             {[
-              { num: '38+', label: 'Years in Business' },
-              { num: '5×',  label: 'Frost & Sullivan' },
-              { num: 'NEA', label: 'Award Winner' },
-              { num: '5',   label: 'ISO Certifications' },
+              { num: '38+', label: p.statsLabels[0] },
+              { num: '5×',  label: p.statsLabels[1] },
+              { num: 'NEA', label: p.statsLabels[2] },
+              { num: '5',   label: p.statsLabels[3] },
             ].map((s) => (
               <div key={s.label} className="flex-1 min-w-[110px] py-5 px-4 border-r border-white/15 last:border-r-0 text-center">
                 <div className="font-black text-white mb-0.5 text-2xl">{s.num}</div>
@@ -144,9 +145,9 @@ export default function NewsPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center gap-3 mb-8">
             <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
-            <h2 className="font-bold text-[#1B3A2D] text-lg">Featured Story</h2>
+            <h2 className="font-bold text-[#1B3A2D] text-lg">{p.featuredLabel}</h2>
           </div>
-          <FeaturedCard item={featured} />
+          <FeaturedCard item={featured} readMore={p.readMore} />
         </div>
       </section>
 
@@ -156,7 +157,7 @@ export default function NewsPage() {
           <div className="flex items-center justify-between flex-wrap gap-4 mb-10">
             <div className="flex items-center gap-3">
               <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
-              <h2 className="font-bold text-[#1B3A2D] text-lg">All News & Events</h2>
+              <h2 className="font-bold text-[#1B3A2D] text-lg">{p.allLabel}</h2>
             </div>
             <div className="flex gap-2 flex-wrap">
               {categories.map(cat => (
@@ -177,7 +178,7 @@ export default function NewsPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((item, i) => <NewsCard key={item.id} item={item} index={i} />)}
+            {filtered.map((item, i) => <NewsCard key={item.id} item={item} index={i} readMore={p.readMore} />)}
           </div>
         </div>
       </section>
