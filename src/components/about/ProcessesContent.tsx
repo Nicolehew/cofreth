@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { X, Shield, CheckCircle, Leaf, Zap, Building2, ArrowRight, Eye } from 'lucide-react';
+import { AboutPageHero } from './AboutPageHero';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const certs = [
   {
@@ -111,9 +113,12 @@ function PdfModal({ url, title, onClose }: { url: string; title: string; onClose
 
 export default function ProcessesContent() {
   const [activePdf, setActivePdf] = useState<{ url: string; title: string } | null>(null);
+  const { t } = useLanguage();
+  const pr = t.pages.about.processesSection;
 
   return (
     <>
+      <AboutPageHero section={pr.eyebrow} title={pr.title} subtitle={pr.subtitle} />
       {activePdf && (
         <PdfModal url={activePdf.url} title={activePdf.title} onClose={() => setActivePdf(null)} />
       )}

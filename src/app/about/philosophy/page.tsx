@@ -1,46 +1,13 @@
-import { AboutPageHero } from '@/components/about/AboutPageHero';
+import PhilosophyContent from '@/components/about/PhilosophyContent';
 
 export const metadata = {
   title: 'Our Philosophy — How Cofreth Thinks & Works',
   description:
-    'Six guiding principles behind Cofreth\'s service delivery: safety and comfort, quality at value, consistent service levels, continuous improvement, technology-driven efficiency and strong corporate values.',
+    "Six guiding principles behind Cofreth's service delivery: safety and comfort, quality at value, consistent service levels, continuous improvement, technology-driven efficiency and strong corporate values.",
   alternates: { canonical: '/about/philosophy' },
   openGraph: { title: 'Our Philosophy | Cofreth Malaysia', url: 'https://www.cofreth.com.my/about/philosophy' },
 };
 
-const principles = [
-  { n: '01', icon: '🏢', title: 'Safe, Comfortable & Clean', desc: 'Every facility we manage maintains the highest standards of safety, comfort and cleanliness for all occupants.' },
-  { n: '02', icon: '💰', title: 'High Quality at Affordable Price', desc: "Best-value services without compromising quality — our efficiency enables competitive pricing for every client." },
-  { n: '03', icon: '📋', title: 'Consistent Service Levels', desc: 'High service levels consistently achieved through established procedures, work systems and SOPs.' },
-  { n: '04', icon: '🔄', title: 'Continuous Improvement', desc: "Every audit, every review and every client interaction is an opportunity to do better — it's our culture." },
-  { n: '05', icon: '💻', title: 'Technology-Driven Efficiency', desc: 'ARCHIBUS, BAS, BIM and IoT technologies improve efficiency and reduce the total cost of ownership.' },
-  { n: '06', icon: '⚖️', title: 'Strong Corporate Values', desc: 'Professionalism, Team Spirit, Partnership, Value Creation, Respect for Environment and Good Ethics.' },
-];
-
 export default function PhilosophyPage() {
-  return (
-    <>
-      <AboutPageHero
-        section="Our Philosophy"
-        title="How We Think & Work"
-        subtitle="Six guiding principles that define every service we deliver — from the smallest maintenance task to the largest energy performance contract."
-      />
-
-      <div className="py-12 px-6 lg:px-10 xl:px-14 bg-white">
-        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
-          {principles.map(p => (
-            <div key={p.n} className="group bg-white border border-gray-100 hover:border-[#6BBD45]/40 rounded-2xl p-6 hover:shadow-md transition-all duration-300">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-3xl">{p.icon}</span>
-                <span className="font-black text-[#6BBD45] tracking-widest text-xs">{p.n}</span>
-              </div>
-              <h3 className="font-black text-[#1B3A2D] mb-3 group-hover:text-[#6BBD45] transition-colors text-lg">{p.title}</h3>
-              <p className="text-base text-gray-500 leading-relaxed">{p.desc}</p>
-            </div>
-          ))}
-        </div>
-
-      </div>
-    </>
-  );
+  return <PhilosophyContent />;
 }

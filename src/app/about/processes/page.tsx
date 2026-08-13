@@ -1,4 +1,3 @@
-import { AboutPageHero } from '@/components/about/AboutPageHero';
 import ProcessesContent from '@/components/about/ProcessesContent';
 
 export const metadata = {
@@ -10,14 +9,5 @@ export const metadata = {
 };
 
 export default function ProcessesPage() {
-  return (
-    <>
-      <AboutPageHero
-        section="Our Processes"
-        title="Certified Service Delivery"
-        subtitle="Our service delivery processes are independently certified to five ISO standards — guaranteeing consistent quality, safety, environmental responsibility and energy performance."
-      />
-      <ProcessesContent />
-    </>
-  );
+  return <ProcessesContent />;
 }

@@ -7,24 +7,33 @@ import {
   Settings, Heart, Scale, Globe, Leaf, Flag,
   PanelLeftClose, PanelLeftOpen,
 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-export const aboutNavItems = [
-  { label: 'About Cofreth',                  short: 'About',      href: '/about',                  icon: Building2 },
-  { label: 'Our Many Firsts',                 short: 'Firsts',     href: '/about/firsts',           icon: Trophy    },
-  { label: 'Our Philosophy',                  short: 'Philosophy', href: '/about/philosophy',       icon: Lightbulb },
-  { label: 'Our IMS Policy',                  short: 'IMS Policy', href: '/about/ims-policy',       icon: FileText  },
-  { label: 'Our Processes',                   short: 'Processes',  href: '/about/processes',        icon: Settings  },
-  { label: 'Our Value & Ethics',              short: 'Values',     href: '/about/values',           icon: Heart     },
-  { label: 'Corporate Governance',            short: 'Governance', href: '/about/governance',       icon: Scale     },
-  { label: 'Corporate Social Responsibility', short: 'CSR',        href: '/about/csr',              icon: Globe     },
-  { label: 'Sustainability',                  short: 'ESG',        href: '/about/sustainability',   icon: Leaf      },
-  { label: 'Corporate Themes',                short: 'Themes',     href: '/about/themes',           icon: Flag      },
-];
+const NAV_META = [
+  { key: 'about',        href: '/about',                icon: Building2 },
+  { key: 'firsts',       href: '/about/firsts',         icon: Trophy    },
+  { key: 'philosophy',   href: '/about/philosophy',     icon: Lightbulb },
+  { key: 'ims',          href: '/about/ims-policy',     icon: FileText  },
+  { key: 'processes',    href: '/about/processes',      icon: Settings  },
+  { key: 'values',       href: '/about/values',         icon: Heart     },
+  { key: 'governance',   href: '/about/governance',     icon: Scale     },
+  { key: 'csr',          href: '/about/csr',            icon: Globe     },
+  { key: 'sustainability',href: '/about/sustainability', icon: Leaf      },
+  { key: 'themes',       href: '/about/themes',         icon: Flag      },
+] as const;
 
 export function AboutSidebar({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(true);
   const pathname = usePathname();
+  const { t } = useLanguage();
+  const nav = t.pages.about.nav;
   const isActive = (href: string) => pathname === href;
+
+  const aboutNavItems = NAV_META.map(m => ({
+    href: m.href,
+    icon: m.icon,
+    label: nav[m.key],
+  }));
 
   return (
     <div className="flex bg-white">
@@ -38,7 +47,7 @@ export function AboutSidebar({ children }: { children: React.ReactNode }) {
         <div className={`flex items-center border-b border-gray-100 shrink-0 py-3 ${open ? 'justify-between px-4' : 'justify-center'}`}>
           {open && (
             <span className="text-xs font-black text-gray-400 uppercase tracking-widest leading-none">
-              Cofreth At A Glance
+              {t.aboutLinks.glance}
             </span>
           )}
           <button
@@ -99,7 +108,7 @@ export function AboutSidebar({ children }: { children: React.ReactNode }) {
                       : 'text-gray-500 bg-gray-100 hover:bg-gray-200'
                   }`}
                 >
-                  {item.short}
+                  {item.label}
                 </Link>
               );
             })}
