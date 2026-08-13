@@ -291,12 +291,7 @@ export default function ProjectsPage() {
         eyebrowSub={p.heroEyebrowSub}
         title={<>{p.heroTitle1}<br /><span className="text-[#6BBD45]">{p.heroTitleAccent}</span></>}
         subtitle={p.heroSubtitle}
-        stats={[
-          { num: '16+',    label: 'Notable Projects' },
-          { num: '38+',    label: 'Years Experience' },
-          { num: 'MY #1',  label: 'Pioneer FM ESCO' },
-          { num: 'ASEAN',  label: 'Award Winner' },
-        ]}
+        stats={['16+', '38+', 'MY #1', 'ASEAN'].map((num, i) => ({ num, label: p.heroStats[i] }))}
       />
 
       {/* Filtered grid */}
@@ -335,10 +330,10 @@ export default function ProjectsPage() {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="bg-gradient-to-br from-[#0a1810] to-[#1B3A2D] rounded-3xl p-12 text-white border border-[#6BBD45]/20">
-            <h2 className="text-2xl md:text-3xl font-black mb-4">Ready to Be Our Next Success Story?</h2>
-            <p className="text-gray-300 mb-8 leading-relaxed max-w-xl mx-auto">From airports to data centres to green-certified towers — Cofreth has the expertise and track record to deliver for your facility.</p>
+            <h2 className="text-2xl md:text-3xl font-black mb-4">{p.ctaTitle}</h2>
+            <p className="text-gray-300 mb-8 leading-relaxed max-w-xl mx-auto">{p.ctaBody}</p>
             <Link href="/contact" className="inline-flex items-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-bold px-10 py-4 rounded-full transition-all hover:-translate-y-0.5 shadow-lg text-lg">
-              Start a Conversation <ArrowRight size={18} />
+              {p.ctaBtn} <ArrowRight size={18} />
             </Link>
           </div>
         </div>

@@ -7,7 +7,6 @@ import { useState } from 'react';
 import news, { type NewsArticle } from '@/data/news';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const categories = ['All', 'Awards', 'Energy', 'Projects', 'Events'];
 
 function FeaturedCard({ item, readMore }: { item: NewsArticle; readMore: string }) {
   const reveal = useScrollReveal();
@@ -77,12 +76,13 @@ function NewsCard({ item, index, readMore }: { item: NewsArticle; index: number;
 
 export default function NewsPage() {
   const hero = useScrollReveal();
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeCatIdx, setActiveCatIdx] = useState(0);
   const { t } = useLanguage();
   const p = t.pages.news;
+  const EN_CATEGORIES = ['All', 'Awards', 'Energy', 'Projects', 'Events'];
 
   const featured = news.find(n => n.featured)!;
-  const filtered = news.filter(n => !n.featured && (activeCategory === 'All' || n.category === activeCategory));
+  const filtered = news.filter(n => !n.featured && (activeCatIdx === 0 || n.category === EN_CATEGORIES[activeCatIdx]));
 
   return (
     <>
@@ -110,7 +110,7 @@ export default function NewsPage() {
               {p.eyebrow}
             </span>
             <span className="text-white/30 text-xs">·</span>
-            <span className="text-white/55 font-medium text-xs">Est. 1986 · Malaysia's FM Pioneer</span>
+            <span className="text-white/55 font-medium text-xs">{p.estBadge}</span>
           </div>
 
           {/* Main heading */}
@@ -160,15 +160,15 @@ export default function NewsPage() {
               <h2 className="font-bold text-[#1B3A2D] text-lg">{p.allLabel}</h2>
             </div>
             <div className="flex gap-2 flex-wrap">
-              {categories.map(cat => (
+              {p.categories.map((cat, i) => (
                 <button
                   key={cat}
-                  onClick={() => setActiveCategory(cat)}
+                  onClick={() => setActiveCatIdx(i)}
                   className="text-sm px-4 py-2 rounded-full font-semibold transition-all duration-200"
                   style={{
-                    background: activeCategory === cat ? '#6BBD45' : '#f3f4f6',
-                    color: activeCategory === cat ? '#fff' : '#6b7280',
-                    transform: activeCategory === cat ? 'scale(1.05)' : 'none',
+                    background: activeCatIdx === i ? '#6BBD45' : '#f3f4f6',
+                    color: activeCatIdx === i ? '#fff' : '#6b7280',
+                    transform: activeCatIdx === i ? 'scale(1.05)' : 'none',
                   }}
                 >
                   {cat}

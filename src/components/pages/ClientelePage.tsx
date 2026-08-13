@@ -74,13 +74,15 @@ function LogoCard({ name, logo }: { name: string; logo: string }) {
 
 function SectorSection({ sector, index }: { sector: typeof sectors[0]; index: number }) {
   const reveal = useScrollReveal(0.1);
+  const { t } = useLanguage();
+  const p = t.pages.clientele;
   return (
     <div ref={reveal.ref} className="transition-all duration-700"
       style={{ opacity: reveal.visible ? 1 : 0, transform: reveal.visible ? 'none' : 'translateY(30px)', transitionDelay: `${index * 80}ms` }}>
       <div className="flex items-center gap-4 mb-6">
         <div className="w-1 h-8 bg-[#6BBD45] rounded-full" />
-        <h3 className="text-lg font-bold text-[#1B3A2D]">{sector.name}</h3>
-        <span className="text-xs text-gray-400 font-medium">{sector.clients.length} client{sector.clients.length > 1 ? 's' : ''}</span>
+        <h3 className="text-lg font-bold text-[#1B3A2D]">{p.sectors[index] ?? sector.name}</h3>
+        <span className="text-xs text-gray-400 font-medium">{sector.clients.length} {sector.clients.length > 1 ? p.clientsLabel : p.clientLabel}</span>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {sector.clients.map(client => <LogoCard key={client.name} {...client} />)}
@@ -101,12 +103,7 @@ export default function ClientelePage() {
         eyebrowSub={p.heroEyebrowSub}
         title={<>{p.heroTitle1}<br /><span className="text-[#6BBD45]">{p.heroTitleAccent}</span></>}
         subtitle={p.heroSubtitle}
-        stats={[
-          { num: '30+',   label: 'Major Clients' },
-          { num: '38+',   label: 'Years of Trust' },
-          { num: '6',     label: 'Industry Sectors' },
-          { num: 'ASEAN', label: 'Regional Reach' },
-        ]}
+        stats={['30+', '38+', '6', 'ASEAN'].map((num, i) => ({ num, label: p.heroStats[i] }))}
       />
 
       <section className="py-20 bg-white">

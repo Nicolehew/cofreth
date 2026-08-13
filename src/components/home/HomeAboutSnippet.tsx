@@ -10,14 +10,11 @@ export default function HomeAboutSnippet() {
   const right = useScrollReveal(0.1);
   const { t } = useLanguage();
 
-  const highlights: { icon: React.ElementType; value: string; label: string; desc?: string; descNode?: React.ReactNode }[] = [
+  const highlights: { icon: React.ElementType; value: string; label: string; desc?: string }[] = [
     { icon: Award, value: '38+', label: t.about.stat1Label, desc: t.about.stat1Desc },
     { icon: Users, value: '100+', label: t.about.stat2Label, desc: t.about.stat2Desc },
     { icon: Globe, value: '5',   label: t.about.stat3Label, desc: t.about.stat3Desc },
-    {
-      icon: Zap, value: '#1', label: t.about.stat4Label,
-      descNode: <>First ESCO to develop the <strong className="text-gray-700">National Energy Efficiency Master Plan (NEEMP) &amp; Action Plan (NEEAP)</strong> in <strong className="text-gray-700">Malaysia</strong>.</>,
-    },
+    { icon: Zap, value: '#1', label: t.about.stat4Label, desc: t.about.stat4Desc },
   ];
 
   return (
@@ -51,7 +48,7 @@ export default function HomeAboutSnippet() {
                   </div>
                   <div className="text-2xl sm:text-3xl font-black text-[#1B3A2D] mb-1">{h.value}</div>
                   <div className="text-sm sm:text-base font-bold text-gray-700 mb-2">{h.label}</div>
-                  <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">{h.descNode ?? h.desc}</p>
+                  <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">{h.desc}</p>
                 </div>
               );
             })}

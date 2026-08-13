@@ -100,7 +100,7 @@ export default function HomeServices() {
           <Link href="/services"
             className="inline-flex items-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-bold px-10 py-4 rounded-full transition-all duration-200 text-lg hover:-translate-y-0.5"
             style={{ boxShadow: '0 8px 32px rgba(107,189,69,0.40)' }}>
-            View All Services <ArrowRight size={18} />
+            {t.services.exploreAll} <ArrowRight size={18} />
           </Link>
         </div>
       </div>

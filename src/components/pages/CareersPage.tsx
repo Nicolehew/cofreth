@@ -64,10 +64,7 @@ export default function CareersPage() {
         title={<>{p.heroTitle1}<br /><span className="text-[#6BBD45]">{p.heroTitleAccent}</span></>}
         subtitle={p.heroSubtitle}
         stats={[
-          { num: '38+', label: 'Years of Growth' },
-          { num: '30+', label: 'Major Clients' },
-          { num: '5×',  label: 'Award Winning' },
-          { num: '5',   label: 'ISO Certifications' },
+          ...['38+', '30+', '5×', '5'].map((num, i) => ({ num, label: p.heroStats[i] })),
         ]}
       />
 

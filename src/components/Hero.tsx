@@ -139,7 +139,7 @@ export default function Hero() {
           <FadeIn delay={0.1} className="mb-5">
             <span className="inline-flex items-center gap-2 text-[#6BBD45] font-bold tracking-widest uppercase text-sm">
               <span className="w-2 h-2 bg-[#6BBD45] rounded-full animate-pulse" />
-              Total Solutions Provider · Est. 1986
+              {t.hero.estBadge}
             </span>
           </FadeIn>
 
@@ -189,7 +189,7 @@ export default function Hero() {
                 onClick={() => setVideoOpen(true)}
                 className="inline-flex items-center gap-2 border-2 border-white/40 hover:border-[#6BBD45] text-white hover:text-[#6BBD45] font-bold px-6 py-3.5 rounded-full transition-all duration-200 text-base"
               >
-                <Play size={14} fill="currentColor" /> Watch
+                <Play size={14} fill="currentColor" /> {t.hero.watchBtn}
               </button>
             </div>
           </div>

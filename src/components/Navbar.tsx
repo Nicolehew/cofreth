@@ -168,7 +168,7 @@ export default function Navbar() {
                     footer={
                       <Link href="/services" onClick={() => setServicesOpen(false)}
                         className="text-xs font-semibold text-[#6BBD45] hover:text-[#5aa838] transition-colors">
-                        View All Services →
+                        {t.common.viewAllServices} →
                       </Link>
                     }
                   />

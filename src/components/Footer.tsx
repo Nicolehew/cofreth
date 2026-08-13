@@ -11,17 +11,17 @@ const serviceHrefs = [
   '/services/smart-technology',
 ];
 
-const quickLinkHrefs = [
-  { href: '/',          key: 'home' as const },
-  { href: '/about',     key: 'about' as const },
-  { href: '/awards',    key: null, label: 'Awards & Recognition' },
-  { href: '/group',     key: null, label: 'Group of Companies' },
-  { href: '/services',  key: null, label: 'Services' },
-  { href: '/projects',  key: null, label: 'Project Highlights' },
-  { href: '/news',      key: 'news' as const },
-  { href: '/clientele', key: 'clientele' as const },
-  { href: '/contact',   key: 'contact' as const },
-  { href: 'https://webmail.cofreth.com.my', key: null, label: 'Cofreth Webmail', external: true },
+const quickLinkHrefBase = [
+  { href: '/',          navKey: 'home' as const,      footerKey: null },
+  { href: '/about',     navKey: 'about' as const,     footerKey: null },
+  { href: '/awards',    navKey: null,                 footerKey: 'awardsLabel' as const },
+  { href: '/group',     navKey: null,                 footerKey: 'groupLabel' as const },
+  { href: '/services',  navKey: null,                 footerKey: 'servicesLabel' as const },
+  { href: '/projects',  navKey: null,                 footerKey: 'projectsLabel' as const },
+  { href: '/news',      navKey: 'news' as const,      footerKey: null },
+  { href: '/clientele', navKey: 'clientele' as const, footerKey: null },
+  { href: '/contact',   navKey: 'contact' as const,   footerKey: null },
+  { href: 'https://webmail.cofreth.com.my', navKey: null, footerKey: 'webmailLabel' as const, external: true },
 ];
 
 const certs = ['ISO 9001:2015', 'ISO 14001:2015', 'ISO 45001:2018', 'ISO 50001:2018', 'ISO 41001:2018'];
@@ -60,8 +60,8 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold text-sm uppercase tracking-widest mb-5">{t.footer.quickLinksTitle}</h4>
             <ul className="space-y-3">
-              {quickLinkHrefs.map((l) => {
-                const label = l.key ? t.nav[l.key] : l.label!;
+              {quickLinkHrefBase.map((l) => {
+                const label = l.navKey ? t.nav[l.navKey] : t.footer[l.footerKey!];
                 return (
                   <li key={l.href}>
                     <Link href={l.href} {...(l.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}

@@ -8,24 +8,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const NAV_IDS = ['about', 'firsts', 'philosophy', 'ims-policy', 'processes', 'values', 'governance', 'csr', 'sustainability', 'themes'];
 
-const milestones = [
-  { year: '1986',      event: 'Cofreth (M) Sdn Bhd incorporated in Malaysia (Reg. No. 198601002912 | 152066-P)' },
-  { year: '1996',      event: 'First FM company in Malaysia to achieve ISO 9002:1994 accreditation; First to provide a Comprehensive FM Contract' },
-  { year: '1997',      event: 'First to provide 15-year O&M services for the Ministry of Works Malaysia HQ' },
-  { year: '1997–2000', event: 'First in Asia (outside Japan) to design & build a District Cooling System with 6.6km underground chilled water reticulation' },
-  { year: '2001',      event: 'First ESCO to offer Capped & Guaranteed Energy Efficiency Performance (CEEP) contracts' },
-  { year: '2003',      event: 'First FM company to provide full services to the Putrajaya International Convention Centre (PICC)' },
-  { year: '2007',      event: 'Frost & Sullivan Customer Service Leadership Award · First to introduce Balanced Scorecard for FM Performance Measurement' },
-  { year: '2009',      event: "First company appointed to formulate Malaysia's National Energy Efficiency Master Plan" },
-  { year: '2010',      event: 'Frost & Sullivan Malaysia Green Excellence Award — Facilities Management Company of the Year' },
-  { year: '2013',      event: 'First FM company to implement BIM for a cancer hospital in Malaysia' },
-  { year: '2015',      event: 'Frost & Sullivan Customer Service Leadership Award — Integrated Facilities Management' },
-  { year: '2016',      event: 'Frost & Sullivan Competitive Strategy Innovation & Leadership Award — Facilities Management' },
-  { year: '2017',      event: 'BrandLaureate SMEs BestBrands Award — Industrial Facilities Management category' },
-  { year: '2018',      event: 'First ESCO to win 1st Prize at inaugural National Energy Awards (NEA) · SME Icons Award · ASEAN Energy Award 1st Runner Up' },
-  { year: '2021',      event: 'NEA 2021 Energy Performance Contracting (EPC) Champion Award — jointly with Besi Apac' },
-  { year: 'Today',     event: '5× ISO certified ESCO with 38+ years of excellence, serving airports, data centres, universities and landmark buildings across Malaysia' },
-];
+const MILESTONE_YEARS = ['1986', '1996', '1997', '1997–2000', '2001', '2003', '2007', '2009', '2010', '2013', '2015', '2016', '2017', '2018', '2021', 'Today'];
 
 const GOVERNANCE_POLICY_ICONS = ['📣', '🚫', '📋', '🔒'];
 const GOVERNANCE_POLICY_PDFS = [
@@ -174,12 +157,7 @@ export default function AboutPage() {
         eyebrowSub={p.heroEyebrowSub}
         title={<>{p.heroTitle1}<br /><span className="text-[#6BBD45]">{p.heroTitleAccent}</span></>}
         subtitle={p.heroSubtitle}
-        stats={[
-          { num: '38+', label: 'Years of Excellence' },
-          { num: '30+', label: 'Major Clients' },
-          { num: '5×',  label: 'ISO Certifications' },
-          { num: '5×',  label: 'Frost & Sullivan' },
-        ]}
+        stats={['38+', '30+', '5×', '5×'].map((num, i) => ({ num, label: p.heroStats[i] }))}
       />
 
       {/* Mobile nav */}
@@ -224,7 +202,7 @@ export default function AboutPage() {
               <SectionHeader eyebrow={as.eyebrow} title={as.title} subtitle={as.subtitle} />
               <div className="grid lg:grid-cols-2 gap-8 items-start">
                 <div className="space-y-4 text-gray-600 text-base leading-relaxed">
-                  <p>We are a registered <strong className="text-[#1B3A2D]">Energy Service Company (ESCO)</strong> with Malaysia Green Technology Corporation and MAESCO, and utilise the <strong className="text-[#1B3A2D]">ARCHIBUS Total Infrastructure Facilities Management System (TIFM)</strong> for smart, data-driven facility management.</p>
+                  <p>{as.escoBody}</p>
                   <div className="grid sm:grid-cols-2 gap-3 pt-2">
                     {as.highlights.map(pt => (
                       <div key={pt} className="flex items-start gap-2">
@@ -259,7 +237,7 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="absolute left-[18px] top-0 bottom-0 w-0.5 bg-gray-200" />
                 <div className="space-y-5">
-                  {milestones.map((m, i) => <MilestoneItem key={m.year + i} m={m} i={i} />)}
+                  {MILESTONE_YEARS.map((year, i) => <MilestoneItem key={year + i} m={{ year, event: fs.milestones[i] }} i={i} />)}
                 </div>
               </div>
             </div>
@@ -393,12 +371,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xs font-black text-gray-400 uppercase tracking-widest mb-4">{gv.policyDocsTitle}</h3>
               <div className="grid sm:grid-cols-2 gap-4">
-                {[
-                  { title: 'Whistleblowing Policy', desc: 'Report unethical conduct with full protection under the Whistleblower Protection Act 2010. Contact: Ms Nor Niza Md Ajib, Chief Audit Executive, nor-niza.md-ajib@cofreth.com.my' },
-                  { title: 'Anti-Bribery & Corruption Policy', desc: 'Zero-tolerance policy aligned with MACCA Act 2009, covering gifts, facilitation payments, conflicts of interest and third-party due diligence (effective 1 Oct 2022).' },
-                  { title: 'Standard of Business Conduct', desc: 'Our code of conduct governing legal compliance, conflicts of interest, information security, EHS, fair labour and disciplinary practices across all staff and partners.' },
-                  { title: 'Personal Data Protection Policy', desc: 'How Cofreth collects, uses, protects and provides access to personal data for customers and prospective customers in compliance with Malaysian law.' },
-                ].map((pol, i) => (
+                {gv.policies.map((pol, i) => (
                   <div key={pol.title} className="bg-white border border-gray-200 rounded-2xl p-5 hover:border-[#6BBD45]/40 hover:shadow-md shadow-sm transition-all">
                     <div className="text-2xl mb-3">{GOVERNANCE_POLICY_ICONS[i]}</div>
                     <h4 className="font-black text-[#1B3A2D] text-sm mb-2">{pol.title}</h4>
@@ -517,7 +490,7 @@ export default function AboutPage() {
   );
 }
 
-function MilestoneItem({ m, i }: { m: typeof milestones[0]; i: number }) {
+function MilestoneItem({ m, i }: { m: { year: string; event: string }; i: number }) {
   const reveal = useScrollReveal(0.1);
   return (
     <div ref={reveal.ref} className="flex gap-4 transition-all duration-500"
