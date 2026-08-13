@@ -5,70 +5,17 @@ import { ArrowRight, Award } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-/* ── Exact data from cofreth.com.my/awards.php ── */
-const frostSullivan = [
-  {
-    year: '2007',
-    image: '/awards/fs-2007.png',
-    title: 'Frost & Sullivan Malaysia Excellence Award',
-    category: 'Customer Service Leadership Award',
-    detail: 'Integrated Facilities Management Service Market',
-    body: 'Frost & Sullivan',
-  },
-  {
-    year: '2010',
-    image: '/awards/fs-2010.png',
-    title: 'Frost & Sullivan Malaysia Green Excellence Award',
-    category: 'Facilities Management Company of the Year',
-    detail: 'Malaysia Green Excellence Awards',
-    body: 'Frost & Sullivan',
-  },
-  {
-    year: '2015',
-    image: '/awards/fs-2015.png',
-    title: 'Frost & Sullivan Malaysia Excellence Award',
-    category: 'Customer Service Leadership Award',
-    detail: 'Integrated Facilities Management',
-    body: 'Frost & Sullivan',
-  },
-  {
-    year: '2016',
-    image: '/awards/fs-2016.png',
-    title: 'Frost & Sullivan Malaysia Excellence Award',
-    category: 'Competitive Strategy Innovation & Leadership Award',
-    detail: 'Facilities Management',
-    body: 'Frost & Sullivan',
-  },
+const FS_META = [
+  { year: '2007', image: '/awards/fs-2007.png', body: 'Frost & Sullivan' },
+  { year: '2010', image: '/awards/fs-2010.png', body: 'Frost & Sullivan' },
+  { year: '2015', image: '/awards/fs-2015.png', body: 'Frost & Sullivan' },
+  { year: '2016', image: '/awards/fs-2016.png', body: 'Frost & Sullivan' },
 ];
 
-const otherAwards = [
-  {
-    image: '/awards/brandlaureate.png',
-    title: 'BrandLaureate SMEs BestBrands Award',
-    year: '2016 – 2017',
-    body: 'Asia Pacific Brands Foundation',
-    category: 'Industrial Facilities Management',
-    desc: 'Cofreth was honoured with the prestigious BrandLaureate SMEs BestBrands Award in the Industrial Facilities Management category — recognising exceptional brand excellence and market leadership among Malaysian SMEs.',
-    landscape: false,
-  },
-  {
-    image: '/awards/sme-icons.jpg',
-    title: 'SME Icons Award',
-    year: '2018',
-    body: 'Malaysian Service Providers Confederation',
-    category: 'Recognition of Leaders in Service Sectors',
-    desc: 'Recognised as one of Malaysia\'s SME Icons — an honour bestowed by the Malaysian Service Providers Confederation to organisations that exemplify leadership, resilience and excellence in service delivery.',
-    landscape: true,
-  },
-  {
-    image: '/awards/nea-2018.jpeg',
-    title: 'National Energy Award (NEA) — Winner',
-    year: '2018',
-    body: 'Ministry of Energy, Science, Technology, Environment & Climate Change',
-    category: 'Category 1 – Energy Efficiency (Energy Management in Small & Medium Building)',
-    desc: 'Cofreth (M) Sdn Bhd HQ was crowned Winner at Malaysia\'s National Energy Awards 2018 — the nation\'s most prestigious energy honour, recognising outstanding energy efficiency and management practices.',
-    landscape: false,
-  },
+const OTHER_META = [
+  { image: '/awards/brandlaureate.png', year: '2016 – 2017', body: 'Asia Pacific Brands Foundation',                                         landscape: false },
+  { image: '/awards/sme-icons.jpg',     year: '2018',        body: 'Malaysian Service Providers Confederation',                              landscape: true  },
+  { image: '/awards/nea-2018.jpeg',     year: '2018',        body: 'Ministry of Energy, Science, Technology, Environment & Climate Change',  landscape: false },
 ];
 
 const isoList = [
@@ -79,7 +26,10 @@ const isoList = [
   { code: 'ISO 41001:2018', icon: '🏢' },
 ];
 
-function FSCard({ award, i }: { award: typeof frostSullivan[0]; i: number }) {
+type FSEntry = { year: string; image: string; body: string; title: string; category: string; detail: string };
+type OtherEntry = { image: string; year: string; body: string; landscape: boolean; title: string; category: string; desc: string };
+
+function FSCard({ award, i }: { award: FSEntry; i: number }) {
   const reveal = useScrollReveal(0.05);
   return (
     <div ref={reveal.ref}
@@ -111,7 +61,7 @@ function FSCard({ award, i }: { award: typeof frostSullivan[0]; i: number }) {
   );
 }
 
-function OtherCard({ award, i }: { award: typeof otherAwards[0]; i: number }) {
+function OtherCard({ award, i }: { award: OtherEntry; i: number }) {
   const reveal = useScrollReveal(0.05);
   return (
     <div ref={reveal.ref}
@@ -165,6 +115,11 @@ export default function AwardsPage() {
   const { t } = useLanguage();
   const p = t.pages.awards;
 
+  const frostSullivan: FSEntry[] = FS_META.map((m, i) => ({ ...m, ...p.frostSullivan[i] }));
+  const otherAwards: OtherEntry[] = OTHER_META.map((m, i) => ({ ...m, ...p.otherAwards[i] }));
+
+  const HS_NUMS = ['5×', 'NEA', 'ASEAN', 'SME Icon'];
+
   return (
     <>
       <PageHero
@@ -173,12 +128,7 @@ export default function AwardsPage() {
         eyebrowSub={p.heroEyebrowSub}
         title={<>{p.heroTitle1}<br /><span className="text-[#6BBD45]">{p.heroTitleAccent}</span></>}
         subtitle={p.heroSubtitle}
-        stats={[
-          { num: '5×',       label: 'Frost & Sullivan' },
-          { num: 'NEA',      label: 'EPC Champion 2021' },
-          { num: 'ASEAN',    label: 'Energy Award' },
-          { num: 'SME Icon', label: '2018' },
-        ]}
+        stats={HS_NUMS.map((num, i) => ({ num, label: p.heroStats[i] }))}
       />
 
       {/* ── Frost & Sullivan ── */}
