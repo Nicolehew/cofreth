@@ -70,6 +70,7 @@ const zh = {
     featuredStory: '精选故事', allNews: '所有新闻与活动', readFullArticle: '阅读全文',
     emailYourCv: '发送简历', contactHrTeam: '联系人力资源团队',
     partnerWithUs: '与获奖FM公司合作',
+    managingDirector: '董事总经理', signedBy: '签署人',
   },
   pages: {
     about: {
@@ -172,6 +173,27 @@ const zh = {
         ctaTitle: '五项ISO标准。一个可信赖的合作伙伴。',
         ctaBody: 'Cofreth的多重ISO认证意味着您的设施按照最高独立验证标准进行管理——涵盖质量、安全、环境和能源。',
         ctaFmServices: '我们的FM服务',
+        enquireButton: '咨询设施管理服务',
+        isoCertSectionLabel: 'ISO认证 · SIRIM QAS审核 · 有效期2023–2026',
+        close: '关闭',
+        loadingCert: '正在加载证书…',
+        valid: '有效期',
+        viewCertificateBtn: '查看证书',
+        availableOnRequest: '可按要求提供',
+        sirimBadges: ['IAF成员', 'DAkkS认可', '政府关联机构', '40年以上的品质'],
+        certStats: [
+          { label: 'ISO认证标准数', sub: '同时认证' },
+          { label: '证书有效期', sub: '年度监督审核' },
+          { label: '运营年限', sub: '1986年成立' },
+          { label: '审核通过率', sub: '零重大不符合项' },
+        ],
+        certs: [
+          { label: '职业健康与安全', desc: '系统化的危害识别和OHS风险控制，覆盖所有现场运营——确保Cofreth管理的每个设施都是安全的工作环境。', detail: '涵盖风险评估、事故调查、应急准备和所有FM合同的法律合规。' },
+          { label: '质量管理', desc: '以文件化程序、定期审核和持续改进为支撑，在每条服务线上提供一致的高质量服务交付。', detail: '以客户为中心的质量管理体系，涵盖服务规划、交付、绩效监控和纠正措施。' },
+          { label: '环境管理', desc: '通过负责任的运营实践、废物管理和持续的环境绩效监控，最大限度地减少环境影响。', detail: '基于生命周期的环境规划，涵盖所有管理资产的能源、水资源、废物和排放。' },
+          { label: '能源管理', desc: '结构化的能源监控、目标设定和优化——通过数据驱动的绩效管理降低客户的能源消耗和成本。', detail: '能源评审、绩效指标、基准和行动计划，与Cofreth的ESCO和CoPC模型一致。' },
+          { label: '设施管理', desc: 'FM系统的全球标准——定义组织如何构建和交付设施管理以实现组织目标。', detail: '涵盖领导力、规划、支持、运营和绩效评估的战略性FM框架。' },
+        ],
       },
       valuesSection: {
         eyebrow: '价值观与道德', title: '6项核心价值观',
@@ -201,6 +223,7 @@ const zh = {
           { title: '商业行为准则', desc: '我们的行为准则，涵盖法律合规、利益冲突、信息安全、环境健康安全、公平劳工和所有员工及合作伙伴的纪律实践。' },
           { title: '个人数据保护政策', desc: 'Cofreth如何根据马来西亚法律收集、使用、保护并为客户和潜在客户提供个人数据访问。' },
         ],
+        rbaCodeLabel: 'RBA行为准则',
         rbaElementsTitle: '12项合规要素',
         rbaElementsDesc: 'Cofreth遵循责任商业联盟行为准则的全部12项要素——涵盖劳工、健康与安全、环境和道德。',
         policyListTitle: '我们的治理政策',

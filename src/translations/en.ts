@@ -71,6 +71,7 @@ const en = {
     featuredStory: 'Featured Story', allNews: 'All News & Events', readFullArticle: 'Read full article',
     emailYourCv: 'Email Your CV', contactHrTeam: 'Contact HR Team',
     partnerWithUs: 'Partner with an Award-Winning FM',
+    managingDirector: 'Managing Director', signedBy: 'Signed by',
   },
   pages: {
     about: {
@@ -173,6 +174,27 @@ const en = {
         ctaTitle: 'Five ISO standards. One trusted partner.',
         ctaBody: "Cofreth's multi-ISO certification means your facilities are managed to the highest independently verified standards — across quality, safety, environment and energy.",
         ctaFmServices: 'Our FM Services',
+        enquireButton: 'Enquire About FM Services',
+        isoCertSectionLabel: 'ISO Certifications · SIRIM QAS Audited · Valid 2023–2026',
+        close: 'Close',
+        loadingCert: 'Loading certificate…',
+        valid: 'Valid',
+        viewCertificateBtn: 'View Certificate',
+        availableOnRequest: 'Available on request',
+        sirimBadges: ['IAF Member', 'DAkkS Accredited', 'Government Linked', '40+ Years in Quality'],
+        certStats: [
+          { label: 'ISO Standards Certified', sub: 'Simultaneous certifications' },
+          { label: 'Certificate Validity', sub: 'Annual surveillance audits' },
+          { label: 'Years in Operation', sub: 'Est. 1986' },
+          { label: 'Audit Pass Rate', sub: 'Zero major non-conformances' },
+        ],
+        certs: [
+          { label: 'Occupational Health & Safety', desc: 'Systematic hazard identification and OHS risk control across all site operations — ensuring every Cofreth-managed facility is a safe working environment.', detail: 'Covers risk assessments, incident investigation, emergency preparedness, and legal compliance across all FM contracts.' },
+          { label: 'Quality Management', desc: 'Consistent, high-quality service delivery backed by documented procedures, regular audits and continuous improvement across every service line.', detail: 'Customer-focused QMS covering service planning, delivery, performance monitoring and corrective actions.' },
+          { label: 'Environmental Management', desc: 'Minimising environmental impact through responsible operational practices, waste management, and continuous environmental performance monitoring.', detail: 'Lifecycle-based environmental planning covering energy, water, waste and emissions across all managed assets.' },
+          { label: 'Energy Management', desc: 'Structured energy monitoring, targeting and optimisation — reducing client energy consumption and costs through data-driven performance management.', detail: "Energy reviews, performance indicators, baselines and action plans aligned with Cofreth's ESCO and CoPC models." },
+          { label: 'Facility Management', desc: 'The global standard for FM systems — defining how organisations structure and deliver facility management to achieve organisational objectives.', detail: 'Strategic FM framework covering leadership, planning, support, operations and performance evaluation.' },
+        ],
       },
       valuesSection: {
         eyebrow: 'Our Value & Ethics', title: '6 Core Values',
@@ -202,6 +224,7 @@ const en = {
           { title: 'Standard of Business Conduct', desc: 'Our code of conduct governing legal compliance, conflicts of interest, information security, EHS, fair labour and disciplinary practices across all staff and partners.' },
           { title: 'Personal Data Protection Policy', desc: 'How Cofreth collects, uses, protects and provides access to personal data for customers and prospective customers in compliance with Malaysian law.' },
         ],
+        rbaCodeLabel: 'RBA Code of Conduct',
         rbaElementsTitle: '12 Elements of Compliance',
         rbaElementsDesc: 'Cofreth adheres to all 12 elements of the Responsible Business Alliance Code of Conduct — covering labour, health & safety, environment and ethics.',
         policyListTitle: 'Our Governance Policies',

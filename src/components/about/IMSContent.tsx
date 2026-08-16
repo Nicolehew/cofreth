@@ -37,7 +37,7 @@ export default function IMSContent() {
           <div className="mt-8 pt-6 border-t border-[#6BBD45]/20 flex flex-wrap items-center gap-6">
             <div>
               <p className="text-base text-[#1B3A2D] font-bold">Ir. ONG CHING LOON</p>
-              <p className="text-gray-500 text-sm">Managing Director</p>
+              <p className="text-gray-500 text-sm">{t.common.managingDirector}</p>
             </div>
             <p className="text-gray-500 text-sm">Revision 4 · Effective 1 August 2024</p>
             <a href="/documents/IMS_Policy_Revision_4.pdf" target="_blank" rel="noopener noreferrer"

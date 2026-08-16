@@ -5,67 +5,12 @@ import { X, Shield, CheckCircle, Leaf, Zap, Building2, ArrowRight, Eye } from 'l
 import { AboutPageHero } from './AboutPageHero';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const certs = [
-  {
-    code:  'ISO 45001:2018',
-    label: 'Occupational Health & Safety',
-    icon:  Shield,
-    color: '#ef4444',
-    bg:    '#fef2f2',
-    darkBg:'rgba(239,68,68,0.12)',
-    desc:  'Systematic hazard identification and OHS risk control across all site operations — ensuring every Cofreth-managed facility is a safe working environment.',
-    detail: 'Covers risk assessments, incident investigation, emergency preparedness, and legal compliance across all FM contracts.',
-    pdf:   '/documents/ISO_45001-2018_OHS.pdf',
-    valid:  '2023–2026',
-  },
-  {
-    code:  'ISO 9001:2015',
-    label: 'Quality Management',
-    icon:  CheckCircle,
-    color: '#3b82f6',
-    bg:    '#eff6ff',
-    darkBg:'rgba(59,130,246,0.12)',
-    desc:  'Consistent, high-quality service delivery backed by documented procedures, regular audits and continuous improvement across every service line.',
-    detail: 'Customer-focused QMS covering service planning, delivery, performance monitoring and corrective actions.',
-    pdf:   '/documents/ISO_9001-2015_QMS.pdf',
-    valid:  '2023–2026',
-  },
-  {
-    code:  'ISO 14001:2015',
-    label: 'Environmental Management',
-    icon:  Leaf,
-    color: '#10b981',
-    bg:    '#f0fdf4',
-    darkBg:'rgba(16,185,129,0.12)',
-    desc:  'Minimising environmental impact through responsible operational practices, waste management, and continuous environmental performance monitoring.',
-    detail: 'Lifecycle-based environmental planning covering energy, water, waste and emissions across all managed assets.',
-    pdf:   '/documents/ISO_14001-2015_EMS.pdf',
-    valid:  '2023–2026',
-  },
-  {
-    code:  'ISO 50001:2018',
-    label: 'Energy Management',
-    icon:  Zap,
-    color: '#f59e0b',
-    bg:    '#fffbeb',
-    darkBg:'rgba(245,158,11,0.12)',
-    desc:  'Structured energy monitoring, targeting and optimisation — reducing client energy consumption and costs through data-driven performance management.',
-    detail: 'Energy reviews, performance indicators, baselines and action plans aligned with Cofreth\'s ESCO and CoPC models.',
-    pdf:   '/documents/ISO_50001-2018_EnMS.pdf',
-    valid:  '2023–2026',
-  },
-  {
-    code:  'ISO 41001:2018',
-    label: 'Facility Management',
-    icon:  Building2,
-    color: '#8b5cf6',
-    bg:    '#f5f3ff',
-    darkBg:'rgba(139,92,246,0.12)',
-    desc:  'The global standard for FM systems — defining how organisations structure and deliver facility management to achieve organisational objectives.',
-    detail: 'Strategic FM framework covering leadership, planning, support, operations and performance evaluation.',
-    pdf:   '/documents/ISO_41001-2018_FMS.pdf',
-    valid:  '2025–2028',
-  },
+const CERT_META = [
+  { code: 'ISO 45001:2018', icon: Shield, color: '#ef4444', pdf: '/documents/ISO_45001-2018_OHS.pdf', valid: '2023–2026' },
+  { code: 'ISO 9001:2015',  icon: CheckCircle, color: '#3b82f6', pdf: '/documents/ISO_9001-2015_QMS.pdf', valid: '2023–2026' },
+  { code: 'ISO 14001:2015', icon: Leaf, color: '#10b981', pdf: '/documents/ISO_14001-2015_EMS.pdf', valid: '2023–2026' },
+  { code: 'ISO 50001:2018', icon: Zap, color: '#f59e0b', pdf: '/documents/ISO_50001-2018_EnMS.pdf', valid: '2023–2026' },
+  { code: 'ISO 41001:2018', icon: Building2, color: '#8b5cf6', pdf: '/documents/ISO_41001-2018_FMS.pdf', valid: '2025–2028' },
 ];
 
 const PDCA_META = [
@@ -75,7 +20,7 @@ const PDCA_META = [
   { icon: '🔄', letter: 'A', color: '#ef4444' },
 ];
 
-function PdfModal({ url, title, onClose }: { url: string; title: string; onClose: () => void }) {
+function PdfModal({ url, title, onClose, closeLabel, loadingLabel }: { url: string; title: string; onClose: () => void; closeLabel: string; loadingLabel: string }) {
   const [loading, setLoading] = useState(true);
 
   return (
@@ -88,7 +33,7 @@ function PdfModal({ url, title, onClose }: { url: string; title: string; onClose
         </div>
         <button onClick={onClose}
           className="flex items-center gap-1.5 text-gray-500 hover:text-red-500 transition-colors px-3 py-1.5 rounded-lg hover:bg-gray-100 text-sm">
-          <X size={15} /> Close
+          <X size={15} /> {closeLabel}
         </button>
       </div>
 
@@ -97,7 +42,7 @@ function PdfModal({ url, title, onClose }: { url: string; title: string; onClose
         {loading && (
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 bg-[#404040]">
             <div className="w-12 h-12 border-4 border-[#6BBD45]/30 border-t-[#6BBD45] rounded-full animate-spin" />
-            <p className="text-white font-semibold text-base">Loading certificate…</p>
+            <p className="text-white font-semibold text-base">{loadingLabel}</p>
           </div>
         )}
         <iframe
@@ -116,11 +61,13 @@ export default function ProcessesContent() {
   const { t } = useLanguage();
   const pr = t.pages.about.processesSection;
 
+  const certs = CERT_META.map((m, i) => ({ ...m, label: pr.certs[i].label, desc: pr.certs[i].desc, detail: pr.certs[i].detail }));
+
   return (
     <>
       <AboutPageHero section={pr.eyebrow} title={pr.title} subtitle={pr.subtitle} />
       {activePdf && (
-        <PdfModal url={activePdf.url} title={activePdf.title} onClose={() => setActivePdf(null)} />
+        <PdfModal url={activePdf.url} title={activePdf.title} onClose={() => setActivePdf(null)} closeLabel={pr.close} loadingLabel={pr.loadingCert} />
       )}
 
       {/* ── ISO Certs ── */}
@@ -129,18 +76,18 @@ export default function ProcessesContent() {
         <div className="flex items-center gap-3 mb-10">
           <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
           <span className="font-black text-[#1B3A2D] uppercase tracking-widest text-sm">
-            ISO Certifications · SIRIM QAS Audited · Valid 2023–2026
+            {pr.isoCertSectionLabel}
           </span>
         </div>
 
         <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5 mb-6">
           {certs.slice(0, 3).map(c => (
-            <CertCard key={c.code} cert={c} onView={() => c.pdf && setActivePdf({ url: c.pdf, title: `${c.code} — ${c.label}` })} />
+            <CertCard key={c.code} cert={c} onView={() => c.pdf && setActivePdf({ url: c.pdf, title: `${c.code} — ${c.label}` })} validLabel={pr.valid} viewLabel={pr.viewCertificateBtn} availableLabel={pr.availableOnRequest} />
           ))}
         </div>
         <div className="grid sm:grid-cols-2 gap-5">
           {certs.slice(3).map(c => (
-            <CertCard key={c.code} cert={c} onView={() => c.pdf && setActivePdf({ url: c.pdf, title: `${c.code} — ${c.label}` })} />
+            <CertCard key={c.code} cert={c} onView={() => c.pdf && setActivePdf({ url: c.pdf, title: `${c.code} — ${c.label}` })} validLabel={pr.valid} viewLabel={pr.viewCertificateBtn} availableLabel={pr.availableOnRequest} />
           ))}
         </div>
       </section>
@@ -194,7 +141,7 @@ export default function ProcessesContent() {
               {pr.sirimBody}
             </p>
             <div className="flex flex-wrap gap-2">
-              {['IAF Member', 'DAkkS Accredited', 'Government Linked', '40+ Years in Quality'].map(b => (
+              {pr.sirimBadges.map(b => (
                 <span key={b} className="px-3 py-1.5 bg-[#6BBD45]/10 text-[#1B3A2D] rounded-full font-semibold text-sm">{b}</span>
               ))}
             </div>
@@ -202,10 +149,10 @@ export default function ProcessesContent() {
 
           <div className="grid grid-cols-2 gap-4">
             {[
-              { num: '5',    label: 'ISO Standards Certified', sub: 'Simultaneous certifications' },
-              { num: '2026', label: 'Certificate Validity',    sub: 'Annual surveillance audits' },
-              { num: '38+',  label: 'Years in Operation',      sub: 'Est. 1986' },
-              { num: '100%', label: 'Audit Pass Rate',         sub: 'Zero major non-conformances' },
+              { num: '5',    ...pr.certStats[0] },
+              { num: '2026', ...pr.certStats[1] },
+              { num: '38+',  ...pr.certStats[2] },
+              { num: '100%', ...pr.certStats[3] },
             ].map(s => (
               <div key={s.label} className="bg-white border border-gray-100 rounded-2xl p-5">
                 <div className="font-black text-[#6BBD45] mb-1 text-3xl">{s.num}</div>
@@ -229,7 +176,7 @@ export default function ProcessesContent() {
           <div className="flex flex-wrap gap-4">
             <Link href="/contact"
               className="inline-flex items-center gap-2 bg-[#1B3A2D] hover:bg-[#0F2419] text-white font-bold px-8 py-3.5 rounded-full transition-all text-base">
-              Enquire About FM Services <ArrowRight size={16} />
+              {pr.enquireButton} <ArrowRight size={16} />
             </Link>
             <Link href="/services/facilities-management"
               className="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-semibold px-8 py-3.5 rounded-full transition-all text-base">
@@ -241,7 +188,9 @@ export default function ProcessesContent() {
   );
 }
 
-function CertCard({ cert, onView }: { cert: typeof certs[0]; onView: () => void }) {
+type CertData = { code: string; icon: React.ComponentType<{ size: number; style?: React.CSSProperties }>; color: string; pdf: string; valid: string; label: string; desc: string; detail: string };
+
+function CertCard({ cert, onView, validLabel, viewLabel, availableLabel }: { cert: CertData; onView: () => void; validLabel: string; viewLabel: string; availableLabel: string }) {
   const Icon = cert.icon;
   return (
     <div className="group bg-white border border-gray-100 hover:border-[#6BBD45]/40 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col">
@@ -274,18 +223,18 @@ function CertCard({ cert, onView }: { cert: typeof certs[0]; onView: () => void 
 
         {/* Footer */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-          <span className="text-gray-400 text-xs">Valid {cert.valid}</span>
+          <span className="text-gray-400 text-xs">{validLabel} {cert.valid}</span>
           {cert.pdf ? (
             <button
               onClick={onView}
               className="text-sm flex items-center gap-1.5 font-semibold transition-all hover:gap-2.5"
               style={{ color: cert.color }}
             >
-              <Eye size={13} /> View Certificate
+              <Eye size={13} /> {viewLabel}
             </button>
           ) : (
             <span className="text-gray-400 italic text-sm">
-              Available on request
+              {availableLabel}
             </span>
           )}
         </div>

@@ -59,7 +59,7 @@ export default function GovernanceContent() {
       <div className="py-16 px-6 lg:px-10 xl:px-14 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="mb-10">
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-[#6BBD45]">RBA Code of Conduct</span>
+            <span className="text-xs font-black uppercase tracking-[0.2em] text-[#6BBD45]">{gv.rbaCodeLabel}</span>
             <h3 className="font-black text-[#1B3A2D] text-3xl mt-2 mb-2">{gv.rbaElementsTitle}</h3>
             <p className="text-gray-500 text-base max-w-2xl">
               {gv.rbaElementsDesc}

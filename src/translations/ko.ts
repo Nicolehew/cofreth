@@ -70,6 +70,7 @@ const ko = {
     featuredStory: '주요 기사', allNews: '모든 뉴스 및 이벤트', readFullArticle: '전체 기사 읽기',
     emailYourCv: '이력서 보내기', contactHrTeam: 'HR 팀에 연락',
     partnerWithUs: '수상 FM 회사와 파트너십',
+    managingDirector: '대표이사', signedBy: '서명',
   },
   pages: {
     about: {
@@ -172,6 +173,27 @@ const ko = {
         ctaTitle: '5개의 ISO 표준. 하나의 신뢰받는 파트너.',
         ctaBody: 'Cofreth의 다중 ISO 인증은 귀하의 시설이 최고 수준의 독립 검증 기준에 따라 관리됨을 의미합니다 — 품질, 안전, 환경, 에너지 전반에서.',
         ctaFmServices: 'FM 서비스',
+        enquireButton: 'FM 서비스 문의하기',
+        isoCertSectionLabel: 'ISO 인증 · SIRIM QAS 감사 · 유효기간 2023–2026',
+        close: '닫기',
+        loadingCert: '인증서 로딩 중…',
+        valid: '유효기간',
+        viewCertificateBtn: '인증서 보기',
+        availableOnRequest: '요청 시 제공 가능',
+        sirimBadges: ['IAF 회원', 'DAkkS 인증', '정부 연계 기관', '40년 이상의 품질'],
+        certStats: [
+          { label: 'ISO 인증 표준 수', sub: '동시 인증 취득' },
+          { label: '인증서 유효기간', sub: '연간 감시 심사' },
+          { label: '운영 연수', sub: '1986년 설립' },
+          { label: '감사 합격률', sub: '중대 부적합 사항 없음' },
+        ],
+        certs: [
+          { label: '산업안전보건', desc: '모든 현장 운영에서 체계적인 위험 식별 및 OHS 위험 관리——Cofreth가 관리하는 모든 시설이 안전한 근무 환경임을 보장합니다.', detail: '모든 FM 계약에서 위험 평가, 사고 조사, 비상 대비, 법적 준수를 포괄합니다.' },
+          { label: '품질 경영', desc: '문서화된 절차, 정기 감사 및 지속적 개선으로 뒷받침된 모든 서비스 라인에서의 일관된 고품질 서비스 제공.', detail: '서비스 기획, 제공, 성과 모니터링 및 시정 조치를 포괄하는 고객 중심 QMS.' },
+          { label: '환경 경영', desc: '책임 있는 운영 관행, 폐기물 관리, 지속적인 환경 성과 모니터링을 통해 환경 영향을 최소화합니다.', detail: '관리되는 모든 자산에서 에너지, 수자원, 폐기물 및 배출을 포괄하는 생애주기 기반 환경 계획.' },
+          { label: '에너지 경영', desc: '구조화된 에너지 모니터링, 목표 설정 및 최적화——데이터 기반 성과 관리를 통해 고객의 에너지 소비와 비용을 절감합니다.', detail: 'Cofreth의 ESCO 및 CoPC 모델에 맞춘 에너지 검토, 성과 지표, 기준선 및 행동 계획.' },
+          { label: '시설 경영', desc: 'FM 시스템의 글로벌 표준——조직이 시설 관리를 구조화하고 제공하여 조직 목표를 달성하는 방법을 정의합니다.', detail: '리더십, 기획, 지원, 운영 및 성과 평가를 포괄하는 전략적 FM 프레임워크.' },
+        ],
       },
       valuesSection: {
         eyebrow: '가치관 및 윤리', title: '6가지 핵심 가치',
@@ -201,6 +223,7 @@ const ko = {
           { title: '표준 비즈니스 행동 강령', desc: '모든 직원 및 파트너에게 적용되는 법령 준수, 이해충돌, 정보 보안, EHS, 공정 노동, 징계 관행을 규정하는 행동 강령.' },
           { title: '개인정보 보호 정책', desc: '말레이시아 법률에 따라 고객 및 잠재 고객의 개인정보를 Cofreth가 수집, 사용, 보호 및 접근 제공하는 방법.' },
         ],
+        rbaCodeLabel: 'RBA 행동 강령',
         rbaElementsTitle: '12가지 컴플라이언스 요소',
         rbaElementsDesc: 'Cofreth는 RBA 행동 강령의 12가지 요소 모두를 준수합니다 — 노동, 보건 및 안전, 환경, 윤리 전반을 포괄합니다.',
         policyListTitle: '기업 지배구조 정책',
