@@ -68,11 +68,11 @@ const certs = [
   },
 ];
 
-const pdcaSteps = [
-  { icon: '🔍', letter: 'P', word: 'Plan',   color: '#6BBD45', desc: 'Define objectives, identify hazards and risks, then plan the FM or energy solution tailored to your specific facility and operational needs.' },
-  { icon: '⚙️', letter: 'D', word: 'Do',     color: '#3b82f6', desc: 'Execute with certified engineers and technicians following ISO-compliant procedures, SOPs and method statements.' },
-  { icon: '📊', letter: 'C', word: 'Check',  color: '#f59e0b', desc: 'Monitor KPIs, measure energy performance, conduct internal audits and third-party surveillance to verify outcomes.' },
-  { icon: '🔄', letter: 'A', word: 'Act',    color: '#ef4444', desc: 'Take corrective and preventive actions, update procedures and feed lessons learned back into the next planning cycle.' },
+const PDCA_META = [
+  { icon: '🔍', letter: 'P', color: '#6BBD45' },
+  { icon: '⚙️', letter: 'D', color: '#3b82f6' },
+  { icon: '📊', letter: 'C', color: '#f59e0b' },
+  { icon: '🔄', letter: 'A', color: '#ef4444' },
 ];
 
 function PdfModal({ url, title, onClose }: { url: string; title: string; onClose: () => void }) {
@@ -150,20 +150,20 @@ export default function ProcessesContent() {
         <div className="flex items-center gap-3 mb-12">
           <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
           <span className="font-black text-[#1B3A2D] uppercase tracking-widest text-sm">
-            PDCA — Our Continuous Improvement Engine
+            {pr.pdcaLabel}
           </span>
         </div>
 
         <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
-          {pdcaSteps.map((s, i) => (
+          {pr.pdcaSteps.map((s, i) => (
             <div key={s.word} className="relative">
-              {i < pdcaSteps.length - 1 && (
+              {i < pr.pdcaSteps.length - 1 && (
                 <div className="hidden xl:block absolute top-8 left-full w-6 border-t-2 border-dashed border-gray-200 z-10" />
               )}
               <div className="bg-white border border-gray-100 hover:border-[#6BBD45]/40 rounded-2xl p-6 transition-all duration-300 hover:shadow-md h-full">
                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center font-black text-white mb-5 shrink-0 text-2xl"
-                  style={{ background: s.color }}>
-                  {s.letter}
+                  style={{ background: PDCA_META[i].color }}>
+                  {PDCA_META[i].letter}
                 </div>
                 <div className="font-black text-[#1B3A2D] mb-2 text-lg">{s.word}</div>
                 <p className="text-gray-500 leading-relaxed text-base">{s.desc}</p>
@@ -173,7 +173,7 @@ export default function ProcessesContent() {
         </div>
 
         <p className="text-center text-gray-400 mt-10 text-sm">
-          The PDCA cycle governs every Cofreth service contract — from FM maintenance scheduling to energy performance monitoring.
+          {pr.pdcaCycleNote}
         </p>
       </section>
 
@@ -184,14 +184,14 @@ export default function ProcessesContent() {
             <div className="flex items-center gap-3 mb-6">
               <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
               <span className="font-black text-[#1B3A2D] uppercase tracking-widest text-sm">
-                Certification Body
+                {pr.sirimLabel}
               </span>
             </div>
             <h2 className="font-black text-[#1B3A2D] leading-tight mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}>
-              Independently Audited by<br /><span className="text-[#6BBD45]">SIRIM QAS International</span>
+              {pr.sirimTitle}<br /><span className="text-[#6BBD45]">SIRIM QAS International</span>
             </h2>
             <p className="text-gray-500 leading-relaxed mb-6 text-lg">
-              All five ISO certifications are independently audited and issued by SIRIM QAS International — Malaysia's premier conformity assessment body and a member of the International Accreditation Forum (IAF).
+              {pr.sirimBody}
             </p>
             <div className="flex flex-wrap gap-2">
               {['IAF Member', 'DAkkS Accredited', 'Government Linked', '40+ Years in Quality'].map(b => (
@@ -219,12 +219,12 @@ export default function ProcessesContent() {
 
       {/* ── CTA ── */}
       <section className="bg-[#6BBD45] py-14 px-6 lg:px-10 xl:px-14">
-          <p className="font-bold text-white/80 uppercase tracking-widest mb-3 text-sm">Work With a Certified FM Partner</p>
+          <p className="font-bold text-white/80 uppercase tracking-widest mb-3 text-sm">{pr.ctaEyebrow}</p>
           <h2 className="font-black text-white mb-4 leading-tight" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}>
-            Five ISO standards. One trusted partner.
+            {pr.ctaTitle}
           </h2>
           <p className="text-white/80 mb-8 leading-relaxed text-lg">
-            Cofreth's multi-ISO certification means your facilities are managed to the highest independently verified standards — across quality, safety, environment and energy.
+            {pr.ctaBody}
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/contact"
@@ -233,7 +233,7 @@ export default function ProcessesContent() {
             </Link>
             <Link href="/services/facilities-management"
               className="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-semibold px-8 py-3.5 rounded-full transition-all text-base">
-              Our FM Services
+              {pr.ctaFmServices}
             </Link>
           </div>
       </section>
