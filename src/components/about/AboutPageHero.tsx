@@ -1,5 +1,7 @@
+'use client';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Props {
   section: string;
@@ -8,18 +10,19 @@ interface Props {
 }
 
 export function AboutPageHero({ section, title, subtitle }: Props) {
+  const { t } = useLanguage();
   return (
     <div className="bg-white border-b border-gray-100 px-6 lg:px-12 pt-12 pb-12 text-center">
       {/* Breadcrumb — centred */}
       <nav className="flex items-center justify-center gap-1.5 mb-8 text-xs">
-        <Link href="/" className="text-gray-400 hover:text-[#6BBD45] transition-colors">Home</Link>
+        <Link href="/" className="text-gray-400 hover:text-[#6BBD45] transition-colors">{t.nav.home}</Link>
         <ChevronRight size={12} className="text-gray-300" />
-        <Link href="/about" className="text-gray-400 hover:text-[#6BBD45] transition-colors">About</Link>
+        <Link href="/about" className="text-gray-400 hover:text-[#6BBD45] transition-colors">{t.nav.about}</Link>
         <ChevronRight size={12} className="text-gray-300" />
         <span className="text-[#6BBD45] font-semibold">{section}</span>
       </nav>
 
-      {/* Eyebrow — flanking lines, same as Awards page */}
+      {/* Eyebrow — flanking lines */}
       <div className="flex items-center justify-center gap-3 mb-5">
         <div className="w-8 h-0.5 bg-[#6BBD45]" />
         <span className="text-[#6BBD45] text-xs font-bold tracking-widest uppercase">{section}</span>
