@@ -199,6 +199,7 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
   const Icon = project.icon;
   const { t } = useLanguage();
   const p = t.pages.projects;
+  const typeLabel = useProjectTypeLabel(project.type, p);
   return (
     <div className="fixed inset-0 z-[500] flex items-center justify-center p-4" style={{ background: 'rgba(0,0,0,0.75)' }} onClick={onClose}>
       <div className="bg-white rounded-3xl overflow-hidden max-w-2xl w-full shadow-2xl" onClick={e => e.stopPropagation()}>
@@ -209,7 +210,7 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
             <X size={16} />
           </button>
           <div className="absolute bottom-4 left-5 right-5">
-            <span className="bg-[#6BBD45] text-white text-xs font-bold px-3 py-1.5 rounded-full tracking-widest uppercase mb-2 inline-block">{project.type}</span>
+            <span className="bg-[#6BBD45] text-white text-xs font-bold px-3 py-1.5 rounded-full tracking-widest uppercase mb-2 inline-block">{typeLabel}</span>
             <h2 className="text-white font-black text-xl leading-tight">{project.name}</h2>
             <p className="text-white/70 text-xs flex items-center gap-1 mt-1"><MapPin size={11} />{project.location}</p>
           </div>
@@ -239,6 +240,7 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
 function ProjectCard({ project, index, onSelect }: { project: typeof projects[0]; index: number; onSelect: () => void }) {
   const reveal = useScrollReveal(0.1);
   const { t } = useLanguage();
+  const typeLabel = useProjectTypeLabel(project.type, t.pages.projects);
   const Icon = project.icon;
   return (
     <div ref={reveal.ref} className="transition-all duration-700"
@@ -247,7 +249,7 @@ function ProjectCard({ project, index, onSelect }: { project: typeof projects[0]
         <div className="relative h-52 overflow-hidden">
           <Image src={project.image} alt={project.name} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          <span className="absolute top-4 left-4 bg-white/15 backdrop-blur-sm border border-white/25 text-white text-xs font-bold px-3 py-1.5 rounded-full tracking-wider">{project.type}</span>
+          <span className="absolute top-4 left-4 bg-white/15 backdrop-blur-sm border border-white/25 text-white text-xs font-bold px-3 py-1.5 rounded-full tracking-wider">{typeLabel}</span>
           <div className="absolute bottom-4 right-4 w-9 h-9 bg-[#6BBD45] rounded-xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <Icon size={16} className="text-white" />
           </div>
@@ -270,7 +272,17 @@ function ProjectCard({ project, index, onSelect }: { project: typeof projects[0]
   );
 }
 
-const filterValues = ['All', 'Facilities Management', 'Energy & Cooling', 'Green Building', 'Technology'];
+const EN_TYPES = ['All', 'Facilities Management', 'Energy & Cooling', 'Green Building', 'Technology'];
+
+function useProjectTypeLabel(type: string, p: ReturnType<typeof useLanguage>['t']['pages']['projects']) {
+  const map: Record<string, string> = {
+    'Facilities Management': p.filterFM,
+    'Energy & Cooling':      p.filterEnergy,
+    'Green Building':        p.filterGreen,
+    'Technology':            p.filterTech,
+  };
+  return map[type] ?? type;
+}
 
 export default function ProjectsPage() {
   const [filterIdx, setFilterIdx] = useState(0);
@@ -280,7 +292,7 @@ export default function ProjectsPage() {
 
   const filterTabs = [p.filterAll, p.filterFM, p.filterEnergy, p.filterGreen, p.filterTech];
 
-  const rest = projects.filter(proj => filterIdx === 0 || proj.type === filterValues[filterIdx]);
+  const rest = projects.filter(proj => filterIdx === 0 || proj.type === EN_TYPES[filterIdx]);
 
   return (
     <>

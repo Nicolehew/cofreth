@@ -8,7 +8,7 @@ import news, { type NewsArticle } from '@/data/news';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 
-function FeaturedCard({ item, readMore }: { item: NewsArticle; readMore: string }) {
+function FeaturedCard({ item, readMore, catLabel }: { item: NewsArticle; readMore: string; catLabel: (c: string) => string }) {
   const reveal = useScrollReveal();
   return (
     <div ref={reveal.ref} className="transition-all duration-700" style={{ opacity: reveal.visible ? 1 : 0, transform: reveal.visible ? 'none' : 'translateY(30px)' }}>
@@ -22,7 +22,7 @@ function FeaturedCard({ item, readMore }: { item: NewsArticle; readMore: string 
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(8,20,14,0.7) 0%, transparent 60%)' }} />
-          <span className="absolute top-5 left-5 bg-[#6BBD45] text-white font-bold px-3 py-1.5 rounded-full tracking-widest uppercase text-xs">{item.category}</span>
+          <span className="absolute top-5 left-5 bg-[#6BBD45] text-white font-bold px-3 py-1.5 rounded-full tracking-widest uppercase text-xs">{catLabel(item.category)}</span>
         </div>
         <div className="bg-white p-8 lg:p-10 flex flex-col justify-center">
           <div className="flex items-center gap-4 text-gray-400 mb-4 text-sm">
@@ -40,7 +40,7 @@ function FeaturedCard({ item, readMore }: { item: NewsArticle; readMore: string 
   );
 }
 
-function NewsCard({ item, index, readMore }: { item: NewsArticle; index: number; readMore: string }) {
+function NewsCard({ item, index, readMore, catLabel }: { item: NewsArticle; index: number; readMore: string; catLabel: (c: string) => string }) {
   const reveal = useScrollReveal(0.1);
   return (
     <div ref={reveal.ref} className="transition-all duration-700"
@@ -56,7 +56,7 @@ function NewsCard({ item, index, readMore }: { item: NewsArticle; index: number;
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-          <span className="absolute top-4 left-4 bg-[#6BBD45] text-white font-bold px-3 py-1 rounded-full tracking-wider uppercase text-xs">{item.category}</span>
+          <span className="absolute top-4 left-4 bg-[#6BBD45] text-white font-bold px-3 py-1 rounded-full tracking-wider uppercase text-xs">{catLabel(item.category)}</span>
         </div>
         <div className="p-6 flex flex-col flex-1">
           <div className="flex items-center gap-3 text-gray-400 mb-3 text-xs">
@@ -83,6 +83,11 @@ export default function NewsPage() {
 
   const featured = news.find(n => n.featured)!;
   const filtered = news.filter(n => !n.featured && (activeCatIdx === 0 || n.category === EN_CATEGORIES[activeCatIdx]));
+
+  const categoryLabel = (englishCat: string) => {
+    const idx = EN_CATEGORIES.indexOf(englishCat);
+    return idx >= 0 && p.categories[idx] ? p.categories[idx] : englishCat;
+  };
 
   return (
     <>
@@ -147,7 +152,7 @@ export default function NewsPage() {
             <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
             <h2 className="font-bold text-[#1B3A2D] text-lg">{p.featuredLabel}</h2>
           </div>
-          <FeaturedCard item={featured} readMore={p.readMore} />
+          <FeaturedCard item={featured} readMore={p.readMore} catLabel={categoryLabel} />
         </div>
       </section>
 
@@ -178,7 +183,7 @@ export default function NewsPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((item, i) => <NewsCard key={item.id} item={item} index={i} readMore={p.readMore} />)}
+            {filtered.map((item, i) => <NewsCard key={item.id} item={item} index={i} readMore={p.readMore} catLabel={categoryLabel} />)}
           </div>
         </div>
       </section>
