@@ -4,10 +4,11 @@ import { useLanguage, type Lang } from '@/contexts/LanguageContext';
 import { Globe, ChevronDown } from 'lucide-react';
 
 const languages: { code: Lang; label: string; flag: string }[] = [
-  { code: 'en', label: 'English', flag: '🇬🇧' },
-  { code: 'zh', label: '中文',    flag: '🇨🇳' },
-  { code: 'ja', label: '日本語',  flag: '🇯🇵' },
-  { code: 'ko', label: '한국어',  flag: '🇰🇷' },
+  { code: 'en', label: 'English',  flag: '🇬🇧' },
+  { code: 'ms', label: 'Melayu',   flag: '🇲🇾' },
+  { code: 'zh', label: '中文',     flag: '🇨🇳' },
+  { code: 'ja', label: '日本語',   flag: '🇯🇵' },
+  { code: 'ko', label: '한국어',   flag: '🇰🇷' },
 ];
 
 export default function LanguageSwitcher({ mobile = false }: { mobile?: boolean }) {
