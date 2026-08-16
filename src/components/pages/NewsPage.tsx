@@ -8,7 +8,7 @@ import news, { type NewsArticle } from '@/data/news';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 
-function FeaturedCard({ item, readMore, catLabel }: { item: NewsArticle; readMore: string; catLabel: (c: string) => string }) {
+function FeaturedCard({ item, readMore, catLabel, titleLabel, excerptLabel }: { item: NewsArticle; readMore: string; catLabel: (c: string) => string; titleLabel: string; excerptLabel: string }) {
   const reveal = useScrollReveal();
   return (
     <div ref={reveal.ref} className="transition-all duration-700" style={{ opacity: reveal.visible ? 1 : 0, transform: reveal.visible ? 'none' : 'translateY(30px)' }}>
@@ -29,8 +29,8 @@ function FeaturedCard({ item, readMore, catLabel }: { item: NewsArticle; readMor
             <span className="flex items-center gap-1.5"><Calendar size={14} /> {item.date}</span>
             <span className="flex items-center gap-1.5"><MapPin size={14} /> {item.location}</span>
           </div>
-          <h2 className="font-bold text-[#1B3A2D] mb-4 leading-snug group-hover:text-[#6BBD45] transition-colors text-2xl">{item.title}</h2>
-          <p className="text-gray-500 leading-relaxed mb-6 text-base">{item.excerpt}</p>
+          <h2 className="font-bold text-[#1B3A2D] mb-4 leading-snug group-hover:text-[#6BBD45] transition-colors text-2xl">{titleLabel}</h2>
+          <p className="text-gray-500 leading-relaxed mb-6 text-base">{excerptLabel}</p>
           <span className="inline-flex items-center gap-2 text-[#6BBD45] font-semibold group-hover:gap-3 transition-all text-sm">
             {readMore} <ArrowRight size={15} />
           </span>
@@ -40,7 +40,7 @@ function FeaturedCard({ item, readMore, catLabel }: { item: NewsArticle; readMor
   );
 }
 
-function NewsCard({ item, index, readMore, catLabel }: { item: NewsArticle; index: number; readMore: string; catLabel: (c: string) => string }) {
+function NewsCard({ item, index, readMore, catLabel, titleLabel, excerptLabel }: { item: NewsArticle; index: number; readMore: string; catLabel: (c: string) => string; titleLabel: string; excerptLabel: string }) {
   const reveal = useScrollReveal(0.1);
   return (
     <div ref={reveal.ref} className="transition-all duration-700"
@@ -63,8 +63,8 @@ function NewsCard({ item, index, readMore, catLabel }: { item: NewsArticle; inde
             <span className="flex items-center gap-1"><Calendar size={12} /> {item.date}</span>
             <span className="flex items-center gap-1"><MapPin size={12} /> {item.location}</span>
           </div>
-          <h3 className="font-bold text-[#1B3A2D] mb-3 leading-snug group-hover:text-[#6BBD45] transition-colors flex-1 text-base">{item.title}</h3>
-          <p className="text-gray-500 leading-relaxed mb-4 line-clamp-2 text-sm">{item.excerpt}</p>
+          <h3 className="font-bold text-[#1B3A2D] mb-3 leading-snug group-hover:text-[#6BBD45] transition-colors flex-1 text-base">{titleLabel}</h3>
+          <p className="text-gray-500 leading-relaxed mb-4 line-clamp-2 text-sm">{excerptLabel}</p>
           <span className="inline-flex items-center gap-1.5 text-[#6BBD45] font-semibold group-hover:gap-2.5 transition-all text-sm">
             {readMore} <ArrowRight size={13} />
           </span>
@@ -152,7 +152,7 @@ export default function NewsPage() {
             <span className="w-1 h-6 bg-[#6BBD45] rounded-full" />
             <h2 className="font-bold text-[#1B3A2D] text-lg">{p.featuredLabel}</h2>
           </div>
-          <FeaturedCard item={featured} readMore={p.readMore} catLabel={categoryLabel} />
+          <FeaturedCard item={featured} readMore={p.readMore} catLabel={categoryLabel} titleLabel={p.articles[featured.id - 1]?.title ?? featured.title} excerptLabel={p.articles[featured.id - 1]?.excerpt ?? featured.excerpt} />
         </div>
       </section>
 
@@ -183,7 +183,7 @@ export default function NewsPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((item, i) => <NewsCard key={item.id} item={item} index={i} readMore={p.readMore} catLabel={categoryLabel} />)}
+            {filtered.map((item, i) => <NewsCard key={item.id} item={item} index={i} readMore={p.readMore} catLabel={categoryLabel} titleLabel={p.articles[item.id - 1]?.title ?? item.title} excerptLabel={p.articles[item.id - 1]?.excerpt ?? item.excerpt} />)}
           </div>
         </div>
       </section>

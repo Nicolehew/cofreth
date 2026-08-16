@@ -211,14 +211,14 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
           </button>
           <div className="absolute bottom-4 left-5 right-5">
             <span className="bg-[#6BBD45] text-white text-xs font-bold px-3 py-1.5 rounded-full tracking-widest uppercase mb-2 inline-block">{typeLabel}</span>
-            <h2 className="text-white font-black text-xl leading-tight">{project.name}</h2>
+            <h2 className="text-white font-black text-xl leading-tight">{p.items[project.id - 1]?.name ?? project.name}</h2>
             <p className="text-white/70 text-xs flex items-center gap-1 mt-1"><MapPin size={11} />{project.location}</p>
           </div>
         </div>
         <div className="p-6">
-          <p className="text-gray-600 text-base leading-relaxed mb-5">{project.scope}</p>
+          <p className="text-gray-600 text-base leading-relaxed mb-5">{p.items[project.id - 1]?.scope ?? project.scope}</p>
           <div className="flex flex-wrap gap-2 pb-4 border-b border-gray-100 mb-4">
-            {project.highlights.map(h => (
+            {(p.items[project.id - 1]?.highlights ?? project.highlights).map(h => (
               <span key={h} className="text-xs bg-[#6BBD45]/10 text-[#1B3A2D] px-3 py-1.5 rounded-full font-semibold border border-[#6BBD45]/20">{h}</span>
             ))}
           </div>
@@ -240,7 +240,8 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
 function ProjectCard({ project, index, onSelect }: { project: typeof projects[0]; index: number; onSelect: () => void }) {
   const reveal = useScrollReveal(0.1);
   const { t } = useLanguage();
-  const typeLabel = useProjectTypeLabel(project.type, t.pages.projects);
+  const p = t.pages.projects;
+  const typeLabel = useProjectTypeLabel(project.type, p);
   const Icon = project.icon;
   return (
     <div ref={reveal.ref} className="transition-all duration-700"
@@ -258,10 +259,10 @@ function ProjectCard({ project, index, onSelect }: { project: typeof projects[0]
           <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-3">
             <MapPin size={12} /> {project.location}
           </div>
-          <h3 className="font-bold text-[#1B3A2D] mb-3 leading-snug group-hover:text-[#6BBD45] transition-colors">{project.name}</h3>
-          <p className="text-gray-500 text-base leading-relaxed flex-1 mb-4">{project.scope.slice(0, 130)}…</p>
+          <h3 className="font-bold text-[#1B3A2D] mb-3 leading-snug group-hover:text-[#6BBD45] transition-colors">{p.items[project.id - 1]?.name ?? project.name}</h3>
+          <p className="text-gray-500 text-base leading-relaxed flex-1 mb-4">{(p.items[project.id - 1]?.scope ?? project.scope).slice(0, 130)}…</p>
           <div className="flex flex-wrap gap-1.5 pt-3 border-t border-gray-100">
-            {project.highlights.slice(0, 3).map(h => (
+            {(p.items[project.id - 1]?.highlights ?? project.highlights).slice(0, 3).map(h => (
               <span key={h} className="text-xs bg-[#6BBD45]/8 text-[#1B3A2D] px-2.5 py-1 rounded-full font-medium border border-[#6BBD45]/15">{h}</span>
             ))}
           </div>

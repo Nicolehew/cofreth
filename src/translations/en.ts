@@ -497,6 +497,7 @@ const en = {
       ctaTitle: 'Ready to Be Our Next Success Story?',
       ctaBody: 'From airports to data centres to green-certified towers — Cofreth has the expertise and track record to deliver for your facility.',
       ctaBtn: 'Start a Conversation',
+      items: [] as Array<{name: string; scope: string; highlights: string[]}>,
     },
     servicesOverview: {
       heroEyebrow: 'Our Services', heroEyebrowSub: 'FM · Energy · Green · Smart Technology',
@@ -565,6 +566,7 @@ const en = {
       readMore: 'Read full article',
       categories: ['All', 'Awards', 'Energy', 'Projects', 'Events'],
       estBadge: "Est. 1986 · Malaysia's FM Pioneer",
+      articles: [] as Array<{title: string; excerpt: string}>,
     },
   },
   footer: {
