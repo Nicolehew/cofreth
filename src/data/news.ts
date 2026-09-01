@@ -13,6 +13,7 @@ export interface NewsArticle {
   author:   string;
   tags:     string[];
   related:  string[];        // slugs of related articles
+  pdf?:     string;          // optional: path to a downloadable PDF
 }
 
 const news: NewsArticle[] = [
@@ -31,6 +32,7 @@ const news: NewsArticle[] = [
     author:   'Cofreth Communications',
     tags:     ['NEEAP 2.0', 'Energy Policy', 'PETRA', 'Energy Commission', 'National Energy'],
     related:  ['nea-2021-energy-performance-contracting-champion', 'what-is-esco-energy-performance-contracting-malaysia'],
+    pdf:      '/documents/nst-neeap-2-article.pdf',
   },
   {
     id:       1,

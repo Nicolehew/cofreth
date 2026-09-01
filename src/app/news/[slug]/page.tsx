@@ -6,7 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { JsonLd, breadcrumbSchema, COFRETH_ORG } from '@/components/JsonLd';
 import news, { getArticleBySlug, getRelatedArticles } from '@/data/news';
-import { Calendar, MapPin, Tag, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Calendar, MapPin, Tag, ArrowLeft, ArrowRight, FileText } from 'lucide-react';
 
 /* ── SSG: pre-render all known slugs at build time ── */
 export function generateStaticParams() {
@@ -161,6 +161,21 @@ export default async function ArticlePage(
               </span>
             ))}
           </div>
+
+          {/* PDF link */}
+          {article.pdf && (
+            <div className="mt-8">
+              <a
+                href={article.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 border border-[#6BBD45] text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white font-semibold px-5 py-2.5 rounded-full transition-all text-sm"
+              >
+                <FileText size={16} />
+                Read NST Article (PDF)
+              </a>
+            </div>
+          )}
 
           {/* Back + CTA */}
           <div className="flex items-center justify-between mt-10 pt-8 border-t border-gray-100 dark:border-gray-800">
