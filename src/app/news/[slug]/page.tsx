@@ -208,7 +208,7 @@ export default async function ArticlePage(
               <article className="prose prose-gray dark:prose-invert max-w-none flex-1">
                 {paragraphs.map((para, i) =>
                   /^\d+\./.test(para.trim()) ? (
-                    <p key={i} className="text-gray-600 dark:text-gray-300 leading-relaxed mb-2 text-base pl-4 border-l-2 border-[#6BBD45]/40">
+                    <p key={i} className={`text-gray-600 dark:text-gray-300 leading-relaxed text-base pl-4 border-l-2 border-[#6BBD45]/40 ${paragraphs[i + 1] && !/^\d+\./.test(paragraphs[i + 1].trim()) ? 'mb-6' : 'mb-2'}`}>
                       {para}
                     </p>
                   ) : (
