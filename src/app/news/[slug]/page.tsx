@@ -75,8 +75,15 @@ export default async function ArticlePage(
     { name: article.title, url: `https://www.cofreth.com.my/news/${slug}` },
   ]);
 
-  /* Body paragraphs */
-  const paragraphs = article.body.split('\n\n').filter(Boolean);
+  /* Body paragraphs — split on double newlines; numbered items (^1. …) split on single newlines */
+  const paragraphs = article.body
+    .split('\n\n')
+    .filter(Boolean)
+    .flatMap(block =>
+      /^\d+\./.test(block.trim())
+        ? block.split('\n').filter(Boolean)
+        : [block]
+    );
 
   return (
     <>
@@ -199,21 +206,33 @@ export default async function ArticlePage(
 
               {/* Article text */}
               <article className="prose prose-gray dark:prose-invert max-w-none flex-1">
-                {paragraphs.map((para, i) => (
-                  <p key={i} className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5 text-base">
-                    {para}
-                  </p>
-                ))}
+                {paragraphs.map((para, i) =>
+                  /^\d+\./.test(para.trim()) ? (
+                    <p key={i} className="text-gray-600 dark:text-gray-300 leading-relaxed mb-2 text-base pl-4 border-l-2 border-[#6BBD45]/40">
+                      {para}
+                    </p>
+                  ) : (
+                    <p key={i} className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5 text-base">
+                      {para}
+                    </p>
+                  )
+                )}
               </article>
             </div>
           ) : (
             /* Standard layout: body text full-width */
             <article className="prose prose-gray dark:prose-invert max-w-none">
-              {paragraphs.map((para, i) => (
-                <p key={i} className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5 text-base">
-                  {para}
-                </p>
-              ))}
+              {paragraphs.map((para, i) =>
+                /^\d+\./.test(para.trim()) ? (
+                  <p key={i} className="text-gray-600 dark:text-gray-300 leading-relaxed mb-2 text-base pl-4 border-l-2 border-[#6BBD45]/40">
+                    {para}
+                  </p>
+                ) : (
+                  <p key={i} className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5 text-base">
+                    {para}
+                  </p>
+                )
+              )}
             </article>
           )}
 
