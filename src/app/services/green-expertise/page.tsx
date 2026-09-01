@@ -10,13 +10,13 @@ const data = {
 import { JsonLd, breadcrumbSchema, serviceSchema } from '@/components/JsonLd';
 
 export const metadata = {
-  title: 'Green Building & GBI Consultancy Malaysia | Cofreth',
+  title: 'Green Building Consultancy & GBI Certification Malaysia | Cofreth',
   description:
-    'GBI accredited consultancy, green commissioning & solar PV in Malaysia. Helping buildings achieve sustainability certifications and cut carbon footprint.',
+    'GBI-accredited green building consultancy in Malaysia. Cofreth helps developers & building owners achieve Green Building Index certification, reduce carbon footprint & meet ESG targets. Portfolio includes KLIA2, PNB 1194 & more.',
   alternates: { canonical: '/services/green-expertise' },
   openGraph: {
-    title:       'Green Building & GBI Consultancy Malaysia | Cofreth',
-    description: 'GBI accredited consultancy, green commissioning & solar PV. Helping Malaysian buildings achieve sustainability certifications.',
+    title:       'Green Building Consultancy & GBI Certification Malaysia | Cofreth',
+    description: 'GBI-accredited consultancy for green building certification, energy modelling, commissioning & solar PV in Malaysia. Landmark portfolio: KLIA2, PNB 1194, Cyberjaya Mosque.',
     url:         'https://www.cofreth.com.my/services/green-expertise',
   },
 };

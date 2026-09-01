@@ -10,13 +10,13 @@ const data = {
 import { JsonLd, breadcrumbSchema, serviceSchema } from '@/components/JsonLd';
 
 export const metadata = {
-  title: 'Facilities Management Malaysia | Total FM & O&M | Cofreth',
+  title: 'Total Facilities Management Malaysia | ISO 41001 Certified | Cofreth',
   description:
-    "Total FM, O&M, Technical Due Diligence & FM Consultancy in Malaysia. ISO certified, 38+ years experience. Malaysia's most trusted FM service provider.",
+    "Malaysia's most trusted Total Facilities Management company. Cofreth delivers integrated FM, MEP maintenance & O&M for airports, hospitals & landmark buildings. ISO 41001 certified. Est. 1986.",
   alternates: { canonical: '/services/facilities-management' },
   openGraph: {
-    title:       'Facilities Management Malaysia | Total FM & O&M | Cofreth',
-    description: "Total FM, O&M, Technical Due Diligence & FM Consultancy in Malaysia. ISO certified, 38+ years experience.",
+    title:       'Total Facilities Management Malaysia | ISO 41001 Certified | Cofreth',
+    description: "Malaysia's most trusted Total FM company — integrated FM, MEP maintenance & O&M for landmark buildings since 1986. ISO 41001 certified.",
     url:         'https://www.cofreth.com.my/services/facilities-management',
   },
 };

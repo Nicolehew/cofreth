@@ -512,9 +512,9 @@ const en = {
     },
     serviceDetails: {
       fm: {
-        title: 'Facilities Management', subtitle: 'Total FM Solutions for Every Built Environment',
-        intro: 'Cofreth delivers comprehensive, integrated Facilities Management services that keep your assets performing at their optimal best — reducing costs, ensuring safety, and extending the lifecycle of your built environment.',
-        ctaText: 'Request a Facilities Management Consultation',
+        title: 'Total Facilities Management', subtitle: "Malaysia's First ISO 41001-Certified FM Company",
+        intro: "Cofreth (M) Sdn Bhd has delivered Total Facilities Management across Malaysia's most critical built environments for over 38 years. From KLIA2 to the Putrajaya International Convention Centre, our integrated FM model covers every discipline — MEP maintenance, soft services, asset management, and 24/7 operations — under one accountable contract. We don't just manage buildings; we protect the performance of the people and organisations inside them.",
+        ctaText: 'Speak to Our FM Team About Your Building',
         sections: [
           { title: 'Total Facility Management', desc: 'Our Total FM service provides a single-source solution for all your facility needs. We manage the full spectrum of hard and soft services, ensuring seamless operations across your entire portfolio.', points: ['Single point of accountability', 'Integrated hard & soft services', 'Preventive & corrective maintenance', 'Asset lifecycle management', '24/7 helpdesk and rapid response'] },
           { title: 'Operation & Maintenance', desc: 'Our O&M services are designed to maximise equipment uptime, minimise breakdowns, and reduce total cost of ownership. We employ trained technicians and use structured PPM schedules to keep all MEP systems in peak condition.', points: ['Mechanical, Electrical & Plumbing (MEP) maintenance', 'Planned Preventive Maintenance (PPM)', 'Corrective maintenance & emergency response', 'Energy system monitoring', 'Compliance with regulatory requirements'] },
@@ -523,9 +523,9 @@ const en = {
         ],
       },
       energy: {
-        title: 'Energy Services', subtitle: 'Guaranteed Energy Savings, Measurable Results',
-        intro: "As Malaysia's registered ESCO, Cofreth delivers comprehensive energy services — from audit to implementation — backed by guaranteed performance contracts that put our money where our mouth is.",
-        ctaText: 'Request an Energy Services Consultation',
+        title: 'Energy Performance Contracting', subtitle: "Malaysia's Most Decorated ESCO — NEA Champion & ASEAN Award Winner",
+        intro: "Cofreth is Malaysia's most decorated Energy Service Company (ESCO), delivering guaranteed energy savings through our proprietary CoPC® (Cofreth Performance Contracting) model. Unlike conventional energy consultants who advise and walk away, Cofreth invests in your building's energy efficiency and is only paid from the savings we deliver. Zero upfront capital required. Guaranteed results. Measurable impact.",
+        ctaText: 'Find Out How Much Your Building Can Save',
         sections: [
           { title: 'Energy Audit (ASHRAE Levels 1–3)', desc: 'Our ASHRAE-compliant energy audits identify energy saving opportunities, assess baseline consumption, and recommend measures with detailed ROI analysis for your specific facility.', points: ['Level 1: Preliminary Energy Use Analysis', 'Level 2: Energy Survey & Engineering Analysis', 'Level 3: Detailed Analysis of Capital-Intensive Modifications', 'Energy baseline & benchmarking', 'Utility bill analysis & reporting'] },
           { title: 'Cofreth Energy Efficiency Programme (CEEP©)', desc: 'CEEP© is our proprietary energy efficiency programme — a structured, performance-guaranteed approach to reducing energy consumption across facilities of all types and sizes.', points: ['Proprietary CEEP© methodology', 'Guaranteed energy savings', 'Measurement & verification (M&V)', 'Continuous monitoring & reporting', 'Client dashboard & analytics'] },
@@ -534,9 +534,9 @@ const en = {
         ],
       },
       green: {
-        title: 'Green Expertise', subtitle: 'Building a Sustainable Future',
-        intro: 'Cofreth is a leading GBI Accredited Professional — helping clients achieve green building certifications, implement renewable energy solutions, and future-proof their facilities for a sustainable built environment.',
-        ctaText: 'Request a Green Building Consultation',
+        title: 'Green Building Consultancy', subtitle: 'GBI-Accredited Facilitator — KLIA2, PNB 1194 & Beyond',
+        intro: 'Cofreth is an accredited Green Building Index (GBI) Facilitator and one of Malaysia\'s most experienced green building consultancies. We guide developers, architects, and building owners through the full GBI certification process — from design-stage energy modelling to commissioning and post-occupancy verification. Whether you are seeking GBI certification for a new development or retrofitting an existing building for sustainability, our team delivers practical, cost-effective green solutions that improve occupant comfort and reduce long-term operating costs.',
+        ctaText: 'Talk to Our GBI Facilitators',
         sections: [
           { title: 'Green Building Commissioning', desc: 'As a GBI and GreenRE Accredited Professional, Cofreth provides expert commissioning services to verify that all building systems operate as designed — delivering the promised energy and environmental performance.', points: ['GBI & GreenRE Accredited Professionals', 'Building systems commissioning & re-commissioning', 'Indoor environmental quality testing', 'Energy performance verification', 'Green building documentation & submissions'] },
           { title: 'Renewable Energy & Cogeneration', desc: 'We help facilities transition to renewable energy — from solar PV design and installation to cogeneration systems that simultaneously produce electricity and useful thermal energy for maximum efficiency.', points: ['Solar PV system design & installation', 'Combined Heat & Power (CHP) / Cogeneration', 'Renewable energy feasibility studies', 'Grid-tied and off-grid solutions', 'Net Energy Metering (NEM) applications'] },
@@ -545,9 +545,9 @@ const en = {
         ],
       },
       smart: {
-        title: 'Smart Technology', subtitle: 'Intelligent FM for the Digital Age',
-        intro: 'Cofreth integrates cutting-edge smart building technologies — from ARCHIBUS IWMS to BIM and IoT monitoring — to create data-driven, intelligent facilities that perform better, cost less, and adapt to the future.',
-        ctaText: 'Request a Smart Technology Consultation',
+        title: 'Smart Building Technology', subtitle: 'ARCHIBUS, BIM & IoT — Intelligent Facilities for Malaysia',
+        intro: 'Smart buildings operate more efficiently, cost less to run, and deliver better experiences for occupants. Cofreth integrates cutting-edge building technology — from ARCHIBUS-powered Total Integrated Facilities Management (TIFM) to Building Information Modelling (BIM), IoT sensor networks, and cloud-based energy monitoring — into a single intelligent operations platform. We help building owners move from reactive maintenance to data-driven, predictive facility management.',
+        ctaText: 'Explore Smart Building Solutions for Your Facility',
         sections: [
           { title: 'Total Infrastructure FM (TIFM) — ARCHIBUS', desc: 'ARCHIBUS is the world\'s leading Integrated Workplace Management System (IWMS). As an ARCHIBUS solution partner, Cofreth deploys TIFM to give you complete digital control of all FM operations — from asset tracking to space management.', points: ['ARCHIBUS IWMS implementation & customisation', 'Asset & maintenance management (CMMS)', 'Space & occupancy management', 'Real estate portfolio management', 'Move management & helpdesk workflows'] },
           { title: 'Building Information Modeling (BIM)', desc: 'BIM creates a digital twin of your facility — enabling better decision-making, coordinated maintenance, and a single source of truth for all building data throughout the asset lifecycle.', points: ['3D BIM modelling & as-built documentation', 'BIM-enabled FM (BIM-FM) integration', 'Digital twin development', '4D construction sequencing', 'Facility lifecycle data management'] },
