@@ -170,7 +170,7 @@ export default async function ArticlePage(
           </div>
 
           {/* Excerpt / lead */}
-          <p className="text-[#1B3A2D] dark:text-[#6BBD45] font-semibold leading-relaxed mb-8 text-lg">
+          <p className="text-[#1B3A2D] dark:text-[#6BBD45] font-semibold leading-relaxed mb-8 text-lg text-justify">
             {article.excerpt}
           </p>
 
@@ -212,7 +212,7 @@ export default async function ArticlePage(
                       {para}
                     </p>
                   ) : (
-                    <p key={i} className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5 text-base">
+                    <p key={i} className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5 text-base text-justify">
                       {para}
                     </p>
                   )
@@ -228,7 +228,7 @@ export default async function ArticlePage(
                     {para}
                   </p>
                 ) : (
-                  <p key={i} className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5 text-base">
+                  <p key={i} className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5 text-base text-justify">
                     {para}
                   </p>
                 )
