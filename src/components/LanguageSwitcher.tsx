@@ -5,7 +5,7 @@ import { Globe, ChevronDown } from 'lucide-react';
 
 const languages: { code: Lang; label: string; flag: string }[] = [
   { code: 'en', label: 'English',  flag: '🇬🇧' },
-  { code: 'ms', label: 'Melayu',   flag: '🇲🇾' },
+  { code: 'ms', label: 'Malay',    flag: '🇲🇾' },
   { code: 'zh', label: '中文',     flag: '🇨🇳' },
   { code: 'ja', label: '日本語',   flag: '🇯🇵' },
   { code: 'ko', label: '한국어',   flag: '🇰🇷' },
