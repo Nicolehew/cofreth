@@ -17,6 +17,22 @@ export interface NewsArticle {
 
 const news: NewsArticle[] = [
   {
+    id:       11,
+    slug:     'neeap-2-launch-cofreth-primetech-consortium',
+    category: 'Energy',
+    date:     '19 August 2026',
+    isoDate:  '2026-08-19',
+    location: 'Malaysia',
+    title:    'Cofreth-Primetech Consortium Launches NEEAP 2.0 — Saving the Nation RM85.24 Billion',
+    excerpt:  'Cofreth (M) Sdn Bhd, as joint-lead consultant of the Cofreth-Primetech Engineers Consortium, has successfully delivered the National Energy Efficiency Action Plan 2.0 (NEEAP 2.0) for 2026–2035, officially launched to the nation on 11 August 2026.',
+    body:     "CONGRATULATIONS TO COFRETH-PRIMETECH CONSORTIUM for the successful launch of NEEAP 2.0\n\nCofreth (M) Sdn Bhd is the joint-lead consultant of Cofreth-Primetech Engineers Consortium to the Malaysia's Ministry of Energy, Transition and Water Transformation (PETRA) and Energy Commission of Malaysia (Suruhanjaya Tenaga) has successfully provided consultancy services for the National Energy Efficiency Action Plan 2.0 (NEEAP 2.0) for 2026-2035 and it was officially launched to the nation on 11 August 2026.\n\nThe broad terms of reference of the consultancy were:\n\n1. Review of current energy policy framework and support mechanism\n2. Development of Business-as-Usual (BAU) Forecast up to year 2050\n3. Experts and Key Stakeholders Engagements\n4. Energy efficiency initiatives for industrial, commercial, residential and end-use sector\n5. Development of Implementation Mechanism\n6. Social Economic Impact Analysis\n7. Proposed Sustainable Funding Mechanism\n\nNEEAP 2.0 was launched by the Economy Minister, Akmal Nasrullah Mohd Nasir on behalf of the Deputy Prime Minister II cum PETRA Minister, Datuk Amar Haji Fadillah bin Haji Yusof.\n\nNEEAP 2.0 complements the National Policy Energy Policy 2022-2040, the National Energy Transition Roadmap (NETR), the New Industrial Master Plan 2030 and the 12th and 13th Malaysia Plans.\n\nIn essence, NEEAP 2.0 will save the nation RM85.24 billion in energy costs through cumulative savings of 815,382 terajoules (TJ) and will prevent 26,108 kilotons of carbon dioxide equivalent in greenhouse gas emissions by 2035 and creating 29,110 jobs.",
+    image:    '/news/neeap-2-launch.jpg',
+    featured: true,
+    author:   'Cofreth Communications',
+    tags:     ['NEEAP 2.0', 'Energy Policy', 'PETRA', 'Energy Commission', 'National Energy'],
+    related:  ['nea-2021-energy-performance-contracting-champion', 'what-is-esco-energy-performance-contracting-malaysia'],
+  },
+  {
     id:       1,
     slug:     'nea-2021-energy-performance-contracting-champion',
     category: 'Awards',

@@ -594,6 +594,7 @@ const ms = {
         { title: 'Pensijilan ISO Pelbagai Dicapai — 5 Piawaian Serentak', excerpt: 'Cofreth menjadi antara sebilangan kecil syarikat pengurusan fasiliti Malaysia yang menerima pensijilan serentak lima piawaian ISO antarabangsa: ISO 9001, ISO 14001, ISO 45001, ISO 50001, dan ISO 41001.' },
         { title: 'Kontrak Perkhidmatan FM KL Eco City Ditandatangani', excerpt: 'Cofreth telah menandatangani kontrak perkhidmatan pengurusan fasiliti komprehensif dengan KL Eco City — projek pembangunan pelbagai guna mampan ikonik di Kuala Lumpur. Ini mengukuhkan portfolio hartanah bandar premium Cofreth.' },
         { title: 'Laporan Kemampanan Korporat 2023 Diterbitkan', excerpt: 'Cofreth menerbitkan Laporan Kemampanan Korporat 2023 yang merangkumi prestasi alam sekitar, inisiatif sosial, dan amalan tadbir urus yang komprehensif, mencerminkan komitmen Cofreth terhadap perkhidmatan FM yang mampan.' },
+        { title: 'Konsortium Cofreth-Primetech Berjaya Melancarkan NEEAP 2.0 — Menjimatkan Negara RM85.24 Bilion', excerpt: 'Cofreth (M) Sdn Bhd sebagai perunding utama bersama Konsortium Jurutera Cofreth-Primetech kepada Kementerian Peralihan Tenaga dan Transformasi Air Malaysia (PETRA) dan Suruhanjaya Tenaga telah berjaya menyediakan perkhidmatan perundingan untuk Pelan Tindakan Kecekapan Tenaga Kebangsaan 2.0 (NEEAP 2.0) bagi 2026-2035 dan ia telah dilancarkan secara rasmi kepada negara pada 11 Ogos 2026.' },
       ],
     },
   },
