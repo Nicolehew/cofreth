@@ -86,17 +86,40 @@ export default async function ArticlePage(
 
       <main className="bg-white dark:bg-[#0d1117] min-h-screen">
 
-        {/* Hero image */}
-        <div className="relative h-[420px] md:h-[520px] w-full overflow-hidden">
-          <Image
-            src={article.image}
-            alt={article.title}
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
+        {/* Hero — gradient bg for portrait/side-image articles, photo bg otherwise */}
+        <div
+          className="relative h-[420px] md:h-[520px] w-full overflow-hidden"
+          style={article.sideImage
+            ? { background: 'linear-gradient(135deg, #0F2419 0%, #1B3A2D 60%, #0d3320 100%)' }
+            : undefined}
+        >
+          {!article.sideImage && (
+            <Image
+              src={article.image}
+              alt={article.title}
+              fill
+              priority
+              className="object-cover"
+              sizes="100vw"
+            />
+          )}
+
+          {/* Decorative rings for sideImage hero */}
+          {article.sideImage && (
+            <>
+              <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full border border-[#6BBD45]/10" />
+              <div className="absolute -top-12 -right-12 w-64 h-64 rounded-full border border-[#6BBD45]/15" />
+              <div className="absolute bottom-0 -left-16 w-56 h-56 rounded-full border border-white/5" />
+            </>
+          )}
+
+          <div
+            className="absolute inset-0"
+            style={{ background: article.sideImage
+              ? 'linear-gradient(to top, rgba(4,12,8,0.85) 0%, rgba(4,12,8,0.20) 70%, transparent 100%)'
+              : 'linear-gradient(to top, rgba(4,12,8,0.92) 0%, rgba(4,12,8,0.40) 60%, transparent 100%)'
+            }}
           />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(4,12,8,0.92) 0%, rgba(4,12,8,0.40) 60%, transparent 100%)' }} />
 
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="absolute top-24 left-0 right-0 px-6 md:px-12">
@@ -144,14 +167,55 @@ export default async function ArticlePage(
             {article.excerpt}
           </p>
 
-          {/* Body paragraphs */}
-          <article className="prose prose-gray dark:prose-invert max-w-none">
-            {paragraphs.map((para, i) => (
-              <p key={i} className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5 text-base">
-                {para}
-              </p>
-            ))}
-          </article>
+          {/* Side-image layout: cover on left, body text on right */}
+          {article.sideImage ? (
+            <div className="flex flex-col md:flex-row gap-8 md:gap-10">
+              {/* Cover image — sticky on desktop */}
+              <div className="flex-shrink-0 self-start md:sticky md:top-28">
+                <div className="relative w-full md:w-56 rounded-2xl overflow-hidden shadow-xl border border-gray-100 dark:border-white/10">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    width={355}
+                    height={480}
+                    priority
+                    className="w-full h-auto"
+                    quality={95}
+                  />
+                </div>
+                {/* PDF button below cover on desktop */}
+                {article.pdf && (
+                  <a
+                    href={article.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 flex items-center justify-center gap-2 border border-[#6BBD45] text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white font-semibold px-4 py-2.5 rounded-full transition-all text-sm w-full md:w-56"
+                  >
+                    <FileText size={15} />
+                    Read NST Article
+                  </a>
+                )}
+              </div>
+
+              {/* Article text */}
+              <article className="prose prose-gray dark:prose-invert max-w-none flex-1">
+                {paragraphs.map((para, i) => (
+                  <p key={i} className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5 text-base">
+                    {para}
+                  </p>
+                ))}
+              </article>
+            </div>
+          ) : (
+            /* Standard layout: body text full-width */
+            <article className="prose prose-gray dark:prose-invert max-w-none">
+              {paragraphs.map((para, i) => (
+                <p key={i} className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5 text-base">
+                  {para}
+                </p>
+              ))}
+            </article>
+          )}
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mt-10 pt-8 border-t border-gray-100 dark:border-gray-800">
@@ -162,8 +226,8 @@ export default async function ArticlePage(
             ))}
           </div>
 
-          {/* PDF link */}
-          {article.pdf && (
+          {/* PDF link (standard layout) */}
+          {article.pdf && !article.sideImage && (
             <div className="mt-8">
               <a
                 href={article.pdf}
