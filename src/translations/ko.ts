@@ -2,7 +2,7 @@
 const ko = {
   nav: {
     home: '홈', about: '회사 소개', services: '서비스', projects: '프로젝트',
-    news: '뉴스', clientele: '고객사', careers: '채용', contact: '문의하기',
+    news: '뉴스', insights: '인사이트', clientele: '고객사', careers: '채용', contact: '문의하기',
     getInTouch: '문의하기',
   },
   aboutLinks: {

@@ -2,7 +2,7 @@
 const zh = {
   nav: {
     home: '首页', about: '关于我们', services: '服务', projects: '项目案例',
-    news: '新闻', clientele: '客户群', careers: '招聘', contact: '联系我们',
+    news: '新闻', insights: '洞察', clientele: '客户群', careers: '招聘', contact: '联系我们',
     getInTouch: '立即联系',
   },
   aboutLinks: {

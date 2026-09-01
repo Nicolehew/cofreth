@@ -2,7 +2,7 @@
 const en = {
   nav: {
     home: 'Home', about: 'About', services: 'Services', projects: 'Projects',
-    news: 'News', clientele: 'Clientele', careers: 'Careers', contact: 'Contact',
+    news: 'News', insights: 'Insights', clientele: 'Clientele', careers: 'Careers', contact: 'Contact',
     getInTouch: 'Get In Touch',
   },
   aboutLinks: {

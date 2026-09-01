@@ -91,6 +91,7 @@ export default function Navbar() {
     { label: t.nav.services,  href: '/services', hasDropdown: true },
     { label: t.nav.projects,  href: '/projects' },
     { label: t.nav.news,      href: '/news' },
+    { label: t.nav.insights,  href: '/insights' },
     { label: t.nav.clientele, href: '/clientele' },
     { label: t.nav.careers,   href: '/careers' },
     { label: t.nav.contact,   href: '/contact' },

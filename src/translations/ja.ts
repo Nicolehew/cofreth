@@ -2,7 +2,7 @@
 const ja = {
   nav: {
     home: 'ホーム', about: '会社概要', services: 'サービス', projects: 'プロジェクト',
-    news: 'ニュース', clientele: '顧客', careers: '採用情報', contact: 'お問い合わせ',
+    news: 'ニュース', insights: 'インサイト', clientele: '顧客', careers: '採用情報', contact: 'お問い合わせ',
     getInTouch: 'お問い合わせ',
   },
   aboutLinks: {

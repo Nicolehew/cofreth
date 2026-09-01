@@ -2,7 +2,7 @@
 const ms = {
   nav: {
     home: 'Utama', about: 'Tentang', services: 'Perkhidmatan', projects: 'Projek',
-    news: 'Berita', clientele: 'Pelanggan', careers: 'Kerjaya', contact: 'Hubungi',
+    news: 'Berita', insights: 'Rencana', clientele: 'Pelanggan', careers: 'Kerjaya', contact: 'Hubungi',
     getInTouch: 'Hubungi Kami',
   },
   aboutLinks: {
