@@ -7,22 +7,57 @@ import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 
+const DROPDOWN_W = 288; // w-72
+const DROPDOWN_GUTTER = 12;
+
+/**
+ * Panel is positioned in viewport coordinates and clamped to stay on screen.
+ * Anchoring it to the trigger (the old `right: 0`) pushed it off the left edge
+ * on narrower laptops, because the centred nav sits close to the viewport edge.
+ */
 function Dropdown({
-  isOpen, onEnter, onLeave, items, footer,
+  isOpen, onEnter, onLeave, items, footer, triggerRef,
 }: {
   isOpen: boolean;
   onEnter: () => void;
   onLeave: () => void;
   items: { label: string; href: string; icon: React.ElementType; desc: string }[];
   footer?: React.ReactNode;
-  align?: 'left' | 'right';
+  triggerRef: React.RefObject<HTMLElement | null>;
 }) {
+  const [box, setBox] = useState<{ left: number; top: number; width: number } | null>(null);
+
+  useEffect(() => {
+    const place = () => {
+      const trigger = triggerRef.current;
+      if (!trigger) return;
+      const t = trigger.getBoundingClientRect();
+      const width = Math.min(DROPDOWN_W, window.innerWidth - DROPDOWN_GUTTER * 2);
+      const centred = t.left + t.width / 2 - width / 2;
+      const maxLeft = window.innerWidth - width - DROPDOWN_GUTTER;
+      setBox({
+        left: Math.max(DROPDOWN_GUTTER, Math.min(centred, maxLeft)),
+        top: t.bottom,
+        width,
+      });
+    };
+    place();
+    window.addEventListener('resize', place);
+    return () => window.removeEventListener('resize', place);
+  }, [triggerRef, isOpen]);
+
   return (
     <div
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
-      className="absolute top-full w-72 z-[300] pt-2"
-      style={{ pointerEvents: isOpen ? 'auto' : 'none', right: 0 }}
+      className="fixed z-[300] pt-2"
+      style={{
+        pointerEvents: isOpen ? 'auto' : 'none',
+        left: box ? box.left : 0,
+        top: box ? box.top : 0,
+        width: box ? box.width : DROPDOWN_W,
+        visibility: box ? 'visible' : 'hidden',
+      }}
     >
       <div
         className="rounded-2xl shadow-2xl border overflow-hidden transition-all duration-200 dark-dropdown"
@@ -68,6 +103,8 @@ export default function Navbar() {
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const closeAboutTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const aboutTriggerRef = useRef<HTMLAnchorElement | null>(null);
+  const servicesTriggerRef = useRef<HTMLAnchorElement | null>(null);
   const pathname = usePathname();
   const isHome = pathname === '/';
   const { t } = useLanguage();
@@ -114,7 +151,7 @@ export default function Navbar() {
   const openAbout     = () => { if (closeAboutTimer.current) clearTimeout(closeAboutTimer.current); setAboutOpen(true);    };
   const closeAbout    = () => { closeAboutTimer.current = setTimeout(() => setAboutOpen(false),    300); };
 
-  const linkBase = `text-sm font-semibold transition-colors duration-200 whitespace-nowrap px-2.5 py-1 rounded-md`;
+  const linkBase = `text-sm font-semibold transition-colors duration-200 whitespace-nowrap shrink-0 px-2.5 py-1 rounded-md`;
   const linkCls = (href: string) =>
     `${linkBase} ${
       isActive(href)
@@ -129,7 +166,7 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-[200] transition-all duration-300 ${navBg}`}>
       {/* 3-col grid: logo left | nav centre | controls right */}
-      <div className="w-full px-4 sm:px-6 h-[100px] grid grid-cols-[auto_1fr_auto] items-center gap-4">
+      <div className="nav-grid w-full px-4 sm:px-6 h-[100px] grid items-center">
 
         {/* LEFT — Logo */}
         <Link href="/" className="shrink-0 flex items-center">
@@ -138,34 +175,35 @@ export default function Navbar() {
             alt="Cofreth Logo"
             width={180}
             height={72}
-            className="object-contain w-[140px] md:w-[170px] h-auto"
+            className="object-contain w-[140px] xl:w-[170px] h-auto max-w-full"
             unoptimized
           />
         </Link>
 
         {/* CENTRE — nav perfectly centered */}
-        <ul className="nav-desk items-center justify-center gap-0.5">
+        <ul className="nav-desk nav-links items-center justify-center gap-0.5">
           {navLinks.map((link) => (
             <li key={link.href} className="relative">
               {link.hasAboutDropdown ? (
                 <div onMouseEnter={openAbout} onMouseLeave={closeAbout}>
-                  <Link href={link.href} className={`${linkCls(link.href)} flex items-center gap-1`}>
+                  <Link ref={aboutTriggerRef} href={link.href} className={`${linkCls(link.href)} flex items-center gap-1`}>
                     {link.label}
-                    <ChevronDown size={13} className={`transition-transform duration-200 ${aboutOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown size={13} className={`shrink-0 transition-transform duration-200 ${aboutOpen ? 'rotate-180' : ''}`} />
                   </Link>
-                  <Dropdown isOpen={aboutOpen} onEnter={openAbout} onLeave={closeAbout} items={aboutLinks} />
+                  <Dropdown isOpen={aboutOpen} onEnter={openAbout} onLeave={closeAbout} items={aboutLinks} triggerRef={aboutTriggerRef} />
                 </div>
               ) : link.hasDropdown ? (
                 <div onMouseEnter={openDropdown} onMouseLeave={closeDropdown}>
-                  <Link href={link.href} className={`${linkCls(link.href)} flex items-center gap-1`}>
+                  <Link ref={servicesTriggerRef} href={link.href} className={`${linkCls(link.href)} flex items-center gap-1`}>
                     {link.label}
-                    <ChevronDown size={13} className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown size={13} className={`shrink-0 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
                   </Link>
                   <Dropdown
                     isOpen={servicesOpen}
                     onEnter={openDropdown}
                     onLeave={closeDropdown}
                     items={services}
+                    triggerRef={servicesTriggerRef}
                     footer={
                       <Link href="/services" onClick={() => setServicesOpen(false)}
                         className="text-xs font-semibold text-[#6BBD45] hover:text-[#5aa838] transition-colors">
@@ -184,12 +222,12 @@ export default function Navbar() {
         </ul>
 
         {/* RIGHT — desktop controls + mobile hamburger */}
-        <div className="flex items-center justify-end gap-2">
+        <div className="nav-controls flex items-center justify-end gap-2">
           <div className="nav-desk-i">
             <LanguageSwitcher />
           </div>
           <Link href="/contact"
-            className="nav-desk-i btn-glow bg-[#6BBD45] hover:bg-[#5aa838] text-white text-sm font-bold px-4 py-2 rounded-full transition-all duration-200 whitespace-nowrap">
+            className="nav-cta btn-glow bg-[#6BBD45] hover:bg-[#5aa838] text-white text-sm font-bold px-4 py-2 rounded-full transition-all duration-200 whitespace-nowrap">
             {t.nav.getInTouch}
           </Link>
 

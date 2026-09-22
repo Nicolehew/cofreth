@@ -54,13 +54,13 @@ export default function LanguageSwitcher({ mobile = false }: { mobile?: boolean 
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(v => !v)}
-        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/20 hover:border-[#6BBD45]/60 text-white/80 hover:text-white transition-all text-sm font-medium"
+        className="flex items-center gap-1.5 shrink-0 px-2.5 xl:px-3 py-1.5 rounded-full border border-white/20 hover:border-[#6BBD45]/60 text-white/80 hover:text-white transition-all text-sm font-medium whitespace-nowrap"
         aria-label="Select language"
       >
         <Globe size={14} className="text-[#6BBD45]" />
-        <span className="hidden sm:inline">{current.flag}</span>
-        <span className="hidden sm:inline">{current.label}</span>
-        <span className="sm:hidden">{current.flag}</span>
+        <span>{current.flag}</span>
+        {/* Label costs ~60px — only shown once the navbar has room for it */}
+        <span className="nav-lang-label hidden">{current.label}</span>
         <ChevronDown size={12} className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
       </button>
 

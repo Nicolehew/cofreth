@@ -235,12 +235,72 @@ h1, h2, h3 { letter-spacing: -0.02em; }
    ─────────────────────────────────────────────────────────────────── */
 .nav-desk   { display: none !important; }
 .nav-desk-i { display: none !important; }
+.nav-cta    { display: none !important; }
 .nav-mob    { display: flex !important; }
 
 @media (min-width: 900px) {
   .nav-desk   { display: flex !important; }
   .nav-desk-i { display: inline-flex !important; }
   .nav-mob    { display: none !important; }
+}
+
+/* ── Navbar fit across laptop sizes ─────────────────────────────────
+   The header is a 3-column grid (logo | centred links | controls).
+   The logo track needs an explicit width: as `auto` it collapsed to
+   0px on narrower laptops, because `img { max-width: 100% }` gives the
+   image a 0 min-content width, so the centred links ate the whole row
+   and the logo disappeared.
+   ─────────────────────────────────────────────────────────────────── */
+.nav-grid {
+  grid-template-columns: 132px minmax(0, 1fr) auto;
+  column-gap: 0.5rem;
+}
+
+/* Links must never be squeezed narrower than their own text */
+.nav-links > li { flex: 0 0 auto; min-width: 0; }
+
+/* 900–1023px — tightest desktop nav: compact links, icon-only controls.
+   The "Get In Touch" pill is hidden in this band only; the Contact link,
+   which is already in the nav, covers it. */
+@media (min-width: 900px) {
+  .nav-links       { column-gap: 0 !important; }
+  .nav-links > li > a,
+  .nav-links > li > div > a { font-size: 0.8125rem !important; padding-inline: 0.3125rem; }
+  .nav-controls    { column-gap: 0.375rem; }
+}
+
+/* 1024px+ — room for the CTA pill again, still in a compact form */
+@media (min-width: 1024px) {
+  .nav-cta { display: inline-flex !important; padding-inline: 0.75rem; font-size: 0.8125rem !important; }
+}
+
+/* 1150px+ — room for slightly roomier links */
+@media (min-width: 1150px) {
+  .nav-grid        { grid-template-columns: 150px minmax(0, 1fr) auto; column-gap: 0.75rem; }
+  .nav-links       { column-gap: 0.125rem !important; }
+  .nav-links > li > a,
+  .nav-links > li > div > a { font-size: 0.875rem !important; padding-inline: 0.5rem; }
+}
+
+/* 1280px+ — full-size links plus the CTA pill and the language label.
+   Metrics stay slightly tight here: at exactly 1280px the longest label
+   sets (Malay, Japanese) need every pixel. */
+@media (min-width: 1280px) {
+  .nav-grid        { grid-template-columns: 170px minmax(0, 1fr) auto; column-gap: 0.75rem; }
+  .nav-links       { column-gap: 0.125rem !important; }
+  .nav-links > li > a,
+  .nav-links > li > div > a { font-size: 0.9375rem !important; padding-inline: 0.5rem; }
+  .nav-controls    { column-gap: 0.375rem; }
+  .nav-cta         { padding-inline: 1rem; font-size: 0.9375rem !important; }
+  .nav-lang-label  { display: inline !important; }
+}
+
+/* 1400px+ — widest laptops and desktops: full breathing room */
+@media (min-width: 1400px) {
+  .nav-grid        { grid-template-columns: 186px minmax(0, 1fr) auto; column-gap: 1rem; }
+  .nav-links > li > a,
+  .nav-links > li > div > a { padding-inline: 0.625rem; }
+  .nav-controls    { column-gap: 0.5rem; }
 }
 
 /* Prevent layout overflow on all screen sizes */
