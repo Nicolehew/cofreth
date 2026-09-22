@@ -19,7 +19,9 @@ const quickLinkHrefBase = [
   { href: '/services',  navKey: null,                 footerKey: 'servicesLabel' as const },
   { href: '/projects',  navKey: null,                 footerKey: 'projectsLabel' as const },
   { href: '/news',      navKey: 'news' as const,      footerKey: null },
+  { href: '/insights',  navKey: 'insights' as const,  footerKey: null },
   { href: '/clientele', navKey: 'clientele' as const, footerKey: null },
+  { href: '/careers',   navKey: 'careers' as const,   footerKey: null },
   { href: '/contact',   navKey: 'contact' as const,   footerKey: null },
   { href: 'https://webmail.cofreth.com.my', navKey: null, footerKey: 'webmailLabel' as const, external: true },
 ];
