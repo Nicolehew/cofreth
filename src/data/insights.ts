@@ -84,7 +84,7 @@ If the answer to three or more of these is yes, TFM is worth a serious evaluatio
 
 **How Cofreth Delivers TFM**
 
-Cofreth has managed Malaysia's most demanding built environments for over 38 years. Our portfolio includes KLIA2, the Putrajaya International Convention Centre (PICC), Menara AIA, Menara PJD, and dozens of government and commercial properties across the country.
+Cofreth has managed Malaysia's most demanding built environments for over 38 years. Our portfolio includes the Putrajaya International Convention Centre (PICC), Menara PJD, and dozens of government and commercial properties across the country.
 
 Our TFM model integrates four capabilities that most FM companies keep separate: Total FM operations, Energy Performance Contracting (our CoPC® model), Green Building consultancy, and Smart Building technology through ARCHIBUS and IoT deployment.
 

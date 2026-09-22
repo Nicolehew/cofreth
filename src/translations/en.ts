@@ -513,7 +513,7 @@ const en = {
     serviceDetails: {
       fm: {
         title: 'Total Facilities Management', subtitle: "Malaysia's First ISO 41001-Certified FM Company",
-        intro: "Cofreth (M) Sdn Bhd has delivered Total Facilities Management across Malaysia's most critical built environments for over 38 years. From KLIA2 to the Putrajaya International Convention Centre, our integrated FM model covers every discipline — MEP maintenance, soft services, asset management, and 24/7 operations — under one accountable contract. We don't just manage buildings; we protect the performance of the people and organisations inside them.",
+        intro: "Cofreth (M) Sdn Bhd has delivered Total Facilities Management across Malaysia's most critical built environments for over 38 years. From the Putrajaya International Convention Centre to premium commercial towers, our integrated FM model covers every discipline — MEP maintenance, soft services, asset management, and 24/7 operations — under one accountable contract. We don't just manage buildings; we protect the performance of the people and organisations inside them.",
         ctaText: 'Speak to Our FM Team About Your Building',
         sections: [
           { title: 'Total Facility Management', desc: 'Our Total FM service provides a single-source solution for all your facility needs. We manage the full spectrum of hard and soft services, ensuring seamless operations across your entire portfolio.', points: ['Single point of accountability', 'Integrated hard & soft services', 'Preventive & corrective maintenance', 'Asset lifecycle management', '24/7 helpdesk and rapid response'] },
