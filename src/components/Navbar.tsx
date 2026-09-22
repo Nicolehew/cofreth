@@ -302,14 +302,12 @@ export default function Navbar() {
               )}
             </li>
 
-            {/* Other links */}
-            {[
-              { label: t.nav.projects,  href: '/projects' },
-              { label: t.nav.news,      href: '/news' },
-              { label: t.nav.clientele, href: '/clientele' },
-              { label: t.nav.careers,   href: '/careers' },
-              { label: t.nav.contact,   href: '/contact' },
-            ].map((link) => (
+            {/* Other links — derived from navLinks so the mobile menu can never
+                drift out of sync with the desktop nav. Home, About and Services
+                are rendered above, with their own accordions. */}
+            {navLinks
+              .filter((link) => link.href !== '/' && !link.hasDropdown && !link.hasAboutDropdown)
+              .map((link) => (
               <li key={link.href}>
                 <Link href={link.href} onClick={() => setOpen(false)}
                   className="block px-5 py-4 nav-mobile-text hover:text-[#6BBD45] hover:bg-[#6BBD45]/5 text-base font-semibold border-b nav-mobile-border">
