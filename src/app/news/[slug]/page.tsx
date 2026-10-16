@@ -129,7 +129,7 @@ export default async function ArticlePage(
           />
 
           {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="absolute top-24 left-0 right-0 px-6 md:px-12">
+          <nav aria-label="Breadcrumb" className="absolute top-28 left-0 right-0 px-6 md:px-12">
             <ol className="flex items-center gap-2 text-sm">
               <li><Link href="/" className="text-white/60 hover:text-white transition-colors">Home</Link></li>
               <li className="text-white/30">/</li>

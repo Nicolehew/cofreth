@@ -86,7 +86,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">{p.phoneLabel}</p>
-                  <a href="tel:+60380238878" className="text-sm text-gray-700 hover:text-[#6BBD45] transition-colors">+(603) 8023 8878</a>
+                  <a href="tel:+60380238878" className="inline-flex items-center min-h-[44px] sm:min-h-0 text-sm text-gray-700 hover:text-[#6BBD45] transition-colors">+(603) 8023 8878</a>
                 </div>
               </div>
 
@@ -96,8 +96,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">{p.emailLabel}</p>
-                  <a href="mailto:business@cofreth.com.my" className="text-sm text-gray-700 hover:text-[#6BBD45] transition-colors block">business@cofreth.com.my</a>
-                  <a href="mailto:cofreth@cofreth.com.my" className="text-sm text-gray-700 hover:text-[#6BBD45] transition-colors block">cofreth@cofreth.com.my</a>
+                  <a href="mailto:business@cofreth.com.my" className="flex items-center min-h-[44px] sm:min-h-0 text-sm text-gray-700 hover:text-[#6BBD45] transition-colors">business@cofreth.com.my</a>
+                  <a href="mailto:cofreth@cofreth.com.my" className="flex items-center min-h-[44px] sm:min-h-0 text-sm text-gray-700 hover:text-[#6BBD45] transition-colors">cofreth@cofreth.com.my</a>
                 </div>
               </div>
 

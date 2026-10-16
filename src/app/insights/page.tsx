@@ -38,7 +38,7 @@ export default function InsightsPage() {
       <Navbar />
       <main>
         {/* ── Hero / page header ── */}
-        <section className="bg-gradient-to-br from-[#1B4332] to-[#2d6a4f] text-white py-20 px-6">
+        <section className="bg-gradient-to-br from-[#1B4332] to-[#2d6a4f] text-white pt-[120px] md:pt-[140px] pb-20 px-6">
           <div className="max-w-5xl mx-auto">
             <p className="text-[#6BBD45] font-semibold text-sm uppercase tracking-widest mb-4">
               Cofreth Insights

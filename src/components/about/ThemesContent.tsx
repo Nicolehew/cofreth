@@ -56,17 +56,17 @@ export default function ThemesContent() {
           ))}
         </div>
 
-        <div className="bg-[#6BBD45] rounded-2xl p-10 text-center">
-          <Award size={36} className="text-white mx-auto mb-4" />
+        <div className="bg-gradient-to-br from-[#1B3A2D] to-[#0F2419] rounded-2xl p-10 text-center">
+          <Award size={36} className="text-[#6BBD45] mx-auto mb-4" />
           <h3 className="font-black text-white mb-3 text-xl">{th.awardsTitle}</h3>
-          <p className="text-base text-white/80 max-w-md mx-auto mb-6">{th.awardsBody}</p>
+          <p className="text-base text-gray-300 max-w-md mx-auto mb-6">{th.awardsBody}</p>
           <div className="flex flex-wrap justify-center gap-3 mb-6">
             {['2007','2010','2015','2016','2017'].map(yr => (
-              <span key={yr} className="text-base bg-white/20 border border-white/40 text-white px-4 py-1.5 rounded-full font-bold">{yr}</span>
+              <span key={yr} className="text-base bg-[#6BBD45]/20 border border-[#6BBD45]/40 text-[#6BBD45] px-4 py-1.5 rounded-full font-bold">{yr}</span>
             ))}
           </div>
           <Link href="/contact"
-            className="text-base inline-flex items-center gap-2 bg-[#1B3A2D] hover:bg-[#0F2419] text-white font-semibold px-8 py-3 rounded-full transition-all">
+            className="text-base inline-flex items-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-semibold px-8 py-3 rounded-full transition-all">
             {th.awardsBtn} <ArrowRight size={16} />
           </Link>
         </div>

@@ -23,7 +23,7 @@ function AnimWords({ text, delay = 0, className = '' }: { text: string; delay?: 
   return (
     <span className={className} aria-label={text}>
       {text.split(' ').map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden leading-none mr-[0.22em] last:mr-0">
+        <span key={i} className="inline-block overflow-hidden leading-none mr-[0.22em] last:mr-0 pb-[0.14em] -mb-[0.14em]">
           <span
             className="inline-block"
             style={{

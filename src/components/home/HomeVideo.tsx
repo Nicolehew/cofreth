@@ -35,7 +35,9 @@ export default function HomeVideo() {
             style={{ boxShadow: '0 0 80px rgba(107,189,69,0.12)' }}>
             {!playing ? (
               <div className="relative aspect-video bg-[#0a1810] cursor-pointer group" onClick={() => setPlaying(true)}>
+                {/* maxresdefault 404s for videos with no max-res still; hqdefault always exists */}
                 <img src="https://img.youtube.com/vi/g90KM7ntBBc/maxresdefault.jpg" alt={p.caption}
+                  onError={e => { const img = e.currentTarget; if (!img.dataset.fallback) { img.dataset.fallback = '1'; img.src = 'https://img.youtube.com/vi/g90KM7ntBBc/hqdefault.jpg'; } }}
                   className="w-full h-full object-cover opacity-70 group-hover:opacity-85 transition-opacity duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#060e08]/80 via-transparent to-[#060e08]/30" />
                 <div className="absolute inset-0 flex items-center justify-center">

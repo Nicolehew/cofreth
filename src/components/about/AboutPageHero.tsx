@@ -15,9 +15,9 @@ export function AboutPageHero({ section, title, subtitle }: Props) {
     <div className="bg-white border-b border-gray-100 px-6 lg:px-12 pt-12 pb-12 text-center">
       {/* Breadcrumb — centred */}
       <nav className="flex items-center justify-center gap-1.5 mb-8 text-xs">
-        <Link href="/" className="text-gray-400 hover:text-[#6BBD45] transition-colors">{t.nav.home}</Link>
+        <Link href="/" className="inline-flex items-center py-3.5 -my-3.5 sm:py-0 sm:my-0 text-gray-400 hover:text-[#6BBD45] transition-colors">{t.nav.home}</Link>
         <ChevronRight size={12} className="text-gray-300" />
-        <Link href="/about" className="text-gray-400 hover:text-[#6BBD45] transition-colors">{t.nav.about}</Link>
+        <Link href="/about" className="inline-flex items-center py-3.5 -my-3.5 sm:py-0 sm:my-0 text-gray-400 hover:text-[#6BBD45] transition-colors">{t.nav.about}</Link>
         <ChevronRight size={12} className="text-gray-300" />
         <span className="text-[#6BBD45] font-semibold">{section}</span>
       </nav>

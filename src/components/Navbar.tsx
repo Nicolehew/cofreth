@@ -56,7 +56,10 @@ function Dropdown({
         left: box ? box.left : 0,
         top: box ? box.top : 0,
         width: box ? box.width : DROPDOWN_W,
-        visibility: box ? 'visible' : 'hidden',
+        // hidden when closed so the links are not tabbable or announced;
+        // the delay lets the panel finish fading out before it disappears
+        visibility: isOpen && box ? 'visible' : 'hidden',
+        transition: isOpen ? 'visibility 0s' : 'visibility 0s linear 200ms',
       }}
     >
       <div
