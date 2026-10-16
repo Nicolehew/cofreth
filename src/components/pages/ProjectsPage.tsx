@@ -184,14 +184,14 @@ const projects = [
   },
   {
     id: 16,
-    name: 'KLIA2 District Cooling Plant',
-    type: 'Energy & Cooling',
+    name: 'KLIA2 — Green Commissioning',
+    type: 'Green Building',
     location: 'Sepang, Selangor',
-    scope: 'Design, implementation and O&M of the district cooling plant serving KLIA2 — incorporating Thermal Energy Storage to shift cooling load to off-peak hours, generating significant energy cost savings for the airport.',
-    highlights: ['DCS design & O&M', 'Thermal Energy Storage', 'Asia-first application'],
+    scope: 'Green Commissioning for KLIA2, Kuala Lumpur International Airport 2 — Cofreth verified that the airport\'s building systems operate as designed, confirming the energy and environmental performance intended for Malaysia\'s second international airport.',
+    highlights: ['Green Commissioning', 'Systems performance verification', 'Airport sector'],
     image: '/projects/klia2-dcs.jpg',
     featured: false,
-    icon: Zap,
+    icon: Leaf,
   },
 ];
 

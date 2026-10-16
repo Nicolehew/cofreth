@@ -511,7 +511,7 @@ const zh = {
         { name: 'Menara Genesis', scope: '为Menara Genesis提供综合FM服务，涵盖所有楼宇系统的全面运营与维护，确保最优性能、法规合规和卓越的使用者体验。', highlights: ['综合FM', '楼宇系统', '合规管理'] },
         { name: '能源审计项目', scope: '为多个主要商业客户（包括云顶高地酒店及赌场和1Utama购物中心）进行全面能源审计，识别能源低效问题，制定基准消耗量，提供可量化成本节约的行动建议。', highlights: ['云顶高地酒店及赌场', '1Utama购物中心', '能源审计', '成本节约'] },
         { name: '能源绩效合约（EPC）', scope: '2021年全国能源奖特别奖——能源绩效合约奖得主，表彰Cofreth与Besi Apac Sdn Bhd合作的保障型EPC合约。Cofreth承担全部绩效风险，通过合约保证可量化的节能成果。', highlights: ['NEA 2021特别奖', 'EPC合约', '保障节能', 'Besi Apac Sdn Bhd'] },
-        { name: 'KLIA2区域供冷站', scope: '为KLIA2设计、实施和运营区域供冷站，采用热能储存技术将冷却负荷转移至非高峰时段，为机场创造显著的能源成本节约。', highlights: ['DCS设计及运营维护', '热能储存', '亚洲首创应用'] },
+        { name: 'KLIA2 — 绿色调试', scope: '为马来西亚第二国际机场吉隆坡国际机场2（KLIA2）提供绿色调试服务——Cofreth验证机场各项建筑系统按设计意图运行，确认该设施预期的能源与环境性能。', highlights: ['绿色调试', '系统性能验证', '机场领域'] },
       ],
     },
     servicesOverview: {
