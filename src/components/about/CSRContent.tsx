@@ -94,9 +94,11 @@ export default function CSRContent() {
       </div>
 
       {/* CTA */}
-      <div className="py-14 px-6 lg:px-10 xl:px-14 bg-[#6BBD45]">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="text-5xl mb-5">🌍</div>
+      <div className="relative overflow-hidden py-14 px-6 lg:px-10 xl:px-14 bg-gradient-to-br from-[#1B3A2D] to-[#0F2419]">
+      <div className="absolute top-0 right-0 w-64 h-64 bg-[#6BBD45]/10 rounded-full -translate-y-1/2 translate-x-1/4" />
+      <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#6BBD45]/10 rounded-full translate-y-1/2 -translate-x-1/4" />
+        <div className="relative z-10 max-w-3xl mx-auto text-center">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-[#6BBD45]/15 ring-1 ring-[#6BBD45]/30 text-5xl mb-5">🌍</div>
           <h3 className="font-black text-white text-3xl mb-4">{cs.ctaTitle}</h3>
           <p className="text-white/90 text-base leading-relaxed">
             {cs.ctaBody}

@@ -100,8 +100,10 @@ export default function GovernanceContent() {
       </div>
 
       {/* CTA */}
-      <div className="py-14 px-6 lg:px-10 xl:px-14 bg-[#6BBD45]">
-        <div className="max-w-3xl mx-auto text-center">
+      <div className="relative overflow-hidden py-14 px-6 lg:px-10 xl:px-14 bg-gradient-to-br from-[#1B3A2D] to-[#0F2419]">
+      <div className="absolute top-0 right-0 w-64 h-64 bg-[#6BBD45]/10 rounded-full -translate-y-1/2 translate-x-1/4" />
+      <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#6BBD45]/10 rounded-full translate-y-1/2 -translate-x-1/4" />
+        <div className="relative z-10 max-w-3xl mx-auto text-center">
           <h3 className="font-black text-white text-3xl mb-3">{gv.ctaTitle}</h3>
           <p className="text-white/85 text-base leading-relaxed">
             {gv.ctaBody}

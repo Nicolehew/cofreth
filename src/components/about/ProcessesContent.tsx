@@ -165,17 +165,19 @@ export default function ProcessesContent() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-[#6BBD45] py-14 px-6 lg:px-10 xl:px-14">
-          <p className="font-bold text-white/80 uppercase tracking-widest mb-3 text-sm">{pr.ctaEyebrow}</p>
-          <h2 className="font-black text-white mb-4 leading-tight" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}>
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#1B3A2D] to-[#0F2419] py-14 px-6 lg:px-10 xl:px-14">
+      <div className="absolute top-0 right-0 w-64 h-64 bg-[#6BBD45]/10 rounded-full -translate-y-1/2 translate-x-1/4" />
+      <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#6BBD45]/10 rounded-full translate-y-1/2 -translate-x-1/4" />
+          <p className="relative z-10 font-bold text-[#6BBD45] uppercase tracking-widest mb-3 text-sm">{pr.ctaEyebrow}</p>
+          <h2 className="relative z-10 font-black text-white mb-4 leading-tight" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}>
             {pr.ctaTitle}
           </h2>
-          <p className="text-white/80 mb-8 leading-relaxed text-lg">
+          <p className="relative z-10 text-white/80 mb-8 leading-relaxed text-lg">
             {pr.ctaBody}
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="relative z-10 flex flex-wrap gap-4">
             <Link href="/contact"
-              className="inline-flex items-center gap-2 bg-[#1B3A2D] hover:bg-[#0F2419] text-white font-bold px-8 py-3.5 rounded-full transition-all text-base">
+              className="inline-flex items-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-bold px-8 py-3.5 rounded-full transition-all text-base">
               {pr.enquireButton} <ArrowRight size={16} />
             </Link>
             <Link href="/services/facilities-management"
