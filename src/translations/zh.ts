@@ -350,8 +350,7 @@ const zh = {
       projects: {
         eyebrow: '项目精选', title1: '14+个地标', title2: '已交付项目', viewAll: '查看所有项目',
         items: [
-          { name: 'KLIA2区域供冷厂', type: '能源与冷却', note: '亚洲首个带热能储存的区域供冷系统' },
-          { name: 'CX5——东南亚最大数据中心', type: '设施管理', note: '关键任务24/7全面FM' },
+          { name: 'KLIA2绿色调试', type: '绿色建筑', note: '建筑系统按设计意图调试验证' },
           { name: '马来西亚首座GBI评级办公楼', type: '绿色建筑', note: '开创性绿色认证里程碑' },
           { name: 'KL生态城', type: '绿色建筑', note: 'GBI认证混合用途可持续FM' },
           { name: '布城国际会议中心', type: '设施管理', note: '马来西亚旗舰国家地标' },

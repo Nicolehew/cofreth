@@ -351,8 +351,7 @@ const ms = {
       projects: {
         eyebrow: 'Sorotan Projek', title1: '14+ Projek', title2: 'Landmark Dilaksanakan', viewAll: 'Lihat Semua Projek',
         items: [
-          { name: 'Loji Penyejukan Daerah KLIA2', type: 'Tenaga & Penyejukan', note: 'DCS pertama dengan Penyimpanan Tenaga Haba di Asia' },
-          { name: 'CX5 — Pusat Data Terbesar di Asia Tenggara', type: 'Pengurusan Fasiliti', note: 'FM menyeluruh 24/7 kritikal misi' },
+          { name: 'KLIA2 — Pengesahan Hijau', type: 'Bangunan Hijau', note: 'Sistem bangunan disahkan mengikut reka bentuk' },
           { name: 'Menara Pejabat Pertama Berperingkat GBI di Malaysia', type: 'Bangunan Hijau', note: 'Pencapaian pensijilan hijau perintis' },
           { name: 'KL Eco City', type: 'Bangunan Hijau', note: 'FM mampan pelbagai guna bertaraf GBI' },
           { name: 'Pusat Konvensyen Antarabangsa Putrajaya', type: 'Pengurusan Fasiliti', note: 'Mercu tanda kebangsaan utama Malaysia' },

@@ -6,18 +6,18 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const PROJECT_META = [
   { location: 'Sepang, Selangor', image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80&fit=crop', wide: true },
-  { location: 'Cyberjaya',        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80&fit=crop', wide: false },
   { location: 'Malaysia',         image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80&fit=crop', wide: false },
   { location: 'Kuala Lumpur',     image: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80&fit=crop', wide: false },
   { location: 'Putrajaya',        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&fit=crop', wide: false },
 ];
 
-function ProjectTile({ name, type, note, location, image, wide, delay }: { name: string; type: string; note: string; location: string; image: string; wide: boolean; delay: number }) {
+function ProjectTile({ name, type, note, location, image, wide, delay, className = '' }: { name: string; type: string; note: string; location: string; image: string; wide: boolean; delay: number; className?: string }) {
   const reveal = useScrollReveal(0.1);
   return (
-    <div ref={reveal.ref} className="transition-all duration-700"
+    <div ref={reveal.ref} className={`transition-all duration-700 ${wide ? 'h-full' : ''} ${className}`}
       style={{ opacity: reveal.visible ? 1 : 0, transform: reveal.visible ? 'none' : 'translateY(40px)', transitionDelay: `${delay}ms` }}>
-      <div className="group relative rounded-2xl overflow-hidden cursor-default" style={{ minHeight: wide ? 320 : 240 }}>
+      {/* The feature tile spans two rows — fill them, or it leaves a gap underneath */}
+      <div className={`group relative rounded-2xl overflow-hidden cursor-default ${wide ? 'h-full' : ''}`} style={{ minHeight: wide ? 320 : 240 }}>
         <img src={image} alt={name}
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(4,10,6,0.95) 0%, rgba(4,10,6,0.50) 55%, transparent 100%)' }} />
@@ -37,6 +37,10 @@ export default function HomeProjects() {
   const header = useScrollReveal();
   const { t } = useLanguage();
   const p = t.pages.home.projects;
+  // Tiles beside the feature fill a 2-up column, so an odd count would leave a
+  // hole in the bottom row — the last one spans the remaining columns instead.
+  const secondary = p.items.slice(1);
+  const lastTileSpansRow = secondary.length % 2 === 1;
 
   return (
     <section className="py-16 lg:py-20 xl:py-24 bg-gray-50 overflow-hidden">
@@ -64,8 +68,11 @@ export default function HomeProjects() {
               <ProjectTile {...p.items[0]} location={PROJECT_META[0].location} image={PROJECT_META[0].image} wide={true} delay={0} />
             </div>
           </div>
-          {p.items.slice(1).map((item, i) => (
-            <ProjectTile key={i} {...item} location={PROJECT_META[i + 1].location} image={PROJECT_META[i + 1].image} wide={false} delay={(i + 1) * 80} />
+          {secondary.map((item, i) => (
+            <ProjectTile key={item.name} {...item}
+              location={PROJECT_META[i + 1].location} image={PROJECT_META[i + 1].image}
+              wide={false} delay={(i + 1) * 80}
+              className={lastTileSpansRow && i === secondary.length - 1 ? 'col-span-2' : ''} />
           ))}
         </div>
       </div>

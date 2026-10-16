@@ -351,8 +351,7 @@ const en = {
       projects: {
         eyebrow: 'Project Highlights', title1: '14+ Landmark', title2: 'Projects Delivered', viewAll: 'View All Projects',
         items: [
-          { name: 'KLIA2 District Cooling Plant', type: 'Energy & Cooling', note: 'First DCS with Thermal Energy Storage in Asia' },
-          { name: 'CX5 — Largest Datacentre in South East Asia', type: 'Facilities Management', note: 'Mission-critical 24/7 total FM' },
+          { name: 'KLIA2 — Green Commissioning', type: 'Green Building', note: 'Building systems commissioned to design intent' },
           { name: "Malaysia's 1st GBI-Rated Office Tower", type: 'Green Building', note: 'Pioneering green certification milestone' },
           { name: 'KL Eco City', type: 'Green Building', note: 'GBI-certified mixed-use sustainable FM' },
           { name: 'Putrajaya International Convention Centre', type: 'Facilities Management', note: "Malaysia's flagship national landmark" },
