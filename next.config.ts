@@ -29,6 +29,20 @@ const nextConfig: NextConfig = {
       { source: '/fm.php',                             destination: '/services/facilities-management',  permanent: true },
       { source: '/facilities.php',                     destination: '/services/facilities-management',  permanent: true },
       { source: '/group.php',                          destination: '/group',                           permanent: true },
+
+      /* ── Old /images/*.pdf → current /documents/ paths (301 permanent) ── */
+      { source: '/images/ISO_45001-2018(OHS)(2023-2026).pdf',  destination: '/documents/ISO_45001-2018_OHS.pdf',  permanent: true },
+      { source: '/images/ISO_14001-2015(EMS)(2023-2026).pdf',  destination: '/documents/ISO_14001-2015_EMS.pdf',  permanent: true },
+      { source: '/images/ISO_9001-2015_(QMS)(2023-2026).pdf',  destination: '/documents/ISO_9001-2015_QMS.pdf',   permanent: true },
+      { source: '/images/ISO_41001-2018(FMS)(2023-2025).pdf',  destination: '/documents/ISO_41001-2018_FMS.pdf',  permanent: true },
+      { source: '/images/ISO_50001-2018(EnMS)(2023-2026).pdf', destination: '/documents/ISO_50001-2018_EnMS.pdf', permanent: true },
+
+      /* ── Old service brochure PDFs → relevant service pages ── */
+      { source: '/images/Project\\ Management.pdf',       destination: '/services/facilities-management', permanent: true },
+      { source: '/images/Move\\ Management.pdf',          destination: '/services/facilities-management', permanent: true },
+      { source: '/images/Work\\ Wizard.pdf',              destination: '/services/smart-technology',      permanent: true },
+      { source: '/images/Strategic\\ Master\\ Planning.pdf', destination: '/services/facilities-management', permanent: true },
+      { source: '/medini.pdf',                            destination: '/projects',                       permanent: true },
     ];
   },
 };
