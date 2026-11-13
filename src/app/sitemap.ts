@@ -18,6 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/services/green-expertise`,           lastModified: NOW, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${BASE}/services/smart-technology`,          lastModified: NOW, changeFrequency: 'monthly', priority: 0.85 },
 
+    /* ── Why Cofreth (AEO landing page) ── */
+    { url: `${BASE}/why-cofreth`, lastModified: NOW, changeFrequency: 'monthly' as const, priority: 0.90 },
+
     /* ── About (pillar + supporting) ── */
     { url: `${BASE}/about`,                lastModified: NOW, changeFrequency: 'monthly', priority: 0.90 },
     { url: `${BASE}/about/firsts`,         lastModified: NOW, changeFrequency: 'monthly', priority: 0.75 },
