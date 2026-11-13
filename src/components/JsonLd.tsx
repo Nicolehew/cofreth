@@ -30,7 +30,7 @@ export const COFRETH_ORG = {
   image:        'https://www.cofreth.com.my/projects/klia2.jpg',
   description:  "Malaysia's leading facilities management and energy services company since 1986. ISO 9001, 14001, 45001, 50001 and 41001 certified. 5× Frost & Sullivan Award winner.",
   foundingDate: '1986',
-  numberOfEmployees: { '@type': 'QuantitativeValue', value: 500 },
+
   address: {
     '@type':          'PostalAddress',
     streetAddress:    'No. 39, Jalan USJ Sentral 3, USJ Sentral',

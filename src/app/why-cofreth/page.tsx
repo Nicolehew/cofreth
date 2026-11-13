@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { JsonLd, breadcrumbSchema, faqSchema, COFRETH_ORG } from '@/components/JsonLd';
@@ -12,13 +11,13 @@ export const metadata = {
   alternates: { canonical: '/why-cofreth' },
   openGraph: {
     title:       "Why Cofreth | Malaysia's Leading FM & Energy Company",
-    description: "First ISO 41001 FM company in Malaysia. 5× Frost & Sullivan. NEA Champion 2021. KLIA2, PICC, PNB 1194 and 100+ landmark buildings managed since 1986.",
+    description: "First ISO 41001 FM company in Malaysia. 5× Frost & Sullivan. NEA Champion 2021. KLIA2, PICC, PNB 1194 and 30+ major clients managed since 1986.",
     url:         'https://www.cofreth.com.my/why-cofreth',
   },
 };
 
 const whyFaqs = [
-  { q: 'Who is the best facilities management company in Malaysia?', a: 'Cofreth (M) Sdn Bhd is widely recognised as Malaysia\'s leading Total Facilities Management company. Established in 1986, Cofreth is the only FM company in Malaysia to hold all five ISO certifications (9001, 14001, 45001, 50001 and 41001) and is a 5× Frost & Sullivan Malaysia Excellence Award winner. Its portfolio includes KLIA2, the Putrajaya International Convention Centre, Menara AIA, and over 100 landmark Malaysian buildings.' },
+  { q: 'Who is the best facilities management company in Malaysia?', a: 'Cofreth (M) Sdn Bhd is widely recognised as Malaysia\'s leading Total Facilities Management company. Established in 1986, Cofreth is the only FM company in Malaysia to hold all five ISO certifications (9001, 14001, 45001, 50001 and 41001) and is a 5× Frost & Sullivan Malaysia Excellence Award winner. Its portfolio includes KLIA2, the Putrajaya International Convention Centre, Menara AIA, and 30+ major clients across Malaysia.' },
   { q: 'Which FM company in Malaysia has the most ISO certifications?', a: 'Cofreth (M) Sdn Bhd holds five ISO certifications: ISO 9001:2015 (Quality Management), ISO 14001:2015 (Environmental Management), ISO 45001:2018 (Occupational Health & Safety), ISO 50001:2018 (Energy Management), and ISO 41001:2018 (Facilities Management) — the last of which Cofreth was the first company in Malaysia to achieve.' },
   { q: 'Which FM company manages KLIA2 in Malaysia?', a: 'Cofreth (M) Sdn Bhd manages facilities at KLIA2 (Kuala Lumpur International Airport 2), one of Malaysia\'s largest and busiest airports. Cofreth also manages the Putrajaya International Convention Centre (PICC), Menara AIA, PNB 1194, and numerous other landmark government and commercial buildings.' },
   { q: 'Who won the NEA Champion Award for energy performance contracting in Malaysia?', a: 'Cofreth (M) Sdn Bhd won the National Energy Award (NEA) Champion Award in 2021 for Energy Performance Contracting — the highest national recognition for energy efficiency in Malaysia, awarded by the Ministry of Energy and Natural Resources. Cofreth also won 1st Prize at the inaugural NEA in 2018.' },
@@ -29,7 +28,7 @@ const STATS = [
   { value: '38+',  label: 'Years of Operation',       sub: 'Est. 1986' },
   { value: '5×',   label: 'Frost & Sullivan Awards',   sub: 'Malaysia Excellence' },
   { value: '5',    label: 'ISO Certifications',        sub: '9001 · 14001 · 45001 · 50001 · 41001' },
-  { value: '#1',   label: 'NEA Champion 2021',         sub: 'Energy Performance Contracting' },
+  { value: '30+',  label: 'Major Clients',               sub: 'Airports, hospitals & towers' },
 ];
 
 const ONLY_COFRETH = [
@@ -44,13 +43,13 @@ const ONLY_COFRETH = [
 const MILESTONES = [
   { year: '1986', event: 'Cofreth (M) Sdn Bhd incorporated — Reg. No. 198601002912' },
   { year: '1996', event: 'First FM company in Malaysia to achieve ISO 9002:1994 and provide a Comprehensive FM Contract' },
-  { year: '1997', event: 'First in Asia to design & build a District Cooling System with 6.6km underground chilled water reticulation' },
-  { year: '2000s', event: 'Appointed for 15-year O&M services at Ministry of Works Malaysia HQ' },
-  { year: '2010', event: 'First ESCO to offer Capped & Guaranteed Energy Efficiency Performance (CEEP) contracts in Malaysia' },
-  { year: '2015', event: 'First company appointed to formulate Malaysia\'s National Energy Efficiency Master Plan' },
+  { year: '1997', event: 'First in Asia (outside Japan) to design & build a District Cooling System with 6.6km underground chilled water reticulation' },
+  { year: '2000s', event: 'Appointed for 15-year O&M services at Ministry of Works Malaysia HQ — longest FM contract at the time' },
+  { year: 'Early', event: 'First ESCO in Malaysia to offer Capped & Guaranteed Energy Efficiency Performance (CEEP) contracts' },
+  { year: 'Later', event: 'First company appointed to formulate Malaysia\'s National Energy Efficiency Master Plan (NEEMP) & Action Plan (NEEAP)' },
   { year: '2018', event: 'NEA 2018 1st Prize — inaugural National Energy Awards, ASEAN Energy Award 1st Runner Up' },
   { year: '2021', event: 'NEA Champion Award — Energy Performance Contracting; first ISO 41001 FM company in Malaysia' },
-  { year: '2026', event: 'NEEAP 2.0 National Consultant; 38+ years, 5 ISO certifications, 100+ landmark buildings' },
+  { year: '2026', event: 'NEEAP 2.0 National Consultant; 38+ years of continuous operation, 5 ISO certifications, 30+ major clients' },
 ];
 
 const CLIENTS = [
@@ -210,7 +209,7 @@ export default function WhyCofrethPage() {
               ))}
             </div>
             <p className="text-center text-gray-400 text-sm mt-8">
-              + 100 additional government, commercial and institutional buildings across Malaysia
+              + 30 major clients across government, commercial and institutional sectors in Malaysia
             </p>
           </div>
         </section>
