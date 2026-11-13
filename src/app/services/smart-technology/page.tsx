@@ -7,7 +7,14 @@ const data = {
   heroImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80&fit=crop',
 };
 
-import { JsonLd, breadcrumbSchema, serviceSchema } from '@/components/JsonLd';
+import { JsonLd, breadcrumbSchema, serviceSchema, faqSchema } from '@/components/JsonLd';
+
+const smartFaqs = [
+  { q: 'What is ARCHIBUS and how is it used in facilities management?', a: 'ARCHIBUS is the world\'s leading Integrated Workplace Management System (IWMS), used to manage building assets, work orders, space allocation, and maintenance schedules in one platform. Cofreth deploys ARCHIBUS as the digital backbone of its Total FM contracts, giving building owners real-time asset portfolio visibility.' },
+  { q: 'What is a smart building and what technology does it use?', a: 'A smart building uses IoT sensors, BMS, and data analytics to automatically optimise building systems — HVAC, lighting, access, and energy. Cofreth\'s smart building solutions integrate ARCHIBUS IWMS, BIM digital twins, IoT sensor networks, and cloud-based energy monitoring dashboards.' },
+  { q: 'How does smart building technology reduce energy costs?', a: 'Smart building technology automates system responses to real-time occupancy data. IoT sensors adjust air-conditioning based on actual room usage rather than fixed schedules, typically reducing HVAC energy by 15–30%. Cofreth\'s IoT monitoring platforms have delivered measurable energy reductions across Malaysian buildings.' },
+  { q: 'What is BIM and how is it used in facilities management?', a: 'Building Information Modelling (BIM) creates a digital 3D model of a building containing data on every element. In FM, Cofreth uses BIM as a living digital twin — maintenance teams can locate any asset, trace any pipe, and plan works without physical inspection, reducing maintenance time and improving accuracy.' },
+];
 
 export const metadata = {
   title: 'Smart Building Technology Malaysia | ARCHIBUS, BIM & IoT | Cofreth',
@@ -24,6 +31,7 @@ export const metadata = {
 export default function Page() {
   return (
     <>
+      <JsonLd data={faqSchema(smartFaqs)} />
       <JsonLd data={breadcrumbSchema([
         { name: 'Home',     url: 'https://www.cofreth.com.my' },
         { name: 'Services', url: 'https://www.cofreth.com.my/services' },
