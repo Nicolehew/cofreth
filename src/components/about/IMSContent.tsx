@@ -40,9 +40,9 @@ export default function IMSContent() {
               <p className="text-gray-500 text-sm">{t.common.managingDirector}</p>
             </div>
             <p className="text-gray-500 text-sm">Revision 4 · Effective 1 August 2024</p>
-            <a href="/documents/IMS_Policy_Revision_4.pdf" target="_blank" rel="noopener noreferrer"
+            <a href="/api/pdf/IMS_Policy_Revision_4.pdf" target="_blank" rel="noopener noreferrer"
               className="text-base ml-auto bg-[#6BBD45] hover:bg-[#5aa838] text-white font-semibold px-5 py-2 rounded-full transition-all">
-              {t.common.downloadPdf}
+              View PDF
             </a>
           </div>
         </div>

@@ -285,9 +285,9 @@ export default function AboutPage() {
                     <p className="text-gray-400 text-xs">Managing Director</p>
                   </div>
                   <p className="text-gray-500 text-xs">Revision 4 · Effective 1 August 2024</p>
-                  <a href="/documents/IMS_Policy_Revision_4.pdf" target="_blank" rel="noopener noreferrer"
+                  <a href="/api/pdf/IMS_Policy_Revision_4.pdf" target="_blank" rel="noopener noreferrer"
                     className="border border-[#6BBD45]/40 text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white text-xs font-semibold px-5 py-2 rounded-full transition-all">
-                    {t.common.downloadPdf}
+                    View PDF
                   </a>
                 </div>
               </div>

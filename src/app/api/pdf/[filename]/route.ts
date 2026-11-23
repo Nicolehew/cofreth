@@ -8,6 +8,7 @@ const ALLOWED = new Set([
   'ISO_45001-2018_OHS.pdf',
   'ISO_50001-2018_EnMS.pdf',
   'ISO_41001-2018_FMS.pdf',
+  'IMS_Policy_Revision_4.pdf',
 ]);
 
 export async function GET(
