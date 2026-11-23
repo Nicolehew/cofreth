@@ -14,7 +14,8 @@ const securityHeaders = [
       "script-src 'self' 'unsafe-inline' 'unsafe-eval'",   // Next.js requires unsafe-inline/eval for hydration
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
-      "img-src 'self' data: blob: https://images.unsplash.com https://www.cofreth.com.my",
+      "img-src 'self' data: blob: https://images.unsplash.com https://www.cofreth.com.my https://img.youtube.com",
+      "frame-src 'self' https://www.youtube.com https://www.google.com https://maps.google.com",
       "connect-src 'self'",
       "frame-ancestors 'none'",
       "base-uri 'self'",
