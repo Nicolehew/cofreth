@@ -202,15 +202,16 @@ export default function CareersPage() {
                 className="inline-flex items-center justify-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-bold px-10 py-4 rounded-full transition-all hover:-translate-y-0.5">
                 {p.cvBtn1} <ArrowRight size={18} />
               </a>
-              <Link href="/contact"
-                className="inline-flex items-center justify-center gap-2 border-2 border-white/25 text-white hover:border-[#6BBD45] hover:text-[#6BBD45] font-bold px-10 py-4 rounded-full transition-all hover:-translate-y-0.5">
-                {p.cvBtn2}
-              </Link>
             </div>
-            <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-gray-500">
+            <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-8 gap-y-4">
               {CAREERS_EMAILS.map(email => (
-                <a key={email} href={`mailto:${email}`} className="hover:text-[#6BBD45] transition-colors break-all">📧 {email}</a>
+                <a key={email} href={`mailto:${email}`}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[#6BBD45] transition-colors break-all">
+                  <Mail size={16} className="text-[#6BBD45] shrink-0" />{email}
+                </a>
               ))}
+            </div>
+            <div className="mt-5 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-gray-500">
               <span>📍 Kuala Lumpur, Malaysia</span>
               <span>⏱ We respond within 5 business days</span>
             </div>
