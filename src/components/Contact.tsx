@@ -52,7 +52,7 @@ export default function Contact() {
                 {[
                   { icon: MapPin, label: 'Address', content: 'No. 39, Jalan USJ Sentral 3,\nUSJ Sentral, Persiaran Subang 1,\n47600 Subang Jaya, Selangor, Malaysia.', href: undefined },
                   { icon: Phone, label: 'Telephone', content: '+(603) 8023 8878', href: 'tel:+60380238878' },
-                  { icon: Mail, label: 'Email', content: 'nor-niza.md-ajib@cofreth.com.my', href: 'mailto:nor-niza.md-ajib@cofreth.com.my' },
+                  { icon: Mail, label: 'Email', content: 'info@cofreth.com.my', href: 'mailto:info@cofreth.com.my' },
                 ].map(({ icon: Icon, label, content, href }) => (
                   <div key={label} className="flex gap-4">
                     <div className="w-10 h-10 bg-[#6BBD45]/20 rounded-lg flex items-center justify-center shrink-0">

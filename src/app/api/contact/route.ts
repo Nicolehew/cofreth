@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
 
     await resend.emails.send({
       from: 'Cofreth Website <noreply@cofreth.com.my>',
-      to: ['nor-niza.md-ajib@cofreth.com.my', 'masnita.nawire@cofreth.com.my'],
+      to: ['business@cofreth.com.my', 'cofreth@cofreth.com.my'],
       replyTo: email,
       subject: `New Enquiry from ${name}${company ? ` (${company})` : ''}`,
       html: `
