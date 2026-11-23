@@ -36,7 +36,7 @@ export default function ContactPage() {
       if (!res.ok) throw new Error('Failed');
       setSubmitted(true);
     } catch {
-      setError('Something went wrong. Please email us directly at business@cofreth.com.my');
+      setError('Something went wrong. Please email us directly at nor-niza.md-ajib@cofreth.com.my');
     } finally {
       setSending(false);
     }
@@ -96,8 +96,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">{p.emailLabel}</p>
-                  <a href="mailto:business@cofreth.com.my" className="flex items-center min-h-[44px] sm:min-h-0 text-sm text-gray-700 hover:text-[#6BBD45] transition-colors">business@cofreth.com.my</a>
-                  <a href="mailto:cofreth@cofreth.com.my" className="flex items-center min-h-[44px] sm:min-h-0 text-sm text-gray-700 hover:text-[#6BBD45] transition-colors">cofreth@cofreth.com.my</a>
+                  <a href="mailto:nor-niza.md-ajib@cofreth.com.my" className="flex items-center min-h-[44px] sm:min-h-0 text-sm text-gray-700 hover:text-[#6BBD45] transition-colors">nor-niza.md-ajib@cofreth.com.my</a>
+                  <a href="mailto:masnita.nawire@cofreth.com.my" className="flex items-center min-h-[44px] sm:min-h-0 text-sm text-gray-700 hover:text-[#6BBD45] transition-colors">masnita.nawire@cofreth.com.my</a>
                 </div>
               </div>
 
