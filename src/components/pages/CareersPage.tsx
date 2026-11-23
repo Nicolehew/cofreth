@@ -5,6 +5,11 @@ import { ArrowRight, Mail, Briefcase, Users, TrendingUp, Heart, Shield, Zap, Bui
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+// Both recipients get every application; comma-separated is the RFC 6068 form
+// for multiple mailto: addressees.
+const CAREERS_EMAILS = ['nor-niza.md-ajib@cofreth.com.my', 'masnita.nawire@cofreth.com.my'];
+const CAREERS_MAILTO = CAREERS_EMAILS.join(',');
+
 const perkIcons = [TrendingUp, Shield, Heart, Zap, Users, Briefcase];
 const areaColors = ['#6BBD45', '#f59e0b', '#10b981', '#3b82f6', '#8b5cf6', '#ef4444'];
 const areaIcons = [Building2, Zap, Leaf, Cpu, HardHat, BarChart2];
@@ -33,7 +38,7 @@ function AreaCard({ title, desc, i }: { title: string; desc: string; i: number }
   return (
     <div ref={reveal.ref} className="transition-all duration-700"
       style={{ opacity: reveal.visible ? 1 : 0, transform: reveal.visible ? 'none' : 'translateY(30px)', transitionDelay: `${i * 70}ms` }}>
-      <a href={`mailto:careers@cofreth.com.my?subject=Talent Pool: ${encodeURIComponent(title)}`}
+      <a href={`mailto:${CAREERS_MAILTO}?subject=${encodeURIComponent(`Talent Pool: ${title}`)}`}
         className="group flex items-start gap-5 bg-white border border-gray-200 hover:border-[#6BBD45]/50 rounded-2xl p-7 h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer shadow-sm">
         <div className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300"
           style={{ background: color + '18' }}>
@@ -193,7 +198,7 @@ export default function CareersPage() {
             <h2 className="text-2xl md:text-3xl font-black mb-4">{p.cvTitle}</h2>
             <p className="text-gray-300 max-w-xl mx-auto mb-8 leading-relaxed text-base">{p.cvBody}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="mailto:careers@cofreth.com.my?subject=Spontaneous Application — Cofreth"
+              <a href={`mailto:${CAREERS_MAILTO}?subject=${encodeURIComponent('Spontaneous Application — Cofreth')}`}
                 className="inline-flex items-center justify-center gap-2 bg-[#6BBD45] hover:bg-[#5aa838] text-white font-bold px-10 py-4 rounded-full transition-all hover:-translate-y-0.5">
                 {p.cvBtn1} <ArrowRight size={18} />
               </a>
@@ -202,8 +207,10 @@ export default function CareersPage() {
                 {p.cvBtn2}
               </Link>
             </div>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-xs text-gray-500">
-              <span>📧 careers@cofreth.com.my</span>
+            <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-gray-500">
+              {CAREERS_EMAILS.map(email => (
+                <a key={email} href={`mailto:${email}`} className="hover:text-[#6BBD45] transition-colors break-all">📧 {email}</a>
+              ))}
               <span>📍 Kuala Lumpur, Malaysia</span>
               <span>⏱ We respond within 5 business days</span>
             </div>
