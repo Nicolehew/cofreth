@@ -7,7 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 // Both recipients get every application; comma-separated is the RFC 6068 form
 // for multiple mailto: addressees.
-const CAREERS_EMAILS = ['nor-niza.md-ajib@cofreth.com.my', 'masnita.nawire@cofreth.com.my'];
+const CAREERS_EMAILS = ['hr@cofreth.com.my'];
 const CAREERS_MAILTO = CAREERS_EMAILS.join(',');
 
 const perkIcons = [TrendingUp, Shield, Heart, Zap, Users, Briefcase];
