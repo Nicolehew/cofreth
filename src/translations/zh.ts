@@ -61,7 +61,7 @@ const zh = {
     contactOurTeam: '联系我们的团队', viewAllServices: '查看全部服务',
     getInTouch: '立即联系', ourServices: '我们的服务',
     scheduleConsultation: '预约咨询', learnAboutCofreth: '了解科弗雷斯',
-    viewCertificate: '查看证书 →', downloadPdf: '下载PDF',
+    viewCertificate: '查看证书 →', downloadPdf: '查看PDF',
     viewPolicy: '查看政策 →', downloadCharter: '下载章程 →',
     strategicPartner: '战略合作伙伴', talkToOurTeam: '联系我们的团队',
     exploreOurServices: '探索我们的服务', workWithUs: '与获奖FM合作伙伴合作',

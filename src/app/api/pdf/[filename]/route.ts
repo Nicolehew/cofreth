@@ -9,6 +9,14 @@ const ALLOWED = new Set([
   'ISO_50001-2018_EnMS.pdf',
   'ISO_41001-2018_FMS.pdf',
   'IMS_Policy_Revision_4.pdf',
+  'Anti_Bribery_Corruption_Policy.pdf',
+  'CSR_Policy.pdf',
+  'ESG_Policy.pdf',
+  'Ethics_Core_Values_Charter.pdf',
+  'Personal_Data_Protection_Policy.pdf',
+  'Standard_of_Business_Conduct.pdf',
+  'Whistleblowing_Policy.pdf',
+  'nst-neeap-2-article.pdf',
 ]);
 
 export async function GET(

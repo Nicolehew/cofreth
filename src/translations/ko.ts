@@ -61,7 +61,7 @@ const ko = {
     contactOurTeam: '팀에 문의하기', viewAllServices: '모든 서비스 보기',
     getInTouch: '문의하기', ourServices: '우리의 서비스',
     scheduleConsultation: '상담 예약', learnAboutCofreth: 'Cofreth 알아보기',
-    viewCertificate: '인증서 보기 →', downloadPdf: 'PDF 다운로드',
+    viewCertificate: '인증서 보기 →', downloadPdf: 'PDF 보기',
     viewPolicy: '정책 보기 →', downloadCharter: '헌장 다운로드 →',
     strategicPartner: '전략적 파트너', talkToOurTeam: '팀과 상담하기',
     exploreOurServices: '서비스 탐색', workWithUs: '수상 FM 파트너와 협력',

@@ -38,7 +38,7 @@ export default function CSRContent() {
               </div>
             </div>
             <div className="shrink-0">
-              <a href="/documents/CSR_Policy.pdf" target="_blank" rel="noopener noreferrer"
+              <a href="/api/pdf/CSR_Policy.pdf" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#1B3A2D] hover:bg-[#6BBD45] text-white font-semibold px-6 py-3 rounded-full transition-all text-sm whitespace-nowrap">
                 {t.common.downloadPdf} →
               </a>

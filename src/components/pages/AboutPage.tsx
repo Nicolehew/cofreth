@@ -12,10 +12,10 @@ const MILESTONE_YEARS = ['1986', '1996', '1997', '1997–2000', '2001', '2003', 
 
 const GOVERNANCE_POLICY_ICONS = ['📣', '🚫', '📋', '🔒'];
 const GOVERNANCE_POLICY_PDFS = [
-  '/documents/Whistleblowing_Policy.pdf',
-  '/documents/Anti_Bribery_Corruption_Policy.pdf',
-  '/documents/Standard_of_Business_Conduct.pdf',
-  '/documents/Personal_Data_Protection_Policy.pdf',
+  '/api/pdf/Whistleblowing_Policy.pdf',
+  '/api/pdf/Anti_Bribery_Corruption_Policy.pdf',
+  '/api/pdf/Standard_of_Business_Conduct.pdf',
+  '/api/pdf/Personal_Data_Protection_Policy.pdf',
 ];
 const ISO_CODES = [
   { code: 'ISO 45001:2018', icon: '🛡️', color: '#ef4444', pdf: '/api/pdf/ISO_45001-2018_OHS.pdf' },
@@ -340,7 +340,7 @@ export default function AboutPage() {
                   <h3 className="font-black text-[#6BBD45] mb-2">{vs.charterTitle}</h3>
                   <p className="text-gray-300 text-sm leading-relaxed">{vs.charterDesc}</p>
                 </div>
-                <a href="/documents/Ethics_Core_Values_Charter.pdf" target="_blank" rel="noopener noreferrer" className="shrink-0 border border-[#6BBD45]/40 text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-all whitespace-nowrap">
+                <a href="/api/pdf/Ethics_Core_Values_Charter.pdf" target="_blank" rel="noopener noreferrer" className="shrink-0 border border-[#6BBD45]/40 text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-all whitespace-nowrap">
                   {t.common.downloadCharter}
                 </a>
               </div>
@@ -398,7 +398,7 @@ export default function AboutPage() {
                     </div>
                   ))}
                 </div>
-                <a href="/documents/CSR_Policy.pdf" target="_blank" rel="noopener noreferrer" className="text-[#6BBD45] text-xs font-semibold hover:underline">{t.common.downloadPdf} →</a>
+                <a href="/api/pdf/CSR_Policy.pdf" target="_blank" rel="noopener noreferrer" className="text-[#6BBD45] text-xs font-semibold hover:underline">{t.common.downloadPdf} →</a>
               </div>
               <div className="grid sm:grid-cols-3 gap-5">
                 {cs.initiatives.map((item, i) => (
@@ -422,7 +422,7 @@ export default function AboutPage() {
                     <h3 className="text-[#6BBD45] font-bold text-xs uppercase tracking-widest mb-2">{su.esgLabel}</h3>
                     <p className="text-gray-300 text-base leading-relaxed max-w-2xl">{su.esgBody}</p>
                   </div>
-                  <a href="/documents/ESG_Policy.pdf" target="_blank" rel="noopener noreferrer" className="shrink-0 border border-[#6BBD45]/40 text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-all whitespace-nowrap">
+                  <a href="/api/pdf/ESG_Policy.pdf" target="_blank" rel="noopener noreferrer" className="shrink-0 border border-[#6BBD45]/40 text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-all whitespace-nowrap">
                     {t.common.downloadPdf} →
                   </a>
                 </div>

@@ -27,7 +27,7 @@ export default function SustainabilityContent() {
               <p className="text-gray-300 text-base leading-relaxed max-w-2xl">{su.esgBody}</p>
               <p className="text-gray-400 text-sm mt-3">{t.common.signedBy} <strong className="text-white">Ir. ONG CHING LOON</strong>, {t.common.managingDirector}</p>
             </div>
-            <a href="/documents/ESG_Policy.pdf" target="_blank" rel="noopener noreferrer"
+            <a href="/api/pdf/ESG_Policy.pdf" target="_blank" rel="noopener noreferrer"
               className="shrink-0 border border-[#6BBD45]/40 text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white font-semibold px-6 py-3 rounded-full transition-all whitespace-nowrap text-sm self-start">
               {t.common.downloadPdf} →
             </a>

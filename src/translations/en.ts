@@ -62,7 +62,7 @@ const en = {
     contactOurTeam: 'Contact Our Team', viewAllServices: 'View All Services',
     getInTouch: 'Get In Touch', ourServices: 'Our Services',
     scheduleConsultation: 'Schedule a Consultation', learnAboutCofreth: 'Learn About Cofreth',
-    viewCertificate: 'View Certificate →', downloadPdf: 'Download PDF',
+    viewCertificate: 'View Certificate →', downloadPdf: 'View PDF',
     viewPolicy: 'View Policy →', downloadCharter: 'Download Charter →',
     strategicPartner: 'Strategic Partner', talkToOurTeam: 'Talk to Our Team',
     exploreOurServices: 'Explore Our Services', workWithUs: 'Work With an Award-Winning FM Partner',

@@ -61,7 +61,7 @@ const ja = {
     contactOurTeam: 'チームに連絡する', viewAllServices: 'すべてのサービスを見る',
     getInTouch: 'お問い合わせ', ourServices: '私たちのサービス',
     scheduleConsultation: '相談を予約', learnAboutCofreth: 'Cofrethについて',
-    viewCertificate: '証明書を見る →', downloadPdf: 'PDFをダウンロード',
+    viewCertificate: '証明書を見る →', downloadPdf: 'PDFを見る',
     viewPolicy: 'ポリシーを見る →', downloadCharter: '憲章をダウンロード →',
     strategicPartner: '戦略的パートナー', talkToOurTeam: 'チームと話す',
     exploreOurServices: 'サービスを探る', workWithUs: '受賞FMパートナーと協力',

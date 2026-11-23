@@ -62,7 +62,7 @@ const ms = {
     contactOurTeam: 'Hubungi Pasukan Kami', viewAllServices: 'Lihat Semua Perkhidmatan',
     getInTouch: 'Hubungi Kami', ourServices: 'Perkhidmatan Kami',
     scheduleConsultation: 'Jadualkan Rundingan', learnAboutCofreth: 'Ketahui Tentang Cofreth',
-    viewCertificate: 'Lihat Sijil →', downloadPdf: 'Muat Turun PDF',
+    viewCertificate: 'Lihat Sijil →', downloadPdf: 'Lihat PDF',
     viewPolicy: 'Lihat Dasar →', downloadCharter: 'Muat Turun Piagam →',
     strategicPartner: 'Rakan Kongsi Strategik', talkToOurTeam: 'Berbincang dengan Pasukan Kami',
     exploreOurServices: 'Terokai Perkhidmatan Kami', workWithUs: 'Bekerjasama dengan Rakan FM Pemenang Anugerah',

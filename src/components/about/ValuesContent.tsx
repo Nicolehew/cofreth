@@ -38,7 +38,7 @@ export default function ValuesContent() {
             <h3 className="font-black text-[#6BBD45] text-lg mb-2">{vs.charterTitle}</h3>
             <p className="text-gray-300 text-base leading-relaxed">{vs.charterDesc}</p>
           </div>
-          <a href="/documents/Ethics_Core_Values_Charter.pdf" target="_blank" rel="noopener noreferrer"
+          <a href="/api/pdf/Ethics_Core_Values_Charter.pdf" target="_blank" rel="noopener noreferrer"
             className="shrink-0 border border-[#6BBD45]/40 text-[#6BBD45] hover:bg-[#6BBD45] hover:text-white font-semibold px-6 py-3 rounded-full transition-all whitespace-nowrap text-sm">
             {t.common.downloadCharter} →
           </a>

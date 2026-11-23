@@ -4,10 +4,10 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const GOVERNANCE_POLICY_ICONS = ['📣', '🚫', '📋', '🔒'];
 const GOVERNANCE_POLICY_PDFS = [
-  '/documents/Whistleblowing_Policy.pdf',
-  '/documents/Anti_Bribery_Corruption_Policy.pdf',
-  '/documents/Standard_of_Business_Conduct.pdf',
-  '/documents/Personal_Data_Protection_Policy.pdf',
+  '/api/pdf/Whistleblowing_Policy.pdf',
+  '/api/pdf/Anti_Bribery_Corruption_Policy.pdf',
+  '/api/pdf/Standard_of_Business_Conduct.pdf',
+  '/api/pdf/Personal_Data_Protection_Policy.pdf',
 ];
 
 const RBA_ELEMENTS = [

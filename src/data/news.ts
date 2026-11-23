@@ -33,7 +33,7 @@ const news: NewsArticle[] = [
     author:   'Cofreth Communications',
     tags:     ['NEEAP 2.0', 'Energy Policy', 'PETRA', 'Energy Commission', 'National Energy'],
     related:  ['nea-2021-energy-performance-contracting-champion', 'what-is-esco-energy-performance-contracting-malaysia'],
-    pdf:        '/documents/nst-neeap-2-article.pdf',
+    pdf:        '/api/pdf/nst-neeap-2-article.pdf',
     sideImage:  true,
   },
   {
