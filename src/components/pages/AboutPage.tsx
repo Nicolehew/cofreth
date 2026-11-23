@@ -18,11 +18,11 @@ const GOVERNANCE_POLICY_PDFS = [
   '/documents/Personal_Data_Protection_Policy.pdf',
 ];
 const ISO_CODES = [
-  { code: 'ISO 45001:2018', icon: '🛡️', color: '#ef4444', pdf: '/documents/ISO_45001-2018_OHS.pdf' },
-  { code: 'ISO 9001:2015',  icon: '✓',   color: '#3b82f6', pdf: '/documents/ISO_9001-2015_QMS.pdf' },
-  { code: 'ISO 14001:2015', icon: '🌿',  color: '#10b981', pdf: '/documents/ISO_14001-2015_EMS.pdf' },
-  { code: 'ISO 50001:2018', icon: '⚡',  color: '#f59e0b', pdf: '/documents/ISO_50001-2018_EnMS.pdf' },
-  { code: 'ISO 41001:2018', icon: '🏢',  color: '#8b5cf6', pdf: '/documents/ISO_41001-2018_FMS.pdf' },
+  { code: 'ISO 45001:2018', icon: '🛡️', color: '#ef4444', pdf: '/api/pdf/ISO_45001-2018_OHS.pdf' },
+  { code: 'ISO 9001:2015',  icon: '✓',   color: '#3b82f6', pdf: '/api/pdf/ISO_9001-2015_QMS.pdf' },
+  { code: 'ISO 14001:2015', icon: '🌿',  color: '#10b981', pdf: '/api/pdf/ISO_14001-2015_EMS.pdf' },
+  { code: 'ISO 50001:2018', icon: '⚡',  color: '#f59e0b', pdf: '/api/pdf/ISO_50001-2018_EnMS.pdf' },
+  { code: 'ISO 41001:2018', icon: '🏢',  color: '#8b5cf6', pdf: '/api/pdf/ISO_41001-2018_FMS.pdf' },
 ];
 const VALUE_ICONS = ['👥', '🤝', '🌟', '💡', '🌱', '⚖️'];
 const VALUE_COLORS = ['#3b82f6', '#6BBD45', '#f59e0b', '#8b5cf6', '#10b981', '#ef4444'];

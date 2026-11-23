@@ -6,11 +6,11 @@ import { AboutPageHero } from './AboutPageHero';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const CERT_META = [
-  { code: 'ISO 45001:2018', icon: Shield, color: '#ef4444', pdf: '/documents/ISO_45001-2018_OHS.pdf', valid: '2023–2026' },
-  { code: 'ISO 9001:2015',  icon: CheckCircle, color: '#3b82f6', pdf: '/documents/ISO_9001-2015_QMS.pdf', valid: '2023–2026' },
-  { code: 'ISO 14001:2015', icon: Leaf, color: '#10b981', pdf: '/documents/ISO_14001-2015_EMS.pdf', valid: '2023–2026' },
-  { code: 'ISO 50001:2018', icon: Zap, color: '#f59e0b', pdf: '/documents/ISO_50001-2018_EnMS.pdf', valid: '2023–2026' },
-  { code: 'ISO 41001:2018', icon: Building2, color: '#8b5cf6', pdf: '/documents/ISO_41001-2018_FMS.pdf', valid: '2025–2028' },
+  { code: 'ISO 45001:2018', icon: Shield, color: '#ef4444', pdf: '/api/pdf/ISO_45001-2018_OHS.pdf', valid: '2023–2026' },
+  { code: 'ISO 9001:2015',  icon: CheckCircle, color: '#3b82f6', pdf: '/api/pdf/ISO_9001-2015_QMS.pdf', valid: '2023–2026' },
+  { code: 'ISO 14001:2015', icon: Leaf, color: '#10b981', pdf: '/api/pdf/ISO_14001-2015_EMS.pdf', valid: '2023–2026' },
+  { code: 'ISO 50001:2018', icon: Zap, color: '#f59e0b', pdf: '/api/pdf/ISO_50001-2018_EnMS.pdf', valid: '2023–2026' },
+  { code: 'ISO 41001:2018', icon: Building2, color: '#8b5cf6', pdf: '/api/pdf/ISO_41001-2018_FMS.pdf', valid: '2025–2028' },
 ];
 
 const PDCA_META = [

@@ -59,11 +59,11 @@ const CLIENTS = [
 ];
 
 const CERTS = [
-  { code: 'ISO 9001:2015', name: 'Quality Management System',           file: '/documents/ISO_9001-2015_QMS.pdf' },
-  { code: 'ISO 14001:2015', name: 'Environmental Management System',    file: '/documents/ISO_14001-2015_EMS.pdf' },
-  { code: 'ISO 45001:2018', name: 'Occupational Health & Safety',       file: '/documents/ISO_45001-2018_OHS.pdf' },
-  { code: 'ISO 50001:2018', name: 'Energy Management System',           file: '/documents/ISO_50001-2018_EnMS.pdf' },
-  { code: 'ISO 41001:2018', name: 'Facilities Management — first in MY', file: '/documents/ISO_41001-2018_FMS.pdf' },
+  { code: 'ISO 9001:2015', name: 'Quality Management System',           file: '/api/pdf/ISO_9001-2015_QMS.pdf' },
+  { code: 'ISO 14001:2015', name: 'Environmental Management System',    file: '/api/pdf/ISO_14001-2015_EMS.pdf' },
+  { code: 'ISO 45001:2018', name: 'Occupational Health & Safety',       file: '/api/pdf/ISO_45001-2018_OHS.pdf' },
+  { code: 'ISO 50001:2018', name: 'Energy Management System',           file: '/api/pdf/ISO_50001-2018_EnMS.pdf' },
+  { code: 'ISO 41001:2018', name: 'Facilities Management — first in MY', file: '/api/pdf/ISO_41001-2018_FMS.pdf' },
 ];
 
 export default function WhyCofrethPage() {

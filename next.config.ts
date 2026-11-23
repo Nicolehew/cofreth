@@ -66,11 +66,11 @@ const nextConfig: NextConfig = {
       { source: '/group.php',                          destination: '/group',                           permanent: true },
 
       /* ── Old /images/*.pdf → current /documents/ paths (301 permanent) ── */
-      { source: '/images/ISO_45001-2018(OHS)(2023-2026).pdf',  destination: '/documents/ISO_45001-2018_OHS.pdf',  permanent: true },
-      { source: '/images/ISO_14001-2015(EMS)(2023-2026).pdf',  destination: '/documents/ISO_14001-2015_EMS.pdf',  permanent: true },
-      { source: '/images/ISO_9001-2015_(QMS)(2023-2026).pdf',  destination: '/documents/ISO_9001-2015_QMS.pdf',   permanent: true },
-      { source: '/images/ISO_41001-2018(FMS)(2023-2025).pdf',  destination: '/documents/ISO_41001-2018_FMS.pdf',  permanent: true },
-      { source: '/images/ISO_50001-2018(EnMS)(2023-2026).pdf', destination: '/documents/ISO_50001-2018_EnMS.pdf', permanent: true },
+      { source: '/images/ISO_45001-2018(OHS)(2023-2026).pdf',  destination: '/api/pdf/ISO_45001-2018_OHS.pdf',  permanent: true },
+      { source: '/images/ISO_14001-2015(EMS)(2023-2026).pdf',  destination: '/api/pdf/ISO_14001-2015_EMS.pdf',  permanent: true },
+      { source: '/images/ISO_9001-2015_(QMS)(2023-2026).pdf',  destination: '/api/pdf/ISO_9001-2015_QMS.pdf',   permanent: true },
+      { source: '/images/ISO_41001-2018(FMS)(2023-2025).pdf',  destination: '/api/pdf/ISO_41001-2018_FMS.pdf',  permanent: true },
+      { source: '/images/ISO_50001-2018(EnMS)(2023-2026).pdf', destination: '/api/pdf/ISO_50001-2018_EnMS.pdf', permanent: true },
 
       /* ── Old service brochure PDFs → relevant service pages ── */
       { source: '/images/Project\\ Management.pdf',       destination: '/services/facilities-management', permanent: true },
