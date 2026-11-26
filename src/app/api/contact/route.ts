@@ -7,8 +7,11 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const rateMap = new Map<string, { count: number; reset: number }>();
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
+  for (const [key, value] of rateMap) {
+    if (now > value.reset) rateMap.delete(key);
+  }
   const entry = rateMap.get(ip);
-  if (!entry || now > entry.reset) {
+  if (!entry) {
     rateMap.set(ip, { count: 1, reset: now + 10 * 60 * 1000 });
     return false;
   }
@@ -19,36 +22,63 @@ function isRateLimited(ip: string): boolean {
 
 /* ── Escape HTML to prevent XSS in email body ── */
 function esc(s: string): string {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function field(value: unknown, max: number): string {
+  return typeof value === 'string' ? value.slice(0, max).trim() : '';
+}
+
+/* Single-line fields must not carry line breaks into the subject or headers */
+function line(value: unknown, max: number): string {
+  return field(value, max).replace(/[\u0000-\u001f\u007f]+/g, ' ');
+}
+
+/* Browsers always send Origin on cross-site POSTs, so a mismatch means another site */
+function isCrossSite(req: NextRequest): boolean {
+  const origin = req.headers.get('origin');
+  if (!origin) return false;
+  try {
+    return new URL(origin).host !== req.headers.get('host');
+  } catch {
+    return true;
+  }
 }
 
 export async function POST(req: NextRequest) {
   try {
+    if (isCrossSite(req)) {
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+    }
+    if (!req.headers.get('content-type')?.startsWith('application/json')) {
+      return NextResponse.json({ error: 'Unsupported content type' }, { status: 415 });
+    }
+
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
     if (isRateLimited(ip)) {
       return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
     }
 
-    const body = await req.json();
-    const name    = typeof body.name    === 'string' ? body.name.slice(0, 100).trim()    : '';
-    const company = typeof body.company === 'string' ? body.company.slice(0, 100).trim() : '';
-    const email   = typeof body.email   === 'string' ? body.email.slice(0, 254).trim()   : '';
-    const phone   = typeof body.phone   === 'string' ? body.phone.slice(0, 30).trim()    : '';
-    const service = typeof body.service === 'string' ? body.service.slice(0, 100).trim() : '';
-    const message = typeof body.message === 'string' ? body.message.slice(0, 2000).trim(): '';
+    const body = (await req.json().catch(() => null)) ?? {};
+    const name    = line(body.name, 100);
+    const company = line(body.company, 100);
+    const email   = line(body.email, 254);
+    const phone   = line(body.phone, 30);
+    const service = line(body.service, 100);
+    const message = field(body.message, 2000);
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!/^[^\s@<>()",;:?&]+@[^\s@<>()",;:?&]+\.[^\s@<>()",;:?&]+$/.test(email)) {
       return NextResponse.json({ error: 'Invalid email' }, { status: 400 });
     }
 
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: 'Cofreth Website <noreply@cofreth.com.my>',
       to: ['business@cofreth.com.my', 'cofreth@cofreth.com.my'],
       replyTo: email,
-      subject: `New Enquiry from ${esc(name)}${company ? ` (${esc(company)})` : ''}`,
+      subject: `New Enquiry from ${name}${company ? ` (${company})` : ''}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; width: 100%;">
           <div style="background: #1B3A2D; padding: 24px; border-radius: 8px 8px 0 0;">
@@ -95,6 +125,8 @@ export async function POST(req: NextRequest) {
         </div>
       `,
     });
+    // Resend reports failures in the result instead of throwing.
+    if (error) throw error;
 
     return NextResponse.json({ success: true });
   } catch (error) {

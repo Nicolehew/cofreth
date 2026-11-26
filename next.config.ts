@@ -1,22 +1,28 @@
 import type { NextConfig } from "next";
 
-const contentSecurityPolicy = (frameAncestors: string) => [
+const isDev = process.env.NODE_ENV === 'development';
+
+const contentSecurityPolicy = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval'",   // Next.js requires unsafe-inline/eval for hydration
+  // Hydration needs unsafe-inline; unsafe-eval is only needed by the dev server.
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com",
   "img-src 'self' data: blob: https://images.unsplash.com https://www.cofreth.com.my https://img.youtube.com",
   "frame-src 'self' https://www.youtube.com https://www.google.com https://maps.google.com",
   "connect-src 'self'",
-  `frame-ancestors ${frameAncestors}`,
+  "object-src 'none'",
+  "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
+  ...(isDev ? [] : ['upgrade-insecure-requests']),
 ].join('; ');
 
 // The certificate viewer embeds these PDFs in a same-site iframe.
+// No default-src/object-src here: they can stop the browser's built-in PDF viewer.
 const embeddablePdfHeaders = [
   { key: 'X-Frame-Options',         value: 'SAMEORIGIN' },
-  { key: 'Content-Security-Policy', value: contentSecurityPolicy("'self'") },
+  { key: 'Content-Security-Policy', value: "frame-ancestors 'self'" },
 ];
 
 const securityHeaders = [
@@ -26,10 +32,11 @@ const securityHeaders = [
   { key: 'Referrer-Policy',          value: 'strict-origin-when-cross-origin' },
   { key: 'Permissions-Policy',       value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()' },
   { key: 'Strict-Transport-Security',value: 'max-age=63072000; includeSubDomains; preload' },
-  { key: 'Content-Security-Policy',  value: contentSecurityPolicy("'none'") },
+  { key: 'Content-Security-Policy',  value: contentSecurityPolicy },
 ];
 
 const nextConfig: NextConfig = {
+  poweredByHeader: false,
   images: {
     remotePatterns: [
       {
@@ -41,7 +48,7 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       { source: '/(.*)', headers: securityHeaders },
-      { source: '/documents/:file([^/]+\\.pdf)', headers: embeddablePdfHeaders },
+      { source: '/api/pdf/:file', headers: embeddablePdfHeaders },
     ];
   },
   async redirects() {
@@ -65,7 +72,7 @@ const nextConfig: NextConfig = {
       { source: '/facilities.php',                     destination: '/services/facilities-management',  permanent: true },
       { source: '/group.php',                          destination: '/group',                           permanent: true },
 
-      /* ── Old /images/*.pdf → current /documents/ paths (301 permanent) ── */
+      /* ── Old /images/*.pdf → current /api/pdf/ paths (301 permanent) ── */
       { source: '/images/ISO_45001-2018(OHS)(2023-2026).pdf',  destination: '/api/pdf/ISO_45001-2018_OHS.pdf',  permanent: true },
       { source: '/images/ISO_14001-2015(EMS)(2023-2026).pdf',  destination: '/api/pdf/ISO_14001-2015_EMS.pdf',  permanent: true },
       { source: '/images/ISO_9001-2015_(QMS)(2023-2026).pdf',  destination: '/api/pdf/ISO_9001-2015_QMS.pdf',   permanent: true },
